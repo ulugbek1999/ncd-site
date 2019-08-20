@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+{% load static i18n escape_tags %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    <section class="banner-menu__top" style="background-image: url('{% static 'images/Образование.png' %}')">
+        <h2>{% trans 'Training' %}</h2>
+    </section>
+    <section class="training">
+        <div class="container">
+            <div class="row">
+                <div class="edu-main">
+                    <div class="landing">
+                         {% blocktrans %}Learning platform under development{% endblocktrans %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

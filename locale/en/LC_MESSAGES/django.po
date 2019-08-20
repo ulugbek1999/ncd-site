@@ -1,0 +1,1261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-02 03:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: api/employee/views.py:195
+msgid "Password is missing"
+msgstr ""
+
+#: api/employee/views.py:197
+msgid "Password confirm is missing"
+msgstr ""
+
+#: api/employee/views.py:199
+msgid "Password didnt match"
+msgstr ""
+
+#: api/employee/views.py:202 api/partner/serializers.py:59
+msgid "Current password is incorrect"
+msgstr ""
+
+#: api/partner/serializers.py:61
+msgid "Passwords didnt match"
+msgstr ""
+
+#: cms/models.py:161 templates/_base.html:325
+#: templates/employee/education_create.html:65
+#: templates/employee/employee_profile.html:276
+#: templates/employee/update_operator_3_education.html:64
+#: templates/partner/employee_detail.html:246
+msgid "Address"
+msgstr ""
+
+#: cms/models.py:162 templates/_base.html:332
+#: templates/employee/employee_profile.html:147
+#: templates/employee/update_operator_1.html:81
+#: templates/partner/profile.html:67 templates/partner/register.html:71
+msgid "Phone"
+msgstr ""
+
+#: cms/models.py:163
+msgid "Licence agreement"
+msgstr ""
+
+#: cms/models.py:164 templates/employee/employee_profile.html:151
+#: templates/employee/update_operator_1.html:85
+msgid "Email"
+msgstr ""
+
+#: cms/models.py:165
+msgid "Service top"
+msgstr ""
+
+#: directory/models.py:12
+msgid "City"
+msgstr ""
+
+#: directory/models.py:13
+msgid "Cities"
+msgstr ""
+
+#: directory/models.py:34
+msgid "District"
+msgstr ""
+
+#: directory/models.py:35
+msgid "Districts"
+msgstr ""
+
+#: directory/models.py:56
+msgid "Country"
+msgstr ""
+
+#: directory/models.py:57
+msgid "Countries"
+msgstr ""
+
+#: directory/models.py:80
+msgid "Language"
+msgstr ""
+
+#: directory/models.py:81
+msgid "Languages"
+msgstr ""
+
+#: directory/models.py:102 templates/employee/education_create.html:52
+#: templates/employee/employee_profile.html:268
+#: templates/employee/update_operator_3_education.html:51
+#: templates/partner/employee_detail.html:238
+msgid "Education type"
+msgstr ""
+
+#: directory/models.py:103
+msgid "Education types"
+msgstr ""
+
+#: employee/models.py:15
+msgid "Male"
+msgstr "Male"
+
+#: employee/models.py:16
+msgid "Female"
+msgstr "Female"
+
+#: employee/models.py:91
+msgid "Employee"
+msgstr ""
+
+#: employee/models.py:92 templates/index.html:85
+msgid "Employees"
+msgstr ""
+
+#: employee/models.py:227
+msgid "Employee changes"
+msgstr ""
+
+#: employee/models.py:228
+msgid "Employees changes"
+msgstr ""
+
+#: employee/models2.py:333 employee/models2.py:398 employee/models2.py:468
+msgid "Not selected"
+msgstr ""
+
+#: employee/models2.py:334 templates/employee/update_operator_3_family.html:54
+msgid "Not married"
+msgstr ""
+
+#: employee/models2.py:335 templates/employee/update_operator_3_family.html:55
+msgid "Married"
+msgstr ""
+
+#: employee/models2.py:336 templates/employee/update_operator_3_family.html:56
+msgid "Divorced"
+msgstr ""
+
+#: employee/models2.py:337 templates/employee/update_operator_3_family.html:57
+msgid "Widower"
+msgstr ""
+
+#: employee/models2.py:338 templates/employee/update_operator_3_family.html:58
+msgid "Second marriage"
+msgstr ""
+
+#: employee/models2.py:339 templates/employee/update_operator_3_family.html:59
+msgid "Civil marriage"
+msgstr ""
+
+#: employee/models2.py:399
+msgid "Best"
+msgstr ""
+
+#: employee/models2.py:400
+msgid "Good"
+msgstr ""
+
+#: employee/models2.py:401
+msgid "Not bad"
+msgstr ""
+
+#: employee/models2.py:469 templates/employee/relative_create.html:56
+#: templates/employee/update_operator_3_relative.html:56
+msgid "Wife"
+msgstr ""
+
+#: employee/models2.py:470 templates/employee/relative_create.html:57
+#: templates/employee/update_operator_3_relative.html:57
+msgid "Husband"
+msgstr ""
+
+#: employee/models2.py:471 templates/employee/relative_create.html:58
+#: templates/employee/update_operator_3_relative.html:58
+msgid "Mother"
+msgstr ""
+
+#: employee/models2.py:472 templates/employee/relative_create.html:59
+#: templates/employee/update_operator_3_relative.html:59
+msgid "Father"
+msgstr ""
+
+#: employee/models2.py:473 templates/employee/relative_create.html:60
+#: templates/employee/update_operator_3_relative.html:60
+msgid "Son"
+msgstr ""
+
+#: employee/models2.py:474 templates/employee/relative_create.html:61
+#: templates/employee/update_operator_3_relative.html:61
+msgid "Dauther"
+msgstr ""
+
+#: employee/models2.py:475 templates/employee/relative_create.html:62
+#: templates/employee/update_operator_3_relative.html:62
+msgid "Grandmother"
+msgstr ""
+
+#: employee/models2.py:476 templates/employee/relative_create.html:63
+#: templates/employee/update_operator_3_relative.html:63
+msgid "Grandfather"
+msgstr ""
+
+#: partners/models.py:64
+msgid "Partner employee request"
+msgstr ""
+
+#: partners/models.py:65
+msgid "Partner employee requests"
+msgstr ""
+
+#: settings/settings.py:118
+msgid "Russian"
+msgstr ""
+
+#: settings/settings.py:119
+msgid "English"
+msgstr ""
+
+#: settings/settings.py:120
+msgid "Uzbek"
+msgstr ""
+
+#: templates/_base.html:81 templates/_base.html:90
+#: templates/employee/army_create.html:37
+#: templates/employee/education_create.html:37
+#: templates/employee/employee_profile.html:34
+#: templates/employee/experience_create.html:36
+#: templates/employee/language_create.html:38
+#: templates/employee/relative_create.html:36
+#: templates/employee/reward_create.html:36 templates/employee/settings.html:34
+#: templates/employee/update_operator_1.html:34
+#: templates/employee/update_operator_2.html:34
+#: templates/employee/update_operator_3_army.html:36
+#: templates/employee/update_operator_3_education.html:36
+#: templates/employee/update_operator_3_experience.html:36
+#: templates/employee/update_operator_3_family.html:36
+#: templates/employee/update_operator_3_language.html:38
+#: templates/employee/update_operator_3_relative.html:36
+#: templates/employee/update_operator_3_reward.html:36
+#: templates/employee/update_operator_4.html:34
+#: templates/partner/bookmarks.html:38
+#: templates/partner/employee_detail.html:34
+#: templates/partner/employees.html:34 templates/partner/profile.html:36
+msgid "Logout"
+msgstr ""
+
+#: templates/_base.html:100 templates/_base.html:384
+msgid "Login"
+msgstr ""
+
+#: templates/_base.html:106 templates/_base.html:382
+#: templates/partner/register.html:16
+msgid "Register partners"
+msgstr "Partner registration form"
+
+#: templates/_base.html:168 templates/_base.html:169 templates/_base.html:272
+#: templates/index.html:101 templates/pages/about.html:11
+msgid "About company"
+msgstr ""
+
+#: templates/_base.html:174 templates/_base.html:175 templates/_base.html:277
+#: templates/_base.html:308 templates/index.html:38
+#: templates/pages/cms_service_detail.html:11 templates/pages/services.html:11
+msgid "Services"
+msgstr ""
+
+#: templates/_base.html:180 templates/_base.html:181 templates/_base.html:282
+#: templates/pages/docs.html:10
+msgid "Documents"
+msgstr ""
+
+#: templates/_base.html:186 templates/_base.html:187 templates/_base.html:287
+#: templates/index.html:81 templates/pages/cms_partner_detail.html:11
+#: templates/pages/forpartners.html:11
+msgid "Partners"
+msgstr ""
+
+#: templates/_base.html:192 templates/_base.html:193 templates/_base.html:292
+#: templates/employee/education_create.html:15
+#: templates/employee/employee_profile.html:259
+#: templates/employee/update_operator_3_education.html:15
+#: templates/pages/education.html:10 templates/partner/employee_detail.html:230
+#: templates/partner/employees.html:72
+msgid "Education"
+msgstr ""
+
+#: templates/_base.html:198 templates/_base.html:199 templates/_base.html:297
+#: templates/pages/faq.html:11
+msgid "FAQ"
+msgstr ""
+
+#: templates/_base.html:204 templates/_base.html:205 templates/_base.html:302
+#: templates/pages/training.html:10
+msgid "Training"
+msgstr ""
+
+#: templates/_base.html:256 templates/_base.html:262
+msgid "A different approach - a different future"
+msgstr ""
+
+#: templates/_base.html:268
+msgid "Menu"
+msgstr ""
+
+#: templates/_base.html:321
+msgid "Contacts"
+msgstr ""
+
+#: templates/_base.html:339 templates/partner/profile.html:73
+#: templates/partner/register.html:64
+msgid "E-mail"
+msgstr ""
+
+#: templates/_base.html:349
+msgid "All rights reserved"
+msgstr ""
+
+#: templates/_base.html:350
+msgid "Developed by"
+msgstr ""
+
+#: templates/_base.html:367
+msgid "Authorization"
+msgstr ""
+
+#: templates/_base.html:370
+msgid "Username"
+msgstr ""
+
+#: templates/_base.html:375
+msgid "Password"
+msgstr ""
+
+#: templates/_base.html:379
+msgid "Username or password entered incorrectly"
+msgstr ""
+
+#: templates/_base.html:392
+msgid "Saved successfully"
+msgstr ""
+
+#: templates/_base.html:393
+msgid "An error has occurred"
+msgstr ""
+
+#: templates/employee/army_create.html:15
+#: templates/employee/employee_profile.html:349
+#: templates/employee/update_operator_3_army.html:15
+#: templates/partner/employee_detail.html:316
+msgid "Military service"
+msgstr ""
+
+#: templates/employee/army_create.html:21
+#: templates/employee/education_create.html:21
+#: templates/employee/employee_profile.html:19
+#: templates/employee/experience_create.html:21
+#: templates/employee/language_create.html:23
+#: templates/employee/relative_create.html:21
+#: templates/employee/reward_create.html:21 templates/employee/settings.html:19
+#: templates/employee/update_operator_1.html:19
+#: templates/employee/update_operator_2.html:19
+#: templates/employee/update_operator_3_army.html:21
+#: templates/employee/update_operator_3_education.html:21
+#: templates/employee/update_operator_3_experience.html:21
+#: templates/employee/update_operator_3_family.html:21
+#: templates/employee/update_operator_3_language.html:23
+#: templates/employee/update_operator_3_relative.html:21
+#: templates/employee/update_operator_3_reward.html:21
+#: templates/employee/update_operator_4.html:19
+#: templates/partner/bookmarks.html:22
+#: templates/partner/employee_detail.html:19
+#: templates/partner/employees.html:19 templates/partner/profile.html:21
+msgid "Personal cabinet"
+msgstr ""
+
+#: templates/employee/army_create.html:26
+#: templates/employee/education_create.html:26
+#: templates/employee/employee_profile.html:24
+#: templates/employee/experience_create.html:26
+#: templates/employee/language_create.html:28
+#: templates/employee/relative_create.html:26
+#: templates/employee/reward_create.html:26 templates/employee/settings.html:24
+#: templates/employee/update_operator_1.html:24
+#: templates/employee/update_operator_2.html:24
+#: templates/employee/update_operator_3_army.html:26
+#: templates/employee/update_operator_3_education.html:26
+#: templates/employee/update_operator_3_experience.html:26
+#: templates/employee/update_operator_3_family.html:26
+#: templates/employee/update_operator_3_language.html:28
+#: templates/employee/update_operator_3_relative.html:26
+#: templates/employee/update_operator_3_reward.html:26
+#: templates/employee/update_operator_4.html:24
+#: templates/partner/bookmarks.html:27
+#: templates/partner/employee_detail.html:24
+#: templates/partner/employees.html:24 templates/partner/profile.html:26
+msgid "My profile"
+msgstr ""
+
+#: templates/employee/army_create.html:29
+#: templates/employee/education_create.html:29
+#: templates/employee/employee_profile.html:27
+#: templates/employee/experience_create.html:29
+#: templates/employee/language_create.html:31
+#: templates/employee/relative_create.html:29
+#: templates/employee/reward_create.html:29 templates/employee/settings.html:27
+#: templates/employee/update_operator_1.html:27
+#: templates/employee/update_operator_2.html:27
+#: templates/employee/update_operator_3_army.html:29
+#: templates/employee/update_operator_3_education.html:29
+#: templates/employee/update_operator_3_experience.html:29
+#: templates/employee/update_operator_3_family.html:29
+#: templates/employee/update_operator_3_language.html:31
+#: templates/employee/update_operator_3_relative.html:29
+#: templates/employee/update_operator_3_reward.html:29
+#: templates/employee/update_operator_4.html:27
+msgid "Settings"
+msgstr ""
+
+#: templates/employee/army_create.html:32
+#: templates/employee/education_create.html:32
+#: templates/employee/employee_profile.html:30
+#: templates/employee/experience_create.html:32
+#: templates/employee/language_create.html:34
+#: templates/employee/relative_create.html:32
+#: templates/employee/reward_create.html:32 templates/employee/settings.html:30
+#: templates/employee/update_operator_1.html:30
+#: templates/employee/update_operator_2.html:30
+#: templates/employee/update_operator_3_army.html:32
+#: templates/employee/update_operator_3_education.html:32
+#: templates/employee/update_operator_3_experience.html:32
+#: templates/employee/update_operator_3_family.html:32
+#: templates/employee/update_operator_3_language.html:34
+#: templates/employee/update_operator_3_relative.html:32
+#: templates/employee/update_operator_3_reward.html:32
+#: templates/employee/update_operator_4.html:30
+msgid "Courses"
+msgstr ""
+
+#: templates/employee/army_create.html:58
+#: templates/employee/employee_profile.html:366
+#: templates/employee/update_operator_3_army.html:57
+#: templates/partner/employee_detail.html:328
+msgid "Name of the military unit"
+msgstr ""
+
+#: templates/employee/army_create.html:62
+#: templates/employee/employee_profile.html:374
+#: templates/employee/update_operator_3_army.html:61
+#: templates/partner/employee_detail.html:336
+msgid "Region"
+msgstr ""
+
+#: templates/employee/army_create.html:68
+#: templates/employee/education_create.html:71
+#: templates/employee/employee_profile.html:280
+#: templates/employee/employee_profile.html:382
+#: templates/employee/update_operator_3_army.html:67
+#: templates/employee/update_operator_3_education.html:70
+#: templates/partner/employee_detail.html:250
+#: templates/partner/employee_detail.html:344
+msgid "Specialty"
+msgstr ""
+
+#: templates/employee/army_create.html:74
+#: templates/employee/employee_profile.html:370
+#: templates/employee/update_operator_3_army.html:73
+#: templates/partner/employee_detail.html:332
+msgid "Military start date"
+msgstr ""
+
+#: templates/employee/army_create.html:78
+#: templates/employee/employee_profile.html:378
+#: templates/employee/update_operator_3_army.html:77
+#: templates/partner/employee_detail.html:340
+msgid "Military end date"
+msgstr ""
+
+#: templates/employee/army_create.html:82
+#: templates/employee/employee_profile.html:386
+#: templates/employee/update_operator_3_army.html:81
+#: templates/partner/employee_detail.html:348
+msgid "Rank"
+msgstr ""
+
+#: templates/employee/army_create.html:90
+#: templates/employee/education_create.html:91
+#: templates/employee/experience_create.html:85
+#: templates/employee/language_create.html:73
+#: templates/employee/relative_create.html:100
+#: templates/employee/reward_create.html:62
+#: templates/employee/update_operator_3_army.html:89
+#: templates/employee/update_operator_3_education.html:90
+#: templates/employee/update_operator_3_experience.html:84
+#: templates/employee/update_operator_3_family.html:77
+#: templates/employee/update_operator_3_language.html:73
+#: templates/employee/update_operator_3_relative.html:100
+#: templates/employee/update_operator_3_reward.html:61
+msgid "Files"
+msgstr ""
+
+#: templates/employee/army_create.html:90
+#: templates/employee/education_create.html:91
+#: templates/employee/experience_create.html:85
+#: templates/employee/language_create.html:73
+#: templates/employee/relative_create.html:100
+#: templates/employee/reward_create.html:62
+#: templates/employee/update_operator_3_army.html:89
+#: templates/employee/update_operator_3_education.html:90
+#: templates/employee/update_operator_3_experience.html:84
+#: templates/employee/update_operator_3_family.html:77
+#: templates/employee/update_operator_3_language.html:73
+#: templates/employee/update_operator_3_relative.html:100
+#: templates/employee/update_operator_3_reward.html:61
+#: templates/employee/update_operator_4.html:98
+#: templates/employee/update_operator_4.html:102
+#: templates/employee/update_operator_4.html:106
+msgid "not required"
+msgstr ""
+
+#: templates/employee/army_create.html:94
+#: templates/employee/education_create.html:95
+#: templates/employee/experience_create.html:89
+#: templates/employee/language_create.html:77
+#: templates/employee/relative_create.html:104
+#: templates/employee/reward_create.html:66
+#: templates/employee/update_operator_3_army.html:93
+#: templates/employee/update_operator_3_education.html:94
+#: templates/employee/update_operator_3_experience.html:88
+#: templates/employee/update_operator_3_family.html:81
+#: templates/employee/update_operator_3_language.html:77
+#: templates/employee/update_operator_3_relative.html:104
+#: templates/employee/update_operator_3_reward.html:65
+msgid "Upload files"
+msgstr ""
+
+#: templates/employee/army_create.html:109
+#: templates/employee/education_create.html:106
+#: templates/employee/employee_profile.html:598
+#: templates/employee/experience_create.html:101
+#: templates/employee/language_create.html:89
+#: templates/employee/relative_create.html:116
+#: templates/employee/reward_create.html:78
+#: templates/employee/update_operator_1.html:91
+#: templates/employee/update_operator_2.html:177
+#: templates/employee/update_operator_3_army.html:116
+#: templates/employee/update_operator_3_education.html:111
+#: templates/employee/update_operator_3_experience.html:105
+#: templates/employee/update_operator_3_family.html:98
+#: templates/employee/update_operator_3_language.html:94
+#: templates/employee/update_operator_3_relative.html:121
+#: templates/employee/update_operator_3_reward.html:82
+#: templates/employee/update_operator_4.html:151
+#: templates/partner/bookmarks.html:138 templates/partner/bookmarks.html:169
+#: templates/partner/register.html:103 templates/partner/register.html:131
+msgid "Send"
+msgstr ""
+
+#: templates/employee/army_create.html:217
+#: templates/employee/education_create.html:215
+#: templates/employee/employee_profile.html:639
+#: templates/employee/experience_create.html:208
+#: templates/employee/language_create.html:193
+#: templates/employee/relative_create.html:225
+#: templates/employee/reward_create.html:181
+#: templates/employee/update_operator_1.html:141
+#: templates/employee/update_operator_2.html:226
+#: templates/employee/update_operator_3_army.html:234
+#: templates/employee/update_operator_3_education.html:232
+#: templates/employee/update_operator_3_experience.html:226
+#: templates/employee/update_operator_3_family.html:214
+#: templates/employee/update_operator_3_language.html:209
+#: templates/employee/update_operator_3_relative.html:240
+#: templates/employee/update_operator_3_reward.html:196
+#: templates/employee/update_operator_4.html:203
+#: templates/partner/bookmarks.html:231 templates/partner/register.html:275
+msgid "successfully sent"
+msgstr ""
+
+#: templates/employee/education_create.html:54
+#: templates/employee/language_create.html:55
+#: templates/employee/language_create.html:64
+#: templates/employee/relative_create.html:55
+#: templates/employee/update_operator_3_education.html:53
+#: templates/employee/update_operator_3_family.html:53
+#: templates/employee/update_operator_3_family.html:65
+#: templates/employee/update_operator_3_language.html:55
+#: templates/employee/update_operator_3_language.html:64
+#: templates/employee/update_operator_3_relative.html:55
+#: templates/employee/update_operator_4.html:50
+#: templates/partner/employees.html:55 templates/partner/employees.html:75
+#: templates/partner/employees.html:88
+msgid "Select"
+msgstr ""
+
+#: templates/employee/education_create.html:61
+#: templates/employee/employee_profile.html:272
+#: templates/employee/update_operator_3_education.html:60
+#: templates/partner/employee_detail.html:242
+msgid "Name"
+msgstr ""
+
+#: templates/employee/education_create.html:77
+#: templates/employee/update_operator_3_education.html:76
+msgid "Education start date "
+msgstr ""
+
+#: templates/employee/education_create.html:81
+#: templates/employee/employee_profile.html:288
+#: templates/employee/update_operator_3_education.html:80
+#: templates/partner/employee_detail.html:258
+msgid "Education end date"
+msgstr ""
+
+#: templates/employee/education_create.html:85
+#: templates/employee/employee_profile.html:292
+#: templates/employee/update_operator_3_education.html:84
+#: templates/partner/employee_detail.html:262
+msgid "Other tuition data"
+msgstr ""
+
+#: templates/employee/employee_profile.html:13
+msgid "Personal account of the applicant"
+msgstr ""
+
+#: templates/employee/employee_profile.html:94
+#: templates/employee/update_operator_1.html:13
+#: templates/partner/profile.html:46
+msgid "Personal data"
+msgstr ""
+
+#: templates/employee/employee_profile.html:97
+#: templates/employee/update_operator_2.html:13
+msgid "Biometric data"
+msgstr ""
+
+#: templates/employee/employee_profile.html:100
+#: templates/employee/update_operator_4.html:13
+msgid "Additional data"
+msgstr ""
+
+#: templates/employee/employee_profile.html:107
+#: templates/employee/update_operator_1.html:50
+#: templates/partner/employee_detail.html:115
+msgid "Fullname (Russian)"
+msgstr ""
+
+#: templates/employee/employee_profile.html:111
+#: templates/employee/update_operator_1.html:46
+msgid "Fullname (English)"
+msgstr ""
+
+#: templates/employee/employee_profile.html:115
+#: templates/partner/employee_detail.html:119
+#: templates/partner/employees.html:52
+msgid "Gender"
+msgstr ""
+
+#: templates/employee/employee_profile.html:119
+#: templates/employee/update_operator_1.html:54
+#: templates/partner/employee_detail.html:123
+msgid "Passport serial"
+msgstr ""
+
+#: templates/employee/employee_profile.html:123
+#: templates/employee/update_operator_1.html:58
+#: templates/partner/employee_detail.html:127
+msgid "Passport given date"
+msgstr ""
+
+#: templates/employee/employee_profile.html:127
+#: templates/employee/update_operator_1.html:62
+#: templates/partner/employee_detail.html:131
+msgid "Passport expires"
+msgstr ""
+
+#: templates/employee/employee_profile.html:131
+#: templates/employee/update_operator_1.html:68
+#: templates/partner/employee_detail.html:135
+msgid "Register number"
+msgstr ""
+
+#: templates/employee/employee_profile.html:135
+#: templates/employee/employee_profile.html:495
+#: templates/employee/relative_create.html:72
+#: templates/employee/update_operator_3_relative.html:72
+#: templates/partner/employee_detail.html:139
+#: templates/partner/employee_detail.html:451
+msgid "Birth date"
+msgstr ""
+
+#: templates/employee/employee_profile.html:139
+#: templates/employee/update_operator_1.html:73
+#: templates/partner/employee_detail.html:143
+msgid "Birth place"
+msgstr ""
+
+#: templates/employee/employee_profile.html:143
+#: templates/employee/employee_profile.html:507
+#: templates/employee/relative_create.html:89
+#: templates/employee/update_operator_1.html:77
+#: templates/employee/update_operator_3_relative.html:89
+#: templates/partner/employee_detail.html:147
+#: templates/partner/employee_detail.html:463
+msgid "Living address"
+msgstr ""
+
+#: templates/employee/employee_profile.html:155
+#: templates/employee/employee_profile.html:196
+#: templates/employee/employee_profile.html:241
+#: templates/employee/employee_profile.html:306
+#: templates/employee/employee_profile.html:341
+#: templates/employee/employee_profile.html:400
+#: templates/employee/employee_profile.html:435
+#: templates/employee/employee_profile.html:470
+#: templates/employee/employee_profile.html:521
+#: templates/employee/employee_profile.html:572
+msgid "Edit"
+msgstr ""
+
+#: templates/employee/employee_profile.html:160
+#: templates/employee/update_operator_2.html:69
+#: templates/partner/employee_detail.html:163
+msgid "Appearance"
+msgstr ""
+
+#: templates/employee/employee_profile.html:164
+#: templates/employee/update_operator_2.html:90
+#: templates/partner/employee_detail.html:167
+msgid "Neatness"
+msgstr ""
+
+#: templates/employee/employee_profile.html:168
+#: templates/employee/update_operator_2.html:111
+#: templates/partner/employee_detail.html:171
+msgid "Skin"
+msgstr ""
+
+#: templates/employee/employee_profile.html:172
+#: templates/employee/update_operator_2.html:47
+#: templates/partner/bookmarks.html:64
+#: templates/partner/employee_detail.html:151
+#: templates/partner/employees.html:64 templates/partner/employees.html:135
+msgid "Height"
+msgstr ""
+
+#: templates/employee/employee_profile.html:172
+#: templates/employee/update_operator_2.html:47
+#: templates/partner/bookmarks.html:64
+#: templates/partner/employee_detail.html:151
+msgid "sm"
+msgstr ""
+
+#: templates/employee/employee_profile.html:176
+#: templates/employee/update_operator_2.html:51
+#: templates/partner/employee_detail.html:155
+msgid "Weight"
+msgstr ""
+
+#: templates/employee/employee_profile.html:176
+#: templates/employee/update_operator_2.html:51
+#: templates/partner/employee_detail.html:155
+msgid "kg"
+msgstr ""
+
+#: templates/employee/employee_profile.html:180
+#: templates/employee/update_operator_2.html:55
+#: templates/partner/employee_detail.html:176
+msgid "Fatness"
+msgstr ""
+
+#: templates/employee/employee_profile.html:184
+#: templates/employee/update_operator_2.html:132
+#: templates/partner/employee_detail.html:180
+msgid "Blood group"
+msgstr ""
+
+#: templates/employee/employee_profile.html:188
+#: templates/employee/employee_profile.html:192
+#: templates/employee/update_operator_2.html:59
+#: templates/employee/update_operator_2.html:63
+#: templates/partner/employee_detail.html:184
+#: templates/partner/employee_detail.html:188
+msgid "Vision"
+msgstr ""
+
+#: templates/employee/employee_profile.html:201
+#: templates/employee/update_operator_4.html:48
+#: templates/partner/employee_detail.html:192
+msgid "Desired countries"
+msgstr ""
+
+#: templates/employee/employee_profile.html:205
+#: templates/employee/update_operator_4.html:114
+#: templates/partner/employee_detail.html:196
+msgid "Wages"
+msgstr ""
+
+#: templates/employee/employee_profile.html:209
+#: templates/employee/update_operator_4.html:77
+#: templates/partner/employee_detail.html:200
+msgid "Ready for university"
+msgstr ""
+
+#: templates/employee/employee_profile.html:211
+#: templates/employee/employee_profile.html:360
+#: templates/employee/update_operator_4.html:81
+#: templates/partner/employee_detail.html:202
+#: templates/partner/employee_detail.html:325
+msgid "Yes"
+msgstr ""
+
+#: templates/employee/employee_profile.html:213
+#: templates/employee/employee_profile.html:362
+#: templates/employee/update_operator_3_family.html:66
+#: templates/employee/update_operator_4.html:87
+#: templates/partner/employee_detail.html:204
+#: templates/partner/employee_detail.html:325
+msgid "No"
+msgstr ""
+
+#: templates/employee/employee_profile.html:217
+#: templates/employee/update_operator_4.html:63
+msgid "Criminal number"
+msgstr ""
+
+#: templates/employee/employee_profile.html:221
+msgid "Criminal issue"
+msgstr ""
+
+#: templates/employee/employee_profile.html:225
+msgid "Criminal comment"
+msgstr ""
+
+#: templates/employee/employee_profile.html:229
+#: templates/employee/update_operator_4.html:98
+#: templates/partner/employee_detail.html:208
+msgid "Special signs"
+msgstr ""
+
+#: templates/employee/employee_profile.html:233
+#: templates/employee/update_operator_4.html:102
+#: templates/partner/employee_detail.html:212
+msgid "Hobby"
+msgstr ""
+
+#: templates/employee/employee_profile.html:237
+#: templates/employee/update_operator_4.html:106
+#: templates/partner/employee_detail.html:216
+msgid "Other"
+msgstr ""
+
+#: templates/employee/employee_profile.html:263
+#: templates/employee/employee_profile.html:318
+#: templates/employee/employee_profile.html:353
+#: templates/employee/employee_profile.html:412
+#: templates/employee/employee_profile.html:447
+#: templates/employee/employee_profile.html:482
+#: templates/employee/employee_profile.html:533
+msgid "Add"
+msgstr ""
+
+#: templates/employee/employee_profile.html:284
+#: templates/partner/employee_detail.html:254
+msgid "Education start date"
+msgstr ""
+
+#: templates/employee/employee_profile.html:314
+#: templates/employee/language_create.html:17
+#: templates/employee/update_operator_3_language.html:17
+#: templates/partner/employee_detail.html:283
+#: templates/partner/employees.html:85
+msgid "Knowledge of languages"
+msgstr ""
+
+#: templates/employee/employee_profile.html:323
+#: templates/employee/language_create.html:53
+#: templates/employee/update_operator_3_language.html:53
+#: templates/partner/employee_detail.html:291
+msgid "Language name"
+msgstr ""
+
+#: templates/employee/employee_profile.html:327
+#: templates/employee/language_create.html:62
+#: templates/employee/update_operator_3_language.html:62
+#: templates/partner/employee_detail.html:295
+msgid "Level of knowledge"
+msgstr ""
+
+#: templates/employee/employee_profile.html:358
+#: templates/partner/employee_detail.html:324
+msgid "Military duty"
+msgstr ""
+
+#: templates/employee/employee_profile.html:408
+#: templates/employee/reward_create.html:15
+#: templates/employee/update_operator_3_reward.html:15
+#: templates/partner/employee_detail.html:369
+msgid "Received Awards"
+msgstr ""
+
+#: templates/employee/employee_profile.html:417
+#: templates/employee/reward_create.html:51
+#: templates/employee/update_operator_3_reward.html:50
+#: templates/partner/employee_detail.html:377
+msgid "Reward"
+msgstr ""
+
+#: templates/employee/employee_profile.html:421
+#: templates/employee/reward_create.html:55
+#: templates/employee/update_operator_3_reward.html:54
+#: templates/employee/update_operator_4.html:71
+#: templates/partner/employee_detail.html:381
+msgid "Comment"
+msgstr ""
+
+#: templates/employee/employee_profile.html:443
+#: templates/employee/employee_profile.html:452
+#: templates/employee/update_operator_3_family.html:15
+#: templates/employee/update_operator_3_family.html:51
+#: templates/partner/employee_detail.html:402
+#: templates/partner/employee_detail.html:410
+msgid "Family status"
+msgstr ""
+
+#: templates/employee/employee_profile.html:456
+#: templates/employee/update_operator_3_family.html:63
+#: templates/partner/employee_detail.html:414
+msgid "Amount of children"
+msgstr ""
+
+#: templates/employee/employee_profile.html:478
+#: templates/employee/relative_create.html:15
+#: templates/employee/update_operator_3_relative.html:15
+#: templates/partner/employee_detail.html:435
+msgid "Close relatives"
+msgstr ""
+
+#: templates/employee/employee_profile.html:487
+#: templates/employee/relative_create.html:53
+#: templates/employee/update_operator_3_relative.html:53
+#: templates/partner/employee_detail.html:443
+msgid "Relation degree"
+msgstr ""
+
+#: templates/employee/employee_profile.html:491
+#: templates/employee/relative_create.html:67
+#: templates/employee/update_operator_3_relative.html:67
+#: templates/partner/employee_detail.html:447
+msgid "Fullname relative"
+msgstr ""
+
+#: templates/employee/employee_profile.html:499
+#: templates/employee/relative_create.html:78
+#: templates/employee/update_operator_3_relative.html:78
+#: templates/partner/employee_detail.html:455
+msgid "Place of study, work"
+msgstr ""
+
+#: templates/employee/employee_profile.html:503
+#: templates/employee/employee_profile.html:550
+#: templates/employee/experience_create.html:67
+#: templates/employee/relative_create.html:85
+#: templates/employee/update_operator_3_experience.html:66
+#: templates/employee/update_operator_3_relative.html:85
+#: templates/partner/employee_detail.html:459
+#: templates/partner/employee_detail.html:504
+msgid "Position"
+msgstr ""
+
+#: templates/employee/employee_profile.html:529
+#: templates/employee/experience_create.html:15
+#: templates/employee/update_operator_3_experience.html:15
+#: templates/partner/employee_detail.html:484
+msgid "Work experience"
+msgstr ""
+
+#: templates/employee/employee_profile.html:538
+#: templates/employee/experience_create.html:53
+#: templates/employee/update_operator_3_experience.html:52
+#: templates/partner/employee_detail.html:492
+msgid "Organization"
+msgstr ""
+
+#: templates/employee/employee_profile.html:542
+#: templates/employee/experience_create.html:57
+#: templates/employee/update_operator_3_experience.html:56
+#: templates/partner/employee_detail.html:496
+msgid "Work start date"
+msgstr ""
+
+#: templates/employee/employee_profile.html:546
+#: templates/employee/experience_create.html:61
+#: templates/employee/update_operator_3_experience.html:60
+#: templates/partner/employee_detail.html:500
+msgid "Work end date"
+msgstr ""
+
+#: templates/employee/employee_profile.html:554
+#: templates/employee/experience_create.html:71
+#: templates/employee/update_operator_3_experience.html:70
+#: templates/partner/employee_detail.html:508
+msgid "Subdivision"
+msgstr ""
+
+#: templates/employee/employee_profile.html:558
+#: templates/employee/experience_create.html:75
+#: templates/employee/update_operator_3_experience.html:74
+#: templates/partner/employee_detail.html:512
+msgid "Location / Address"
+msgstr ""
+
+#: templates/employee/employee_profile.html:580
+msgid "Send for review"
+msgstr ""
+
+#: templates/employee/employee_profile.html:586
+msgid "Attention"
+msgstr ""
+
+#: templates/employee/language_create.html:65
+#: templates/employee/update_operator_3_language.html:65
+msgid "Elementary"
+msgstr ""
+
+#: templates/employee/language_create.html:66
+#: templates/employee/update_operator_3_language.html:66
+msgid "Intermediate"
+msgstr ""
+
+#: templates/employee/language_create.html:67
+#: templates/employee/update_operator_3_language.html:67
+msgid "Advanced"
+msgstr ""
+
+#: templates/employee/settings.html:13 templates/partner/profile.html:47
+#: templates/partner/profile.html:122
+msgid "Change password"
+msgstr ""
+
+#: templates/employee/settings.html:46 templates/partner/profile.html:128
+msgid "Old password"
+msgstr ""
+
+#: templates/employee/settings.html:50 templates/partner/profile.html:134
+msgid "New password"
+msgstr ""
+
+#: templates/employee/settings.html:54 templates/partner/profile.html:140
+msgid "Confirm the password"
+msgstr ""
+
+#: templates/employee/settings.html:60 templates/partner/profile.html:104
+#: templates/partner/profile.html:147
+msgid "Save"
+msgstr ""
+
+#: templates/employee/update_operator_2.html:159
+msgid "Blood rhesus"
+msgstr ""
+
+#: templates/employee/update_operator_3_family.html:71
+msgid "More than 4"
+msgstr ""
+
+#: templates/employee/update_operator_4.html:67
+msgid "Criminal date"
+msgstr ""
+
+#: templates/employee/update_operator_4.html:71
+msgid "not_required"
+msgstr ""
+
+#: templates/employee/update_operator_4.html:118
+msgid "500$ less"
+msgstr ""
+
+#: templates/employee/update_operator_4.html:124
+msgid "500$-1000$"
+msgstr ""
+
+#: templates/employee/update_operator_4.html:130
+msgid "1000$-1500$"
+msgstr ""
+
+#: templates/employee/update_operator_4.html:136
+msgid "1500$-2000$"
+msgstr ""
+
+#: templates/employee/update_operator_4.html:142
+msgid "2500$ more"
+msgstr ""
+
+#: templates/index.html:76
+msgid "Statistics"
+msgstr ""
+
+#: templates/index.html:89
+msgid "Years of experience"
+msgstr ""
+
+#: templates/index.html:112 templates/partner/bookmarks.html:71
+#: templates/partner/employees.html:142
+msgid "Read more"
+msgstr ""
+
+#: templates/index.html:133 templates/pages/reviews.html:12
+msgid "Reviews"
+msgstr ""
+
+#: templates/index.html:165
+msgid "Our partners"
+msgstr ""
+
+#: templates/index.html:197
+msgid "Our employees"
+msgstr ""
+
+#: templates/pages/faq.html:19 templates/pages/faq.html:20
+#: templates/partner/employees.html:98
+msgid "Search"
+msgstr ""
+
+#: templates/pages/training.html:17
+msgid "Learning platform under development"
+msgstr ""
+
+#: templates/partner/bookmarks.html:16 templates/partner/bookmarks.html:33
+#: templates/partner/employee_detail.html:30
+#: templates/partner/employees.html:30 templates/partner/profile.html:32
+msgid "My list"
+msgstr ""
+
+#: templates/partner/bookmarks.html:30
+#: templates/partner/employee_detail.html:27
+#: templates/partner/employees.html:13 templates/partner/employees.html:27
+#: templates/partner/profile.html:29
+msgid "List of applicants"
+msgstr ""
+
+#: templates/partner/bookmarks.html:61 templates/partner/employees.html:46
+#: templates/partner/employees.html:132
+msgid "Age"
+msgstr ""
+
+#: templates/partner/bookmarks.html:67 templates/partner/employees.html:138
+msgid "Rating"
+msgstr ""
+
+#: templates/partner/bookmarks.html:74
+msgid "Employed"
+msgstr ""
+
+#: templates/partner/bookmarks.html:76
+msgid "Not employed"
+msgstr ""
+
+#: templates/partner/bookmarks.html:145
+msgid "Request"
+msgstr ""
+
+#: templates/partner/bookmarks.html:155
+msgid "writing wet stamp"
+msgstr "In written form with a wet seal"
+
+#: templates/partner/bookmarks.html:161
+msgid "by mailing or online"
+msgstr "By e-mail or online"
+
+#: templates/partner/bookmarks.html:252
+msgid "Do you really want to remove the applicant from the list of favorites"
+msgstr ""
+
+#: templates/partner/employee_detail.html:13
+msgid "Applicant data"
+msgstr ""
+
+#: templates/partner/employee_detail.html:111
+msgid "Reg.number"
+msgstr ""
+
+#: templates/partner/employees.html:72
+msgid "level"
+msgstr ""
+
+#: templates/partner/profile.html:15
+msgid "Partners personal area"
+msgstr ""
+
+#: templates/partner/profile.html:53 templates/partner/profile.html:59
+#: templates/partner/register.html:46 templates/partner/register.html:54
+msgid "Fullname"
+msgstr ""
+
+#: templates/partner/profile.html:53 templates/partner/register.html:46
+msgid "first head"
+msgstr ""
+
+#: templates/partner/profile.html:59 templates/partner/register.html:54
+msgid "responsible person"
+msgstr ""
+
+#: templates/partner/profile.html:82 templates/partner/register.html:28
+msgid "Subject name"
+msgstr ""
+
+#: templates/partner/profile.html:88 templates/partner/register.html:85
+msgid "Number of employees"
+msgstr ""
+
+#: templates/partner/profile.html:96 templates/partner/register.html:79
+msgid "Legal address"
+msgstr ""
+
+#: templates/partner/register.html:20
+msgid "Registration form"
+msgstr ""
+
+#: templates/partner/register.html:27
+msgid ""
+"Firm, organization, institution, private entrepreneur or full name of "
+"individual"
+msgstr ""
+
+#: templates/partner/register.html:36
+msgid ""
+"TIN, Social Security No., or other identification information that confirms "
+"the state registration of the entity as a legal entity if it is"
+msgstr ""
+
+#: templates/partner/register.html:37
+msgid "Registration number"
+msgstr ""
+
+#: templates/partner/register.html:53
+msgid "Responsible person for hiring migrant workers"
+msgstr ""
+
+#: templates/partner/register.html:111
+msgid "Terms of use"
+msgstr ""
+
+#: templates/partner/register.html:123
+msgid "I accept the terms of the partner agreement"
+msgstr ""
+
+#: templates/partner/register.html:169
+msgid "en"
+msgstr "ru"

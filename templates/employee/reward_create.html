@@ -1,0 +1,198 @@
+{% extends '_base.html' %}
+{% load static i18n thumbnail%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/datepicker/bootstrap-datepicker.css' %}" />
+    <link href="{% static 'plugins/filepond/filepond-plugin-image-preview.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plugins/filepond/filepond.min.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% trans 'Received Awards' %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'employee.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'employee.password.update' %}"><i class="fa fa-cog"></i> {% trans 'Settings' %} </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#"><i class="fa fa-book"></i>{% trans 'Courses' %}</a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}"> {% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="profile-content">
+                                <div class="employee-detail">
+                                    <div class="row">
+                                        <form name="employee_update" style="padding: 0 15px;">
+                                            <input type="hidden" value="{{ request.user.employee.id }}" id="employee-id">
+                                            <div class="received-item">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label for="recName">{% trans 'Reward' %}</label>
+                                                            <input name="rec_name" type="text" class="form-control" id="recName">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="recComment">{% trans 'Comment' %}</label>
+                                                            <textarea name="rec_comment" rows="4" class="form-control" id="recComment"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <div class="received-file__upload op3-file__upload form-group">
+                                                            <label for="">{% trans 'Files' %} <i>({% trans 'not required' %})</i></label>
+                                                            <input type="file"
+                                                                   class="filepondReceived"
+                                                                   name="filepond_receiveds"
+                                                                   label-idle="{% trans 'Upload files' %}"
+                                                                   multiple
+                                                                   data-max-file-size="3MB"
+                                                                   data-max-files="4"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <button id="employeeCreateButton" class="loginButton" data-api="{% url 'api:employee:reward.create' %}" type="submit">
+                                                    {% trans 'Send' %}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'plugins/bootstrap/datepicker/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-file-encode.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-file-validate-size.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-image-exif-orientation.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-image-preview.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond.min.js' %}"></script>
+
+    <script>
+        $(function () {
+            $.fn.datepicker.dates['ru'] = {
+                days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+                daysShort: ["Вск", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб"],
+                daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+                monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+                today: "Сегодня",
+                clear: "Очистить",
+                format: "dd.mm.yyyy",
+                weekStart: 1,
+                monthsTitle: 'Месяцы'
+            };
+        }(jQuery));
+        (function($){
+            $.fn.datepicker.dates['uz-latn'] = {
+                days: ["Yakshanba", "Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba"],
+                daysShort: ["Yak", "Du", "Se", "Chor", "Pay", "Ju", "Sha"],
+                daysMin: ["Ya", "Du", "Se", "Cho", "Pa", "Ju", "Sha"],
+                months: ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentabr", "Oktabr", "Noyabr", "Dekabr"],
+                monthsShort: ["Yan", "Fev", "Mar", "Apr", "May", "Iyn", "Iyl", "Avg", "Sen", "Okt", "Noy", "Dek"],
+                today: "Bugun",
+                clear: "O'chirish",
+                format: "dd.mm.yyyy",
+                weekStart: 1,
+                monthsTitle: 'Oylar'
+            };
+        }(jQuery));
+        $(function () {
+            $(".datepickerFrom").datepicker({
+                autoclose: true,
+                language: 'ru',
+                todayHighlight: true
+            });
+        });
+
+        FilePond.registerPlugin(
+
+            // encodes the file as base64 data
+            FilePondPluginFileEncode,
+
+            // validates the size of the file
+            FilePondPluginFileValidateSize,
+
+            // corrects mobile image orientation
+            FilePondPluginImageExifOrientation,
+
+            // previews dropped images
+            FilePondPluginImagePreview
+        );
+        FilePond.setOptions({
+            instantUpload: false
+        });
+
+        fRec = FilePond.create(document.querySelector(`input.filepondReceived`));
+        $("#employeeCreateButton").click(function(event){
+            event.preventDefault();
+
+            let receivedFormData = new FormData();
+            receivedFormData.append(`employee`, $('#employee-id').val());
+            receivedFormData.append(`name_ru`, $(`input[name='rec_name']`).val());
+            receivedFormData.append(`description_ru`, $(`textarea[name='rec_comment']`).val());
+
+            var receivedCountFile = fRec.getFiles().length;
+            for (var j = 0; j < receivedCountFile; j++) {
+                //receivedFormData.append(`file`, fRec[i].getFiles()[j].file);
+                let f = fRec.getFiles()[j].file;
+                let fImage = new File([f], f.name, {type: f.type});
+                receivedFormData.append(`file`, fImage);
+            }
+
+            $.ajax({
+                url: $(this).data('api'),
+                data: receivedFormData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (data) {
+                    var x = document.getElementById("mainSuccess");
+                    $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                    x.className = "show";
+                    setTimeout(function(){
+                        x.className = x.className.replace("show", "");
+                        window.location.href = "{% url 'employee.profile' %}";
+                    }, 1500);
+                },
+                error: function (data) {
+                    $.magnificPopup.close();
+                    var x = document.getElementById("mainError");
+
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                }
+            });
+        });
+    </script>
+{% endblock %}

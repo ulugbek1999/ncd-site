@@ -1,0 +1,658 @@
+{% extends '_base.html' %}
+{% load static i18n thumbnail %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% blocktrans %}Personal account of the applicant{% endblocktrans %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'employee.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'employee.password.update' %}"><i class="fa fa-cog"></i> {% trans 'Settings' %} </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#"><i class="fa fa-book"></i> {% trans 'Courses' %} </a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}"> {% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="profile-content">
+                                <div class="employee-detail">
+                                    <div class="row">
+                                        <div class="employee-images">
+                                            <div class="employee-image__row">
+                                                <div class="employee-image__item">
+                                                {% if employee.photo_1 %}
+                                                    <a href="{{ employee.photo_1.url }}">
+                                                        {% thumbnail employee.photo_1 "148x178" crop="center" as im %}
+                                                            <img src="{{ im.url }}" alt="">
+                                                        {% endthumbnail %}
+                                                    </a>
+                                                {% endif %}
+                                                </div>
+                                                <div class="employee-image__item">
+                                                {% if employee.photo_2 %}
+                                                    <a href="{{ employee.photo_2.url }}">
+                                                        {% thumbnail employee.photo_2 "148x178" crop="center" as im %}
+                                                            <img src="{{ im.url }}" alt="">
+                                                        {% endthumbnail %}
+                                                    </a>
+                                                {% endif %}
+                                                </div>
+                                                <div class="employee-image__item">
+                                                {% if employee.photo_3 %}
+                                                    <a href="{{ employee.photo_3.url }}">
+                                                        {% thumbnail employee.photo_3 "148x178" crop="center" as im %}
+                                                            <img src="{{ im.url }}" alt="">
+                                                        {% endthumbnail %}
+                                                    </a>
+                                                {% endif %}
+                                                </div>
+                                                <div class="employee-image__item">
+                                                {% if employee.photo_4 %}
+                                                    <a href="{{ employee.photo_4.url }}">
+                                                        {% thumbnail employee.photo_4 "148x178" crop="center" as im %}
+                                                            <img src="{{ im.url }}" alt="">
+                                                        {% endthumbnail %}
+                                                    </a>
+                                                {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="employee-detail__content">
+
+                                            <div class="detail-title">
+                                                <h2>{{ employee.full_name }}</h2>
+                                                <span style="margin: 0;">{{ employee.register_number }}</span>
+                                            </div>
+                                            <div class="detail-content">
+                                                <div class="row">
+                                                    <div id="exTabProfile">
+                                                        <ul class="nav nav-tabs">
+                                                            <li class="active">
+                                                                <a  href="#1Profile" data-toggle="tab">{% trans 'Personal data' %}</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#2Profile" data-toggle="tab">{% trans 'Biometric data' %}</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#3Profile" data-toggle="tab">{% trans 'Additional data' %}</a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="tab-content ">
+                                                            <div class="tab-pane active" id="1Profile">
+                                                                <ul>
+                                                                    <li>
+                                                                        <strong>{% trans 'Fullname (Russian)' %}:</strong>
+                                                                        <span>{{ employee.full_name }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Fullname (English)' %}:</strong>
+                                                                        <span>{{ employee.full_name_en }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Gender' %}:</strong>
+                                                                        <span>{{ employee.get_gender_display }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Passport serial' %}:</strong>
+                                                                        <span>{{ employee.passport_serial }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Passport given date' %}:</strong>
+                                                                        <span>{{ employee.passport_given_date|date:'d.m.Y' }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Passport expires' %}:</strong>
+                                                                        <span>{{ employee.passport_expires|date:'d.m.Y' }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Register number' %}:</strong>
+                                                                        <span>{{ employee.inn }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Birth date' %}:</strong>
+                                                                        <span>{{ employee.birth_date|date:"d.m.Y" }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Birth place' %}:</strong>
+                                                                        <span>{{ employee.birth_place }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Living address' %}:</strong>
+                                                                        <span>{{ employee.living_address }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Phone' %}:</strong>
+                                                                        <span>{{ employee.phone }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Email' %}:</strong>
+                                                                        <span>{{ employee.email }}</span>
+                                                                    </li>
+                                                                </ul>
+                                                                <a href="{% url 'employee.profile.update.1' %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                            </div>
+                                                            <div class="tab-pane" id="2Profile">
+                                                                <ul>
+                                                                    <li>
+                                                                        <strong>{% trans 'Appearance' %}:</strong>
+                                                                        <span>{{ employee.appearance }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Neatness' %}:</strong>
+                                                                        <span>{{ employee.neatness }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Skin' %}:</strong>
+                                                                        <span>{{ employee.skin }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Height' %} ({% trans 'sm' %}):</strong>
+                                                                        <span>{{ employee.height|floatformat }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Weight' %} ({% trans 'kg' %}):</strong>
+                                                                        <span>{{ employee.weight|floatformat }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Fatness' %} (%):</strong>
+                                                                        <span>{{ employee.fatness|floatformat }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Blood group' %}:</strong>
+                                                                        <span>{{ employee.blood_group }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Vision' %} (L):</strong>
+                                                                        <span>{{ employee.vision_l|floatformat }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Vision' %} (R):</strong>
+                                                                        <span>{{ employee.vision_r|floatformat }}</span>
+                                                                    </li>
+                                                                </ul>
+                                                                <a href="{% url 'employee.profile.update.2' %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                            </div>
+                                                            <div class="tab-pane" id="3Profile">
+                                                                <ul>
+                                                                    <li>
+                                                                        <strong>{% trans 'Desired countries' %}:</strong>
+                                                                        <span>{{ employee.get_countries_name }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Wages' %}:</strong>
+                                                                        <span>{{ employee.wages }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Ready for university' %}:</strong>
+                                                                        {% if employee.is_ready_for_university %}
+                                                                            <span>{% trans 'Yes' %}</span>
+                                                                        {% else %}
+                                                                            <span>{% trans 'No' %}</span>
+                                                                        {% endif %}
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Criminal number' %}:</strong>
+                                                                        <span>{{ employee.criminal_number }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Criminal issue' %}:</strong>
+                                                                        <span>{{ employee.criminal_issue|date:'d.m.Y' }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Criminal comment' %}:</strong>
+                                                                        <span>{{ employee.criminal_comment }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Special signs' %}:</strong>
+                                                                        <span>{{ employee.add_spec_signs }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Hobby' %}:</strong>
+                                                                        <span>{{ employee.hobby }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>{% trans 'Other' %}:</strong>
+                                                                        <span>{{ employee.other }}</span>
+                                                                    </li>
+                                                                </ul>
+                                                                <a href="{% url 'employee.profile.update.4' %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="employee-tabs">
+                                    {% if not employee.is_sent_to_check %}
+                                        <div class="title-7days">
+                                            <h2>Вы можете изменить данные текущего раздела в течение 7 дней и отправить на проверку личных данных.</h2>
+                                        </div>
+                                    {% endif %}
+                                    <div class="panel-group d-accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#educations-view">
+                                                <h4 class="panel-title">{% trans 'Education' %} <i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="educations-view" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                    <a href="{% url 'employee.education.create' %}" class="addButtonProfile">{% trans 'Add' %}</a>
+                                                    {% for edu in employee.education_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Education type' %}:</strong>
+                                                                    <span>{{ edu.type.name }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Name' %}:</strong>
+                                                                    <span>{{ edu.name }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Address' %}:</strong>
+                                                                    <span>{{ edu.address }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Specialty' %}:</strong>
+                                                                    <span>{{ edu.specialization }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Education start date' %}:</strong>
+                                                                    <span>{{ edu.date_started|date:'d.m.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Education end date' %}:</strong>
+                                                                    <span>{{ edu.date_finished|date:'d.m.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Other tuition data' %}:</strong>
+                                                                    <span>{{ edu.additional }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in edu.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a data-fancybox href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.file.name }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                            <a href="{% url 'employee.profile.update.3.education' edu.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#language-view">
+                                                <h4 class="panel-title">{% trans 'Knowledge of languages' %} <i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="language-view" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <a href="{% url 'employee.language.create' %}" class="addButtonProfile">{% trans 'Add' %}</a>
+                                                    {% for lang in employee.language_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Language name' %}:</strong>
+                                                                    <span>{{ lang.language.name }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Level of knowledge' %}:</strong>
+                                                                    <span>{{ lang.get_level_display }}</span> <!-- TODO make level display name -->
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in lang.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a data-fancybox href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.file.name }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                            <a href="{% url 'employee.profile.update.3.language' lang.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#militaryView">
+                                                <h4 class="panel-title">{% trans 'Military service' %}<i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="militaryView" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <a href="{% url 'employee.army.create' %}" class="addButtonProfile">{% trans 'Add' %}</a>
+                                                    {% for army in employee.army_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Military duty' %}:</strong>
+                                                                    {% if employee.military_duty %}
+                                                                        <span>{% trans 'Yes' %}</span>
+                                                                    {% else %}
+                                                                        <span>{% trans 'No' %}</span>
+                                                                    {% endif %}
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Name of the military unit' %}:</strong>
+                                                                    <span>{{ army.name }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Military start date' %}:</strong>
+                                                                    <span>{{ army.date_started|date:'d.m.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Region' %}:</strong>
+                                                                    <span>{{ army.region }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Military end date' %}:</strong>
+                                                                    <span>{{ army.date_finished|date:'d.m.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Specialty' %}:</strong>
+                                                                    <span>{{ army.specialization }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Rank' %}:</strong>
+                                                                    <span>{{ army.rank }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in army.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a data-fancybox href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.file.name }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                            <a href="{% url 'employee.profile.update.3.army' army.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#receivedView">
+                                                <h4 class="panel-title">{% trans 'Received Awards' %}<i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="receivedView" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <a href="{% url 'employee.reward.create' %}" class="addButtonProfile">{% trans 'Add' %}</a>
+                                                    {% for reward in employee.reward_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Reward' %}:</strong>
+                                                                    <span>{{ reward.name }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Comment' %}:</strong>
+                                                                    <span>{{ reward.description }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in reward.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a data-fancybox href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.file.name }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                            <a href="{% url 'employee.profile.update.3.reward' reward.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#familyView">
+                                                <h4 class="panel-title">{% trans 'Family status' %}<i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="familyView" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <a href="#" class="addButtonProfile">{% trans 'Add' %}</a>
+                                                    {% if employee.family %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Family status' %}:</strong>
+                                                                    <span>{{ employee.family.get_status_display }}</span> <!-- TODO make getstatusdisplay -->
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Amount of children' %}:</strong>
+                                                                    <span>{{ employee.family.children_amount }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in employee.family.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a data-fancybox href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.file.name }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                            <a href="{% url 'employee.profile.update.3.family' employee.family.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#relativesView">
+                                                <h4 class="panel-title">{% trans 'Close relatives' %}<i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="relativesView" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <a href="{% url 'employee.relative.create' %}" class="addButtonProfile">{% trans 'Add' %}</a>
+                                                    {% for rel in employee.relative_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Relation degree' %}:</strong>
+                                                                    <span>{{ rel.get_level_display }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Fullname relative' %}:</strong>
+                                                                    <span>{{ rel.fullname }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Birth date' %}:</strong>
+                                                                    <span>{{ rel.birth_date|date:'d.m.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Place of study, work' %}:</strong>
+                                                                    <span>{{ rel.study_work_place }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Position' %}:</strong>
+                                                                    <span>{{ rel.position }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Living address' %}:</strong>
+                                                                    <span>{{ rel.living_address }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in rel.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a data-fancybox href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.file.name }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                            <a href="{% url 'employee.profile.update.3.relative' rel.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#experienceView">
+                                                <h4 class="panel-title">{% trans 'Work experience' %}<i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="experienceView" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <a href="{% url 'employee.experience.create' %}" class="addButtonProfile">{% trans 'Add' %}</a>
+                                                    {% for ex in employee.experience_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Organization' %}:</strong>
+                                                                    <span>{{ ex.organization }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Work start date' %}:</strong>
+                                                                    <span>{{ ex.date_started|date:'d.m.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Work end date' %}:</strong>
+                                                                    <span>{{ ex.date_finished|date:'d.m.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Position' %}:</strong>
+                                                                    <span>{{ ex.position }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Subdivision' %}:</strong>
+                                                                    <span>{{ ex.sub_division }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Location / Address' %}:</strong>
+                                                                    <span>{{ ex.address }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in ex.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a data-fancybox href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.file.name }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                            <a href="{% url 'employee.profile.update.3.experience' ex.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                    {% if not employee.is_sent_to_check %}
+                                        <a href="#send7DaysPopup" id="send7DaysButton" class="send7days">{% trans 'Send for review' %}</a>
+                                    {% endif %}
+                                    <div id="send7DaysPopup" class="white-popup mfp-hide">
+                                        <div class="send-7days-form">
+
+                                            <div class="popup-title">
+                                                <h2>{% trans 'Attention' %} !</h2>
+                                            </div>
+                                            <div class="form-data">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="license-content">
+                                                            <p>Вы уверены отправить данных на проверку?</p>
+                                                            <p>После отправки на проверку изменение личных данных будет осуществлятся через отправки запросы на изменеия.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <button id="send7Days" class="loginButton" data-api="{% url 'api:employee:data-to-check' employee.id %}">
+                                                            {% trans 'Send' %}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(function () {
+            $('#send7DaysButton').magnificPopup({
+                type: 'inline',
+                midClick: true,
+                mainClass: 'mfp-fade'
+            });
+
+            $('#send7Days').click(function () {
+
+                let employee_id = $(this).data('id');
+
+                let formData = new FormData();
+                formData.append('is_sent_to_check', 1);
+
+                $.ajax({
+                    url: $(this).data('api'),
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    method: 'PUT',
+                    success: function (data) {
+                        var x = document.getElementById("mainSuccess");
+                        $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                        x.className = "show";
+                        setTimeout(function(){
+                            x.className = x.className.replace("show", "");
+                            location.reload();
+                        }, 1500);
+                    },
+                    error: function (data) {
+                        $.magnificPopup.close();
+                        var x = document.getElementById("mainError");
+
+                        x.className = "show";
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

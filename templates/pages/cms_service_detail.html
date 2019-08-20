@@ -1,0 +1,40 @@
+{% extends '_base.html' %}
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="banner-menu__top" style="background-image: url('{% static 'images/Услуги.png' %}')">
+        <h2>{% trans 'Services' %}</h2>
+    </section>
+    <section class="to_partners">
+        <div class="container">
+            <div class="row">
+                <div class="to_partners-main">
+                    <div class="to_partners-image">
+                        <div class="to_partners-image__bg">
+
+                        </div>
+                        <div class="to_partners-image__on">
+                            {% if service.image %}
+                                <img src="{{ service.image.url }}" alt="">
+                            {% else %}
+                                <img src="{% static 'images/logo.svg' %}" alt="">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <h2>{{ service.title|default_if_none:'' }}</h2>
+                    {{ service.content|safe|default_if_none:'' }}
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

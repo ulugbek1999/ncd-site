@@ -1,0 +1,303 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load get_json_value %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% trans 'Partners personal area' %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'partner.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                        </li>
+                                        <li  class="">
+                                            <a href="{% url 'partner.employees' %}"><i class="fa fa-list"></i> {% trans 'List of applicants' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'partner.bookmarks' %}"><i class="fa fa-list"></i> {% trans 'My list' %} <span id="bookmarkCount">{{ request.user.partner.partneremployee_set.count }}</span></a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}"> {% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="profile-content">
+                                <div class="personal-data__form">
+                                    <form action="">
+                                        <div class="form-title">
+                                            <h2>{% trans 'Personal data' %}</h2>
+                                            <a href="#editParolPopup" class="edit-parol__open">{%  trans 'Change password' %}</a>
+                                        </div>
+                                        <div class="form-data">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="bossFullName">{% trans 'Fullname' %} ({% trans 'first head' %})</label>
+                                                        <input name="boss_fullname" type="text" class="form-control" id="bossFullName" value="{{ partner.boss_fullname }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="personName">{%  trans 'Fullname' %} ({% trans 'responsible person' %})</label>
+                                                        <input name="person_fullname_for_hiring" type="text" class="form-control" id="personName" value="{{ partner.person_fullname_for_hiring }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="phone">{% trans 'Phone' %}</label>
+                                                        <input name="phone" type="text" class="form-control" id="phone" value="{{ partner.phone }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="email">{% trans 'E-mail' %}
+                                                            </label>
+                                                        <input name="email" type="email" class="form-control" id="email" value="{{ partner.email }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="companyName">{% trans 'Subject name' %}</label>
+                                                        <input name="company_name" type="text" class="form-control" autocomplete="off" id="companyName" value="{{ partner.company_name }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="col">{% trans 'Number of employees' %}</label>
+                                                        <input name="workers_amount" type="number" class="form-control" id="col" autocomplete="off" value="{{ partner.workers_amount }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="address">{% trans 'Legal address' %}</label>
+                                                        <input name="legal_address" type="text" class="form-control" id="address" autocomplete="off" value="{{ partner.legal_address }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button type="button" id="editPartnerButton" class="loginButton" data-api="{% url 'api:partner:update' partner.id %}">
+                                                        {% trans 'Save' %}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="editParolPopup" class="white-popup mfp-hide">
+            <div class="edit-parol__form">
+                <form action="" autocomplete="off">
+                    <div class="form-title">
+                        <h2>{%  trans 'Change password' %}</h2>
+                    </div>
+                    <div class="form-data">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="oldPass">{% trans 'Old password' %}</label>
+                                    <input name="old_pass" type="password" class="form-control" id="oldPass">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="newPass">{% trans 'New password' %}</label>
+                                    <input name="new_pass" type="password" class="form-control" id="newPass">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="passConf">{% trans 'Confirm the password' %}</label>
+                                    <input name="pass_conf" type="password" class="form-control" id="passConf">
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="text-align: center;">
+                                <div class="errors-main"></div>
+                                <button id="editPasswordButton" class="loginButton" data-api="{% url 'api:partner:password-update' partner.id %}">
+                                    {% trans 'Save' %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(document).ready(function() {
+            $('.edit-parol__open').magnificPopup({
+                type: 'inline',
+                midClick: true,
+                mainClass: 'mfp-fade'
+            });
+        });
+
+        $('#phone').inputmask({ mask: "+[d]{15}", greedy: false});
+
+        $(function () {
+
+            $("#editPartnerButton").click(function (event) {
+                event.preventDefault();
+
+                let formData = new FormData();
+                formData.append('company_name', $('input[name="company_name"]').val());
+                formData.append('register_number', $('input[name="register_number"]').val());
+                formData.append('boss_fullname', $('input[name="boss_fullname"]').val());
+                formData.append('person_fullname_for_hiring', $('input[name="person_fullname_for_hiring"]').val());
+                formData.append('phone', $('input[name="phone"]').val());
+                formData.append('legal_address', $('input[name="legal_address"]').val());
+                formData.append('workers_amount', $('input[name="workers_amount"]').val());
+                formData.append('email', $('input[name="email"]').val());
+
+                var formNull = true;
+
+                if($('input[name="company_name"]').val() == ""){
+                    $('input[name="company_name"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="company_name"]').removeClass("valid-error");}
+
+                if($('input[name="register_number"]').val() == ""){
+                    $('input[name="register_number"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="register_number"]').removeClass("valid-error");}
+
+                if($('input[name="boss_fullname"]').val() == ""){
+                    $('input[name="boss_fullname"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="boss_fullname"]').removeClass("valid-error");}
+
+                if($('input[name="person_fullname_for_hiring"]').val() == ""){
+                    $('input[name="person_fullname_for_hiring"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="person_fullname_for_hiring"]').removeClass("valid-error");}
+
+                if($('input[name="phone"]').val() == ""){
+                    $('input[name="phone"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="phone"]').removeClass("valid-error");}
+
+                if($('input[name="legal_address"]').val() == ""){
+                    $('input[name="legal_address"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="legal_address"]').removeClass("valid-error");}
+
+                if($('input[name="workers_amount"]').val() == ""){
+                    $('input[name="workers_amount"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="workers_amount"]').removeClass("valid-error");}
+
+                if(!$('input[name="email"]').val().includes('@')){
+                    $('input[name="email"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="email"]').removeClass("valid-error");}
+
+
+                if(formNull){
+                    $.ajax({
+                       url: $(this).data('api'),
+                        processData: false,
+                        contentType: false,
+                        method: 'PUT',
+                        data: formData,
+                        success: function (data) {
+                            var x = document.getElementById("mainSuccess");
+                            x.className = "show";
+                            setTimeout(function(){
+                                x.className = x.className.replace("show", "");
+                                location.reload();
+                            }, 1500);
+                        },
+                        error: function (data) {
+                            var x = document.getElementById("mainError");
+
+                            x.className = "show";
+                            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                        }
+                    });
+                }
+
+            });
+
+            $("#editPasswordButton").click(function (event) {
+                event.preventDefault();
+
+                let formData = new FormData();
+
+                formData.append('current_password', $('input[name="old_pass"]').val());
+                formData.append('new_password', $('input[name="new_pass"]').val());
+                formData.append('new_password_confirm', $('input[name="pass_conf"]').val());
+
+                var passError = true;
+
+                if($('input[name="old_pass"]').val() == ""){
+                    $('input[name="old_pass"]').addClass("valid-error");
+                    passError = false;
+                }else{$('input[name="old_pass"]').removeClass("valid-error");}
+
+                if($('input[name="new_pass"]').val() == ""){
+                    $('input[name="new_pass"]').addClass("valid-error");
+                    passError = false;
+                }else{$('input[name="new_pass"]').removeClass("valid-error");}
+
+                if($('input[name="pass_conf"]').val() == ""){
+                    $('input[name="pass_conf"]').addClass("valid-error");
+                    passError = false;
+                }else{$('input[name="pass_conf"]').removeClass("valid-error");}
+
+                if(passError){
+                    $.ajax({
+                       url: $(this).data('api'),
+                        processData: false,
+                        contentType: false,
+                        method: 'PUT',
+                        data: formData,
+                        success: function (data) {
+                            location.reload();
+                        },
+                        error: function (data) {
+                           let message = data.responseJSON.message;
+                           $(".errors-main").text(message);
+                           console.log(message);
+                        }
+                    });
+                }
+
+            });
+
+
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends '_base.html' %}
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="banner-menu__top" style="background-image: url('{% static 'images/Партнеры.png' %}')">
+        <h2>{% trans 'Partners' %}</h2>
+    </section>
+    <section class="partners-all">
+        <div class="container">
+            <div class="row">
+                <div class="partners-all__main">
+                    <div class="row">
+                        {% for partner in partners %}
+                            <div class="partners-col">
+                                <div class="partners-item">
+                                    <a href="{% url 'cms.partner.detail' partner.id %}">
+                                        {% if partner.image %}
+                                            <img src="{{ partner.image.url }}" alt="">
+                                        {% else %}
+                                            <img src="{% static 'images/logo.png' %}" alt="">
+                                        {% endif %}
+                                        <span>{{ partner.title }}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

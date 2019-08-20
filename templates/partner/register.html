@@ -1,0 +1,297 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+    <link href="{% static 'plugins/uploader/css/fileinput.css' %}" media="all" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'plugins/uploader/themes/explorer-fas/theme.css' %}" media="all" rel="stylesheet" type="text/css"/>
+{% endblock %}
+{% block content %}
+    <section class="registration">
+        <div class="container">
+            <div class="row">
+                <div class="register-main">
+                    <!--<div class="content-title">
+                        <h2>{% trans 'Register partners' %}</h2>
+                    </div>-->
+                    <div class="register-block">
+                        <div class="form-title">
+                            <h2 style="text-align: center">{% trans 'Registration form' %}</h2>
+                        </div>
+                        <form id="formRegister" data-toggle="validator" role="form">
+                            <div class="form-data">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="subjectName" class="has-tip" data-tip="{% blocktrans %}Firm, organization, institution, private entrepreneur or full name of individual{% endblocktrans %}">
+                                                {% trans 'Subject name' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="company_name" type="text" class="form-control" id="subjectName" autocomplete="off" >
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="regNumber" class="has-tip" data-tip="{% blocktrans %}TIN, Social Security No., or other identification information that confirms the state registration of the entity as a legal entity if it is{% endblocktrans %}">
+                                                {% trans 'Registration number' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="register_number" type="text" class="form-control" id="regNumber" autocomplete="off" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="fioBoss">{% trans 'Fullname' %} ({% trans 'first head' %})</label>
+                                            <input name="boss_fullname" type="text" class="form-control" id="fioBoss" autocomplete="off" >
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="fioLast" class="has-tip" data-tip="{% trans 'Responsible person for hiring migrant workers' %}">
+                                                {%  trans 'Fullname' %} ({% trans 'responsible person' %}) <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="person_fullname_for_hiring" type="text" class="form-control" id="fioLast" autocomplete="off" >
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">{% trans 'E-mail' %}
+                                            </label>
+                                            <input name="email" type="email" class="form-control" placeholder="" id="email" autocomplete="off" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone">{% trans 'Phone' %}</label>
+                                            <input name="phone" type="text" class="form-control" id="phone" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="address">{% trans 'Legal address' %}</label>
+                                            <input name="legal_address" type="text" class="form-control" id="address" autocomplete="off" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="col">{% trans 'Number of employees' %}</label>
+                                            <input name="workers_amount" type="number" class="form-control" id="col" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="file-loading">
+                                                <input id="kv-explorer" type="file" name="file" multiple>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" style="text-align: center;">
+                                    <a href="#sendRequestPopup" id="sendRequestButton" class="loginButton">
+                                        {% trans 'Send' %}
+                                    </a>
+                                </div>
+                                <!-- TODO tarjima -->
+                                <div id="sendRequestPopup" class="white-popup mfp-hide">
+                                    <div class="send-list-form">
+                                        <form action="" autocomplete="off">
+                                            <div class="form-title">
+                                                <h2>{% trans 'Terms of use' %}</h2>
+                                            </div>
+                                            <div class="form-data">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="license-content">
+                                                            {{ agreement.content|safe }}
+                                                        </div>
+                                                        <div class="form-group checkbox-form">
+                                                            <div class="checkbox-group ">
+                                                                <input type="checkbox" id="soglasen" name="soglasen">
+                                                                <label for="soglasen">
+                                                                    <span>{% trans 'I accept the terms of the partner agreement' %}</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12" style="text-align: center;">
+                                                        <div class="errors-main"></div>
+                                                        <button id="partnerRequestButton" class="loginButton disableButton" data-api="{% url 'api:partner:register' %}">
+                                                            {% trans 'Send' %}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="{% static 'plugins/uploader/js/plugins/piexif.js' %}" type="text/javascript"></script>
+    <script src="{% static 'plugins/uploader/js/plugins/sortable.js' %}" type="text/javascript"></script>
+    <script src="{% static 'plugins/uploader/js/fileinput.js' %}" type="text/javascript"></script>
+    <script src="{% static 'plugins/uploader/js/locales/ru.js' %}" type="text/javascript"></script>
+    <script src="{% static 'plugins/uploader/js/locales/uz.js' %}" type="text/javascript"></script>
+    <script src="{% static 'plugins/uploader/themes/fas/theme.js' %}" type="text/javascript"></script>
+    <script src="{% static 'plugins/uploader/themes/explorer-fas/theme.js' %}" type="text/javascript"></script>
+
+    <script>
+
+
+
+        $('#phone').inputmask({ mask: "+[d]{15}", greedy: false});
+
+        $(document).ready(function () {
+
+            $("#kv-explorer").fileinput({
+                'theme': 'explorer-fas',
+                {#'uploadUrl': '#',#}
+                language: '{% trans "en" %}',
+                fileType: "any",
+                showUpload: false,
+                showCaption: true,
+                overwriteInitial: false,
+                initialPreviewAsData: true,
+                initialPreview: [
+                    /*"http://lorempixel.com/1920/1080/nature/1",
+                    "http://lorempixel.com/1920/1080/nature/2",
+                    "http://lorempixel.com/1920/1080/nature/3"*/
+                ],
+                initialPreviewConfig: [
+                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
+                ]
+            });
+
+        });
+
+        $(function () {
+            $('#sendRequestButton').magnificPopup({
+                type: 'inline',
+                midClick: true,
+                mainClass: 'mfp-fade'
+            });
+
+            $('#soglasen').change(function(){
+
+                 if ($(this).is(':checked')) {
+                     $('#partnerRequestButton').removeClass('disableButton');
+                 }else{
+                     $('#partnerRequestButton').addClass('disableButton');
+                 }
+
+            });
+
+            $("#partnerRequestButton").click(function (event) {
+                event.preventDefault();
+
+                let formData = new FormData();
+
+                formData.append('company_name', $('input[name="company_name"]').val());
+                formData.append('register_number', $('input[name="register_number"]').val());
+                formData.append('boss_fullname', $('input[name="boss_fullname"]').val());
+                formData.append('person_fullname_for_hiring', $('input[name="person_fullname_for_hiring"]').val());
+                formData.append('phone', $('input[name="phone"]').val());
+                formData.append('legal_address', $('input[name="legal_address"]').val());
+                formData.append('workers_amount', $('input[name="workers_amount"]').val());
+                formData.append('email', $('input[name="email"]').val());
+                for (let i = 0; i < $('#kv-explorer')[0].files.length; i++){
+                    formData.append('file', $('#kv-explorer')[0].files[i]);
+                }
+
+                var formNull = true;
+
+                if($('input[name="company_name"]').val() == ""){
+                    $('input[name="company_name"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="company_name"]').removeClass("valid-error");}
+
+                if($('input[name="register_number"]').val() == ""){
+                    $('input[name="register_number"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="register_number"]').removeClass("valid-error");}
+
+                if($('input[name="boss_fullname"]').val() == ""){
+                    $('input[name="boss_fullname"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="boss_fullname"]').removeClass("valid-error");}
+
+                if($('input[name="person_fullname_for_hiring"]').val() == ""){
+                    $('input[name="person_fullname_for_hiring"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="person_fullname_for_hiring"]').removeClass("valid-error");}
+
+                if($('input[name="phone"]').val() == ""){
+                    $('input[name="phone"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="phone"]').removeClass("valid-error");}
+
+                if($('input[name="legal_address"]').val() == ""){
+                    $('input[name="legal_address"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="legal_address"]').removeClass("valid-error");}
+
+                if($('input[name="workers_amount"]').val() == ""){
+                    $('input[name="workers_amount"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="workers_amount"]').removeClass("valid-error");}
+
+                if(!$('input[name="email"]').val().includes('@')){
+                    $('input[name="email"]').addClass("valid-error");
+                    formNull = false;
+                }else{$('input[name="email"]').removeClass("valid-error");}
+
+                console.log(formNull);
+                if(formNull){
+                    $.ajax({
+                        url: "{% url 'api:partner:register' %}",
+                        processData: false,
+                        contentType: false,
+                        method: 'POST',
+                        data: formData,
+                        success: function (data) {
+                            var x = document.getElementById("mainSuccess");
+                            $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                            x.className = "show";
+                            setTimeout(function(){
+                                x.className = x.className.replace("show", "");
+                                location.reload();
+                            }, 1500);
+                        },
+                        error: function (data) {
+                            $.magnificPopup.close();
+                            var x = document.getElementById("mainError");
+
+                            x.className = "show";
+                            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                        }
+                    });
+                }else{
+                    $.magnificPopup.close();
+                }
+
+            });
+        });
+    </script>
+{% endblock %}

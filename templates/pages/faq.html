@@ -1,0 +1,52 @@
+{% extends '_base.html' %}
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="banner-menu__top" style="background-image: url('{% static 'images/ЧАВО.png' %}')">
+        <h2>{% trans 'FAQ' %}</h2>
+    </section>
+    <section class="faqs">
+        <div class="container">
+            <div class="row">
+                <div class="faq-main">
+                    <div class="search-faq">
+                        <form class="search" action="">
+                            <input type="text" placeholder="{% trans 'Search' %} ..." name="search">
+                            <button type="submit"><i class="fa fa-search"></i> {% trans 'Search' %}</button>
+                        </form>
+                    </div>
+                    <div id="accordion" class="panel-group">
+                        {% for faq_category in faq_categories %}
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a href="#panelBody{{ forloop.counter }}" class="accordion-toggle {% if forloop.counter != 1 %} collapsed {% endif %}" data-toggle="collapse" data-parent="#accordion"><span>{{ faq_category.name }}</span></a>
+                                    </h4>
+                                </div>
+                                <div id="panelBody{{ forloop.counter }}" class="panel-collapse collapse {% if forloop.counter == 1 %} in {% endif %}">
+                                    <div class="panel-body">
+                                        {% for faq in faq_category.category_of_faq.all %}
+                                            <div class="faqs-item">
+                                                <span class="faq-title">{{ forloop.counter }}. {{ faq.question_ru|default_if_none:'' }}</span>
+                                                {{ faq.answer_ru|safe|default_if_none:'' }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

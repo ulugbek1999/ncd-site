@@ -1,0 +1,220 @@
+{% extends '_base.html' %}
+{% load static thumbnail i18n %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'plugins/chosen_v1.8.7/chosen.min.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% trans 'Additional data' %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'employee.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'employee.password.update' %}"><i class="fa fa-cog"></i> {% trans 'Settings' %} </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#"><i class="fa fa-book"></i> {% trans 'Courses' %} </a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}"> {% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="profile-content">
+                                <div class="employee-detail">
+                                    <div class="row">
+                                        <form name="employee_update" id="employee_update">
+                                            <div class="col-md-6">
+                                                <div class="operator4-col">
+                                                    <div class="operator4-item">
+                                                        <div class="form-group">
+                                                            <label for="countries">{% trans 'Desired countries' %}</label>
+                                                            <div id="outputChoose"></div>
+                                                            <select data-placeholder="{% trans 'Select' %}..." id="countries" name="des_countries" multiple class="chosen-select">
+                                                                {% for country in countries %}
+                                                                    <option value="{{ country.id }}" {% if country.id in emp_countries %}selected{% endif %}>{{ country.name }}</option>
+                    {#                                                <option value="{{ country.id }}">{{ country.name }}{{ country.id }}</option>#}
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="operator4-col">
+                                                    <div class="operator4-item">
+                                                        <div class="form-group">
+                                                            <label for="criminalNumber">{% trans 'Criminal number' %}</label>
+                                                            <input name="criminal_number" type="text" class="form-control" id="criminalNumber" required  value="{{ employee.criminal_number }}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="criminalIssue">{% trans 'Criminal date' %}</label>
+                                                            <input name="criminal_issue" autocomplete="off" type="text" class="datepickerFrom form-control" data-date-format="yyyy-mm-dd" id="criminalIssue" required value="{{ employee.criminal_issue|date:'Y-m-d' }}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="criminalComment">{% trans 'Comment' %} <i>({% trans 'not_required' %})</i></label>
+                                                                <textarea name="criminal_comment" rows="5" class="form-control" id="criminalComment">{{ employee.criminal_comment_ru }}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="operator4-item">
+                                                        <div class="form-group radio-form">
+                                                            <label for="">{% trans 'Ready for university' %}</label>
+                                                            <div class="radio-group"  style="float: left; width: auto;">
+                                                                <input type="radio" id="to_university1" name="to_university" value="true" {% if employee.is_ready_for_university %}checked{% endif %}>
+                                                                <label for="to_university1">
+                                                                    <span>{% trans 'Yes' %}</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio-group"  style="float: left; width: auto;">
+                                                                <input type="radio" id="to_university2" name="to_university" value="false" {% if not employee.is_ready_for_university %}checked{% endif %}>
+                                                                <label for="to_university2">
+                                                                    <span>{% trans 'No' %}</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="operator4-col">
+                                                    <div class="operator4-item">
+                                                        <div class="form-group">
+                                                            <label for="addSpecSigns">{% trans 'Special signs' %} <i>({% trans 'not required' %})</i></label>
+                                                            <input name="add_spec_signs" type="text" class="form-control" id="addSpecSigns" value={{ employee.add_spec_signs_ru }}"">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="hobby">{% trans 'Hobby' %} <i>({% trans 'not required' %})</i></label>
+                                                            <input name="hobby" type="text" class="form-control" id="hobby" value="{{ employee.hobby_ru }}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="other">{% trans 'Other' %} <i>({% trans 'not required' %})</i></label>
+                                                                <textarea name="other" rows="5" class="form-control" id="other">{{ employee.other_ru }}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="operator4-col">
+                                                    <div class="operator4-item">
+                                                        <div class="form-group radio-form">
+                                                            <label for="">{% trans 'Wages' %}</label>
+                                                            <div class="radio-group">
+                                                                <input type="radio" id="wages0" name="wages" value="500" {% if employee.wages == "500" %}checked{% endif %}>
+                                                                <label for="wages0">
+                                                                    <span>{% trans '500$ less' %}</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio-group">
+                                                                <input type="radio" id="wages1" name="wages" value="500-1000" {% if employee.wages == "500-1000" %}checked{% endif %}>
+                                                                <label for="wages1">
+                                                                    <span>{% trans '500$-1000$' %}</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio-group">
+                                                                <input type="radio" id="wages2" name="wages" value="1000-1500" {% if employee.wages == "1000-1500" %}checked{% endif %}>
+                                                                <label for="wages2">
+                                                                    <span>{% trans '1000$-1500$' %}</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio-group">
+                                                                <input type="radio" id="wages3" name="wages" value="1500-2000" {% if employee.wages == "1500-2000" %}checked{% endif %}>
+                                                                <label for="wages3">
+                                                                    <span>{% trans '1500$-2000$' %}</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio-group">
+                                                                <input type="radio" id="wages4" name="wages" value="2500" {% if employee.wages == "2500" %}checked{% endif %}>
+                                                                <label for="wages4">
+                                                                    <span>{% trans '2500$ more' %}</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <button id="employeeEditButton" class="loginButton" data-api="{% url 'api:employee:update.4' %}" type="submit">
+                                                    {% trans 'Send' %}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'plugins/chosen_v1.8.7/chosen.jquery.js' %}"></script>
+    <script>
+        document.getElementById('outputChoose').innerHTML = location.search;
+        $(".chosen-select").chosen();
+    </script>
+    <script>
+
+        $("#employeeEditButton").click(function(event){
+            event.preventDefault();
+
+            let $formData = new FormData();
+
+            $formData.append("wages", $("input[name='wages']:checked").val());
+            $formData.append("is_ready_for_university", $("input[name='to_university']:checked").val() == "true" ? "1" : "0");
+            $formData.append("criminal_number", $("input[name='criminal_number']").val());
+            $formData.append("criminal_issue", $("input[name='criminal_issue']").val());
+            $formData.append("criminal_comment_ru", $("textarea[name='criminal_comment']").val());
+            $formData.append("add_spec_signs_ru", $("input[name='add_spec_signs']").val());
+            $formData.append("hobby_ru", $("input[name='hobby']").val());
+            $formData.append("other_ru", $("textarea[name='other']").val());
+            $formData.append("country", $("select[name='des_countries']").val());
+
+            /*var object = {};
+            formData.forEach((value, key) => {object[key] = value});
+            var jsonData = JSON.stringify(object);
+
+            console.log(jsonData);*/
+
+            $.ajax({
+                url: $(this).data('api'),
+                data: $formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (data) {
+                    var x = document.getElementById("mainSuccess");
+                    $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                    x.className = "show";
+                    setTimeout(function(){
+                        x.className = x.className.replace("show", "");
+                        window.location.href = "{% url 'employee.profile' %}";
+                    }, 1500);
+                },
+                error: function (data) {
+                    $.magnificPopup.close();
+                    var x = document.getElementById("mainError");
+
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                }
+            });
+        });
+    </script>
+{% endblock %}

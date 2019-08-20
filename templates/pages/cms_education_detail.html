@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="banner-menu__top" style="background-image: url('{% static 'images/Образование.png' %}')">
+        <h2>{{ education.title|default_if_none:'' }}</h2>
+    </section>
+    <section class="edu_detail">
+        <div class="container">
+            <div class="row">
+                <div class="edu-text">
+                    {{ education.content|safe|default_if_none:'' }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

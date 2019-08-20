@@ -1,0 +1,156 @@
+{% extends '_base.html' %}
+{% load thumbnail static i18n %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% trans 'Personal data' %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'employee.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'employee.password.update' %}"><i class="fa fa-cog"></i> {% trans 'Settings' %} </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#"><i class="fa fa-book"></i> {% trans 'Courses' %} </a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}"> {% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="profile-content">
+                                <div class="employee-detail">
+                                    <div class="row">
+                                        <form name="employee_update" id="employee_update">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="nameEn">{% trans 'Fullname (English)' %}</label>
+                                                    <input name="full_name_en" type="text" class="form-control" id="nameEn" value="{{ employee.full_name_en }}" autocomplete="off">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="nameRu">{% trans 'Fullname (Russian)' %}</label>
+                                                    <input name="full_name_ru" type="text" class="form-control" id="nameRu" value="{{ employee.full_name_ru }}" autocomplete="off">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="passportSerial">{% trans 'Passport serial' %}</label>
+                                                    <input name="passport_serial" type="text" class="form-control" id="passportSerial" value="{{ employee.passport_serial }}" autocomplete="off">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="passportGivenDate">{% trans 'Passport given date' %}</label>
+                                                    <input name="passport_given_date" type="text" class="form-control" id="passportGivenDate" value="{{ employee.passport_given_date|date:'Y-m-d' }}" autocomplete="off">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="passportExpires">{% trans 'Passport expires' %}</label>
+                                                    <input name="passport_expires" type="text" class="form-control" id="passportExpires" value="{{ employee.passport_expires|date:'Y-m-d' }}" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="inn">{% trans 'Register number' %}</label>
+                                                    <input name="inn" type="text" class="form-control" id="inn" value="{{ employee.inn }}" autocomplete="off">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="birthPlace">{% trans 'Birth place' %}</label>
+                                                    <input name="birth_place_ru" type="text" class="form-control" id="birthPlace" value="{{ employee.birth_place_ru }}" autocomplete="off">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="livingAddress">{% trans 'Living address' %}</label>
+                                                    <input name="lives_at_ru" type="text" class="form-control" id="livingAddress" value="{{ employee.living_address_ru }}" autocomplete="off">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="phone">{% trans 'Phone' %}</label>
+                                                    <input name="phone" type="text" class="form-control" id="phone" value="{{ employee.phone }}" autocomplete="off">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email">{% trans 'Email' %}</label>
+                                                    <input name="email" type="text" class="form-control" id="email" value="{{ employee.email }}" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <button id="employeeEditButton" class="loginButton" data-api="{% url 'api:employee:update.1' %}" type="submit">
+                                                    {% trans 'Send' %}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script>
+
+        $("#employeeEditButton").click(function(event){
+            event.preventDefault();
+
+            let formData = new FormData();
+
+            formData.append("full_name_en", $("#nameEn").val());
+            formData.append("full_name_ru", $("#nameRu").val());
+            /*formData.append("birth_date", $("#birthDate").val());*/
+            formData.append("phone", $("#phone").val());
+            formData.append("email", $("#email").val());
+            formData.append("gender", $("input[name='gender']:checked").val());
+            formData.append("passport_serial", $("#passportSerial").val());
+            formData.append("passport_given_date", $("#passportGivenDate").val());
+            formData.append("passport_expires", $("#passportExpires").val());
+            formData.append("inn", $("#inn").val());
+            formData.append("birth_place_ru", $("#birthPlace").val());
+            formData.append("living_address_ru", $("#livingAddress").val());
+
+            /*var object = {};
+            formData.forEach((value, key) => {object[key] = value});
+            var jsonData = JSON.stringify(object);
+
+            console.log(jsonData);*/
+
+            $.ajax({
+                url: $(this).data('api'),
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (data) {
+                    var x = document.getElementById("mainSuccess");
+                    $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                    x.className = "show";
+                    setTimeout(function(){
+                        x.className = x.className.replace("show", "");
+                        window.location.href = "{% url 'employee.profile' %}";
+                    }, 1500);
+                },
+                error: function (data) {
+                    var x = document.getElementById("mainError");
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                },
+            });
+        });
+    </script>
+{% endblock %}

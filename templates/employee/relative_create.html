@@ -1,0 +1,242 @@
+{% extends '_base.html' %}
+{% load static i18n thumbnail %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/datepicker/bootstrap-datepicker.css' %}" />
+    <link href="{% static 'plugins/filepond/filepond-plugin-image-preview.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plugins/filepond/filepond.min.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% trans 'Close relatives' %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'employee.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'employee.password.update' %}"><i class="fa fa-cog"></i> {% trans 'Settings' %} </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#"><i class="fa fa-book"></i> {% trans 'Courses' %} </a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}"> {% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="profile-content">
+                                <div class="employee-detail">
+                                    <div class="row">
+                                        <form name="employee_update" style="padding: 0 15px;">
+                                            <input type="hidden" value="{{ request.user.employee.id }}" id="employee-id">
+                                            <div class="relatives-item">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="relLevel">{% trans 'Relation degree' %}</label>
+                                                                    <select class="form-control selectpicker show-tick" name="rel_level" id="relLevel">
+                                                                        <option value="">{% trans 'Select' %}</option>
+                                                                        <option value="1">{% trans 'Wife' %}</option>
+                                                                        <option value="2">{% trans 'Husband' %}</option>
+                                                                        <option value="3">{% trans 'Mother' %}</option>
+                                                                        <option value="4">{% trans 'Father' %}</option>
+                                                                        <option value="5">{% trans 'Son' %}</option>
+                                                                        <option value="6">{% trans 'Dauther' %}</option>
+                                                                        <option value="7">{% trans 'Grandmother' %}</option>
+                                                                        <option value="8">{% trans 'Grandfather' %}</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="relName">{% trans 'Fullname relative' %}</label>
+                                                                    <input name="rel_name" type="text" class="form-control" id="relName">
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="relBirthDate">{% trans 'Birth date' %}</label>
+                                                                    <input name="rel_birth_date" type="text" class="datepickerFrom form-control" data-date-format="yyyy-mm-dd" id="relBirthDate">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="relStudyWorkPlace">{% trans 'Place of study, work' %}</label>
+
+                                                                    <input name="rel_study_work_place" list="relStudyRegion_list" type="text" class="form-control" id="relStudyWorkPlace" autocomplete="off">
+                                                                    <datalist class="region-list" id="relStudyRegion_list">
+                                                                    </datalist>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="relPosition">{% trans 'Position' %}</label>
+                                                                    <input name="rel_position" type="text" class="form-control" id="relPosition">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="relAddress">{% trans 'Living address' %}</label>
+
+                                                                    <input name="rel_address" list="relAddressRegion_list" type="text" class="form-control" id="relAddress" autocomplete="off"">
+                                                                    <datalist class="region-list" id="relAddressRegion_list">
+                                                                    </datalist>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="relatives-file__upload op3-file__upload form-group">
+                                                            <label for="">{% trans 'Files' %} <i>({% trans 'not required' %})</i></label>
+                                                            <input type="file"
+                                                                   class="filepondRelatives"
+                                                                   name="filepond_relatives"
+                                                                   label-idle="{% trans 'Upload files' %}"
+                                                                   multiple
+                                                                   data-max-file-size="3MB"
+                                                                   data-max-files="4"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <button id="employeeCreateButton" class="loginButton" data-api="{% url 'api:employee:relative.create' %}" type="submit">
+                                                    {% trans 'Send' %}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'plugins/bootstrap/datepicker/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-file-encode.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-file-validate-size.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-image-exif-orientation.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-image-preview.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond.min.js' %}"></script>
+
+    <script>
+        $(function () {
+            $.fn.datepicker.dates['ru'] = {
+                days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+                daysShort: ["Вск", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб"],
+                daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+                monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+                today: "Сегодня",
+                clear: "Очистить",
+                format: "dd.mm.yyyy",
+                weekStart: 1,
+                monthsTitle: 'Месяцы'
+            };
+        }(jQuery));
+        (function($){
+            $.fn.datepicker.dates['uz-latn'] = {
+                days: ["Yakshanba", "Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba"],
+                daysShort: ["Yak", "Du", "Se", "Chor", "Pay", "Ju", "Sha"],
+                daysMin: ["Ya", "Du", "Se", "Cho", "Pa", "Ju", "Sha"],
+                months: ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentabr", "Oktabr", "Noyabr", "Dekabr"],
+                monthsShort: ["Yan", "Fev", "Mar", "Apr", "May", "Iyn", "Iyl", "Avg", "Sen", "Okt", "Noy", "Dek"],
+                today: "Bugun",
+                clear: "O'chirish",
+                format: "dd.mm.yyyy",
+                weekStart: 1,
+                monthsTitle: 'Oylar'
+            };
+        }(jQuery));
+        $(function () {
+            $(".datepickerFrom").datepicker({
+                autoclose: true,
+                language: 'ru',
+                todayHighlight: true
+            });
+        });
+
+        FilePond.registerPlugin(
+
+            // encodes the file as base64 data
+            FilePondPluginFileEncode,
+
+            // validates the size of the file
+            FilePondPluginFileValidateSize,
+
+            // corrects mobile image orientation
+            FilePondPluginImageExifOrientation,
+
+            // previews dropped images
+            FilePondPluginImagePreview
+        );
+        FilePond.setOptions({
+            instantUpload: false
+        });
+
+        fRel = FilePond.create(document.querySelector(`input.filepondRelatives`));
+
+        $("#employeeCreateButton").click(function(event){
+            event.preventDefault();
+
+            let relativeFormData = new FormData();
+            relativeFormData.append(`employee`, $('#employee-id').val());
+            relativeFormData.append(`level`, $(`select[name='rel_level']`).val());
+            relativeFormData.append(`fullname_ru`, $(`input[name='rel_name']`).val());
+            relativeFormData.append(`birth_date`, $(`input[name='rel_birth_date']`).val());
+            relativeFormData.append(`study_work_place_ru`, $(`input[name='rel_study_work_place']`).val());
+            relativeFormData.append(`position_ru`, $(`input[name='rel_position']`).val());
+            relativeFormData.append(`living_address_ru`, $(`input[name='rel_address']`).val());
+
+            var relativeCountFile = fRel.getFiles().length;
+            for (let j = 0; j < relativeCountFile; j++) {
+                //relativeFormData.append(`file`, fRel[i].getFiles()[j].file);
+                let f = fRel.getFiles()[j].file;
+                let fImage = new File([f], f.name, {type: f.type});
+                relativeFormData.append(`file`, fImage);
+            }
+
+            $.ajax({
+                url: $(this).data('api'),
+                data: relativeFormData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (data) {
+                    var x = document.getElementById("mainSuccess");
+                    $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                    x.className = "show";
+                    setTimeout(function(){
+                        x.className = x.className.replace("show", "");
+                        window.location.href = "{% url 'employee.profile' %}";
+                    }, 1500);
+                },
+                error: function (data) {
+                    $.magnificPopup.close();
+                    var x = document.getElementById("mainError");
+
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                }
+            });
+        });
+    </script>
+{% endblock %}

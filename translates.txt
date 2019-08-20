@@ -1,0 +1,119 @@
+--_base.html
+Logout = Выйти
+Register partners = Регистрация партнеров
+About company = О компании
+Services = Услуги
+Documents = Документы
+Partners = Партнеры
+Education = Образование
+FAQ = ЧАВО
+Training = Обучение
+Password = Пароль
+Username = Логин
+Authorization = Авторизация
+Username or password entered incorrectly = Логин или пароль введены неверно
+Saved successfully = Успешно сохранено
+An error has occurred = Произошла ошибка
+Years of experience = Годы опыта
+
+--index.html
+WE HAVE GREAT SKILLS = У нас большие навыки
+Employees = Сотрудники
+Years of experience = Годы опыта
+Read more = Прочитайте больше
+Reviews = Отзывы
+Our partners = Наши партнеры
+Our employees = Наши сотрудники
+Employees = Аппликанты
+
+--employee_profile.html
+Personal account of the applicant = Личный кабинет аппликанта
+Personal cabinet = Личный кабинет
+My profile = Мой профиль
+Courses = Курсы
+
+Personal data = Личные данные
+Biometric data = Биометрические данные
+Additional data = Дополнительные данные
+Fullname (Russian) = Ф.И.О (рус)
+Fullname (English) =Ф.И.О (англ)
+Gender = Пол
+Passport serial = № Паспорта
+Passport given date = Дата выдачи
+Passport expires = Срок действия
+Register number = ИНН
+Birth date = Дата рождения
+Birth place = Место рождения
+Living address = Место проживания
+Phone = Номер телефона
+Email = Эл.почта
+Edit = Редактировать
+Add = Добавить
+
+Education type = Тип учебного заведения
+Name = Наименование
+Address = Адрес
+Specialty = Специальность
+Education start date = Дата начала обучения
+Education end date = Дата окончания обучения
+Other tuition data = Прочие данные об учебе
+
+Knowledge of languages = Знание языков
+Language name = Название языка
+Level of knowledge = Уровень знания
+
+Military service = Служба в армии
+Military duty = Военная обязанность
+Name of the military unit = Наименование военной части
+Military start date = Дата начала службы
+Region = Регион
+Military end date = Дата окончания службы
+Specialty = Специальность
+Rank = Звание
+
+Received Awards = Полученные награды
+Reward = Награда
+Comment = Комментарий
+
+Family status = Семейное положение
+Family status = Семейное положение
+Amount of children = Количество детей
+
+Close relatives = Близкие родственники
+Relation degree =Степень родства
+Fullname relative = Ф.И.О. родственника
+Birth date = Дата рождения
+Place of study, work = Место учебы, работы
+Position = Должность
+Living address = Адрес проживания
+
+Work experience = Трудовой опыт
+Organization = Организация
+Work start date = Дата начала работы
+Work end date = Дата окончания работы
+Position = Должность
+Subdivision = Подразделение
+Location / Address = Место нахождения/адрес
+
+Appearance = Внешний вид
+Neatness = Опрятность
+Skin = Состояние кожи
+Height = Рост
+cm = см
+Weight = Вес
+kg = кг
+Fatness = Жирность
+Blood group = Группа крови
+Vision = Зрение
+
+Desired countries = Желаемые страны
+Wages = Заработная плата
+Ready for university = Готовность поступать в ВУЗ
+Criminal number = Номер справки (Наличие или отсутствие судимости)
+Criminal issue = Дата выдачи (Наличие или отсутствие судимости)
+Criminal comment = Комментарий (Наличие или отсутствие судимости)
+Special signs = Особые приметы
+Hobby = Хобби
+Other = Прочее
+
+Upload files = Загрузить файл

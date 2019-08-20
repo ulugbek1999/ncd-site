@@ -1,0 +1,251 @@
+{% extends '_base.html' %}
+{% load static thumbnail i18n %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/datepicker/bootstrap-datepicker.css' %}" />
+    <link href="{% static 'plugins/filepond/filepond-plugin-image-preview.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plugins/filepond/filepond.min.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% trans 'Military service' %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'employee.profile' %}"><i class="fa fa-user"></i>{% trans 'My profile' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'employee.password.update' %}"><i class="fa fa-cog"></i> {% trans 'Settings' %} </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#"><i class="fa fa-book"></i>{% trans 'Courses' %}</a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+
+                            <div class="profile-content">
+                                <div class="employee-detail">
+                                    <div class="row">
+                                        <form name="employee_update" style="padding: 0 15px;">
+                                            <div class="military-item" data-files-count="{{ army.file.count }}">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="row">
+                                                                    <div class="col-md-8">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="milName">{% trans 'Name of the military unit' %}</label>
+                                                                                    <input name="mil_name" type="text" class="form-control" id="milName" value="{{ army.name_ru }}">
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="milRegion">{% trans 'Region' %}</label>
+                                                                                    <input name="mil_region" list="milRegion_list" type="text" class="form-control" id="milRegion" value="{{ army.region_ru }}" autocomplete="off">
+                                                                                    <datalist class="region-list" id="milRegion_list">
+                                                                                    </datalist>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="milSpecialization">{% trans 'Specialty' %}</label>
+                                                                                    <input name="mil_specialization" type="text" class="form-control" id="milSpecialization" value="{{ army.specialization_ru }}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="milDateStarted">{% trans 'Military start date' %}</label>
+                                                                                    <input value="{{ army.date_started|date:'Y-m-d' }}" name="mil_date_started" type="text" class="datepickerFrom form-control" data-date-format="yyyy-mm-dd" id="milDateStarted" placeholder="">
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="milDateGraduated">{% trans 'Military end date' %}</label>
+                                                                                    <input value="{{ army.date_finished|date:'Y-m-d' }}" name="mil_date_graduated" type="text" class="datepickerFrom form-control" data-date-format="yyyy-mm-dd" id="milDateGraduated" placeholder="">
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="milRank">{% trans 'Rank' %}</label>
+                                                                                    <input name="mil_rank" type="text" class="form-control" id="milRank" value="{{ army.rank_ru }}">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="military-file__upload op3-file__upload form-group" >
+                                                                            <label for="">{% trans 'Files' %} <i>({% trans 'not required' %})</i></label>
+                                                                            <input type="file"
+                                                                                   class="filepondMilitary"
+                                                                                   name="filepond_military"
+                                                                                   label-idle="{% trans 'Upload files' %}"
+                                                                                   multiple
+                                                                                   data-max-file-size="3MB"
+                                                                                   data-max-files="4"
+                                                                                   {% for file in army.file.all %}
+                                                                                       data-file-url-{{ forloop.counter }}="{{ file.file.url }}"
+                                                                                       data-file-name-{{ forloop.counter }}="{{ file.file.name }}"
+                                                                                       data-file-size-{{ forloop.counter }}="{{ file.file.size }}"
+                                                                                   {% endfor %}
+
+                                                                            />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <button id="employeeEditButton" class="loginButton" data-api="{% url 'api:employee:update.3.army' army.id %}" type="submit">
+                                                    {% trans 'Send' %}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'plugins/bootstrap/datepicker/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-file-encode.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-file-validate-size.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-image-exif-orientation.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-image-preview.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond.min.js' %}"></script>
+
+    <script>
+        $(function () {
+            $.fn.datepicker.dates['ru'] = {
+                days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+                daysShort: ["Вск", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб"],
+                daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+                monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+                today: "Сегодня",
+                clear: "Очистить",
+                format: "dd.mm.yyyy",
+                weekStart: 1,
+                monthsTitle: 'Месяцы'
+            };
+        }(jQuery));
+        (function($){
+            $.fn.datepicker.dates['uz-latn'] = {
+                days: ["Yakshanba", "Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba"],
+                daysShort: ["Yak", "Du", "Se", "Chor", "Pay", "Ju", "Sha"],
+                daysMin: ["Ya", "Du", "Se", "Cho", "Pa", "Ju", "Sha"],
+                months: ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentabr", "Oktabr", "Noyabr", "Dekabr"],
+                monthsShort: ["Yan", "Fev", "Mar", "Apr", "May", "Iyn", "Iyl", "Avg", "Sen", "Okt", "Noy", "Dek"],
+                today: "Bugun",
+                clear: "O'chirish",
+                format: "dd.mm.yyyy",
+                weekStart: 1,
+                monthsTitle: 'Oylar'
+            };
+        }(jQuery));
+        $(function () {
+          $(".datepickerFrom").datepicker({
+              autoclose: true,
+              language: 'ru',
+              todayHighlight: true
+          });
+        });
+
+        FilePond.registerPlugin(
+
+            // encodes the file as base64 data
+            FilePondPluginFileEncode,
+
+            // validates the size of the file
+            FilePondPluginFileValidateSize,
+
+            // corrects mobile image orientation
+            FilePondPluginImageExifOrientation,
+
+            // previews dropped images
+            FilePondPluginImagePreview
+        );
+        FilePond.setOptions({
+            instantUpload: false
+        });
+        let mil_file_count = parseInt($(`.military-item`).data('files-count'));
+        let file_url = new Array();
+        for (let j = 1; j < mil_file_count + 1; j++) {
+            file_url[j] = $(`input.filepondMilitary`).data(`file-url-${j}`);
+        }
+        fMil = FilePond.create(document.querySelector(`input.filepondMilitary`));
+        for (let j = 1; j < mil_file_count + 1; j++) {
+            file_url[j] = file_url[j].replace("%20", " ");
+            //console.log(file_url[j]);
+            fMil.addFile(decodeURI(file_url[j]));
+        }
+
+        $("#employeeEditButton").click(function(event){
+            event.preventDefault();
+
+            let militaryFormData = new FormData();
+
+            militaryFormData.append(`name_ru`, $(`input[name='mil_name']`).val());
+            militaryFormData.append(`region_ru`, $(`input[name='mil_region']`).val());
+            militaryFormData.append(`specialization_ru`, $(`input[name='mil_specialization']`).val());
+            militaryFormData.append(`date_started`, $(`input[name='mil_date_started']`).val());
+            militaryFormData.append(`date_finished`, $(`input[name='mil_date_graduated']`).val());
+            militaryFormData.append(`rank_ru`, $(`input[name='mil_rank']`).val());
+            militaryFormData.append(`parent`, {{ army.id }});
+
+            var militaryCountFile = fMil.getFiles().length;
+            for (let j = 0; j < militaryCountFile; j++) {
+               //militaryFormData.append(`file`, fMil[i].getFiles()[j].file);
+               let f = fMil.getFiles()[j].file;
+               let fImage = new File([f], f.name, {type: f.type});
+               militaryFormData.append(`file`, fImage);
+            }
+
+            $.ajax({
+                url: $(this).data('api'),
+                data: militaryFormData,
+                processData: false,
+                contentType: false,
+                type: "PUT",
+                success: function (data) {
+                    var x = document.getElementById("mainSuccess");
+                    $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                    x.className = "show";
+                    setTimeout(function(){
+                        x.className = x.className.replace("show", "");
+                        window.location.href = "{% url 'employee.profile' %}";
+                    }, 1500);
+                },
+                error: function (data) {
+                    $.magnificPopup.close();
+                    var x = document.getElementById("mainError");
+
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                }
+            });
+        });
+    </script>
+{% endblock %}

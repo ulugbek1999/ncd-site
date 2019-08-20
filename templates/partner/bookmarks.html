@@ -1,0 +1,278 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load partner_employees %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% trans 'My list' %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'partner.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                        </li>
+                                        <li  class="">
+                                            <a href="{% url 'partner.employees' %}"><i class="fa fa-list"></i> {% trans 'List of applicants' %}</a>
+                                        </li>
+                                        <li class="current">
+                                        <a href="{% url 'partner.bookmarks' %}"><i class="fa fa-list"></i> {% trans 'My list' %} <span id="bookmarkCount">{{ request.user.partner.partneremployee_set.count }}</span></a></li>
+                                        <li class="">
+
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}"> {% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="profile-content">
+                                <div class="row-main">
+                                    {% for pe in employees %}
+                                        {% is_in_bookmark pe.employee.id as bookmark %}
+                                        <div class="employee-col" data-id="{{ pe.employee.id }}">
+                                            <div class="employee-item">
+                                                <div class="employee-avatar">
+                                                    {% thumbnail pe.employee.photo_1 "120x140" crop="center" as im %}
+                                                        <img src="{{ im.url }}" alt="">
+                                                    {% endthumbnail %}
+                                                </div>
+                                                <div class="employee-item__content">
+                                                    <div class="employee-item__data">
+                                                        <div class="employee-item__data-row">
+                                                            <span>{{ pe.employee.full_name }}</span>
+                                                        </div>
+                                                        <div class="employee-item__data-row">
+                                                            <span>{% trans 'Age' %}: </span> {{ pe.employee.age }}
+                                                        </div>
+                                                        <div class="employee-item__data-row">
+                                                            <span>{% trans 'Height' %}: </span> {{ pe.employee.height|floatformat }}  {% trans 'sm' %}
+                                                        </div>
+                                                        <div class="employee-item__data-row">
+                                                            <span>{% trans 'Rating' %}: </span> {{ pe.employee.score.summa }} ({{ employee.score.category }})
+                                                        </div>
+                                                    </div>
+                                                    <div class="employee-item__footer">
+                                                        <a href="{% url 'partner.employee.detail' pe.employee.id %}">{% trans 'Read more' %}</a>
+                                                        <div class="satatus-app">
+                                                            {% if pe.employee.busy %}
+                                                                <span>{% trans 'Employed' %}</span>
+                                                            {% else %}
+                                                                <span>{% trans 'Not employed' %}</span>
+                                                            {% endif %}
+                                                            <!--<div class="my-checkbox my-check" >
+                                                                <input class="myCheck" type="checkbox" data-id="{{pe.employee.id}}" name="ids" >
+                                                            </div>-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox-favorite my-check">
+                                                        <input
+                                                                id="fav{{ pe.employee.id }}"
+                                                                class="favorite hide"
+                                                                data-url="{% url 'api:partner:bookmark.add-remove' pe.employee.id %}"
+                                                                type="checkbox"
+                                                                data-id="{{ pe.employee.id }}"
+                                                                {% if bookmark %}
+                                                                    checked
+                                                                {% else %}
+
+                                                                {% endif %}
+                                                        />
+                                                        <label aria-hidden="true" data-icon="&#9733;" for="fav{{ pe.employee.id }}">
+                                                            <span class="hide"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {% if is_paginated %}
+                                            <div class="pagination-main">
+                                                <ul class="pagination">
+                                                    {% if page_obj.has_previous %}
+                                                        <li><a href="?{{ page_obj.previous_page_number.querystring }}" class="prev">&lsaquo;&lsaquo;</a></li>
+                                                    {% else %}
+                                                        <li><span class="disabled prev">&lsaquo;&lsaquo;</span></li>
+                                                    {% endif %}
+                                                    {% for page in page_obj.pages %}
+                                                        {% if page %}
+                                                            {% ifequal page page_obj.number %}
+                                                                <li><span class="current page">{{ page }}</span></li>
+                                                            {% else %}
+                                                                <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                                                            {% endifequal %}
+                                                        {% else %}
+                                                            ...
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                    {% if page_obj.has_next %}
+                                                        <li><a href="?{{ page_obj.next_page_number.querystring }}" class="next">&rsaquo;&rsaquo;</a></li>
+                                                    {% else %}
+                                                        <li><span class="disabled next">&rsaquo;&rsaquo;</span></li>
+                                                    {% endif %}
+                                                </ul>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#sendListPopup" id="sendAppList" class="loginButton">
+                                {% trans 'Send' %}
+                            </a>
+                            <!-- TODO tarjima -->
+                            <div id="sendListPopup" class="white-popup mfp-hide">
+                                <div class="send-list-form">
+                                    <form action="" autocomplete="off">
+                                        <div class="form-title">
+                                            <h2>{% trans 'Request' %}</h2>
+                                        </div>
+                                        <div class="form-data">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    {{ agreement.content|safe }}
+                                                    <div class="form-group radio-form">
+                                                        <div class="radio-group ">
+                                                            <input type="radio" id="1s" name="soglasen" value="1">
+                                                            <label for="1s">
+                                                                <span>{% trans 'writing wet stamp' %}</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio-group ">
+                                                            <input type="radio" id="2s" name="soglasen" value="2">
+                                                            <label for="2s">
+                                                                <span>{% trans 'by mailing or online' %}</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <div class="errors-main"></div>
+                                                    <button id="sendListButton" class="loginButton disableButton" data-api="wtf">
+                                                        {% trans 'Send' %}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+
+    <script>
+
+        $(document).ready(function() {
+            $('#sendAppList').magnificPopup({
+                type: 'inline',
+                midClick: true,
+                mainClass: 'mfp-fade'
+            });
+        });
+
+        $(function () {
+
+            $("input[name='soglasen']").change(function(){
+                $('#sendListButton').removeClass('disableButton');
+            });
+
+            var myList;
+            $("#sendAppList").click(function(){
+
+                myList = jQuery(".profile-content div.employee-col div.my-check input:checked").map(function() {
+                    return jQuery(this).closest("div.employee-col").data("id");
+                        }).get();
+
+                console.log(myList);
+            });
+
+
+            $("#sendListButton").click(function(e){
+                e.preventDefault();
+
+                let formData = new FormData();
+
+                formData.append('contract_type', $('input[name="soglasen"]:checked').val());
+                formData.append('ids', myList);
+
+                $.ajax({
+                   url: "{% url 'api:partner:employee-request.create' %}",
+                    processData: false,
+                    contentType: false,
+                    method: 'POST',
+                    data: formData,
+                    success: function (data) {
+                        var x = document.getElementById("mainSuccess");
+                        $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                        x.className = "show";
+                        setTimeout(function(){
+                            x.className = x.className.replace("show", "");
+                            location.reload();
+                        }, 1500);
+                    },
+                    error: function (data) {
+                       var x = document.getElementById("mainError");
+
+                        x.className = "show";
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                    }
+                });
+
+            });
+
+
+
+            $(".favorite").click(function (event) {
+                event.preventDefault();
+                result = window.confirm('{% trans "Do you really want to remove the applicant from the list of favorites" %}?');
+
+                let employee_id = $(this).data('id');
+                if(result){
+                    $.ajax({
+                        url: $(this).data('url'),
+                        processData: false,
+                        contentType: false,
+                        method: 'GET',
+                        success: function (data) {
+                            var obj = jQuery.parseJSON(data);
+                            $('#bookmarkCount').text(obj.count);
+                            $(`.employee-col[data-id = "${employee_id}"]`).remove();
+                        },
+                        error: function (data) {
+                            var obj = jQuery.parseJSON(data);
+                            $('#bookmarkCount').text(obj.count);
+                        }
+                    });
+                }else{
+
+                }
+
+            });
+        })
+    </script>
+{% endblock %}

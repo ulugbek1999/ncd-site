@@ -1,0 +1,240 @@
+{% extends '_base.html' %}
+{% load static i18n thumbnail partner_employees str %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% trans 'List of applicants' %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'partner.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                        </li>
+                                        <li  class="">
+                                            <a href="{% url 'partner.employees' %}"><i class="fa fa-list"></i> {% trans 'List of applicants' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'partner.bookmarks' %}"><i class="fa fa-list"></i> {% trans 'My list' %} <span id="bookmarkCount">{{ request.user.partner.partneremployee_set.count }}</span></a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}"> {% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="employees-filter">
+                                <div class="employee-search">
+                                    <form action="">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="age">{% trans 'Age' %}</label>
+                                                    <input type="text" name="age" class="form-control" id="age" value="{{ age }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="gender">{% trans 'Gender' %}</label>
+                                                    <div class="dropdown bootstrap-select form-control show-tick">
+                                                        <select name="gender" class="selectpicker form-control show-tick" id="gender">
+                                                            <option value="">{% trans 'Select' %}</option>
+                                                            <option {% if gender == 'm' %}selected{% endif %} value="m">Мужской</option>
+                                                            <option {% if gender == 'f' %}selected{% endif %} value="f">Женский</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="height">{% trans 'Height' %}</label>
+                                                    <input type="text" name="height" class="form-control" id="height" value="{{ height }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="education">{% trans 'Education' %} ({% trans 'level' %})</label>
+                                                    <div class="dropdown bootstrap-select form-control show-tick">
+                                                        <select name="education" class="selectpicker form-control show-tick" id="education">
+                                                            <option value="">{% trans 'Select' %}</option>
+                                                            {% for e in educations %}
+                                                                <option value="{{ e.id }}" {% if educations == e.id|str %}selected{% endif %}>{{ e.name }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="language">{% trans 'Knowledge of languages' %}</label>
+                                                    <div class="dropdown bootstrap-select form-control show-tick">
+                                                        <select class="selectpicker form-control show-tick" name="language" id="language">
+                                                            <option value="">{% trans 'Select' %}</option>
+                                                            {% for l in languages %}
+                                                                <option value="{{ l.id }}" {% if language == l.id|str %}selected{% endif %}>{{ l.name }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <button type="submit" class="search-button btn btn-primary">{% trans 'Search' %}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="profile-content">
+                                <div class="row-main">
+                                    {% for employee in employees %}
+                                        {% is_in_bookmark employee.id as bookmark %}
+                                        <div class="employee-col">
+                                            <div class="employee-item">
+                                                <div class="employee-avatar">
+                                                    {% if employee.photo_1 %}
+                                                        {% thumbnail employee.photo_1 "120x140" crop="center" as im %}
+                                                            <img src="{{ im.url }}" alt="">
+                                                        {% endthumbnail %}
+                                                    {% else %}
+                                                        {% if employee.gender == 'm' %}
+                                                            <img src="{% static 'images/avatar_man.png' %}" alt="">
+                                                        {% elif employee.gender == 'f' %}
+                                                            <img src="{% static 'images/avatar_woman.png' %}" alt="">
+                                                        {% else %}
+                                                            <img src="{% static 'images/avatar.png' %}" alt="">
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </div>
+                                                <div class="employee-item__content">
+                                                    <div class="employee-item__data">
+                                                        <div class="employee-item__data-row">
+                                                            <span>{{ employee.full_name }}</span>
+                                                        </div>
+                                                        <div class="employee-item__data-row">
+                                                            <span>{% trans 'Age' %}: </span> {{ employee.age }}
+                                                        </div>
+                                                        <div class="employee-item__data-row">
+                                                            <span>{% trans 'Height' %}: </span> {{ employee.height|floatformat }} cм
+                                                        </div>
+                                                        <div class="employee-item__data-row">
+                                                            <span>{% trans 'Rating' %}: </span> {{ employee.score.summa }} ({{ employee.score.category }})
+                                                        </div>
+                                                    </div>
+                                                    <div class="employee-item__footer">
+                                                        <a href="{% url 'partner.employee.detail' employee.id %}">{% trans 'Read more' %}</a>
+                                                    </div>
+                                                    <div class="checkbox-favorite">
+                                                        <input
+                                                                id="fav{{ employee.id }}"
+                                                                class="favorite hide"
+                                                                data-url="{% url 'api:partner:bookmark.add-remove' employee.id %}"
+                                                                type="checkbox"
+                                                                data-id="{{ employee.id }}"
+                                                                {% if bookmark %}
+                                                                    checked
+                                                                {% else %}
+
+                                                                {% endif %}
+                                                        />
+                                                        <label aria-hidden="true" data-icon="&#9733;" for="fav{{ employee.id }}">
+                                                            <span class="hide"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {% if is_paginated %}
+                                            <div class="pagination-main">
+                                                <ul class="pagination">
+                                                    {% if page_obj.has_previous %}
+                                                        <li><a href="?{{ page_obj.previous_page_number.querystring }}" class="prev">&lsaquo;&lsaquo;</a></li>
+                                                    {% else %}
+                                                        <li><span class="disabled prev">&lsaquo;&lsaquo;</span></li>
+                                                    {% endif %}
+                                                    {% for page in page_obj.pages %}
+                                                        {% if page %}
+                                                            {% ifequal page page_obj.number %}
+                                                                <li><span class="current page">{{ page }}</span></li>
+                                                            {% else %}
+                                                                <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                                                            {% endifequal %}
+                                                        {% else %}
+                                                            ...
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                    {% if page_obj.has_next %}
+                                                        <li><a href="?{{ page_obj.next_page_number.querystring }}" class="next">&rsaquo;&rsaquo;</a></li>
+                                                    {% else %}
+                                                        <li><span class="disabled next">&rsaquo;&rsaquo;</span></li>
+                                                    {% endif %}
+                                                </ul>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+
+    <script>
+        $(function () {
+            $('.selectpicker').selectpicker();
+
+            $(".favorite").change(function (event) {
+
+                let employee_id = $(this).data('id');
+
+                $.ajax({
+                    url: $(this).data('url'),
+                    processData: false,
+                    contentType: false,
+                    method: 'GET',
+                    success: function (data) {
+                        var obj = jQuery.parseJSON(data);
+                        $('#bookmarkCount').text(obj.count);
+                    },
+                    error: function (data) {
+                        var obj = jQuery.parseJSON(data);
+                        $('#bookmarkCount').text(obj.count);
+                    }
+                });
+            });
+        });
+        $("#age").inputmask({
+            "mask": "dd-dd"
+        });
+        $("#height").inputmask({
+            "mask": "ddd-ddd"
+        });
+    </script>
+{% endblock %}

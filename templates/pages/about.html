@@ -1,0 +1,46 @@
+{% extends '_base.html' %}
+{% load static i18n %}
+{% load thumbnail %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    <section class="banner-menu__top" style="background-image: url('{% static 'images/OПартнеры.png' %}')">
+        <h2>{% trans 'About company' %}</h2>
+    </section>
+    <section class="about-page">
+        <div class="container">
+            <div class="row">
+                <div class="about-page__main">
+                    {% for about in abouts %}
+                        <div class="about-page__item">
+                            <div class="about-item__image">
+                                <div class="about-item__imagebg">
+
+                                </div>
+                                <div class="about-item__image-on">
+                                    {% if about.image %}
+                                        {% thumbnail about.image "480x350" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="">
+                                        {% endthumbnail %}
+                                    {% else %}
+                                        <img src="{% static 'images/about1.jpg' %}" alt="">
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <h2>{{ about.title|default_if_none:'' }}</h2>
+                            {{ about.content|safe|default_if_none:'' }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

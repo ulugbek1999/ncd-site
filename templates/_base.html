@@ -1,0 +1,436 @@
+{% load static i18n phone email address services %}
+
+{% services as service_list %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>National Center For Development</title>
+        <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
+        <meta name="description" content="NCD Description" />
+        <meta name="author" content="OSG">
+        <meta property="og:title" content="National Center For Development" />
+        <meta property="og:description" content="NCD Manpower scoring system " />
+        <meta property="og:url" content="https://uzncd.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://uzncd.com{% static 'images/ncd.png' %}" />
+        <meta property="og:image:width" content="200" />
+        <meta property="og:image:height" content="200" />
+
+
+        <link rel="stylesheet" href="{% static 'fonts/robotocondensed/robotocondensed.css' %}">
+        <link rel="stylesheet" href="{% static 'fonts/lato/lato.css' %}">
+        <link rel="stylesheet" href="{% static 'fonts/oswald/oswald.css' %}">
+        <link rel="stylesheet" href="{% static 'fonts/worksans/worksans.css' %}">
+        <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+
+        <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap-better-nav.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap-select/css/bootstrap-select.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/magnific-popup/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/slider-pro/css/slider-pro.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/fancybox/jquery.fancybox.css' %}">
+
+        <link rel="stylesheet" href="{% static 'plugins/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css' %}">
+        <script src="//code-ru1.jivosite.com/widget.js" jv-id="3zdLYbCwTT" async></script>
+
+        {% block css %}
+
+        {% endblock %}
+
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/media.css' %}" rel="stylesheet">
+
+
+
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'plugins/bootstrap/js/bootstrap.js' %}"></script>
+        <script src="{% static 'plugins/bootstrap/js/bootstrap-better-nav.js' %}"></script>
+        <script src="{% static 'plugins/bootstrap/bootstrap-select/js/bootstrap-select.js' %}"></script>
+        <script src="{% static 'plugins/magnific-popup/jquery.magnific-popup.js' %}"></script>
+        <script src="{% static 'plugins/slider-pro/js/jquery.sliderPro.js' %}"></script>
+        <script src="{% static 'plugins/OwlCarousel2-2.3.4/dist/owl.carousel.js' %}"></script>
+        <script src="{% static 'js/jquery.inputmask.bundle.js' %}"></script>
+        <script src="{% static 'plugins/fancybox/jquery.fancybox.js' %}"></script>
+
+
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="ts-home">
+                <svg class="code125-title-seperator-left" preserveAspectRatio="none" viewBox="0 0 200 200" data-height="200">
+                    <polygon style="fill: #3368c6;" points="0,0 200,0 0,200 "></polygon>
+                </svg>
+            </div>
+            <section class="header-top__main">
+                <div class="container">
+                    <div class="row">
+                        <div class="header-top">
+                            {% if request.user.is_authenticated and request.user.partner %}
+                                <div class="header-top__left">
+                                    <div class="header-top__profile">
+                                        <a href="{% url 'partner.profile' %}">
+                                            <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                                            {{ request.user.username }}, <a href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% elif request.user.is_authenticated and request.user.employee %}
+                                <div class="header-top__left">
+                                    <div class="header-top__profile">
+                                        <a href="{% url 'employee.profile' %}">
+                                            <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                                            {{ request.user.username }}, <a href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="header-top__left">
+                                    <div class="header-top__profile">
+                                        <a href="#login-popup" class="open-login-link">
+                                            <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                                            {% trans 'Login' %}
+                                        </a>
+                                    </div>
+                                    <div class="header-top__register">
+                                        <a href="{% url 'partner.register' %}">
+                                            <i class="fa fa-key" aria-hidden="true"></i>
+                                            {% trans 'Register partners' %}</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="header-top__right">
+                                <div class="languages-main">
+                                    <a class="lang-ru" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Russia-icon.png' %}" alt=""> Ru</a>
+                                    <a class="lang-en" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/United-kingdom-icon.png' %}" alt=""> En</a>
+                                    <a class="lang-uz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/uzbekistan.png' %}" alt=""> Uz</a>
+                                </div>
+                                <div class="dropdown-lang mobile-lang">
+                                    {% if LANGUAGE_CODE == 'ru' %}
+                                        <button class="dropbtn"><img src="{% static 'images/Russia-icon.png' %}" alt=""> Ru</button>
+                                        <div class="dropdown-content">
+                                            <a class="lang-en" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/United-kingdom-icon.png' %}" alt=""> En</a>
+                                            <a class="lang-uz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/uzbekistan.png' %}" alt=""> Uz</a>
+                                        </div>
+                                    {% elif LANGUAGE_CODE == 'en' %}
+                                        <button class="dropbtn"><img src="{% static 'images/United-kingdom-icon.png' %}" alt=""> En</button>
+                                        <div class="dropdown-content">
+                                            <a class="lang-ru" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Russia-icon.png' %}" alt=""> Ru</a>
+                                            <a class="lang-uz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/uzbekistan.png' %}" alt=""> Uz</a>
+                                        </div>
+                                    {% elif LANGUAGE_CODE == 'uz' %}
+                                        <button class="dropbtn"><img src="{% static 'images/uzbekistan.png' %}" alt=""> Uz</button>
+                                        <div class="dropdown-content">
+                                            <a class="lang-ru" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Russia-icon.png' %}" alt=""> Ru</a>
+                                            <a class="lang-en" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/United-kingdom-icon.png' %}" alt=""> En</a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="header-main">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="menu-main">
+                            <div class="menu-nav">
+                                <nav class="navbar navbar-static-top">
+
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        </button>
+                                        <div class="logo-main">
+                                            <a class="navbar-brand" href="/">
+                                                <img src="{% static 'images/logo_login.svg' %}" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="navbar" class="navbar-collapse collapse">
+                                        <ul class="nav navbar-nav navbar-right">
+
+                                            <li class="">
+                                                <a href="{% url 'about' %}">
+                                                    <span class="original">{% trans 'About company' %}</span>
+                                                    <span class="hover-menu">{% trans 'About company' %}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'services' %}">
+                                                    <span class="original">{% trans 'Services' %}</span>
+                                                    <span class="hover-menu">{% trans 'Services' %}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'docs' %}">
+                                                    <span class="original">{% trans 'Documents' %}</span>
+                                                    <span class="hover-menu">{% trans 'Documents' %}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'forpartners' %}">
+                                                    <span class="original">{% trans 'Partners' %}</span>
+                                                    <span class="hover-menu">{% trans 'Partners' %}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'education' %}">
+                                                    <span class="original">{% trans 'Education' %}</span>
+                                                    <span class="hover-menu">{% trans 'Education' %}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'faq' %}">
+                                                    <span class="original">{% trans 'FAQ' %}</span>
+                                                    <span class="hover-menu">{% trans 'FAQ' %}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'training' %}">
+                                                    <span class="original">{% trans 'Training' %}</span>
+                                                    <span class="hover-menu">{% trans 'Training' %}</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                            <!--/.nav-collapse -->
+
+                                          <!--/.container-fluid -->
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="content-main">
+                {% block content %}
+
+                {% endblock %}
+
+            </div>
+
+            <section class="footer-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-top">
+                            <div class="row">
+                                <div class="col-md-4 footer-top__logo">
+                                    {% csrf_token %}
+                                    <div class="footer-logo">
+                                        <a href="/">
+                                            <img src="{% static 'images/ncd1.svg' %}" alt="">
+                                        </a>
+                                        <p>{% blocktrans %}A different approach - a different future{% endblocktrans %}</p>
+                                    </div>
+                                    <div class="footer-mobile-logo">
+                                        <a href="/">
+                                            <img src="{% static 'images/logo.svg' %}" alt="">
+                                        </a>
+                                        <p>{% blocktrans %}A different approach - a different future{% endblocktrans %}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 footer-top__menu">
+                                    <div class="footer-menu">
+                                        <div class="footer-menu__item">
+                                            <h2>{% trans 'Menu' %}</h2>
+                                            <ul>
+                                                <li class="">
+                                                    <a href="{% url 'about' %}">
+                                                        {% trans 'About company' %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'services' %}">
+                                                        {% trans 'Services' %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'docs' %}">
+                                                        {% trans 'Documents' %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'forpartners' %}">
+                                                        {% trans 'Partners' %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'education' %}">
+                                                        {% trans 'Education' %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'faq' %}">
+                                                        {% trans 'FAQ' %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'training' %}">
+                                                        {% trans 'Training' %}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer-menu__item">
+                                            <h2>{% trans 'Services' %}</h2>
+                                            <ul>
+                                                {% for service in service_list %}
+                                                    <li>
+                                                        <a href="{% url 'cms.service.detail' service.id %}">{{ service.title }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 footer-top__contacts">
+                                    <div class="footer-contacts">
+                                        <h2>{% trans 'Contacts' %}</h2>
+                                        <div class="footer-contacts__item">
+                                            <div class="footer-contacts__title">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                <span>{% trans 'Address' %}</span>
+                                            </div>
+                                            {% address %}
+                                        </div>
+                                        <div class="footer-contacts__item">
+                                            <div class="footer-contacts__title">
+                                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                                <span>{% trans 'Phone' %}</span>
+                                            </div>
+                                            {% phone %}
+                                        </div>
+                                        <div class="footer-contacts__item">
+                                            <div class="footer-contacts__title">
+                                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                                <span>{% trans 'E-mail' %}</span>
+                                            </div>
+                                            {% email %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer-copy">
+                            <div class="copyright">© 2019 NCD. {% trans 'All rights reserved' %}</div>
+                            <div class="developer">{% trans 'Developed by' %}: <a href="http://www.osg.uz/">Online Service Group</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <section class="popups-section">
+            <!--<div id="search-popup" class="white-popup mfp-hide">
+                <h2>Search content</h2>
+                <p>Some text here..</p>
+            </div>-->
+            <div id="login-popup" class="white-popup mfp-hide">
+                <form class="login">
+                    <fieldset>
+
+                        <legend class="legend">{% trans 'Authorization' %}</legend>
+
+                        <div class="input">
+                            <input type="text" id="userName" name="username" placeholder="{% trans 'Username' %}" required />
+                        <span><i class="fa fa-user"></i></span>
+                        </div>
+
+                        <div class="input">
+                            <input type="password" id="password" name="password" placeholder="{% trans 'Password' %}" required />
+                        <span><i class="fa fa-lock"></i></span>
+                        </div>
+                        <div class="loginError">
+                            {% blocktrans %}Username or password entered incorrectly{% endblocktrans %}
+                        </div>
+                        <div class="login-buttons">
+                            <!--<a href="{% url 'partner.register' %}">{% trans 'Register partners' %}</a>-->
+                            <button id="loginButton" type="submit" class="loginButton" data-url="{% url 'auth.signin' %}">
+                                {% trans 'Login' %}
+                            </button>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+
+            <div id="mainSuccess">{% trans 'Saved successfully' %}</div>
+            <div id="mainError">{% trans 'An error has occurred' %}</div>
+        </section>
+
+        <script src="{% static 'js/csrf.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        <script>
+            $(function () {
+                $(".lang-ru").click(function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: 'POST',
+                        data: `next=${'/' + window.location.pathname.substring(4)}&language=ru`,
+                        url: $(this).data('url'),
+                        success: function (data) {
+                            window.location.href = '/' + window.location.pathname.substring(4);
+                            {#window.location.href = '/'#}
+                        },
+                        error: function (data) {
+                            console.log('error');
+                        },
+                    });
+                });
+                $(".lang-en").click(function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: 'POST',
+                        data: `next=${'/' + window.location.pathname.substring(4)}&language=en`,
+                        url: $(this).data('url'),
+                        success: function (data) {
+                            window.location.href = '/' + window.location.pathname.substring(4);
+                        },
+                        error: function (data) {
+                            console.log('error');
+                        },
+                    });
+                });
+                $(".lang-uz").click(function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: 'POST',
+                        data: `next=${'/' + window.location.pathname.substring(4)}&language=uz`,
+                        url: $(this).data('url'),
+                        success: function (data) {
+                            window.location.href = '/' + window.location.pathname.substring(4);
+                        },
+                        error: function (data) {
+                            console.log('error');
+                        },
+                    });
+                });
+
+                $("#recSlide").owlCarousel({
+                    loop: true,
+                    autoplay: true,
+                    items: 1,
+                    nav: false,
+                    autoplayHoverPause: true,
+                    animateOut: 'slideOutUp',
+                    animateIn: 'slideInUp'
+                });
+            })
+        </script>
+        {% block js %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,41 @@
+{% extends '_base.html' %}
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    <section class="banner-menu__top" style="background-image: url('{% static 'images/Образование.png' %}')">
+        <h2>{% trans 'Documents' %}</h2>
+    </section>
+    <section class="documents">
+        <div class="container">
+            <div class="row">
+                <div class="docs-main">
+                    <div class="row">
+                        {% for document in documents %}
+                            <div class="col-md-4">
+                                <div class="docs-item">
+                                    <a href="{{ document.file.url }}">
+                                        <div class="docs-item__image">
+                                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="docs-item__content">
+                                            <h2>{{ document.name }}</h2>
+                                            <span>{{ document.file.size|filesizeformat }}</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

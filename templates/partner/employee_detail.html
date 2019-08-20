@@ -1,0 +1,514 @@
+{% extends '_base.html' %}
+{% load static partner_employees i18n thumbnail %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% trans 'Applicant data' %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'partner.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                        </li>
+                                        <li  class="">
+                                            <a href="{% url 'partner.employees' %}"><i class="fa fa-list"></i> {% trans 'List of applicants' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'partner.bookmarks' %}"><i class="fa fa-list"></i> {% trans 'My list' %} <span id="bookmarkCount">{{ request.user.partner.partneremployee_set.count }}</span></a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}"> {% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="profile-content">
+                                <div class="employee-detail">
+                                    <div class="row">
+                                        <div class="employee-images">
+                                            <div class="employee-image__row">
+                                                <div class="employee-image__item">
+                                                    {% if employee.photo_1 %}
+                                                        <a data-fancybox href="{{ employee.photo_1.url }}">
+                                                            {% thumbnail employee.photo_1 "148x178" crop="center" as im %}
+                                                                <img src="{{ im.url }}" alt="">
+                                                            {% endthumbnail %}
+                                                        </a>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="employee-image__item">
+                                                    {% if employee.photo_2 %}
+                                                        <a data-fancybox href="{{ employee.photo_2.url }}">
+                                                            {% thumbnail employee.photo_2 "148x178" crop="center" as im %}
+                                                                <img src="{{ im.url }}" alt="">
+                                                            {% endthumbnail %}
+                                                        </a>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="employee-image__item">
+                                                    {% if employee.photo_3 %}
+                                                        <a data-fancybox href="{{ employee.photo_3.url }}">
+                                                            {% thumbnail employee.photo_3 "148x178" crop="center" as im %}
+                                                                <img src="{{ im.url }}" alt="">
+                                                            {% endthumbnail %}
+                                                        </a>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="employee-image__item">
+                                                    {% if employee.photo_4 %}
+                                                        <a data-fancybox href="{{ employee.photo_4.url }}">
+                                                            {% thumbnail employee.photo_4 "148x178" crop="center" as im %}
+                                                                <img src="{{ im.url }}" alt="">
+                                                            {% endthumbnail %}
+                                                        </a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="employee-detail__content">
+                                            {% is_in_bookmark employee.id as bookmark %}
+                                            <div class="detail-title">
+                                                <h2>{{ employee.full_name }}</h2>
+                                                <span>{{ employee.register_number }}</span>
+                                                <div class="checkbox-favorite">
+                                                    <input
+                                                            id="fav{{ employee.id }}"
+                                                            class="favorite hide"
+                                                            data-url="{% url 'api:partner:bookmark.add-remove' employee.id %}"
+                                                            type="checkbox"
+                                                            data-id="{{ employee.id }}"
+                                                            {% if bookmark %}
+                                                                checked
+                                                            {% else %}
+
+                                                            {% endif %}
+                                                    />
+                                                    <label aria-hidden="true" data-icon="&#9733;" for="fav{{ employee.id }}">
+                                                        <span class="hide"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="detail-content">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <ul>
+                                                            <li>
+                                                                <strong>{% trans 'Reg.number' %}:</strong>
+                                                                <span>{{ employee.register_number }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Fullname (Russian)' %}:</strong>
+                                                                <span>{{ employee.full_name }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Gender' %}:</strong>
+                                                                <span>{{ employee.get_gender_display }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Passport serial' %}:</strong>
+                                                                <span>{{ employee.passport_serial }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Passport given date' %}:</strong>
+                                                                <span>{{ employee.passport_given_date|date:'m.d.Y' }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Passport expires' %}:</strong>
+                                                                <span>{{ employee.passport_expires|date:'m.d.Y' }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Register number' %}:</strong>
+                                                                <span>{{ employee.inn }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Birth date' %}:</strong>
+                                                                <span>{{ employee.birth_date|date:"d.m.Y" }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Birth place' %}:</strong>
+                                                                <span>{{ employee.birth_place }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Living address' %}:</strong>
+                                                                <span>{{ employee.living_address }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Height' %} ({% trans 'sm' %}):</strong>
+                                                                <span>{{ employee.height|floatformat }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Weight' %} ({% trans 'kg' %}):</strong>
+                                                                <span>{{ employee.weight|floatformat }}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul>
+                                                            <li>
+                                                                <strong>{% trans 'Appearance' %}:</strong>
+                                                                <span>{{ employee.appearance }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Neatness' %}:</strong>
+                                                                <span>{{ employee.neatness }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Skin' %}:</strong>
+                                                                <span>{{ employee.skin }}</span>
+                                                            </li>
+
+                                                            <li>
+                                                                <strong>{% trans 'Fatness' %} (%):</strong>
+                                                                <span>{{ employee.fatness|floatformat }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Blood group' %}:</strong>
+                                                                <span>{{ employee.blood_group }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Vision' %} (L):</strong>
+                                                                <span>{{ employee.vision_l|floatformat }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Vision' %} (R):</strong>
+                                                                <span>{{ employee.vision_r|floatformat }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Desired countries' %}:</strong>
+                                                                <span>{{ employee.get_countries_list }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Ready for university' %}:</strong>
+                                                                {% if employee.is_ready_for_university %}
+                                                                    <span>{% trans 'Yes' %}</span>
+                                                                {% else %}
+                                                                    <span>{% trans 'No' %}</span>
+                                                                {% endif %}
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Special signs' %}:</strong>
+                                                                <span>{{ employee.add_spec_signs }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Hobby' %}:</strong>
+                                                                <span>{{ employee.hobby }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <strong>{% trans 'Other' %}:</strong>
+                                                                <span>{{ employee.other }}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="employee-tabs">
+                                    <div class="panel-group d-accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#educations-view">
+                                                <h4 class="panel-title">{% trans 'Education' %} <i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="educations-view" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                    {% for edu in employee.education_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Education type' %}:</strong>
+                                                                    <span>{{ edu.type.name }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Name' %}:</strong>
+                                                                    <span>{{ edu.name }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Address' %}:</strong>
+                                                                    <span>{{ edu.address }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Specialty' %}:</strong>
+                                                                    <span>{{ edu.specialization }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Education start date' %}:</strong>
+                                                                    <span>{{ edu.date_started|date:'m.d.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Education end date' %}:</strong>
+                                                                    <span>{{ edu.date_finished|date:'m.d.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Other tuition data' %}:</strong>
+                                                                    <span>{{ edu.additional }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in edu.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a {% if file.has_preview %}data-fancybox{% endif %} href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.filename }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#language-view">
+                                                <h4 class="panel-title">{% trans 'Knowledge of languages' %} <i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="language-view" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    {% for lang in employee.language_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Language name' %}:</strong>
+                                                                    <span>{{ lang.language.name }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Level of knowledge' %}:</strong>
+                                                                    <span>{{ lang.get_level_display }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in lang.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a {% if file.has_preview %}data-fancybox{% endif %} href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.filename }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#militaryView">
+                                                <h4 class="panel-title">{% trans 'Military service' %}<i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="militaryView" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    {% for army in employee.army_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Military duty' %}:</strong>
+                                                                    <span>{% if employee.military_duty %}{% trans 'Yes' %}{% else %}{% trans 'No' %}{% endif %}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Name of the military unit' %}:</strong>
+                                                                    <span>{{ army.name }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Military start date' %}:</strong>
+                                                                    <span>{{ army.date_started|date:'m.d.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Region' %}:</strong>
+                                                                    <span>{{ army.region }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Military end date' %}:</strong>
+                                                                    <span>{{ army.date_finished|date:'m.d.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Specialty' %}:</strong>
+                                                                    <span>{{ army.specialization }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Rank' %}:</strong>
+                                                                    <span>{{ army.rank }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in army.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a {% if file.has_preview %}data-fancybox{% endif %} href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.filename }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#receivedView">
+                                                <h4 class="panel-title">{% trans 'Received Awards' %}<i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="receivedView" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    {% for reward in employee.reward_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Reward' %}:</strong>
+                                                                    <span>{{ reward.name }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Comment' %}:</strong>
+                                                                    <span>{{ reward.description }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in reward.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a {% if file.has_preview %}data-fancybox{% endif %} href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.filename }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#familyView">
+                                                <h4 class="panel-title">{% trans 'Family status' %}<i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="familyView" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    {% if employee.family %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Family status' %}:</strong>
+                                                                    <span>{{ employee.family.get_status_display }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Amount of children' %}:</strong>
+                                                                    <span>{{ employee.family.children_amount }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in employee.family.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a {% if file.has_preview %}data-fancybox{% endif %} href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.filename }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent=".d-accordion" href="#experienceView">
+                                                <h4 class="panel-title">{% trans 'Work experience' %}<i class="fa fa-chevron-up pull-right"></i></h4>
+                                            </div>
+                                            <div id="experienceView" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    {% for ex in employee.experience_set.all %}
+                                                        <div class="op3View-item">
+                                                            <ul>
+                                                                <li>
+                                                                    <strong>{% trans 'Organization' %}:</strong>
+                                                                    <span>{{ ex.organization }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Work start date' %}:</strong>
+                                                                    <span>{{ ex.date_started|date:'d.m.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Work end date' %}:</strong>
+                                                                    <span>{{ ex.date_finished|date:'d.m.Y' }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Position' %}:</strong>
+                                                                    <span>{{ ex.position }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Subdivision' %}:</strong>
+                                                                    <span>{{ ex.sub_division }}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <strong>{% trans 'Location / Address' %}:</strong>
+                                                                    <span>{{ ex.address }}</span>
+                                                                </li>
+                                                                <li class="files-view">
+                                                                    {% for file in ex.file.all %}
+                                                                        <ul class="files-view__main">
+                                                                            <li>
+                                                                                <a {% if file.has_preview %}data-fancybox{% endif %} href="{{ file.file.url }}"><i class="fa fa-file" aria-hidden="true"></i>{{ file.filename }}</a>
+                                                                                <span>{{ file.file.size|filesizeformat }}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    {% endfor %}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+    <script>
+       $(function () {
+            $(".favorite").change(function (event) {
+
+                let employee_id = $(this).data('id');
+
+                $.ajax({
+                    url: $(this).data('url'),
+                    processData: false,
+                    contentType: false,
+                    method: 'GET',
+                    success: function (data) {
+                        var obj = jQuery.parseJSON(data);
+                        $('#bookmarkCount').text(obj.count);
+                    },
+                    error: function (data) {
+                        var obj = jQuery.parseJSON(data);
+                        $('#bookmarkCount').text(obj.count);
+                    }
+                });
+            });
+        })
+    </script>
+{% endblock %}

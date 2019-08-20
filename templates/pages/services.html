@@ -1,0 +1,70 @@
+{% extends '_base.html' %}
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="banner-menu__top" style="background-image: url('{% static 'images/Услуги.png' %}')">
+        <h2>{% trans 'Services' %}</h2>
+    </section>
+    <section class="services-main">
+        <div class="container">
+            <div class="row">
+                <div class="service-text">
+                    {{ service_top.short_content|safe|default_if_none:'' }}
+                </div>
+                <div class="services">
+                    <div class="row-main">
+                        {% for service in services %}
+                            <div class="service-col">
+                                <div class="service-item">
+                                    <a href="{% url 'cms.service.detail' service.id %}">
+                                        <div class="service-item__image">
+                                            {% if service.image %}
+                                                <img src="{{ service.image.url }}" alt="">
+                                            {% else %}
+                                                <img src="{% static 'images/logo.svg' %}" alt="">
+                                            {% endif %}
+                                        </div>
+                                        <div class="service-item__content">
+                                            <h2>{{ service.title|default_if_none:'' }}</h2>
+                                            {{ service.short_content|safe|default_if_none:'' }}
+                                        </div>
+                                        <div class="service-counter">
+                                            {% if forloop.counter >= 10 %}
+                                                {{ forloop.counter }}
+                                            {% else %}
+                                                0{{ forloop.counter }}
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="services-agree">
+                    <div class="container">
+                        <div class="row-main">
+                            <div class="services-agree__col">
+                                <div class="services-agree__item">
+                                    <h2>{{ licence.title|safe|default_if_none:'' }}</h2>
+                                    {{ licence.short_content|safe|default_if_none:'' }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

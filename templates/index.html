@@ -1,0 +1,326 @@
+{% extends '_base.html' %}
+{% load static i18n escape_tags thumbnail %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+    <section class="slider-main">
+        <div class="container-slider">
+            <div class="row">
+                <div id="slider" class="slider-pro">
+                    <div class="sp-slides">
+                        {% for slider in sliders %}
+                            {% if slider.image %}
+                                <div class="sp-slide">
+                                    <img class="sp-image" src="{% static 'plugins/slider-pro/css/images/blank.gif' %}"
+                                         data-src="{{ slider.image.url }}"
+                                         data-retina="{{ slider.image.url }}"/>
+                                </div>
+                            {% else %}
+                            <div class="sp-slide">
+                                <img class="sp-image" src="{% static 'plugins/slider-pro/css/images/blank.gif' %}"
+                                     data-src=""
+                                     data-retina=""/>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-main">
+        <div class="container">
+            <div class="row">
+                <div class="content-title">
+                    <h2>{% trans 'Services' %}</h2>
+                </div>
+                <div class="services">
+                    <div class="row-main">
+                        {% for service in services %}
+                            <div class="service-col">
+                                <div class="service-item">
+                                    <a href="{% url 'cms.service.detail' service.id %}">
+                                        <div class="service-item__image">
+                                            {% if service.image %}
+                                                <img src="{{ service.image.url }}" alt="">
+                                            {% else %}
+                                                <img src="{% static 'images/logo.svg' %}" alt="">
+                                            {% endif %}
+                                        </div>
+                                        <div class="service-item__content">
+                                            <h2>{{ service.title|safe|default_if_none:'' }}</h2>
+                                            <p>{{ service.short_content|escape_tags|default_if_none:'' }}</p>
+                                        </div>
+                                        <div class="service-counter">
+                                            0{{ forloop.counter }}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="counters-main">
+        <div class="container">
+            <div class="row">
+                <div class="content-title">
+                    <h2>{% trans 'Statistics' %}</h2>
+                </div>
+                <div id="counter">
+                    <div class="counter-item">
+                        <div class="counter-value" data-count="{{ partners_amount }}">0</div>
+                        <div class="counter-item__title">{% trans 'Partners' %}</div>
+                    </div>
+                    <div class="counter-item">
+                        <div class="counter-value" data-count="{{ employees_amount }}">0</div>
+                        <div class="counter-item__title">{% trans 'Employees' %}</div>
+                    </div>
+                    <div class="counter-item">
+                        <div id="expirenceYear" class="counter-value" data-count="2018" data-now="{% now 'Y' %}">0</div>
+                        <div class="counter-item__title">{% blocktrans %}Years of experience{% endblocktrans %}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-main">
+        <div class="container">
+            <div class="row">
+                <div class="about">
+                    <div class="about-title">
+                        <h2>{% trans 'About company' %}</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-bg"></div>
+                        <div class="about-content__title">
+                            <h2>{{ about.title|safe|default_if_none:'' }}</h2>
+                        </div>
+                        <div class="about-content__main">
+                            {{ about.content|safe|default_if_none:'' }}
+                        </div>
+                        <div class="about-content__read">
+                            <a href="{% url 'about' %}">{% trans 'Read more' %}</a>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <article>
+                            {% if about.image %}
+                                <img src="{{ about.image.url }}" alt="">
+                            {% else %}
+                                <img src="{% static 'images/about.jpg' %}" alt="">
+                            {% endif %}
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-main">
+        <div class="container">
+            <div class="row">
+                <div class="content-title">
+                    <h2>{% trans 'Reviews' %}</h2>
+                </div>
+                <div class="reviews">
+                    <div id="reviewsCarousel" class="owl-carousel owl-theme staff-list">
+                        {% for feedback in feedbacks %}
+                            <div class="single-staff-item">
+                            {% if feedback.image %}
+                                {% thumbnail feedback.image "170x170" crop="center" as im %}
+                                    <img src="{{ im.url }}" alt="" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}
+                            {% else %}
+                                <img src="{% static 'images/avatar.jpg' %}" alt="">
+                            {% endif %}
+                                <div class="staff-meta">
+                                    <h3>{{ feedback.name|default_if_none:'' }}</h3>
+                                    {{ feedback.position|safe|default_if_none:'' }}
+                                </div>
+                                <div class="staff-desc">
+                                    {{ feedback.short_content|safe|default_if_none:'' }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-main">
+        <div class="container">
+            <div class="row">
+                <div class="content-title">
+                    <h2>{% trans 'Our partners' %}</h2>
+                </div>
+                <div class="partners">
+                    <div id="partnersCarousel" class="owl-carousel owl-theme">
+                        {% for partner in partners %}
+                            <div class="item">
+                                <div class="partners-item">
+                                    {% if partner.image %}
+                                        <a href="{% url 'cms.partner.detail' partner.id %}">
+                                            <img src="{{ partner.image.url }}"/>
+                                            <span>{{ partner.title|default_if_none:'' }}</span>
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'cms.partner.detail' partner.id %}">
+                                            <img src="{% static 'images/5.png' %}"/>
+                                            <span>{{ partner.title|default_if_none:'' }}</span>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-co-worker__main">
+        <div class="ts-co-worker"></div>
+        <div class="container">
+            <div class="row">
+                <div class="content-title">
+                    <h2>{% trans 'Our employees' %}</h2>
+                </div>
+                <div class="our-co-worker">
+                    <div class="row-co-worker">
+                        {% for employee in employees %}
+                            <div class="col-co-worker">
+                                <div class="co-worker-item">
+                                    <div class="co-worker-item__image">
+                                        {% if employee.image %}
+                                            <img src="{{ employee.image.url }}" alt="">
+                                        {% else %}
+                                            <img src="{% static 'images/emp4.jpg' %}" alt="">
+                                        {% endif %}
+                                    </div>
+                                    <div class="co-worker-item__title">
+                                        <a href="#">
+                                            {{ employee.name|default_if_none:'' }}
+                                        </a>
+                                        <span>{{ employee.position|default_if_none:'' }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(function () {
+            let exp = $('#expirenceYear');
+            let now = exp.data('now');
+            let exp_year = exp.data('count');
+            exp.attr('data-count', (parseInt(now) - parseInt(exp_year)));
+        })
+    </script>
+    <script>
+
+        var a = 0;
+        $(window).scroll(function() {
+
+          var oTop = $('#counter').offset().top - window.innerHeight;
+          if (a == 0 && $(window).scrollTop() > oTop) {
+            $('.counter-value').each(function() {
+              var $this = $(this),
+                countTo = $this.attr('data-count');
+              $({
+                countNum: $this.text()
+              }).animate({
+                  countNum: countTo
+                },
+
+                {
+
+                  duration: 2000,
+                  easing: 'swing',
+                  step: function() {
+                    $this.text(Math.floor(this.countNum));
+                  },
+                  complete: function() {
+                    $this.text(this.countNum);
+                    //alert('finished');
+                  }
+
+                });
+            });
+            a = 1;
+          }
+
+        });
+        $(document).ready(function() {
+            $('#slider').sliderPro({
+                width: '100%',
+                height: 540,
+                arrows: true,
+                buttons: true,
+                autoplay: true,
+                autoScaleLayers: true,
+                breakpoints: {
+                    1540: {
+                        height: 480
+                    },
+                    1400: {
+                        height: 440
+                    }
+                }
+            });
+            $("#partnersCarousel").owlCarousel({
+                items: 4,
+                autoplay: false,
+                margin: 5,
+                loop: true,
+                nav: true,
+                dots: false,
+                autoplay: true,
+                pagination: true,
+                navText: ["<img src='{% static 'images/pleft.png' %}' alt=''>", "<img src='{% static 'images/pright.png' %}' alt=''>"],
+                responsive : {
+                    0: {
+                       items: 1
+                    },
+                    736 : {
+                       items: 2
+                    },
+                    1170 : {
+                       items: 3
+                    },
+                    1270 : {
+                       items: 4
+                    }
+                }
+            });
+            $("#reviewsCarousel").owlCarousel({
+                items: 1,
+                autoplay: false,
+                margin: 30,
+                loop: true,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                pagination: true,
+                navText: ["<img src='{% static 'images/left.png' %}' alt=''>", "<img src='{% static 'images/right.png' %}' alt=''>"]
+            });
+        });
+    </script>
+{% endblock %}

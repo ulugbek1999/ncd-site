@@ -1,0 +1,243 @@
+{% extends '_base.html' %}
+{% load static i18n thumbnail %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/datepicker/bootstrap-datepicker.css' %}" />
+    <link href="{% static 'plugins/filepond/filepond-plugin-image-preview.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plugins/filepond/filepond.min.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% trans 'Work experience' %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'employee.profile' %}"><i class="fa fa-user"></i>{% trans 'My profile' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'employee.password.update' %}"><i class="fa fa-cog"></i> {% trans 'Settings' %} </a>
+                                        </li>
+                                        <li class="">
+                                            <a href=""><i class="fa fa-book"></i>{% trans 'Courses' %}</a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="profile-content">
+                                <div class="employee-detail">
+                                    <div class="row">
+                                        <form name="employee_update" style="padding: 0 15px;">
+                                            <div class="experience-item" data-files-count="{{ experience.file.count }}">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="expOrg">{% trans 'Organization' %}</label>
+                                                                    <input name="exp_org" type="text" class="form-control" id="expOrg" value="{{ experience.organization_ru }}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="expDateStarted">{% trans 'Work start date' %}</label>
+                                                                    <input name="exp_date_started" type="text" class="datepickerFrom form-control" data-date-format="yyyy-mm-dd" id="expDateStarted" value="{{ experience.date_started|date:'Y-m-d' }}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="expDateFinished">{% trans 'Work end date' %}</label>
+                                                                    <input name="exp_date_finished" type="text" class="datepickerFrom form-control" data-date-format="yyyy-mm-dd" id="expDateFinished" value="{{ experience.date_finished|date:'Y-m-d' }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="expPosition">{% trans 'Position' %}</label>
+                                                                    <input name="exp_position" type="text" class="form-control" id="expPosition" value="{{ experience.position_ru }}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="expSubDivision">{% trans 'Subdivision' %}</label>
+                                                                    <input name="exp_sub_division" type="text" class="form-control" id="expSubDivision" value="{{ experience.sub_division_ru }}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="expAddress">{% trans 'Location / Address' %}</label>
+                                                                    <input name="exp_address" list="expAddressRegion_list" type="text" class="form-control" id="expAddress" autocomplete="off" value="{{ experience.address_ru }}">
+                                                                    <datalist class="region-list" id="expAddressRegion_list">
+                                                                    </datalist>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="experience-file__upload op3-file__upload form-group">
+                                                            <label for="">{% trans 'Files' %} <i>({% trans 'not required' %})</i></label>
+                                                            <input type="file"
+                                                                   class="filepondExperience"
+                                                                   name="filepond_experience"
+                                                                   label-idle="{% trans 'Upload files' %}"
+                                                                   multiple
+                                                                   data-max-file-size="3MB"
+                                                                   data-max-files="4"
+                                                                   {% for file in experience.file.all %}
+                                                                       data-file-url-{{ forloop.counter }}="{{ file.file.url }}"
+                                                                       data-file-name-{{ forloop.counter }}="{{ file.file.name }}"
+                                                                       data-file-size-{{ forloop.counter }}="{{ file.file.size }}"
+                                                                   {% endfor %}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <button id="employeeEditButton" class="loginButton" data-api="{% url 'api:employee:update.3.experience' experience.id %}" type="submit">
+                                                    {% trans 'Send' %}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'plugins/bootstrap/datepicker/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-file-encode.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-file-validate-size.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-image-exif-orientation.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond-plugin-image-preview.min.js' %}"></script>
+    <script src="{% static 'plugins/filepond/filepond.min.js' %}"></script>
+
+    <script>
+        $(function () {
+            $.fn.datepicker.dates['ru'] = {
+                days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+                daysShort: ["Вск", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб"],
+                daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+                monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+                today: "Сегодня",
+                clear: "Очистить",
+                format: "dd.mm.yyyy",
+                weekStart: 1,
+                monthsTitle: 'Месяцы'
+            };
+        }(jQuery));
+        (function($){
+            $.fn.datepicker.dates['uz-latn'] = {
+                days: ["Yakshanba", "Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba"],
+                daysShort: ["Yak", "Du", "Se", "Chor", "Pay", "Ju", "Sha"],
+                daysMin: ["Ya", "Du", "Se", "Cho", "Pa", "Ju", "Sha"],
+                months: ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentabr", "Oktabr", "Noyabr", "Dekabr"],
+                monthsShort: ["Yan", "Fev", "Mar", "Apr", "May", "Iyn", "Iyl", "Avg", "Sen", "Okt", "Noy", "Dek"],
+                today: "Bugun",
+                clear: "O'chirish",
+                format: "dd.mm.yyyy",
+                weekStart: 1,
+                monthsTitle: 'Oylar'
+            };
+        }(jQuery));
+        $(function () {
+          $(".datepickerFrom").datepicker({
+              autoclose: true,
+              language: 'ru',
+              todayHighlight: true
+          });
+        });
+
+        FilePond.registerPlugin(
+
+            // encodes the file as base64 data
+            FilePondPluginFileEncode,
+
+            // validates the size of the file
+            FilePondPluginFileValidateSize,
+
+            // corrects mobile image orientation
+            FilePondPluginImageExifOrientation,
+
+            // previews dropped images
+            FilePondPluginImagePreview
+        );
+        FilePond.setOptions({
+            instantUpload: false
+        });
+        let exp_file_count = parseInt($(`.experience-item`).data('files-count'));
+        let file_url = new Array();
+        for (let j = 1; j < exp_file_count + 1; j++) {
+            file_url[j] = $(`input.filepondExperience`).data(`file-url-${j}`);
+        }
+        fExp = FilePond.create(document.querySelector(`input.filepondExperience`));
+        for (let j = 1; j < exp_file_count + 1; j++) {
+            file_url[j] = file_url[j].replace("%20", " ");
+            //console.log(file_url[j]);
+            fExp.addFile(decodeURI(file_url[j]));
+        }
+
+        $("#employeeEditButton").click(function(event){
+            event.preventDefault();
+
+            let experienceFormData = new FormData();
+
+            experienceFormData.append(`organization_ru`, $(`input[name='exp_org']`).val());
+            experienceFormData.append(`date_started`, $(`input[name='exp_date_started']`).val());
+            experienceFormData.append(`date_finished`, $(`input[name='exp_date_finished']`).val());
+            experienceFormData.append(`position_ru`, $(`input[name='exp_position']`).val());
+            experienceFormData.append(`sub_division_ru`, $(`input[name='exp_sub_division']`).val());
+            experienceFormData.append(`address_ru`, $(`input[name='exp_address']`).val());
+
+            experienceFormData.append(`parent`, {{ experience.id }});
+
+
+            var experienceCountFile = fExp.getFiles().length;
+            for (let j = 0; j < experienceCountFile; j++) {
+               //experienceFormData.append(`file`, fExp[i].getFiles()[j].file);
+               let f = fExp.getFiles()[j].file;
+               let fImage = new File([f], f.name, {type: f.type});
+               experienceFormData.append(`file`, fImage);
+            }
+
+            $.ajax({
+                url: $(this).data('api'),
+                data: experienceFormData,
+                processData: false,
+                contentType: false,
+                type: "PUT",
+                success: function (data) {
+                    var x = document.getElementById("mainSuccess");
+                    $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                    x.className = "show";
+                    setTimeout(function(){
+                        x.className = x.className.replace("show", "");
+                        window.location.href = "{% url 'employee.profile' %}";
+                    }, 1500);
+                },
+                error: function (data) {
+                    $.magnificPopup.close();
+                    var x = document.getElementById("mainError");
+
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                }
+            });
+        });
+    </script>
+{% endblock %}

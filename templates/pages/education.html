@@ -1,0 +1,45 @@
+{% extends '_base.html' %}
+{% load static i18n escape_tags %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    <section class="banner-menu__top" style="background-image: url('{% static 'images/Образование.png' %}')">
+        <h2>{% trans 'Education' %}</h2>
+    </section>
+    <section class="educations">
+        <div class="container">
+            <div class="row">
+                <div class="edu-main">
+                    <div class="row">
+                        {% for education in educations %}
+                            <div class="col-md-6">
+                                <div class="edu-item">
+                                    <a href="{% url 'education.detail' education.id %}">
+                                        <div class="edu-item__image">
+                                            {% if education.image %}
+                                                <img src="{{ education.image.url }}" alt="">
+                                            {% else %}
+                                                <img src="{% static 'images/eduJapan.jpg' %}" alt="">
+                                            {% endif %}
+                                        </div>
+                                        <div class="edu-item__content">
+                                            <h2>{{ education.title|default_if_none:'' }}</h2>
+                                            <p>{{ education.short_content|escape_tags|default_if_none:'' }}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
