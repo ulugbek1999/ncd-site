@@ -1137,7 +1137,7 @@ msgstr "Izlash"
 
 #: templates/pages/training.html:17
 msgid "Learning platform under development"
-msgstr "O'qish platformasi ishlam chiqlish jarayonida"
+msgstr "O'qish platformasi ishlab chiqlish jarayonida"
 
 #: templates/partner/bookmarks.html:16 templates/partner/bookmarks.html:33
 #: templates/partner/employee_detail.html:30
