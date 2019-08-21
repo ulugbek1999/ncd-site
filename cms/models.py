@@ -88,7 +88,7 @@ class Education(models.Model):
             return self.title_en
         elif get_language() == 'ru':
             return self.title_ru
-        return self.title_ru
+        return self.title_uz
 
     @property
     def short_content(self):
@@ -96,7 +96,7 @@ class Education(models.Model):
             return self.short_content_en
         elif get_language() == 'ru':
             return self.short_content_ru
-        return self.short_content_ru
+        return self.short_content_uz
 
     @property
     def content(self):
@@ -104,7 +104,7 @@ class Education(models.Model):
             return self.content_en
         elif get_language() == 'ru':
             return self.content_ru
-        return self.content_ru
+        return self.content_uz
 
     def __str__(self):
         return self.title_ru or self.title_en or self.title_uz or 'asd'
@@ -139,7 +139,7 @@ class Employee(models.Model):
             return self.name_en
         elif get_language() == 'ru':
             return self.name_ru
-        return self.name_ru
+        return self.name_uz
 
     @property
     def position(self):
@@ -147,7 +147,7 @@ class Employee(models.Model):
             return self.position_en
         elif get_language() == 'ru':
             return self.position_ru
-        return self.position_ru
+        return self.position_uz
 
     def __str__(self):
         return self.name_ru or self.name_en or self.name_uz or 'asd'
@@ -209,7 +209,7 @@ class Extra(models.Model):
             return self.content_en
         elif get_language() == 'ru':
             return self.content_ru
-        return self.content_ru
+        return self.content_uz
 
     def __str__(self):
         return self.title_ru or self.title_en or self.title_uz or 'asd'
@@ -232,7 +232,7 @@ class FaqCategory(models.Model):
             return self.name_en
         elif get_language() == 'ru':
             return self.name_ru
-        return self.name_ru
+        return self.name_uz
 
     def __str__(self):
         return self.name_ru or self.name_en or self.name_uz or 'asd'
@@ -420,7 +420,7 @@ class Slider(models.Model):
             return self.title_en
         elif get_language() == 'ru':
             return self.title_ru
-        return self.title_ru
+        return self.title_uz
 
     def __str__(self):
         return self.title_ru or self.title_en or self.title_uz or 'asd'

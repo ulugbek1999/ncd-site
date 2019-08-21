@@ -57,7 +57,7 @@ msgstr "Телефон"
 
 #: cms/models.py:163
 msgid "Licence agreement"
-msgstr ""
+msgstr "Litsenziya shartnomasi"
 
 #: cms/models.py:164 templates/employee/employee_profile.html:151
 #: templates/employee/update_operator_1.html:85
@@ -66,39 +66,42 @@ msgstr "Э-почта"
 
 #: cms/models.py:165
 msgid "Service top"
-msgstr ""
+msgstr "Высокое обслуживание"
+
+msgid "Vacancies"
+msgstr "Вакансии"
 
 #: directory/models.py:12
 msgid "City"
-msgstr ""
+msgstr "Город"
 
 #: directory/models.py:13
 msgid "Cities"
-msgstr ""
+msgstr "Города"
 
 #: directory/models.py:34
 msgid "District"
-msgstr ""
+msgstr "Район"
 
 #: directory/models.py:35
 msgid "Districts"
-msgstr ""
+msgstr "Районы"
 
 #: directory/models.py:56
 msgid "Country"
-msgstr ""
+msgstr "Государство"
 
 #: directory/models.py:57
 msgid "Countries"
-msgstr ""
+msgstr "Государства"
 
 #: directory/models.py:80
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: directory/models.py:81
 msgid "Languages"
-msgstr ""
+msgstr "Языки"
 
 #: directory/models.py:102 templates/employee/education_create.html:52
 #: templates/employee/employee_profile.html:268
@@ -111,7 +114,7 @@ msgstr "Тип учебного заведения"
 # msgstr ""
 #: directory/models.py:103
 msgid "Education types"
-msgstr ""
+msgstr "Виды обучения"
 
 #: employee/models.py:15
 msgid "Male"
@@ -123,7 +126,7 @@ msgstr "Женский"
 
 #: employee/models.py:91
 msgid "Employee"
-msgstr ""
+msgstr "Работник"
 
 #: employee/models.py:92 templates/index.html:85
 msgid "Employees"
@@ -131,11 +134,11 @@ msgstr "Аппликанты"
 
 #: employee/models.py:227
 msgid "Employee changes"
-msgstr ""
+msgstr "Изменения работника"
 
 #: employee/models.py:228
 msgid "Employees changes"
-msgstr ""
+msgstr "Изменения работников"
 
 #: employee/models2.py:333 employee/models2.py:398 employee/models2.py:468
 msgid "Not selected"
@@ -204,7 +207,7 @@ msgstr "Сын"
 
 #: employee/models2.py:474 templates/employee/relative_create.html:61
 #: templates/employee/update_operator_3_relative.html:61
-msgid "Dauther"
+msgid "Daughter"
 msgstr "Дочь"
 
 #: employee/models2.py:475 templates/employee/relative_create.html:62
@@ -219,23 +222,23 @@ msgstr "Дед"
 
 #: partners/models.py:64
 msgid "Partner employee request"
-msgstr ""
+msgstr "Запрос партнера на работника"
 
 #: partners/models.py:65
 msgid "Partner employee requests"
-msgstr ""
+msgstr "Запросы партнера на работника"
 
 #: settings/settings.py:118
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 #: settings/settings.py:119
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 #: settings/settings.py:120
 msgid "Uzbek"
-msgstr ""
+msgstr "Узбекский"
 
 #: templates/_base.html:81 templates/_base.html:90
 #: templates/employee/army_create.html:37
@@ -764,7 +767,7 @@ msgstr "Рост"
 #: templates/employee/update_operator_2.html:47
 #: templates/partner/bookmarks.html:64
 #: templates/partner/employee_detail.html:151
-msgid "sm"
+msgid "cm"
 msgstr "см"
 
 #: templates/employee/employee_profile.html:176
@@ -1199,7 +1202,7 @@ msgstr "ИНН"
 
 #: templates/partner/employees.html:72
 msgid "level"
-msgstr "уровен"
+msgstr "уровень"
 
 #: templates/partner/profile.html:15
 msgid "Partners personal area"
