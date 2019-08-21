@@ -49,6 +49,7 @@ urlpatterns += i18n_patterns(
     # employee create views end
 
     path('vacancies/', vacancies_views.VacanciesListPage.as_view(), name='vacancies'),
+    path('vacancies-detail/5', vacancies_views.VacanciesDetailPage.as_view(), name="vacancies-detail"),
 
     path('about/', core_views.AboutPage.as_view(), name='about'),
     path('docs/', core_views.DocsPage.as_view(), name='docs'),

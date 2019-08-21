@@ -1,0 +1,57 @@
+{% extends '_base.html' %}
+{% load static i18n %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/vacancies.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="banner-menu__top vacancies-image" style="background-image: url('{% static 'images/current-vacancies.png' %}">
+    <h2>{% trans 'Vacancies' %}</h2>
+</section>
+<section class="vacancy-details">
+    <div class="container">
+        <div class="vacancy-detail">
+            <h2 class="vacancy-header">Вакансия на должность мясника</h2>
+            <p class="main-info">
+                Объявляется набор на мясокомбинат на позицию мясника
+            </p>
+            <p><strong>Страна:</strong> Литва</p>
+            <hr>
+            <p>Набор ведется на следующие позиции:</p>
+            <ul>
+                <li>
+                    Обвальщик
+                </li>
+                <li>
+                    Забойщик
+                </li>
+            </ul>
+            <h3><strong>Требования:</strong></h3>
+            <ol>
+                <li>Оптимальный возраст 25-45 лет.</li>
+                <li>Умение работать в команде.</li>
+                <li>Температурный режим (-0- +35).</li>
+                <li>Не бояться работать на высоте (выше чем на 1.5 м).</li>
+                <li>Не бояться крови.</li>
+                <li>Умение заточить нож.</li>
+                <li>Опыт работы на линии убоя 1-2 г.</li>
+            </ol>
+            <h3><strong>График работы:</strong></h3>
+            <p>Продолжительность смены - 12 иногда 8 часов. 5 рабочих дней в неделю (вторник - суббота).</p>
+            <br>
+            <p><strong>Зарплата:</strong> 700-1000 Евро</p>
+            <br>
+            <h3>Контакты:</h3>
+            <p>+998994440577</p>
+            <p>+998951700577</p>
+        </div>
+            
+    </div>
+    
+</section>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
