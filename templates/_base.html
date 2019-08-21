@@ -38,7 +38,6 @@
         <link rel="stylesheet" href="{% static 'plugins/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css' %}">
         <link rel="stylesheet" href="{% static 'plugins/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css' %}">
         <script src="//code-ru1.jivosite.com/widget.js" jv-id="3zdLYbCwTT" async></script>
-
         {% block css %}
 
         {% endblock %}
@@ -162,7 +161,7 @@
                                         <ul class="nav navbar-nav navbar-right">
 
                                             <li class="">
-                                                <a href="#">
+                                                <a href="{% url 'vacancies' %}">
                                                     <span class="original">{% trans 'Vacancies' %}</span>
                                                     <span class="hover-menu">{% trans 'Vacancies' %}</span>
                                                 </a>

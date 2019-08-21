@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+{% load static i18n %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/vacancies.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="banner-menu__top vacancies-image" style="background-image: url('{% static 'images/current-vacancies.png' %}">
+        <h2>{% trans 'Vacancies' %}</h2>
+    </section>
+    <section class="vacancies-list">
+        <div class="container">
+            
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}

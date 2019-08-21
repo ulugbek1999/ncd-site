@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 
-from core.views import partner_views, core_views, employee_views
+from core.views import partner_views, core_views, employee_views, vacancies_views
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
@@ -47,6 +47,8 @@ urlpatterns += i18n_patterns(
     path('employee/profile/relative/create/', employee_views.RelativeCreateView.as_view(), name='employee.relative.create'),
     path('employee/profile/experience/create/', employee_views.ExperienceCreateView.as_view(), name='employee.experience.create'),
     # employee create views end
+
+    path('vacancies/', vacancies_views.VacanciesListPage.as_view(), name='vacancies'),
 
     path('about/', core_views.AboutPage.as_view(), name='about'),
     path('docs/', core_views.DocsPage.as_view(), name='docs'),
