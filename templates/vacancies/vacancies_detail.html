@@ -17,6 +17,7 @@
             {% if vacancy.location %}
             <p><strong>{% trans 'Country' %}:</strong> {{ vacancy.location }}</p>
             {% endif %}
+            <p><strong>{% trans 'Wages' %}:</strong>  {{ vacancy.wages }}</p>
             <hr>
             {{ vacancy.description | safe }}
         </div>
