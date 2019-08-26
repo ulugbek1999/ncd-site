@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'raven.contrib.django.raven_compat',
     'sorl.thumbnail',
     'pure_pagination',
-
+    'vacancy',
     'core',
     'directory',
     'employee',
@@ -118,6 +118,7 @@ LANGUAGES = (
     ('ru', _('Russian')),
     ('en', _('English')),
     ('uz', _('Uzbek')),
+    ('kz', _('Kazakh')),
 )
 
 LOCALE_PATHS = [
@@ -126,13 +127,13 @@ LOCALE_PATHS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

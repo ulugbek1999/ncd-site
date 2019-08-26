@@ -196,7 +196,7 @@ class EmployeePasswordUpdate(APIView):
         if not request.POST.get('password_confirm'):
             raise ValidationError({'Password': _('Password confirm is missing')})
         if not request.POST.get('password') == request.POST.get('password_confirm'):
-            raise ValidationError({'Password': _('Password didnt match')})
+            raise ValidationError({'Password': _('Passwords didn\'t match')})
         user = User.objects.get(id=id)
         if not user.check_password(request.POST.get('current_password')):
             raise ValidationError({'Password': _('Current password is incorrect')})

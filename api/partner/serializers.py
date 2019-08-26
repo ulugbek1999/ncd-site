@@ -58,7 +58,7 @@ class PartnerPasswordUpdateSerializer(Serializer):
         if not instance.user.check_password(current_password):
             raise ValidationError({'message': _('Current password is incorrect')})
         if not new_password == new_password_confirm:
-            raise ValidationError({'message': _('Passwords didnt match')})
+            raise ValidationError({'message': _('Passwords didn\'t match')})
         instance.user.set_password(new_password)
         instance.user.save()
         update_session_auth_hash(self.context['request'], instance.user)

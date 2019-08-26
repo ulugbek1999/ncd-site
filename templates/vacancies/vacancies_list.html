@@ -11,7 +11,7 @@
     </section>
     <section class="vacancies">
         <div class="container">
-            <form action="">
+            {% comment %} <form action="">
                 <div class="row">
                     <div class="col-md-3">
                         <select name="Country" class="form-control">
@@ -38,23 +38,32 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </form> {% endcomment %}
+            {% if vacancies %}
             <section class="vacancies-list">
-                <div class="vacancy row" data-id="5">
+                {% for vacancy in vacancies %}
+                <div class="vacancy row" data-id="{{ vacancy.id }}">
                     <div class="img-container col-md-3">
-                        <img src="{% static 'images/butcher.jpg' %}" alt="" class="vacancy-img">
+                    {% thumbnail vacancy.image "248x132" crop="center" as im  %}
+                        <img src="{{ im.url }}" alt="" width="{{ im.width }}" height="{{ im.height }}" class="vacancy-img">
+                    {% endthumbnail %}
                     </div>
+                    
                     <div class="info-container col-md-6">
-                        <h3 class="header-info">Вакансия на должность мясника</h3>
-                        <p class="specialty">Требуется мясник-забойщик со стажем работы 3-4 года</p>
-                        <p class="country">Литва, г. Утена</p>
-                        <p class="wage">Зарплата от 500$ до 1000$</p>
+                        <h3 class="header-info">{{ vacancy.title }}</h3>
+                        <p class="specialty">{{ vacancy.short_description | safe }}</p>
+                        <p class="country">{{ vacancy.location }}</p>
+                        <p class="wage">{{ vacancy.wages  }}</p>
                         
                     </div>
                     <img src="{% static 'images/like.png' %}" alt="" class="favourite">
-                    <p class="created-date">Создано 25.08.2019</p>
+                    <p class="created-date">{{ vacancy.was_published }}</p>
                 </div>
+                {% endfor %}
             </section>
+            {% else %}
+            <p>{% trans 'No vacancies are available' %}</p>
+            {% endif %}
         </div>
     </section>
 {% endblock %}
