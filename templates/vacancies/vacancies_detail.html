@@ -13,10 +13,13 @@
     <div class="container">
         <div class="vacancy-detail">
             <h2 class="vacancy-header">{{ vacancy.title }}</h2>
+            <br>
             <p>{{ vacancy.short_description | safe }}</p>
+            <br>
             {% if vacancy.location %}
             <p><strong>{% trans 'Country' %}:</strong> {{ vacancy.location }}</p>
             {% endif %}
+            <br>
             <p><strong>{% trans 'Wages' %}:</strong>  {{ vacancy.wages }}</p>
             <hr>
             {{ vacancy.description | safe }}
