@@ -44,7 +44,9 @@
                                     <form action="">
                                         <div class="form-title">
                                             <h2>{% trans 'Personal data' %}</h2>
+                                            {% if not user.username == 'demo' %}
                                             <a href="#editParolPopup" class="edit-parol__open">{%  trans 'Change password' %}</a>
+                                            {% endif %}
                                         </div>
                                         <div class="form-data">
                                             <div class="row">
