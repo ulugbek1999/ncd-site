@@ -160,3 +160,12 @@
     }
 }
 
+@media screen and (max-width: 767px) {
+    .form-control {
+        margin-bottom: 25px;
+    }
+
+    .filter {
+        float: right;
+    }
+}
