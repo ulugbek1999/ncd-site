@@ -19,7 +19,7 @@
 
 .vacancy {
     display: block;
-    height: 165px;
+    min-height: 165px;
     width: 100%;
     padding: 15px 20px;
     box-shadow: 0 0 10px lightgray;
@@ -42,16 +42,16 @@
 }
 
 .created-date {
-    float: right;
     position: relative;
-    top: 90%;
     margin-right: -15px;
-    top: 120px;
+    right: 12px;
+    top: 15px;
 }
 
 .vacancy-img {
     margin: 0 auto;
     width: 100%;
+    height: 132px;
     transition: transform 0.3s ease-in;
 }
 
@@ -91,10 +91,72 @@
 
 .favourite {
     width: 20px;
-    float: right;
     padding: 0;
+    position: relative;
+    left: 37px;
 }
 
 .wage {
     color: rgb(138, 138, 138);
 }
+
+.right-wrapper {
+    min-height: 140px;
+    height: 100%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 930px) {
+    .vacancy {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 770px) {
+     .vacancy-img {
+         width: 100%;
+         height: auto;
+     }
+     .img-container {
+         border: unset; 
+     }
+
+     .favourite {
+         height: 20px;
+     }
+
+
+     .right-wrapper {
+         float: unset;
+         justify-content: space-between;
+         flex-direction: row;
+         width: 100%;
+         height: unset;
+         min-height: unset;
+     }
+
+     .created-date {
+         float: right;  
+     }
+
+     .info-container {
+         margin-top: 25px;
+         margin-left: unset;
+     }
+
+     .favourite {
+         left: -5px;
+         top: 15px;
+     }
+}
+
+@media screen and (max-width: 600px) {
+    .vacancy {
+        width: 90%;
+        margin: 20px auto;
+    }
+}
+

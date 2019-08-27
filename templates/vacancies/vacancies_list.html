@@ -44,21 +44,23 @@
                 {% for vacancy in vacancies %}
                     {% if vacancy.status %}
                     <div class="vacancy row" data-id="{{ vacancy.id }}">
-                        <div class="img-container col-md-3">
-                        {% thumbnail vacancy.image "248x132" crop="center" as im  %}
+                        <div class="img-container col-md-3 col-sm-3">
+                        {% thumbnail vacancy.image "992x528" crop="center" as im  %}
                             <img src="{{ im.url }}" alt="" width="{{ im.width }}" height="{{ im.height }}" class="vacancy-img">
                         {% endthumbnail %}
                         </div>
                         
-                        <div class="info-container col-md-6">
+                        <div class="info-container col-md-6 col-sm-6">
                             <h3 class="header-info">{{ vacancy.title }}</h3>
                             <p class="specialty">{{ vacancy.short_description | safe }}</p>
                             <p class="country">{{ vacancy.location }}</p>
                             <p class="wage">{{ vacancy.wages  }}</p>
                             
                         </div>
-                        <img src="{% static 'images/like.png' %}" alt="" class="favourite">
-                        <p class="created-date">{{ vacancy.was_published }}</p>
+                        <div class="right-wrapper">
+                            <img src="{% static 'images/like.png' %}" alt="" class="favourite">
+                            <p class="created-date">{{ vacancy.was_published }}</p>
+                        </div>          
                     </div>
                     {% endif %}
                 {% endfor %}

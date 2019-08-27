@@ -2705,7 +2705,7 @@ msgstr "ru"
 
 #: templates/vacancies/vacancies_list.html:66
 msgid "No vacancies are available"
-msgstr ""
+msgstr "Нет доступных вакансий"
 
 #: vacancy/models.py:12
 msgid "Title (ru)"
