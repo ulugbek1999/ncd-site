@@ -1,0 +1,21 @@
+.pagination_main {
+    width: 100%;
+    text-align: center !important;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.pagination a, .current, .disabled {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    float: left;
+    padding: 6px 12px;
+}
+
+.pagination a {
+    color: #0f87ff;
+}
+
+.pagination a:hover{
+    text-decoration: none;
+}

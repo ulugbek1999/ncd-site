@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-26 14:17+0500\n"
+"POT-Creation-Date: 2019-08-23 21:49+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,23 +16,23 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: api/employee/views.py:195
 msgid "Password is missing"
-msgstr ""
+msgstr "qupııasóz engіzіlmedі"
 
 #: api/employee/views.py:197
 msgid "Password confirm is missing"
-msgstr ""
+msgstr "Qupııasózdі rastaý engіzіlmedі"
 
-#: api/employee/views.py:199 api/partner/serializers.py:61
+#: api/employee/views.py:199
 msgid "Passwords didn't match"
-msgstr ""
+msgstr "Qupııasózder sáıkes emes"
 
 #: api/employee/views.py:202 api/partner/serializers.py:59
 msgid "Current password is incorrect"
-msgstr ""
+msgstr "Bul qupııasóz durys emes"
+
 
 #: cms/models.py:165 templates/_base.html:309
 #: templates/employee/education_create.html:65
@@ -40,1574 +40,193 @@ msgstr ""
 #: templates/employee/update_operator_3_education.html:64
 #: templates/partner/employee_detail.html:242
 msgid "Address"
-msgstr ""
+msgstr "mekenjaı"
 
 #: cms/models.py:166 templates/_base.html:316
 #: templates/employee/employee_profile.html:147
 #: templates/employee/update_operator_1.html:81
 #: templates/partner/profile.html:67 templates/partner/register.html:71
 msgid "Phone"
-msgstr ""
+msgstr "Telefon nómiri"
 
 #: cms/models.py:167
-msgid "Licence agreement"
-msgstr ""
+msgid "License agreement"
+msgstr "Lıtsenzııalyq kelіsіm"
 
 #: cms/models.py:168 templates/employee/employee_profile.html:151
 #: templates/employee/update_operator_1.html:85
 msgid "Email"
-msgstr ""
+msgstr "Elektrondyq pochta"
 
 #: cms/models.py:169
 msgid "Service top"
-msgstr ""
-
-#: core/views/vacancies_views.py:15
-msgid "Missing title"
-msgstr ""
-
-#: core/views/vacancies_views.py:22
-msgid "No short description was provided!"
-msgstr ""
-
-#: core/views/vacancies_views.py:28
-msgid "Country is not given"
-msgstr ""
-
-#: core/views/vacancies_views.py:34
-msgid "Information on wages is not available"
-msgstr ""
+msgstr "Qyzmet kórsetý shyńy"
 
 #: directory/models.py:12
 msgid "City"
-msgstr ""
+msgstr "Qala"
 
 #: directory/models.py:13
 msgid "Cities"
-msgstr ""
+msgstr "Qalalar"
 
 #: directory/models.py:34
 msgid "District"
-msgstr ""
+msgstr "Aýdan"
 
 #: directory/models.py:35
 msgid "Districts"
-msgstr ""
+msgstr "Aýdandar"
 
-#: directory/models.py:56 templates/vacancies/vacancies_detail.html:18
+#: directory/models.py:56
 msgid "Country"
-msgstr ""
+msgstr "El"
 
 #: directory/models.py:57
 msgid "Countries"
-msgstr ""
+msgstr "Elder"
 
 #: directory/models.py:80
 msgid "Language"
-msgstr ""
+msgstr "Til"
 
 #: directory/models.py:81
 msgid "Languages"
-msgstr ""
+msgstr "Tilder"
 
 #: directory/models.py:102 templates/employee/education_create.html:52
 #: templates/employee/employee_profile.html:268
 #: templates/employee/update_operator_3_education.html:51
 #: templates/partner/employee_detail.html:234
 msgid "Education type"
-msgstr ""
+msgstr "Bіlіm túrі"
 
 #: directory/models.py:103
 msgid "Education types"
-msgstr ""
+msgstr "Bіlіm túrlerі"
 
 #: employee/models.py:15
 msgid "Male"
-msgstr ""
+msgstr "Erkek"
 
 #: employee/models.py:16
 msgid "Female"
-msgstr ""
+msgstr "Áıel"
 
 #: employee/models.py:91
 msgid "Employee"
-msgstr ""
+msgstr "Qyzmetker "
 
 #: employee/models.py:92 templates/index.html:85
 msgid "Employees"
-msgstr ""
+msgstr "Qyzmetkerler"
 
 #: employee/models.py:227
 msgid "Employee changes"
-msgstr ""
+msgstr "Qyzmetker ózgeredі"
 
 #: employee/models.py:228
 msgid "Employees changes"
-msgstr ""
+msgstr "Qyzmetkerler ózgeredі"
 
 #: employee/models2.py:333 employee/models2.py:398 employee/models2.py:468
 msgid "Not selected"
-msgstr ""
+msgstr "Tańdalmady"
 
 #: employee/models2.py:334 templates/employee/update_operator_3_family.html:54
 msgid "Not married"
-msgstr ""
+msgstr "Boıdaq"
 
 #: employee/models2.py:335 templates/employee/update_operator_3_family.html:55
 msgid "Married"
-msgstr ""
+msgstr "úılengen"
 
 #: employee/models2.py:336 templates/employee/update_operator_3_family.html:56
 msgid "Divorced"
-msgstr ""
+msgstr "Ajyrasqan"
 
 #: employee/models2.py:337 templates/employee/update_operator_3_family.html:57
 msgid "Widower"
-msgstr ""
+msgstr "Jesіr"
 
 #: employee/models2.py:338 templates/employee/update_operator_3_family.html:58
 msgid "Second marriage"
-msgstr ""
+msgstr "Ekіnshі neke"
 
 #: employee/models2.py:339 templates/employee/update_operator_3_family.html:59
 msgid "Civil marriage"
-msgstr ""
+msgstr "Azamattyq neke"
 
 #: employee/models2.py:399
 msgid "Best"
-msgstr ""
+msgstr "Eń jaqsy"
 
 #: employee/models2.py:400
 msgid "Good"
-msgstr ""
+msgstr "Jaqsy"
 
 #: employee/models2.py:401
 msgid "Not bad"
-msgstr ""
+msgstr "Jaman emes"
 
 #: employee/models2.py:469 templates/employee/relative_create.html:56
 #: templates/employee/update_operator_3_relative.html:56
 msgid "Wife"
-msgstr ""
+msgstr "Áıel"
 
 #: employee/models2.py:470 templates/employee/relative_create.html:57
 #: templates/employee/update_operator_3_relative.html:57
 msgid "Husband"
-msgstr ""
+msgstr "Kúıeý"
 
 #: employee/models2.py:471 templates/employee/relative_create.html:58
 #: templates/employee/update_operator_3_relative.html:58
 msgid "Mother"
-msgstr ""
+msgstr "Ana"
 
 #: employee/models2.py:472 templates/employee/relative_create.html:59
 #: templates/employee/update_operator_3_relative.html:59
 msgid "Father"
-msgstr ""
+msgstr "Áke"
 
 #: employee/models2.py:473 templates/employee/relative_create.html:60
 #: templates/employee/update_operator_3_relative.html:60
 msgid "Son"
-msgstr ""
+msgstr "Ul"
 
 #: employee/models2.py:474
-msgid "Dauther"
-msgstr ""
+msgid "Daugther"
+msgstr "Qyz"
 
 #: employee/models2.py:475 templates/employee/relative_create.html:62
 #: templates/employee/update_operator_3_relative.html:62
 msgid "Grandmother"
-msgstr ""
+msgstr "Áje"
 
 #: employee/models2.py:476 templates/employee/relative_create.html:63
 #: templates/employee/update_operator_3_relative.html:63
 msgid "Grandfather"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/contrib/messages/apps.py:7
-msgid "Messages"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/contrib/sitemaps/apps.py:7
-msgid "Site Maps"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/contrib/staticfiles/apps.py:9
-msgid "Static Files"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/contrib/syndication/apps.py:7
-msgid "Syndication"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/paginator.py:45
-msgid "That page number is not an integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/paginator.py:47
-msgid "That page number is less than 1"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/paginator.py:52
-msgid "That page contains no results"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:31
-msgid "Enter a valid value."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:102
-#: lib/python3.7/site-packages/django/forms/fields.py:658
-msgid "Enter a valid URL."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:154
-msgid "Enter a valid integer."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:165
-msgid "Enter a valid email address."
-msgstr ""
-
-#. Translators: "letters" means latin letters: a-z and A-Z.
-#: lib/python3.7/site-packages/django/core/validators.py:239
-msgid ""
-"Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:246
-msgid ""
-"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or "
-"hyphens."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:255
-#: lib/python3.7/site-packages/django/core/validators.py:275
-msgid "Enter a valid IPv4 address."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:260
-#: lib/python3.7/site-packages/django/core/validators.py:276
-msgid "Enter a valid IPv6 address."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:270
-#: lib/python3.7/site-packages/django/core/validators.py:274
-msgid "Enter a valid IPv4 or IPv6 address."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:304
-msgid "Enter only digits separated by commas."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:310
-#, python-format
-msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:342
-#, python-format
-msgid "Ensure this value is less than or equal to %(limit_value)s."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:351
-#, python-format
-msgid "Ensure this value is greater than or equal to %(limit_value)s."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:361
-#, python-format
-msgid ""
-"Ensure this value has at least %(limit_value)d character (it has "
-"%(show_value)d)."
-msgid_plural ""
-"Ensure this value has at least %(limit_value)d characters (it has "
-"%(show_value)d)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:376
-#, python-format
-msgid ""
-"Ensure this value has at most %(limit_value)d character (it has "
-"%(show_value)d)."
-msgid_plural ""
-"Ensure this value has at most %(limit_value)d characters (it has "
-"%(show_value)d)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:395
-#: lib/python3.7/site-packages/django/forms/fields.py:290
-#: lib/python3.7/site-packages/django/forms/fields.py:325
-msgid "Enter a number."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:397
-#, python-format
-msgid "Ensure that there are no more than %(max)s digit in total."
-msgid_plural "Ensure that there are no more than %(max)s digits in total."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:402
-#, python-format
-msgid "Ensure that there are no more than %(max)s decimal place."
-msgid_plural "Ensure that there are no more than %(max)s decimal places."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:407
-#, python-format
-msgid ""
-"Ensure that there are no more than %(max)s digit before the decimal point."
-msgid_plural ""
-"Ensure that there are no more than %(max)s digits before the decimal point."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:469
-#, python-format
-msgid ""
-"File extension '%(extension)s' is not allowed. Allowed extensions are: "
-"'%(allowed_extensions)s'."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:521
-msgid "Null characters are not allowed."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/base.py:1162
-#: lib/python3.7/site-packages/django/forms/models.py:756
-msgid "and"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/base.py:1164
-#, python-format
-msgid "%(model_name)s with this %(field_labels)s already exists."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:104
-#, python-format
-msgid "Value %(value)r is not a valid choice."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:105
-msgid "This field cannot be null."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:106
-msgid "This field cannot be blank."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:107
-#, python-format
-msgid "%(model_name)s with this %(field_label)s already exists."
-msgstr ""
-
-#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
-#. Eg: "Title must be unique for pub_date year"
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:111
-#, python-format
-msgid ""
-"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:128
-#, python-format
-msgid "Field of type: %(field_type)s"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:899
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1766
-msgid "Integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:903
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1764
-#, python-format
-msgid "'%(value)s' value must be an integer."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:978
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1844
-msgid "Big (8 byte) integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:990
-#, python-format
-msgid "'%(value)s' value must be either True or False."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:991
-#, python-format
-msgid "'%(value)s' value must be either True, False, or None."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:993
-msgid "Boolean (Either True or False)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1034
-#, python-format
-msgid "String (up to %(max_length)s)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1098
-msgid "Comma-separated integers"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1147
-#, python-format
-msgid ""
-"'%(value)s' value has an invalid date format. It must be in YYYY-MM-DD "
-"format."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1149
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1292
-#, python-format
-msgid ""
-"'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
-"date."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1152
-msgid "Date (without time)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1290
-#, python-format
-msgid ""
-"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
-"uuuuuu]][TZ] format."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1294
-#, python-format
-msgid ""
-"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-"[TZ]) but it is an invalid date/time."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1298
-msgid "Date (with time)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1446
-#, python-format
-msgid "'%(value)s' value must be a decimal number."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1448
-msgid "Decimal number"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1587
-#, python-format
-msgid ""
-"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
-"uuuuuu] format."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1590
-msgid "Duration"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1640
-msgid "Email address"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1663
-msgid "File path"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1729
-#, python-format
-msgid "'%(value)s' value must be a float."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1731
-msgid "Floating point number"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1860
-msgid "IPv4 address"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1891
-msgid "IP address"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1971
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1972
-#, python-format
-msgid "'%(value)s' value must be either None, True or False."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1974
-msgid "Boolean (Either True, False or None)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2009
-msgid "Positive integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2022
-msgid "Positive small integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2036
-#, python-format
-msgid "Slug (up to %(max_length)s)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2068
-msgid "Small integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2075
-msgid "Text"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2103
-#, python-format
-msgid ""
-"'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
-"format."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2105
-#, python-format
-msgid ""
-"'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
-"invalid time."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2108
-msgid "Time"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2234
-msgid "URL"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2256
-msgid "Raw binary data"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2306
-#, python-format
-msgid "'%(value)s' is not a valid UUID."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2308
-msgid "Universally unique identifier"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/files.py:221
-msgid "File"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/files.py:360
-msgid "Image"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:778
-#, python-format
-msgid "%(model)s instance with %(field)s %(value)r does not exist."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:780
-msgid "Foreign Key (type determined by related field)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:1007
-msgid "One-to-one relationship"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:1057
-#, python-format
-msgid "%(from)s-%(to)s relationship"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:1058
-#, python-format
-msgid "%(from)s-%(to)s relationships"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:1100
-msgid "Many-to-many relationship"
-msgstr ""
-
-#. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the label
-#: lib/python3.7/site-packages/django/forms/boundfield.py:146
-msgid ":?.!"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:53
-msgid "This field is required."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:245
-msgid "Enter a whole number."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:396
-#: lib/python3.7/site-packages/django/forms/fields.py:1126
-msgid "Enter a valid date."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:420
-#: lib/python3.7/site-packages/django/forms/fields.py:1127
-msgid "Enter a valid time."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:442
-msgid "Enter a valid date/time."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:471
-msgid "Enter a valid duration."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:472
-#, python-brace-format
-msgid "The number of days must be between {min_days} and {max_days}."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:532
-msgid "No file was submitted. Check the encoding type on the form."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:533
-msgid "No file was submitted."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:534
-msgid "The submitted file is empty."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:536
-#, python-format
-msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
-msgid_plural ""
-"Ensure this filename has at most %(max)d characters (it has %(length)d)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:539
-msgid "Please either submit a file or check the clear checkbox, not both."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:600
-#: lib/python3.7/site-packages/sorl/thumbnail/fields.py:45
-msgid ""
-"Upload a valid image. The file you uploaded was either not an image or a "
-"corrupted image."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:762
-#: lib/python3.7/site-packages/django/forms/fields.py:852
-#: lib/python3.7/site-packages/django/forms/models.py:1270
-#, python-format
-msgid "Select a valid choice. %(value)s is not one of the available choices."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:853
-#: lib/python3.7/site-packages/django/forms/fields.py:968
-#: lib/python3.7/site-packages/django/forms/models.py:1269
-msgid "Enter a list of values."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:969
-msgid "Enter a complete value."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:1185
-msgid "Enter a valid UUID."
-msgstr ""
-
-#. Translators: This is the default suffix added to form field labels
-#: lib/python3.7/site-packages/django/forms/forms.py:86
-msgid ":"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/forms.py:212
-#, python-format
-msgid "(Hidden field %(name)s) %(error)s"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/formsets.py:91
-msgid "ManagementForm data is missing or has been tampered with"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/formsets.py:338
-#, python-format
-msgid "Please submit %d or fewer forms."
-msgid_plural "Please submit %d or fewer forms."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/forms/formsets.py:345
-#, python-format
-msgid "Please submit %d or more forms."
-msgid_plural "Please submit %d or more forms."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/forms/formsets.py:371
-#: lib/python3.7/site-packages/django/forms/formsets.py:373
-msgid "Order"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/formsets.py:375
-msgid "Delete"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:751
-#, python-format
-msgid "Please correct the duplicate data for %(field)s."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:755
-#, python-format
-msgid "Please correct the duplicate data for %(field)s, which must be unique."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:761
-#, python-format
-msgid ""
-"Please correct the duplicate data for %(field_name)s which must be unique "
-"for the %(lookup)s in %(date_field)s."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:770
-msgid "Please correct the duplicate values below."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:1091
-msgid "The inline value did not match the parent instance."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:1158
-msgid "Select a valid choice. That choice is not one of the available choices."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:1272
-#, python-format
-msgid "\"%(pk)s\" is not a valid value."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/utils.py:162
-#, python-format
-msgid ""
-"%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
-"may be ambiguous or it may not exist."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:395
-msgid "Clear"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:396
-msgid "Currently"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:397
-msgid "Change"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:711
-msgid "Unknown"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:712
-#: templates/employee/employee_profile.html:211
-#: templates/employee/employee_profile.html:360
-#: templates/employee/update_operator_4.html:81
-#: templates/partner/employee_detail.html:198
-#: templates/partner/employee_detail.html:321
-msgid "Yes"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:713
-#: templates/employee/employee_profile.html:213
-#: templates/employee/employee_profile.html:362
-#: templates/employee/update_operator_3_family.html:66
-#: templates/employee/update_operator_4.html:87
-#: templates/partner/employee_detail.html:200
-#: templates/partner/employee_detail.html:321
-msgid "No"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:788
-msgid "yes,no,maybe"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:817
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:834
-#, python-format
-msgid "%(size)d byte"
-msgid_plural "%(size)d bytes"
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:836
-#, python-format
-msgid "%s KB"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:838
-#, python-format
-msgid "%s MB"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:840
-#, python-format
-msgid "%s GB"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:842
-#, python-format
-msgid "%s TB"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:844
-#, python-format
-msgid "%s PB"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:62
-msgid "p.m."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:63
-msgid "a.m."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:68
-msgid "PM"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:69
-msgid "AM"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:150
-msgid "midnight"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:152
-msgid "noon"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:6
-msgid "Monday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:6
-msgid "Tuesday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:6
-msgid "Wednesday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:6
-msgid "Thursday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:6
-msgid "Friday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:7
-msgid "Saturday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:7
-msgid "Sunday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:10
-msgid "Mon"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:10
-msgid "Tue"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:10
-msgid "Wed"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:10
-msgid "Thu"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:10
-msgid "Fri"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:11
-msgid "Sat"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:11
-msgid "Sun"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "January"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "February"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "March"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "April"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "May"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "June"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:15
-msgid "July"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:15
-msgid "August"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:15
-msgid "September"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:15
-msgid "October"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:15
-msgid "November"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:16
-msgid "December"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "jan"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "feb"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "mar"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "apr"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "may"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "jun"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "jul"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "aug"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "sep"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "oct"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "nov"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "dec"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:23
-msgctxt "abbrev. month"
-msgid "Jan."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:24
-msgctxt "abbrev. month"
-msgid "Feb."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:25
-msgctxt "abbrev. month"
-msgid "March"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:26
-msgctxt "abbrev. month"
-msgid "April"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:27
-msgctxt "abbrev. month"
-msgid "May"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:28
-msgctxt "abbrev. month"
-msgid "June"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:29
-msgctxt "abbrev. month"
-msgid "July"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:30
-msgctxt "abbrev. month"
-msgid "Aug."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:31
-msgctxt "abbrev. month"
-msgid "Sept."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:32
-msgctxt "abbrev. month"
-msgid "Oct."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:33
-msgctxt "abbrev. month"
-msgid "Nov."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:34
-msgctxt "abbrev. month"
-msgid "Dec."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:37
-msgctxt "alt. month"
-msgid "January"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:38
-msgctxt "alt. month"
-msgid "February"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:39
-msgctxt "alt. month"
-msgid "March"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:40
-msgctxt "alt. month"
-msgid "April"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:41
-msgctxt "alt. month"
-msgid "May"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:42
-msgctxt "alt. month"
-msgid "June"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:43
-msgctxt "alt. month"
-msgid "July"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:44
-msgctxt "alt. month"
-msgid "August"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:45
-msgctxt "alt. month"
-msgid "September"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:46
-msgctxt "alt. month"
-msgid "October"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:47
-msgctxt "alt. month"
-msgid "November"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:48
-msgctxt "alt. month"
-msgid "December"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/ipv6.py:8
-msgid "This is not a valid IPv6 address."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/text.py:67
-#, python-format
-msgctxt "String to return when truncating text"
-msgid "%(truncated_text)s…"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/text.py:233
-msgid "or"
-msgstr ""
-
-#. Translators: This string is used as a separator between list elements
-#: lib/python3.7/site-packages/django/utils/text.py:252
-#: lib/python3.7/site-packages/django/utils/timesince.py:83
-msgid ", "
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:9
-#, python-format
-msgid "%d year"
-msgid_plural "%d years"
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:10
-#, python-format
-msgid "%d month"
-msgid_plural "%d months"
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:11
-#, python-format
-msgid "%d week"
-msgid_plural "%d weeks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:12
-#, python-format
-msgid "%d day"
-msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:13
-#, python-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:14
-#, python-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:72
-msgid "0 minutes"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:110
-msgid "Forbidden"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:111
-msgid "CSRF verification failed. Request aborted."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:115
-msgid ""
-"You are seeing this message because this HTTPS site requires a 'Referer "
-"header' to be sent by your Web browser, but none was sent. This header is "
-"required for security reasons, to ensure that your browser is not being "
-"hijacked by third parties."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:120
-msgid ""
-"If you have configured your browser to disable 'Referer' headers, please re-"
-"enable them, at least for this site, or for HTTPS connections, or for 'same-"
-"origin' requests."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:124
-msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the 'Referrer-Policy: no-referrer' header, please remove them. The "
-"CSRF protection requires the 'Referer' header to do strict referer checking. "
-"If you're concerned about privacy, use alternatives like <a rel=\"noreferrer"
-"\" ...> for links to third-party sites."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:132
-msgid ""
-"You are seeing this message because this site requires a CSRF cookie when "
-"submitting forms. This cookie is required for security reasons, to ensure "
-"that your browser is not being hijacked by third parties."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:137
-msgid ""
-"If you have configured your browser to disable cookies, please re-enable "
-"them, at least for this site, or for 'same-origin' requests."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:142
-msgid "More information is available with DEBUG=True."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:41
-msgid "No year specified"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:61
-#: lib/python3.7/site-packages/django/views/generic/dates.py:111
-#: lib/python3.7/site-packages/django/views/generic/dates.py:208
-msgid "Date out of range"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:90
-msgid "No month specified"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:142
-msgid "No day specified"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:188
-msgid "No week specified"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:338
-#: lib/python3.7/site-packages/django/views/generic/dates.py:367
-#, python-format
-msgid "No %(verbose_name_plural)s available"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:589
-#, python-format
-msgid ""
-"Future %(verbose_name_plural)s not available because %(class_name)s."
-"allow_future is False."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:623
-#, python-format
-msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/detail.py:54
-#, python-format
-msgid "No %(verbose_name)s found matching the query"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/list.py:67
-msgid "Page is not 'last', nor can it be converted to an int."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/list.py:72
-#, python-format
-msgid "Invalid page (%(page_number)s): %(message)s"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/list.py:154
-#, python-format
-msgid "Empty list and '%(class_name)s.allow_empty' is False."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/static.py:40
-msgid "Directory indexes are not allowed here."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/static.py:42
-#, python-format
-msgid "\"%(path)s\" does not exist"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/static.py:80
-#, python-format
-msgid "Index of %(directory)s"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:6
-msgid "Django: the Web framework for perfectionists with deadlines."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:345
-#, python-format
-msgid ""
-"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:367
-msgid "The install worked successfully! Congratulations!"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:368
-#, python-format
-msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
-"\">DEBUG=True</a> is in your settings file and you have not configured any "
-"URLs."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:383
-msgid "Django Documentation"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:384
-msgid "Topics, references, &amp; how-to's"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:395
-msgid "Tutorial: A Polling App"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:396
-msgid "Get started with Django"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:407
-msgid "Django Community"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:408
-msgid "Connect, get help, or contribute"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:313
-msgid "usage: "
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:821
-msgid ".__call__() not defined"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1105
-#, python-format
-msgid "unknown parser %r (choices: %s)"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1146
-#, python-format
-msgid "argument \"-\" with mode %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1349
-#, python-format
-msgid "cannot merge actions - two groups are named %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1387
-msgid "'required' is an invalid argument for positionals"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1407
-#, python-format
-msgid "invalid option string %r: must start with a character %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1428
-#, python-format
-msgid "dest= is required for options like %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1445
-#, python-format
-msgid "invalid conflict_resolution value: %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1463
-#, python-format
-msgid "conflicting option string(s): %s"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1526
-msgid "mutually exclusive arguments must be optional"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1596
-msgid "positional arguments"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1597
-msgid "optional arguments"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1615
-msgid "show this help message and exit"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1621
-msgid "show program's version number and exit"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1653
-msgid "cannot have multiple subparser arguments"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1705
-#, python-format
-msgid "unrecognized arguments: %s"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1802
-#, python-format
-msgid "not allowed with argument %s"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1848
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1862
-#, python-format
-msgid "ignored explicit argument %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1952
-msgid "too few arguments"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1959
-#, python-format
-msgid "argument %s is required"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1973
-#, python-format
-msgid "one of the arguments %s is required"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2019
-msgid "expected one argument"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2020
-msgid "expected at most one argument"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2021
-msgid "expected at least one argument"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2023
-#, python-format
-msgid "expected %s argument(s)"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2080
-#, python-format
-msgid "ambiguous option: %s could match %s"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2142
-#, python-format
-msgid "unexpected option string: %s"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2243
-#, python-format
-msgid "%r is not callable"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2259
-#, python-format
-msgid "invalid %s value: %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2269
-#, python-format
-msgid "invalid choice: %r (choose from %s)"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2362
-#, python-format
-msgid "%s: error: %s\n"
-msgstr ""
-
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:8
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:10
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:17
-msgid "previous page"
-msgstr ""
-
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:26
-msgid "current page"
-msgstr ""
-
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:42
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:43
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:50
-msgid "next page"
-msgstr ""
-
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination.html:4
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination.html:6
-msgid "previous"
-msgstr ""
-
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination.html:20
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination.html:22
-msgid "next"
-msgstr ""
+msgstr "Ata"
 
 #: partners/models.py:64
 msgid "Partner employee request"
-msgstr ""
+msgstr "Seriktes qyzmetker ótіnіshi "
 
 #: partners/models.py:65
 msgid "Partner employee requests"
-msgstr ""
+msgstr "Seriktes qyzmetker ótіnіshteri"
 
 #: settings/settings.py:118
 msgid "Russian"
-msgstr ""
+msgstr "Orys"
 
 #: settings/settings.py:119
 msgid "English"
-msgstr ""
+msgstr "Aǵylshyn"
 
 #: settings/settings.py:120
 msgid "Uzbek"
-msgstr ""
-
-#: settings/settings.py:121
-msgid "Kazakh"
-msgstr ""
+msgstr "Ózbek"
 
 #: templates/_base.html:79 templates/_base.html:88
 #: templates/employee/army_create.html:37
@@ -1631,44 +250,44 @@ msgstr ""
 #: templates/partner/employee_detail.html:34
 #: templates/partner/employees.html:34 templates/partner/profile.html:36
 msgid "Logout"
-msgstr ""
+msgstr "Shyǵý"
 
 #: templates/_base.html:97 templates/_base.html:368
 msgid "Login"
-msgstr ""
+msgstr "Kіrý"
 
 #: templates/_base.html:103 templates/_base.html:366
 #: templates/partner/register.html:16
 msgid "Register partners"
-msgstr ""
+msgstr "Serіktesterdі tіrkeý"
 
 #: templates/_base.html:165 templates/_base.html:166
 #: templates/vacancies/vacancies_detail.html:10
 #: templates/vacancies/vacancies_list.html:10
 msgid "Vacancies"
-msgstr "H"
+msgstr "Bos jumys oryndary"
 
 #: templates/_base.html:171 templates/_base.html:172 templates/_base.html:256
 #: templates/index.html:101 templates/pages/about.html:11
 msgid "About company"
-msgstr ""
+msgstr "Kompanııa týraly"
 
 #: templates/_base.html:177 templates/_base.html:178 templates/_base.html:261
 #: templates/_base.html:292 templates/index.html:38
 #: templates/pages/cms_service_detail.html:11 templates/pages/services.html:11
 msgid "Services"
-msgstr ""
+msgstr "Qyzmetter"
 
 #: templates/_base.html:183 templates/_base.html:184 templates/_base.html:266
 #: templates/pages/docs.html:10
 msgid "Documents"
-msgstr ""
+msgstr "Qujattar"
 
 #: templates/_base.html:189 templates/_base.html:190 templates/_base.html:271
 #: templates/index.html:81 templates/pages/cms_partner_detail.html:11
 #: templates/pages/forpartners.html:11
 msgid "Partners"
-msgstr ""
+msgstr "Serіktester"
 
 #: templates/_base.html:195 templates/_base.html:196 templates/_base.html:276
 #: templates/employee/education_create.html:15
@@ -1677,73 +296,73 @@ msgstr ""
 #: templates/pages/education.html:10 templates/partner/employee_detail.html:226
 #: templates/partner/employees.html:72
 msgid "Education"
-msgstr ""
+msgstr "Bilim"
 
 #: templates/_base.html:201 templates/_base.html:202 templates/_base.html:281
 #: templates/pages/faq.html:11
 msgid "FAQ"
-msgstr ""
+msgstr "Jıі qoıylatyn suraqtar"
 
 #: templates/_base.html:207 templates/_base.html:208 templates/_base.html:286
 #: templates/pages/training.html:10
 msgid "Training"
-msgstr ""
+msgstr "Oqytý"
 
 #: templates/_base.html:240 templates/_base.html:246
 msgid "A different approach - a different future"
-msgstr ""
+msgstr "Basqa kózqaras - basqa bolashaq"
 
 #: templates/_base.html:252
 msgid "Menu"
-msgstr ""
+msgstr "Mázіr"
 
 #: templates/_base.html:305
 msgid "Contacts"
-msgstr ""
+msgstr "Baılanys málіmetterі"
 
 #: templates/_base.html:323 templates/partner/profile.html:73
 #: templates/partner/register.html:64
 msgid "E-mail"
-msgstr ""
+msgstr "Elektrondyq poshta"
 
 #: templates/_base.html:333
 msgid "All rights reserved"
-msgstr ""
+msgstr "Barlyq quqyqtar saqtalǵan"
 
 #: templates/_base.html:334
 msgid "Developed by"
-msgstr ""
+msgstr "Ázіrlegen : "
 
 #: templates/_base.html:351
 msgid "Authorization"
-msgstr ""
+msgstr "Avtorızatsııa"
 
 #: templates/_base.html:354
 msgid "Username"
-msgstr ""
+msgstr "Logın"
 
 #: templates/_base.html:359
 msgid "Password"
-msgstr ""
+msgstr "Qupııasóz"
 
 #: templates/_base.html:363
 msgid "Username or password entered incorrectly"
-msgstr ""
+msgstr "Login nemese qupııasóz qate engіzіldi"
 
 #: templates/_base.html:376
 msgid "Saved successfully"
-msgstr ""
+msgstr "Sáttі saqtaldy"
 
 #: templates/_base.html:377
 msgid "An error has occurred"
-msgstr ""
+msgstr "Qate oryn aldy"
 
 #: templates/employee/army_create.html:15
 #: templates/employee/employee_profile.html:349
 #: templates/employee/update_operator_3_army.html:15
 #: templates/partner/employee_detail.html:312
 msgid "Military service"
-msgstr ""
+msgstr "Áskerı qyzmet"
 
 #: templates/employee/army_create.html:21
 #: templates/employee/education_create.html:21
@@ -1766,7 +385,7 @@ msgstr ""
 #: templates/partner/employee_detail.html:19
 #: templates/partner/employees.html:19 templates/partner/profile.html:21
 msgid "Personal cabinet"
-msgstr ""
+msgstr "Jeke kabınet"
 
 #: templates/employee/army_create.html:26
 #: templates/employee/education_create.html:26
@@ -1789,7 +408,7 @@ msgstr ""
 #: templates/partner/employee_detail.html:24
 #: templates/partner/employees.html:24 templates/partner/profile.html:26
 msgid "My profile"
-msgstr ""
+msgstr "Menіń profılіm"
 
 #: templates/employee/army_create.html:29
 #: templates/employee/education_create.html:29
@@ -1809,7 +428,7 @@ msgstr ""
 #: templates/employee/update_operator_3_reward.html:29
 #: templates/employee/update_operator_4.html:27
 msgid "Settings"
-msgstr ""
+msgstr "Baptaýlar"
 
 #: templates/employee/army_create.html:32
 #: templates/employee/education_create.html:32
@@ -1829,21 +448,21 @@ msgstr ""
 #: templates/employee/update_operator_3_reward.html:32
 #: templates/employee/update_operator_4.html:30
 msgid "Courses"
-msgstr ""
+msgstr "Kýrstar"
 
 #: templates/employee/army_create.html:58
 #: templates/employee/employee_profile.html:366
 #: templates/employee/update_operator_3_army.html:57
 #: templates/partner/employee_detail.html:324
 msgid "Name of the military unit"
-msgstr ""
+msgstr "Áskerı bólіmnіń ataýy"
 
 #: templates/employee/army_create.html:62
 #: templates/employee/employee_profile.html:374
 #: templates/employee/update_operator_3_army.html:61
 #: templates/partner/employee_detail.html:332
 msgid "Region"
-msgstr ""
+msgstr "Aımaq"
 
 #: templates/employee/army_create.html:68
 #: templates/employee/education_create.html:71
@@ -1854,28 +473,28 @@ msgstr ""
 #: templates/partner/employee_detail.html:246
 #: templates/partner/employee_detail.html:340
 msgid "Specialty"
-msgstr ""
+msgstr "Mamandyq"
 
 #: templates/employee/army_create.html:74
 #: templates/employee/employee_profile.html:370
 #: templates/employee/update_operator_3_army.html:73
 #: templates/partner/employee_detail.html:328
 msgid "Military start date"
-msgstr ""
+msgstr "Áskerı qyzmettіń bastalý ýaqyty"
 
 #: templates/employee/army_create.html:78
 #: templates/employee/employee_profile.html:378
 #: templates/employee/update_operator_3_army.html:77
 #: templates/partner/employee_detail.html:336
 msgid "Military end date"
-msgstr ""
+msgstr "Áskerı qyzmettіń aıaqtalý ýaqyty"
 
 #: templates/employee/army_create.html:82
 #: templates/employee/employee_profile.html:386
 #: templates/employee/update_operator_3_army.html:81
 #: templates/partner/employee_detail.html:344
 msgid "Rank"
-msgstr ""
+msgstr "Áskerı ataq"
 
 #: templates/employee/army_create.html:90
 #: templates/employee/education_create.html:91
@@ -1891,7 +510,7 @@ msgstr ""
 #: templates/employee/update_operator_3_relative.html:100
 #: templates/employee/update_operator_3_reward.html:61
 msgid "Files"
-msgstr ""
+msgstr "Faıldar"
 
 #: templates/employee/army_create.html:90
 #: templates/employee/education_create.html:91
@@ -1910,7 +529,7 @@ msgstr ""
 #: templates/employee/update_operator_4.html:102
 #: templates/employee/update_operator_4.html:106
 msgid "not required"
-msgstr ""
+msgstr "mindetti emes"
 
 #: templates/employee/army_create.html:94
 #: templates/employee/education_create.html:95
@@ -1926,7 +545,7 @@ msgstr ""
 #: templates/employee/update_operator_3_relative.html:104
 #: templates/employee/update_operator_3_reward.html:65
 msgid "Upload files"
-msgstr ""
+msgstr "Faıldardy júkteý"
 
 #: templates/employee/army_create.html:109
 #: templates/employee/education_create.html:106
@@ -1948,7 +567,7 @@ msgstr ""
 #: templates/partner/bookmarks.html:138 templates/partner/bookmarks.html:169
 #: templates/partner/register.html:103 templates/partner/register.html:131
 msgid "Send"
-msgstr ""
+msgstr "Jiberý"
 
 #: templates/employee/army_create.html:217
 #: templates/employee/education_create.html:215
@@ -1969,7 +588,7 @@ msgstr ""
 #: templates/employee/update_operator_4.html:203
 #: templates/partner/bookmarks.html:231 templates/partner/register.html:275
 msgid "successfully sent"
-msgstr ""
+msgstr "sáttі túrde jіberіldі"
 
 #: templates/employee/education_create.html:54
 #: templates/employee/language_create.html:55
@@ -1985,94 +604,94 @@ msgstr ""
 #: templates/partner/employees.html:55 templates/partner/employees.html:75
 #: templates/partner/employees.html:88
 msgid "Select"
-msgstr ""
+msgstr "tańdaý"
 
 #: templates/employee/education_create.html:61
 #: templates/employee/employee_profile.html:272
 #: templates/employee/update_operator_3_education.html:60
 #: templates/partner/employee_detail.html:238
 msgid "Name"
-msgstr ""
+msgstr "Esim"
 
 #: templates/employee/education_create.html:77
 #: templates/employee/update_operator_3_education.html:76
 msgid "Education start date "
-msgstr ""
+msgstr "Oqýdyń bastalý ýaqyty"
 
 #: templates/employee/education_create.html:81
 #: templates/employee/employee_profile.html:288
 #: templates/employee/update_operator_3_education.html:80
 #: templates/partner/employee_detail.html:254
 msgid "Education end date"
-msgstr ""
+msgstr "Oqýdyń aıaqtalý ýaqyty"
 
 #: templates/employee/education_create.html:85
 #: templates/employee/employee_profile.html:292
 #: templates/employee/update_operator_3_education.html:84
 #: templates/partner/employee_detail.html:258
 msgid "Other tuition data"
-msgstr ""
+msgstr "Oqý týraly basqa málіmetter"
 
 #: templates/employee/employee_profile.html:13
 msgid "Personal account of the applicant"
-msgstr ""
+msgstr "Ótіnіsh berýshіnіń jeke kabınetі"
 
 #: templates/employee/employee_profile.html:94
 #: templates/employee/update_operator_1.html:13
 #: templates/partner/profile.html:46
 msgid "Personal data"
-msgstr ""
+msgstr "Jeke málіmetter"
 
 #: templates/employee/employee_profile.html:97
 #: templates/employee/update_operator_2.html:13
 msgid "Biometric data"
-msgstr ""
+msgstr "Bıometrııalyq málіmetter"
 
 #: templates/employee/employee_profile.html:100
 #: templates/employee/update_operator_4.html:13
 msgid "Additional data"
-msgstr ""
+msgstr "Qosymsha málіmetter"
 
 #: templates/employee/employee_profile.html:107
 #: templates/employee/update_operator_1.html:50
 #: templates/partner/employee_detail.html:115
 msgid "Fullname (Russian)"
-msgstr ""
+msgstr "Tolyq aty (Orys tіlіnde)"
 
 #: templates/employee/employee_profile.html:111
 #: templates/employee/update_operator_1.html:46
 msgid "Fullname (English)"
-msgstr ""
+msgstr "Tolyq aty (Aǵylshyn tіlіnde)"
 
 #: templates/employee/employee_profile.html:115
 #: templates/partner/employee_detail.html:119
 #: templates/partner/employees.html:52
 msgid "Gender"
-msgstr ""
+msgstr "Jynysy"
 
 #: templates/employee/employee_profile.html:119
 #: templates/employee/update_operator_1.html:54
 #: templates/partner/employee_detail.html:123
 msgid "Passport serial"
-msgstr ""
+msgstr "Pasport serııasy"
 
 #: templates/employee/employee_profile.html:123
 #: templates/employee/update_operator_1.html:58
 #: templates/partner/employee_detail.html:127
 msgid "Passport given date"
-msgstr ""
+msgstr "Pasport berіlgen kezі"
 
 #: templates/employee/employee_profile.html:127
 #: templates/employee/update_operator_1.html:62
 #: templates/partner/employee_detail.html:131
 msgid "Passport expires"
-msgstr ""
+msgstr "Pasport merzіmі aıaqtalatyn kez"
 
 #: templates/employee/employee_profile.html:131
 #: templates/employee/update_operator_1.html:68
 #: templates/partner/employee_detail.html:135
 msgid "Register number"
-msgstr ""
+msgstr "Tіrkeý nómіrі"
 
 #: templates/employee/employee_profile.html:135
 #: templates/employee/employee_profile.html:495
@@ -2080,13 +699,13 @@ msgstr ""
 #: templates/employee/update_operator_3_relative.html:72
 #: templates/partner/employee_detail.html:139
 msgid "Birth date"
-msgstr ""
+msgstr "Týǵan kezі"
 
 #: templates/employee/employee_profile.html:139
 #: templates/employee/update_operator_1.html:73
 #: templates/partner/employee_detail.html:143
 msgid "Birth place"
-msgstr ""
+msgstr "Týǵan jerі"
 
 #: templates/employee/employee_profile.html:143
 #: templates/employee/employee_profile.html:507
@@ -2095,7 +714,7 @@ msgstr ""
 #: templates/employee/update_operator_3_relative.html:89
 #: templates/partner/employee_detail.html:147
 msgid "Living address"
-msgstr ""
+msgstr "Turǵylyqty meken jaıy"
 
 #: templates/employee/employee_profile.html:155
 #: templates/employee/employee_profile.html:196
@@ -2108,25 +727,25 @@ msgstr ""
 #: templates/employee/employee_profile.html:521
 #: templates/employee/employee_profile.html:572
 msgid "Edit"
-msgstr ""
+msgstr "Óńdeý"
 
 #: templates/employee/employee_profile.html:160
 #: templates/employee/update_operator_2.html:69
 #: templates/partner/employee_detail.html:163
 msgid "Appearance"
-msgstr ""
+msgstr "Syrtqy kelbetі"
 
 #: templates/employee/employee_profile.html:164
 #: templates/employee/update_operator_2.html:90
 #: templates/partner/employee_detail.html:167
 msgid "Neatness"
-msgstr ""
+msgstr "Uqyptylyq"
 
 #: templates/employee/employee_profile.html:168
 #: templates/employee/update_operator_2.html:111
 #: templates/partner/employee_detail.html:171
 msgid "Skin"
-msgstr ""
+msgstr "Terі"
 
 #: templates/employee/employee_profile.html:172
 #: templates/employee/update_operator_2.html:47
@@ -2134,35 +753,35 @@ msgstr ""
 #: templates/partner/employee_detail.html:151
 #: templates/partner/employees.html:64 templates/partner/employees.html:135
 msgid "Height"
-msgstr ""
+msgstr "Boıy"
 
 #: templates/employee/employee_profile.html:172
 msgid "cm"
-msgstr ""
+msgstr "cm"
 
 #: templates/employee/employee_profile.html:176
 #: templates/employee/update_operator_2.html:51
 #: templates/partner/employee_detail.html:155
 msgid "Weight"
-msgstr ""
+msgstr "Salmaǵy"
 
 #: templates/employee/employee_profile.html:176
 #: templates/employee/update_operator_2.html:51
 #: templates/partner/employee_detail.html:155
 msgid "kg"
-msgstr ""
+msgstr "kg"
 
 #: templates/employee/employee_profile.html:180
 #: templates/employee/update_operator_2.html:55
 #: templates/partner/employee_detail.html:176
 msgid "Fatness"
-msgstr ""
+msgstr "Semіzdіk"
 
 #: templates/employee/employee_profile.html:184
 #: templates/employee/update_operator_2.html:132
 #: templates/partner/employee_detail.html:180
 msgid "Blood group"
-msgstr ""
+msgstr "Qan toby"
 
 #: templates/employee/employee_profile.html:188
 #: templates/employee/employee_profile.html:192
@@ -2171,55 +790,55 @@ msgstr ""
 #: templates/partner/employee_detail.html:184
 #: templates/partner/employee_detail.html:188
 msgid "Vision"
-msgstr ""
+msgstr "Kórý qabіletі"
 
 #: templates/employee/employee_profile.html:201
 #: templates/employee/update_operator_4.html:48
 #: templates/partner/employee_detail.html:192
 msgid "Desired countries"
-msgstr ""
+msgstr "Qalaýly elder"
 
 #: templates/employee/employee_profile.html:205
-#: templates/employee/update_operator_4.html:114
+#: templates/employee/update_operator_4.html:114 vacancy/models.py:66
 msgid "Wages"
-msgstr ""
+msgstr "Jalaqy"
 
 #: templates/employee/employee_profile.html:209
 #: templates/employee/update_operator_4.html:77
 #: templates/partner/employee_detail.html:196
 msgid "Ready for university"
-msgstr ""
+msgstr "Ýnıversıtetke daıyn"
 
 #: templates/employee/employee_profile.html:217
 #: templates/employee/update_operator_4.html:63
 msgid "Criminal number"
-msgstr ""
+msgstr "Qylmystyq nómіr"
 
 #: templates/employee/employee_profile.html:221
 msgid "Criminal issue"
-msgstr ""
+msgstr "Qylmystyq másele"
 
 #: templates/employee/employee_profile.html:225
 msgid "Criminal comment"
-msgstr ""
+msgstr "Qylmystyq túsіnіgі"
 
 #: templates/employee/employee_profile.html:229
 #: templates/employee/update_operator_4.html:98
 #: templates/partner/employee_detail.html:204
 msgid "Special signs"
-msgstr ""
+msgstr "Erekshe belgіler"
 
 #: templates/employee/employee_profile.html:233
 #: templates/employee/update_operator_4.html:102
 #: templates/partner/employee_detail.html:208
 msgid "Hobby"
-msgstr ""
+msgstr "Hobbı"
 
 #: templates/employee/employee_profile.html:237
 #: templates/employee/update_operator_4.html:106
 #: templates/partner/employee_detail.html:212
 msgid "Other"
-msgstr ""
+msgstr "Basqa"
 
 #: templates/employee/employee_profile.html:263
 #: templates/employee/employee_profile.html:318
@@ -2229,12 +848,12 @@ msgstr ""
 #: templates/employee/employee_profile.html:482
 #: templates/employee/employee_profile.html:533
 msgid "Add"
-msgstr ""
+msgstr "Qosý"
 
 #: templates/employee/employee_profile.html:284
 #: templates/partner/employee_detail.html:250
 msgid "Education start date"
-msgstr ""
+msgstr "Oqýdyń bastalý ýaqyty"
 
 #: templates/employee/employee_profile.html:314
 #: templates/employee/language_create.html:17
@@ -2242,40 +861,40 @@ msgstr ""
 #: templates/partner/employee_detail.html:279
 #: templates/partner/employees.html:85
 msgid "Knowledge of languages"
-msgstr ""
+msgstr "Tіlderdі bіlý"
 
 #: templates/employee/employee_profile.html:323
 #: templates/employee/language_create.html:53
 #: templates/employee/update_operator_3_language.html:53
 #: templates/partner/employee_detail.html:287
 msgid "Language name"
-msgstr ""
+msgstr "Tіldіń aty"
 
 #: templates/employee/employee_profile.html:327
 #: templates/employee/language_create.html:62
 #: templates/employee/update_operator_3_language.html:62
 #: templates/partner/employee_detail.html:291
 msgid "Level of knowledge"
-msgstr ""
+msgstr "Meńgerý deńgeıі"
 
 #: templates/employee/employee_profile.html:358
 #: templates/partner/employee_detail.html:320
 msgid "Military duty"
-msgstr ""
+msgstr "Áskerı mіndet"
 
 #: templates/employee/employee_profile.html:408
 #: templates/employee/reward_create.html:15
 #: templates/employee/update_operator_3_reward.html:15
 #: templates/partner/employee_detail.html:365
 msgid "Received Awards"
-msgstr ""
+msgstr "Alynǵan marapattar"
 
 #: templates/employee/employee_profile.html:417
 #: templates/employee/reward_create.html:51
 #: templates/employee/update_operator_3_reward.html:50
 #: templates/partner/employee_detail.html:373
 msgid "Reward"
-msgstr ""
+msgstr "Syıaqy"
 
 #: templates/employee/employee_profile.html:421
 #: templates/employee/reward_create.html:55
@@ -2283,7 +902,7 @@ msgstr ""
 #: templates/employee/update_operator_4.html:71
 #: templates/partner/employee_detail.html:377
 msgid "Comment"
-msgstr ""
+msgstr "Túsіnіkteme"
 
 #: templates/employee/employee_profile.html:443
 #: templates/employee/employee_profile.html:452
@@ -2292,37 +911,37 @@ msgstr ""
 #: templates/partner/employee_detail.html:398
 #: templates/partner/employee_detail.html:406
 msgid "Family status"
-msgstr ""
+msgstr "Otbasylyq jaǵdaı"
 
 #: templates/employee/employee_profile.html:456
 #: templates/employee/update_operator_3_family.html:63
 #: templates/partner/employee_detail.html:410
 msgid "Amount of children"
-msgstr ""
+msgstr "Balalar sany"
 
 #: templates/employee/employee_profile.html:478
 #: templates/employee/relative_create.html:15
 #: templates/employee/update_operator_3_relative.html:15
 msgid "Close relatives"
-msgstr ""
+msgstr "Jaqyn týystar"
 
 #: templates/employee/employee_profile.html:487
 #: templates/employee/relative_create.html:53
 #: templates/employee/update_operator_3_relative.html:53
 msgid "Relation degree"
-msgstr ""
+msgstr "Qarym-qatynas deńgeıі"
 
 #: templates/employee/employee_profile.html:491
 #: templates/employee/relative_create.html:67
 #: templates/employee/update_operator_3_relative.html:67
 msgid "Fullname relative"
-msgstr ""
+msgstr "Týystyń tolyq aty"
 
 #: templates/employee/employee_profile.html:499
 #: templates/employee/relative_create.html:78
 #: templates/employee/update_operator_3_relative.html:78
 msgid "Place of study, work"
-msgstr ""
+msgstr "Oqý, jumys oryndary"
 
 #: templates/employee/employee_profile.html:503
 #: templates/employee/employee_profile.html:550
@@ -2332,379 +951,373 @@ msgstr ""
 #: templates/employee/update_operator_3_relative.html:85
 #: templates/partner/employee_detail.html:451
 msgid "Position"
-msgstr ""
+msgstr "Laýazymy"
 
 #: templates/employee/employee_profile.html:529
 #: templates/employee/experience_create.html:15
 #: templates/employee/update_operator_3_experience.html:15
 #: templates/partner/employee_detail.html:431
 msgid "Work experience"
-msgstr ""
+msgstr "Jumys tájіrıbesі"
 
 #: templates/employee/employee_profile.html:538
 #: templates/employee/experience_create.html:53
 #: templates/employee/update_operator_3_experience.html:52
 #: templates/partner/employee_detail.html:439
 msgid "Organization"
-msgstr ""
+msgstr "Uıym"
 
 #: templates/employee/employee_profile.html:542
 #: templates/employee/experience_create.html:57
 #: templates/employee/update_operator_3_experience.html:56
 #: templates/partner/employee_detail.html:443
 msgid "Work start date"
-msgstr ""
+msgstr "Jumystyń bastalý kezі"
 
 #: templates/employee/employee_profile.html:546
 #: templates/employee/experience_create.html:61
 #: templates/employee/update_operator_3_experience.html:60
 #: templates/partner/employee_detail.html:447
 msgid "Work end date"
-msgstr ""
+msgstr "Jumystyń aıaqtalý kezі"
 
 #: templates/employee/employee_profile.html:554
 #: templates/employee/experience_create.html:71
 #: templates/employee/update_operator_3_experience.html:70
 #: templates/partner/employee_detail.html:455
 msgid "Subdivision"
-msgstr ""
+msgstr "Bólіm"
 
 #: templates/employee/employee_profile.html:558
 #: templates/employee/experience_create.html:75
 #: templates/employee/update_operator_3_experience.html:74
 #: templates/partner/employee_detail.html:459
 msgid "Location / Address"
-msgstr ""
+msgstr "Ornalasqan jerі/Mekenjaıy"
 
 #: templates/employee/employee_profile.html:580
 msgid "Send for review"
-msgstr ""
+msgstr "Qaraýǵa jіberý"
 
 #: templates/employee/employee_profile.html:586
 msgid "Attention"
-msgstr ""
+msgstr "Nazar aýdaryńyz"
 
 #: templates/employee/language_create.html:65
 #: templates/employee/update_operator_3_language.html:65
 msgid "Elementary"
-msgstr ""
+msgstr "Bastaýysh"
 
 #: templates/employee/language_create.html:66
 #: templates/employee/update_operator_3_language.html:66
 msgid "Intermediate"
-msgstr ""
+msgstr "Ortasha"
 
 #: templates/employee/language_create.html:67
 #: templates/employee/update_operator_3_language.html:67
 msgid "Advanced"
-msgstr ""
+msgstr "Jetіk"
 
 #: templates/employee/relative_create.html:61
 #: templates/employee/update_operator_3_relative.html:61
 msgid "Daughter"
-msgstr ""
+msgstr "Qyz"
 
 #: templates/employee/settings.html:13 templates/partner/profile.html:47
 #: templates/partner/profile.html:122
 msgid "Change password"
-msgstr ""
+msgstr "Qupııasózdi ózgertý"
 
 #: templates/employee/settings.html:46 templates/partner/profile.html:128
 msgid "Old password"
-msgstr ""
+msgstr "Eskі qupııasóz"
 
 #: templates/employee/settings.html:50 templates/partner/profile.html:134
 msgid "New password"
-msgstr ""
+msgstr "Jańa qupııasóz"
 
 #: templates/employee/settings.html:54 templates/partner/profile.html:140
 msgid "Confirm the password"
-msgstr ""
+msgstr "Qupııasózdі rastaý"
 
 #: templates/employee/settings.html:60 templates/partner/profile.html:104
 #: templates/partner/profile.html:147
 msgid "Save"
-msgstr ""
+msgstr "Saqtaý"
 
 #: templates/employee/update_operator_2.html:47
 #: templates/partner/bookmarks.html:64
 #: templates/partner/employee_detail.html:151
 msgid "sm"
-msgstr ""
+msgstr "sm"
 
 #: templates/employee/update_operator_2.html:159
 msgid "Blood rhesus"
-msgstr ""
+msgstr "Қан резусы"
 
 #: templates/employee/update_operator_3_family.html:71
 msgid "More than 4"
-msgstr ""
+msgstr "4-ten kóp"
 
 #: templates/employee/update_operator_4.html:67
 msgid "Criminal date"
-msgstr ""
+msgstr "Qylmys jasalǵan kún"
 
 #: templates/employee/update_operator_4.html:71
 msgid "not_required"
-msgstr ""
+msgstr "mindetti_emes"
 
 #: templates/employee/update_operator_4.html:118
 msgid "500$ less"
-msgstr ""
+msgstr "500$ jáne tómen"
 
 #: templates/employee/update_operator_4.html:124
 msgid "500$-1000$"
-msgstr ""
+msgstr "500$-1000$"
 
 #: templates/employee/update_operator_4.html:130
 msgid "1000$-1500$"
-msgstr ""
+msgstr "1000$-1500$"
 
 #: templates/employee/update_operator_4.html:136
 msgid "1500$-2000$"
-msgstr ""
+msgstr "1500$-2000$"
 
 #: templates/employee/update_operator_4.html:142
 msgid "2500$ more"
-msgstr ""
+msgstr "2500$ jáne joǵary"
 
 #: templates/index.html:76
 msgid "Statistics"
-msgstr ""
+msgstr "Statıstıka"
 
 #: templates/index.html:89
 msgid "Years of experience"
-msgstr ""
+msgstr "Jumys tájіrıbesі"
 
 #: templates/index.html:112 templates/partner/bookmarks.html:71
 #: templates/partner/employees.html:142
 msgid "Read more"
-msgstr ""
+msgstr "Tolyǵyraq oqý"
 
 #: templates/index.html:133 templates/pages/reviews.html:12
 msgid "Reviews"
-msgstr ""
+msgstr "Pіkіrler"
 
 #: templates/index.html:165
 msgid "Our partners"
-msgstr ""
+msgstr "Bіzdіń serіktesterіmіz"
 
 #: templates/index.html:197
 msgid "Our employees"
-msgstr ""
+msgstr "Bіzdіń qyzmetkerlerіmіz"
 
 #: templates/pages/faq.html:19 templates/pages/faq.html:20
 #: templates/partner/employees.html:98
 msgid "Search"
-msgstr ""
+msgstr "Izdeý"
 
 #: templates/pages/training.html:17
 msgid "Learning platform under development"
-msgstr ""
+msgstr "Oqý platformasy ázіrlenýde"
 
 #: templates/partner/bookmarks.html:16 templates/partner/bookmarks.html:33
 #: templates/partner/employee_detail.html:30
 #: templates/partner/employees.html:30 templates/partner/profile.html:32
 msgid "My list"
-msgstr ""
+msgstr "Menіń tіzіmіm"
 
 #: templates/partner/bookmarks.html:30
 #: templates/partner/employee_detail.html:27
 #: templates/partner/employees.html:13 templates/partner/employees.html:27
 #: templates/partner/profile.html:29
 msgid "List of applicants"
-msgstr ""
+msgstr "Úmіtkerler tіzіmі"
 
 #: templates/partner/bookmarks.html:61 templates/partner/employees.html:46
 #: templates/partner/employees.html:132
 msgid "Age"
-msgstr ""
+msgstr "Jas"
 
 #: templates/partner/bookmarks.html:67 templates/partner/employees.html:138
 msgid "Rating"
-msgstr ""
+msgstr "Reıtıng"
 
 #: templates/partner/bookmarks.html:74
 msgid "Employed"
-msgstr ""
+msgstr "Jumyspen qamtylǵan"
 
 #: templates/partner/bookmarks.html:76
 msgid "Not employed"
-msgstr ""
+msgstr "Jumyssyz"
 
 #: templates/partner/bookmarks.html:145
 msgid "Request"
-msgstr ""
+msgstr "Ótіnіsh"
 
 #: templates/partner/bookmarks.html:155
 msgid "writing wet stamp"
-msgstr ""
+msgstr "dymqyl shtamp jazý"
 
 #: templates/partner/bookmarks.html:161
 msgid "by mailing or online"
-msgstr ""
+msgstr "poshta arqyly nemese jelі arqyly"
 
 #: templates/partner/bookmarks.html:252
-msgid "Do you really want to remove the applicant from the list of favorites"
-msgstr ""
+msgid "Do you really want to remove the applicant from the list of favorites?"
+msgstr "Ótіnіsh berýshіnі shynymen de tańdaýlylar tіzіmіnen alyp tastaǵyńyz kele me?"
 
 #: templates/partner/employee_detail.html:13
 msgid "Applicant data"
-msgstr ""
+msgstr "Ótіnіsh berýshі týraly málіmetter"
 
 #: templates/partner/employee_detail.html:111
 msgid "Reg.number"
-msgstr ""
+msgstr "Tіrkeý nómіrі"
 
 #: templates/partner/employees.html:72
 msgid "level"
-msgstr ""
+msgstr "deńgeı"
 
 #: templates/partner/profile.html:15
 msgid "Partner's personal area"
-msgstr ""
+msgstr "Serіktestіń jeke aımaǵy"
 
 #: templates/partner/profile.html:53 templates/partner/profile.html:59
 #: templates/partner/register.html:46 templates/partner/register.html:54
 msgid "Fullname"
-msgstr ""
+msgstr "Tolyq aty"
 
 #: templates/partner/profile.html:53 templates/partner/register.html:46
 msgid "first head"
-msgstr ""
+msgstr "bіrіnshі bastyq"
 
 #: templates/partner/profile.html:59 templates/partner/register.html:54
 msgid "responsible person"
-msgstr ""
+msgstr "jaýapty adam"
 
 #: templates/partner/profile.html:82 templates/partner/register.html:28
 msgid "Subject name"
-msgstr ""
+msgstr "Taqyryp ataýy"
 
 #: templates/partner/profile.html:88 templates/partner/register.html:85
 msgid "Number of employees"
-msgstr ""
+msgstr "Qyzmetkerler sany"
 
 #: templates/partner/profile.html:96 templates/partner/register.html:79
 msgid "Legal address"
-msgstr ""
+msgstr "Zańdy meken-jaıy"
 
 #: templates/partner/register.html:20
 msgid "Registration form"
-msgstr ""
+msgstr "Tіrkeý formasy"
 
 #: templates/partner/register.html:27
 msgid ""
 "Firm, organization, institution, private entrepreneur or full name of "
 "individual"
-msgstr ""
+msgstr "Fırma, uıym, mekeme, jeke kásіpker nemese"
+"jeke adamnyń  tolyq aty "
 
 #: templates/partner/register.html:36
 msgid ""
 "TIN, Social Security No., or other identification information that confirms "
 "the state registration of the entity as a legal entity if it is"
-msgstr ""
+msgstr "STTN, áleýmettіk saqtandyrý nómіrі nemese eger zańdy"
+"tulǵabolsa,zańdy tulǵanyń memlekettіk sýbekt retinde tіrkelgendigin rastaıtyn jeke basyn kýálandyratyn aqparat"
 
 #: templates/partner/register.html:37
 msgid "Registration number"
-msgstr ""
+msgstr "Tіrkeý nómіrі"
 
 #: templates/partner/register.html:53
 msgid "Responsible person for hiring migrant workers"
-msgstr ""
+msgstr "Eńbekshі-mıgranttardy jaldaý úshіn jaýapty tulǵa"
 
 #: templates/partner/register.html:111
 msgid "Terms of use"
-msgstr ""
+msgstr "Qoldaný erejelerі"
 
 #: templates/partner/register.html:123
 msgid "I accept the terms of the partner agreement"
-msgstr ""
+msgstr "Men serіktestіk kelіsіm sharttaryn qabyldaımyn"
 
 #: templates/partner/register.html:169
 msgid "en"
-msgstr ""
+msgstr "en"
 
-#: templates/vacancies/vacancies_list.html:66
-msgid "No vacancies are available"
-msgstr ""
+#: vacancy/models.py:8
+msgid "Title (ru)"
+msgstr "Ataý(ru)"
+
+#: vacancy/models.py:9
+msgid "Title (en)"
+msgstr "Ataý (en) "
+
+#: vacancy/models.py:10
+msgid "Title (uz)"
+msgstr "Ataý (uz)"
+
+#: vacancy/models.py:11
+msgid "Title (kz)"
+msgstr "Ataý (kz)"
 
 #: vacancy/models.py:12
-msgid "Title (ru)"
-msgstr ""
+msgid "Short description (ru)"
+msgstr "Qysqasha sıpattama (ru)"
 
 #: vacancy/models.py:13
-msgid "Title (en)"
-msgstr ""
+msgid "Short description (en)"
+msgstr "Qysqasha sıpattama (en)"
 
 #: vacancy/models.py:14
-msgid "Title (uz)"
-msgstr ""
+msgid "Short description (uz)"
+msgstr "Qysqasha sıpattama (uz)"
 
 #: vacancy/models.py:15
-msgid "Title (kz)"
-msgstr ""
-
-#: vacancy/models.py:16
-msgid "Short description (ru)"
-msgstr ""
-
-#: vacancy/models.py:17
-msgid "Short description (en)"
-msgstr ""
-
-#: vacancy/models.py:18
-msgid "Short description (uz)"
-msgstr ""
-
-#: vacancy/models.py:19
 msgid "Short description (kz)"
-msgstr ""
+msgstr "Qysqasha sıpattama (kz)"
+
+#: vacancy/models.py:57
+msgid "Created"
+msgstr "Jasaldy"
+
+#: vacancy/models.py:58
+msgid "Location (ru)"
+msgstr "Ornalasqan jerі(ru)"
+
+#: vacancy/models.py:59
+msgid "Location (uz)"
+msgstr "Ornalasqan jerі(uz)"
+
+#: vacancy/models.py:60
+msgid "Location (kz)"
+msgstr "Ornalasqan jerі(kz)"
 
 #: vacancy/models.py:61
-msgid "Created"
-msgstr ""
+msgid "Location (en)"
+msgstr "Ornalasqan jeri(en)"
 
 #: vacancy/models.py:62
-msgid "Location (ru)"
-msgstr ""
+msgid "Extra (ru)"
+msgstr "Qosymsha (ru)"
 
 #: vacancy/models.py:63
-msgid "Location (uz)"
-msgstr ""
+msgid "Extra (en)"
+msgstr "Qosymsha (en)"
 
 #: vacancy/models.py:64
-msgid "Location (kz)"
-msgstr ""
+msgid "Extra (uz)"
+msgstr "Qosymsha (uz)"
 
 #: vacancy/models.py:65
-msgid "Location (en)"
-msgstr ""
+msgid "Extra (kz)"
+msgstr "Qosymsha (kz)"
 
-#: vacancy/models.py:66
-msgid "Wages (en)"
-msgstr ""
-
-#: vacancy/models.py:67
-msgid "Wages (ru)"
-msgstr ""
-
-#: vacancy/models.py:68
-msgid "Wages (kz)"
-msgstr ""
-
-#: vacancy/models.py:69
-msgid "Wages (uz)"
-msgstr ""
-
-#: vacancy/models.py:70
-msgid "Status"
-msgstr ""
-
-#: vacancy/models.py:98
+#: vacancy/models.py:81
 msgid "Just now"
-msgstr ""
+msgstr "Jańa ǵana"
 
-#: vacancy/models.py:100
-msgid "Today "
-msgstr ""
+#: vacancy/models.py:83
+msgid "Today"
+msgstr "Búgіn"
