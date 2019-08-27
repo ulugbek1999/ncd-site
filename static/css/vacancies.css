@@ -136,6 +136,7 @@
          width: 100%;
          height: unset;
          min-height: unset;
+         flex-wrap: wrap-reverse;
      }
 
      .created-date {
