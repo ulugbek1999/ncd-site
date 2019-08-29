@@ -1,3 +1,4 @@
+
 {% load static i18n phone email address services %}
 
 {% services as service_list %}
@@ -43,7 +44,7 @@
         {% endblock %}
 
         <link href="{% static 'css/style-site.css' %}" rel="stylesheet">
-
+        <link rel="stylesheet" href="{% static 'css/register.css' %}">
         <link href="{% static 'css/media.css' %}" rel="stylesheet">
 
 
@@ -98,9 +99,9 @@
                                         </a>
                                     </div>
                                     <div class="header-top__register">
-                                        <a href="{% url 'partner.register' %}">
+                                        <a href="" id="register">
                                             <i class="fa fa-key" aria-hidden="true"></i>
-                                            {% trans 'Register partners' %}</a>
+                                            {% trans 'Registration' %}</a>
                                     </div>
                                 </div>
                             {% endif %}
@@ -219,6 +220,32 @@
                     </div>
                 </div>
             </section>
+            <div class="row register-container">
+                <div class="register-main">
+                    <div class="register-options-container slide-in">
+                        <span class="close">&times;</span>
+                        <h2 style="text-align: center">Registration options</h2>
+                        <h3>Register as:</h3>
+                        <form id="options">
+                            <div class="form-checks">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input option-check" name="option" id="employee" value="employee" data-href="none">
+                                    <label for="employee" class="form-check-label">{% trans 'An employee' %}</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input option-check" name="option" id="partner" value="partner" data-href="{% url 'partner.register' %}">
+                                    <label for="partner" class="form-check-label">{% trans 'Partner' %}</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input option-check" name="option" id="student" value="student" data-href="none">
+                                    <label for="student" class="form-check-label">{% trans 'Student' %}</label>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div class="content-main">
                 {% block content %}
 
@@ -380,6 +407,44 @@
         <script src="{% static 'js/csrf.js' %}"></script>
         <script src="{% static 'js/main.js' %}"></script>
         <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const registerContainer = document.querySelector('.register-container')
+                const body = document.querySelector('body')
+                const close = document.querySelector('.close')
+                var register = document.querySelector("#register")
+
+                register.addEventListener('click', (event) => {
+                    event.preventDefault()
+                    registerContainer.style.display = "block"
+                    body.style.overflowY = "hidden"
+                })
+
+                close.addEventListener('click', () => {
+                    registerContainer.style.display = "none"
+                    body.style.overflowY = "unset"
+                })
+
+                const checkOptions = document.querySelectorAll('.option-check')
+                const optionsForm = document.querySelector('#options')
+                Array.from(checkOptions).forEach(element => {
+                    element.addEventListener('click', () => {
+                        var url = element.dataset.href
+                        if (url != "none") {
+                            window.location.replace(url)
+                            history.pushState({main : "main"}, 'page 3', url)
+                        }
+                        else {
+                            Swal.fire({
+                                type: "error",
+                                title: "Oops...",
+                                text: "This option is not available yet",
+                            })
+                        }
+                    })
+                })
+            })          
+        </script>
+        <script>
             $(function () {
                 $(".lang-ru").click(function (e) {
                     e.preventDefault();
@@ -436,6 +501,7 @@
                 });
             })
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
         {% block js %}{% endblock %}
     </body>
 </html>

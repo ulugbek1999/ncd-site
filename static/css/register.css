@@ -1,0 +1,88 @@
+.register-options-container {
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 30px;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    box-sizing: border-box;
+    color: #8893b9;
+    position: relative;
+    top: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 5px;
+    font-size: 30px;
+    opacity: 0.6;
+}
+
+.register-container {
+    position: absolute;
+    width: 105vw;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1059;
+    background-color: #0b0b0bad;
+    display: none;
+    animation: fade-in .5s forwards;
+}
+
+.form-checks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.register-main h2 {
+    color: #031b4e;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.register-main h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #031b4e;
+}
+
+.register-main form {
+    margin-top: 20px;
+}
+
+.form-check {
+    margin-top: 10px;
+}
+
+.slide-in {
+    animation: slide-in 1s forwards;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        top: 0;
+    }
+    to {
+        opacity: 1;
+        top: 50px;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

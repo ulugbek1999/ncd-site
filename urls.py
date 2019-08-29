@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 
-from core.views import partner_views, core_views, employee_views, vacancies_views
+from core.views import partner_views, core_views, employee_views, vacancies_views, register_views
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
@@ -60,7 +60,7 @@ urlpatterns += i18n_patterns(
     path('reviews/', core_views.ReviewsPage.as_view(), name='reviews'),
     path('services/', core_views.ServicesPage.as_view(), name='services'),
     path('training/', core_views.TrainingPage.as_view(), name='training'),
-
+    path('register/', register_views.RegisterOptionView.as_view(), name="register-options"),
     path('', core_views.IndexPage.as_view(), name='index'),
 )
 
