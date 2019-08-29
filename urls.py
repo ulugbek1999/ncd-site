@@ -60,7 +60,7 @@ urlpatterns += i18n_patterns(
     path('reviews/', core_views.ReviewsPage.as_view(), name='reviews'),
     path('services/', core_views.ServicesPage.as_view(), name='services'),
     path('training/', core_views.TrainingPage.as_view(), name='training'),
-    path('register/', register_views.RegisterOptionView.as_view(), name="register-options"),
+    path('employee/register/', register_views.RegisterEmployeeView.as_view(), name="employee.register"),
     path('', core_views.IndexPage.as_view(), name='index'),
 )
 

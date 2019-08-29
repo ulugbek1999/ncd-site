@@ -28,6 +28,7 @@ class Employee(models.Model):
     op2_ws_sent = models.BooleanField(default=False, blank=True)
     op3_ws_sent = models.BooleanField(default=False, blank=True)
     op4_ws_sent = models.BooleanField(default=False, blank=True)
+    username = models.CharField(null=True, blank=True, max_length=255)
 
     full_name_ru = models.CharField(max_length=255, blank=True)
     full_name_en = models.CharField(max_length=255, default='', blank=True)

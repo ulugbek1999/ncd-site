@@ -4,8 +4,10 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.generics import CreateAPIView, UpdateAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
 from django.utils.translation import gettext as _
-
+from rest_framework import status
+import requests
 from employee.models import EmployeeChanges, Employee
 from employee.models2 import EducationChanges, LanguageChanges, ArmyChanges, FamilyChanges, RelativeChanges, RewardChanges, ExperienceChanges
 from employee.models2 import Education
@@ -24,7 +26,7 @@ from api.employee.serializers import RelativeUpdateSerializer
 from api.employee.serializers import ArmyUpdateSerializer
 from api.employee.serializers import FamilyUpdateSerializer
 from api.employee.serializers import RewardUpdateSerializer
-from api.employee.serializers import ExperienceUpdateSerializer
+from api.employee.serializers import ExperienceUpdateSerializer, EmployeeCreateSerializer
 
 from .serializers import EducationCreateSerializer
 from .serializers import LanguageCreateSerializer
@@ -33,6 +35,24 @@ from .serializers import RewardCreateSerializer
 from .serializers import RelativeCreateSerializer
 from .serializers import ExperienceCreateSerializer
 from .serializers import FamilyCreateSerializer
+
+class EmployeeCreateAPIView(APIView):
+    permission_classes = (AllowAny,)
+
+    def post(self, request):
+        serializer = EmployeeCreateSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+        pk = Employee.objects.get(passport_serial=request.data.get("passport_serial")).id
+        phone = request.data.get("phone")
+        email = request.data.get("email")
+        data = {
+            "emp_id": pk,
+            "email": email,
+            "phone": phone
+        }
+        requests.post("http://127.0.0.1:8000/api/v2/ncd/user/create/", data=data)
+        return Response(status=status.HTTP_200_OK)
 
 
 class EmployeeUpdate1APIView(CreateAPIView):

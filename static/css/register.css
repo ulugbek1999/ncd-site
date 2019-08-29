@@ -86,3 +86,7 @@ body {
         opacity: 1;
     }
 }
+
+#passSerial, #phoneEmployee {
+    letter-spacing: 1.2px;
+}

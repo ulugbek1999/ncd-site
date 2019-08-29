@@ -265,7 +265,7 @@ msgstr "Serіktesterdі tіrkeý"
 #: templates/vacancies/vacancies_detail.html:10
 #: templates/vacancies/vacancies_list.html:10
 msgid "Vacancies"
-msgstr "Bos jumys oryndary"
+msgstr "Jumys oryndary"
 
 #: templates/_base.html:171 templates/_base.html:172 templates/_base.html:256
 #: templates/index.html:101 templates/pages/about.html:11
@@ -301,7 +301,7 @@ msgstr "Bilim"
 #: templates/_base.html:201 templates/_base.html:202 templates/_base.html:281
 #: templates/pages/faq.html:11
 msgid "FAQ"
-msgstr "Jıі qoıylatyn suraqtar"
+msgstr "Suraqtar"
 
 #: templates/_base.html:207 templates/_base.html:208 templates/_base.html:286
 #: templates/pages/training.html:10

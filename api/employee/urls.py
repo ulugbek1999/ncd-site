@@ -14,6 +14,7 @@ from .views import FamilyCreateAPIView
 from .views import RewardCreateAPIView
 from .views import RelativeCreateAPIView
 from .views import ExperienceCreateAPIView
+from .views import EmployeeCreateAPIView
 
 app_name = 'employee'
 
@@ -40,4 +41,5 @@ urlpatterns = [
     path('reward/create/', RewardCreateAPIView.as_view(), name='reward.create'),
     path('relative/create/', RelativeCreateAPIView.as_view(), name='relative.create'),
     path('experience/create/', ExperienceCreateAPIView.as_view(), name='experience.create'),
+    path('employee/create/', EmployeeCreateAPIView.as_view(), name="employee.create"),
 ]

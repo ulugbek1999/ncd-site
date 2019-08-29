@@ -21,6 +21,21 @@ from employee.models2 import Relative
 from employee.models2 import Experience
 
 
+class EmployeeCreateSerializer(ModelSerializer):
+    class Meta:
+        model = Employee
+        fields = (
+            "passport_serial",
+            "username",
+            "full_name_ru",
+            "full_name_en",
+            "email",
+            "phone",
+        )
+    def create(self, validated_data):
+        return Employee.objects.create(**validated_data)
+
+
 class EmployeeChange1(ModelSerializer):
     class Meta:
         model = EmployeeChanges

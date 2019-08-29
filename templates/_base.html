@@ -225,11 +225,11 @@
                     <div class="register-options-container slide-in">
                         <span class="close">&times;</span>
                         <h2 style="text-align: center">Registration options</h2>
-                        <h3>Register as:</h3>
+                        <h3>{% trans 'Register as:' %}</h3>
                         <form id="options">
                             <div class="form-checks">
                                 <div class="form-check">
-                                    <input type="radio" class="form-check-input option-check" name="option" id="employee" value="employee" data-href="none">
+                                    <input type="radio" class="form-check-input option-check" name="option" id="employee" value="employee" data-href="{% url 'employee.register' %}">
                                     <label for="employee" class="form-check-label">{% trans 'An employee' %}</label>
                                 </div>
                                 <div class="form-check">
@@ -431,13 +431,13 @@
                         var url = element.dataset.href
                         if (url != "none") {
                             window.location.replace(url)
-                            history.pushState({main : "main"}, 'page 3', url)
+                            history.pushState({main : "main"}, 'page 3', location.href)
                         }
                         else {
                             Swal.fire({
                                 type: "error",
-                                title: "Oops...",
-                                text: "This option is not available yet",
+                                title: "{% trans 'Oops...' %}",
+                                text: "{% trans 'This option is not available yet' %}",
                             })
                         }
                     })

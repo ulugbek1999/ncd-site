@@ -271,13 +271,13 @@
                         method: 'POST',
                         data: formData,
                         success: function (data) {
-                            var x = document.getElementById("mainSuccess");
-                            $("#mainSuccess").text("{% trans 'successfully sent' %}");
-                            x.className = "show";
-                            setTimeout(function(){
-                                x.className = x.className.replace("show", "");
-                                location.reload();
-                            }, 1500);
+                                var x = document.getElementById("mainSuccess");
+                                $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                                x.className = "show";
+                                setTimeout(function(){
+                                    x.className = x.className.replace("show", "");
+                                    location.reload();
+                                }, 1500);
                         },
                         error: function (data) {
                             $.magnificPopup.close();

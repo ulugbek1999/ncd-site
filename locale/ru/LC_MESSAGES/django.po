@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-26 14:17+0500\n"
+"POT-Creation-Date: 2019-08-29 18:11+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,23 +20,23 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: api/employee/views.py:195
+#: api/employee/views.py:215
 msgid "Password is missing"
 msgstr "Пароль отсутствует"
 
-#: api/employee/views.py:197
+#: api/employee/views.py:217
 msgid "Password confirm is missing"
 msgstr "Подтверждение пароля отсутствует"
 
-#: api/employee/views.py:199 api/partner/serializers.py:61
+#: api/employee/views.py:219 api/partner/serializers.py:61
 msgid "Passwords didn't match"
 msgstr "Пароли не совпадают"
 
-#: api/employee/views.py:202 api/partner/serializers.py:59
+#: api/employee/views.py:222 api/partner/serializers.py:59
 msgid "Current password is incorrect"
 msgstr "Неверный текущий пароль"
 
-#: cms/models.py:165 templates/_base.html:309
+#: cms/models.py:165 templates/_base.html:337
 #: templates/employee/education_create.html:65
 #: templates/employee/employee_profile.html:276
 #: templates/employee/update_operator_3_education.html:64
@@ -44,10 +44,11 @@ msgstr "Неверный текущий пароль"
 msgid "Address"
 msgstr "Адрес"
 
-#: cms/models.py:166 templates/_base.html:316
+#: cms/models.py:166 templates/_base.html:344
 #: templates/employee/employee_profile.html:147
 #: templates/employee/update_operator_1.html:81
-#: templates/partner/profile.html:67 templates/partner/register.html:71
+#: templates/partner/profile.html:69 templates/partner/register.html:71
+#: templates/registration/employee.html:75
 msgid "Phone"
 msgstr "Телефон"
 
@@ -64,19 +65,19 @@ msgstr "Э-почта"
 msgid "Service top"
 msgstr "Высокое обслуживание"
 
-#: core/views/vacancies_views.py:15
+#: core/views/vacancies_views.py:19
 msgid "Missing title"
 msgstr ""
 
-#: core/views/vacancies_views.py:22
+#: core/views/vacancies_views.py:25
 msgid "No short description was provided!"
 msgstr ""
 
-#: core/views/vacancies_views.py:28
+#: core/views/vacancies_views.py:31
 msgid "Country is not given"
 msgstr ""
 
-#: core/views/vacancies_views.py:34
+#: core/views/vacancies_views.py:37
 msgid "Information on wages is not available"
 msgstr ""
 
@@ -96,7 +97,8 @@ msgstr "Район"
 msgid "Districts"
 msgstr "Районы"
 
-#: directory/models.py:56 templates/vacancies/vacancies_detail.html:18
+#: directory/models.py:56 templates/vacancies/vacancies_detail.html:19
+#: templates/vacancies/vacancies_list.html:18
 msgid "Country"
 msgstr "Государство"
 
@@ -133,19 +135,19 @@ msgstr "Мужской"
 msgid "Female"
 msgstr "Женский"
 
-#: employee/models.py:91
+#: employee/models.py:92
 msgid "Employee"
 msgstr "Работник"
 
-#: employee/models.py:92 templates/index.html:85
+#: employee/models.py:93 templates/index.html:85
 msgid "Employees"
 msgstr "Аппликанты"
 
-#: employee/models.py:227
+#: employee/models.py:228
 msgid "Employee changes"
 msgstr "Изменения работника"
 
-#: employee/models.py:228
+#: employee/models.py:229
 msgid "Employees changes"
 msgstr "Изменения работников"
 
@@ -1664,23 +1666,23 @@ msgstr "Запрос партнера на работника"
 msgid "Partner employee requests"
 msgstr "Запросы партнера на работника"
 
-#: settings/settings.py:118
+#: settings/settings.py:124
 msgid "Russian"
 msgstr "Русский"
 
-#: settings/settings.py:119
+#: settings/settings.py:125
 msgid "English"
 msgstr "Английский"
 
-#: settings/settings.py:120
+#: settings/settings.py:126
 msgid "Uzbek"
 msgstr "Узбекский"
 
-#: settings/settings.py:121
+#: settings/settings.py:127
 msgid "Kazakh"
 msgstr ""
 
-#: templates/_base.html:79 templates/_base.html:88
+#: templates/_base.html:80 templates/_base.html:89
 #: templates/employee/army_create.html:37
 #: templates/employee/education_create.html:37
 #: templates/employee/employee_profile.html:34
@@ -1704,44 +1706,45 @@ msgstr ""
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/_base.html:97 templates/_base.html:368
+#: templates/_base.html:98 templates/_base.html:396
 msgid "Login"
 msgstr "Войти"
 
-#: templates/_base.html:103 templates/_base.html:366
-#: templates/partner/register.html:16
-msgid "Register partners"
-msgstr "Регистрация партнеров"
+#: templates/_base.html:104
+#, fuzzy
+#| msgid "Registration form"
+msgid "Registration"
+msgstr "Регистрационная форма"
 
-#: templates/_base.html:165 templates/_base.html:166
+#: templates/_base.html:166 templates/_base.html:167
 #: templates/vacancies/vacancies_detail.html:10
-#: templates/vacancies/vacancies_list.html:10
+#: templates/vacancies/vacancies_list.html:11
 msgid "Vacancies"
 msgstr "Вакансии"
 
-#: templates/_base.html:171 templates/_base.html:172 templates/_base.html:256
+#: templates/_base.html:172 templates/_base.html:173 templates/_base.html:284
 #: templates/index.html:101 templates/pages/about.html:11
 msgid "About company"
 msgstr "О компании"
 
-#: templates/_base.html:177 templates/_base.html:178 templates/_base.html:261
-#: templates/_base.html:292 templates/index.html:38
+#: templates/_base.html:178 templates/_base.html:179 templates/_base.html:289
+#: templates/_base.html:320 templates/index.html:38
 #: templates/pages/cms_service_detail.html:11 templates/pages/services.html:11
 msgid "Services"
 msgstr "Услуги"
 
-#: templates/_base.html:183 templates/_base.html:184 templates/_base.html:266
+#: templates/_base.html:184 templates/_base.html:185 templates/_base.html:294
 #: templates/pages/docs.html:10
 msgid "Documents"
 msgstr "Документы"
 
-#: templates/_base.html:189 templates/_base.html:190 templates/_base.html:271
+#: templates/_base.html:190 templates/_base.html:191 templates/_base.html:299
 #: templates/index.html:81 templates/pages/cms_partner_detail.html:11
 #: templates/pages/forpartners.html:11
 msgid "Partners"
 msgstr "Партнёры"
 
-#: templates/_base.html:195 templates/_base.html:196 templates/_base.html:276
+#: templates/_base.html:196 templates/_base.html:197 templates/_base.html:304
 #: templates/employee/education_create.html:15
 #: templates/employee/employee_profile.html:259
 #: templates/employee/update_operator_3_education.html:15
@@ -1750,62 +1753,82 @@ msgstr "Партнёры"
 msgid "Education"
 msgstr "Образование"
 
-#: templates/_base.html:201 templates/_base.html:202 templates/_base.html:281
+#: templates/_base.html:202 templates/_base.html:203 templates/_base.html:309
 #: templates/pages/faq.html:11
 msgid "FAQ"
 msgstr "Вопросы"
 
-#: templates/_base.html:207 templates/_base.html:208 templates/_base.html:286
-#: templates/pages/training.html:10
-msgid "Training"
-msgstr "Обучение"
+#: templates/_base.html:234
+#, fuzzy
+#| msgid "Our employees"
+msgid "An employee"
+msgstr "Наши сотрудники"
 
-#: templates/_base.html:240 templates/_base.html:246
+#: templates/_base.html:238
+#, fuzzy
+#| msgid "Partners"
+msgid "Partner"
+msgstr "Партнёры"
+
+#: templates/_base.html:242
+msgid "Student"
+msgstr ""
+
+#: templates/_base.html:268 templates/_base.html:274
 msgid "A different approach - a different future"
 msgstr "Иной подход - иное будущее"
 
-#: templates/_base.html:252
+#: templates/_base.html:280
 msgid "Menu"
 msgstr "Меню"
 
-#: templates/_base.html:305
+#: templates/_base.html:314 templates/pages/training.html:10
+msgid "Training"
+msgstr "Обучение"
+
+#: templates/_base.html:333
 msgid "Contacts"
 msgstr "Контакты"
 
-#: templates/_base.html:323 templates/partner/profile.html:73
+#: templates/_base.html:351 templates/partner/profile.html:75
 #: templates/partner/register.html:64
 msgid "E-mail"
 msgstr "Э-почта"
 
-#: templates/_base.html:333
+#: templates/_base.html:361
 msgid "All rights reserved"
 msgstr "Все права защищены"
 
-#: templates/_base.html:334
+#: templates/_base.html:362
 msgid "Developed by"
 msgstr "Разработка сайта"
 
-#: templates/_base.html:351
+#: templates/_base.html:379
 msgid "Authorization"
 msgstr "Авторизация"
 
-#: templates/_base.html:354
+#: templates/_base.html:382
 msgid "Username"
 msgstr "Логин"
 
-#: templates/_base.html:359
+#: templates/_base.html:387
 msgid "Password"
 msgstr "Пароль"
 
-#: templates/_base.html:363
+#: templates/_base.html:391
 msgid "Username or password entered incorrectly"
 msgstr "Логин или пароль введены неверно"
 
-#: templates/_base.html:376
+#: templates/_base.html:394 templates/partner/register.html:16
+#: templates/registration/employee.html:16
+msgid "Register partners"
+msgstr "Регистрация партнеров"
+
+#: templates/_base.html:404
 msgid "Saved successfully"
 msgstr "Успешно сохранено"
 
-#: templates/_base.html:377
+#: templates/_base.html:405
 msgid "An error has occurred"
 msgstr "Произошла ошибка"
 
@@ -1924,6 +1947,7 @@ msgstr "Регион"
 #: templates/employee/update_operator_3_education.html:70
 #: templates/partner/employee_detail.html:246
 #: templates/partner/employee_detail.html:340
+#: templates/vacancies/vacancies_list.html:21
 msgid "Specialty"
 msgstr "Специальность"
 
@@ -2018,6 +2042,8 @@ msgstr "Загрузить файлы"
 #: templates/employee/update_operator_4.html:151
 #: templates/partner/bookmarks.html:138 templates/partner/bookmarks.html:169
 #: templates/partner/register.html:103 templates/partner/register.html:131
+#: templates/registration/employee.html:85
+#: templates/registration/employee.html:113
 msgid "Send"
 msgstr "Отправить"
 
@@ -2039,6 +2065,7 @@ msgstr "Отправить"
 #: templates/employee/update_operator_3_reward.html:196
 #: templates/employee/update_operator_4.html:203
 #: templates/partner/bookmarks.html:231 templates/partner/register.html:275
+#: templates/registration/employee.html:178
 msgid "successfully sent"
 msgstr "Успешно отправлено"
 
@@ -2124,6 +2151,7 @@ msgstr "Пол"
 #: templates/employee/employee_profile.html:119
 #: templates/employee/update_operator_1.html:54
 #: templates/partner/employee_detail.html:123
+#: templates/registration/employee.html:37
 msgid "Passport serial"
 msgstr "№ Паспорта"
 
@@ -2252,6 +2280,7 @@ msgstr "Желаемые страны"
 
 #: templates/employee/employee_profile.html:205
 #: templates/employee/update_operator_4.html:114
+#: templates/vacancies/vacancies_detail.html:21
 msgid "Wages"
 msgstr "Заработная плата"
 
@@ -2475,25 +2504,25 @@ msgstr "Удовлетворительное"
 msgid "Daughter"
 msgstr "Дочь"
 
-#: templates/employee/settings.html:13 templates/partner/profile.html:47
-#: templates/partner/profile.html:122
+#: templates/employee/settings.html:13 templates/partner/profile.html:48
+#: templates/partner/profile.html:124
 msgid "Change password"
 msgstr "Изменить пароль"
 
-#: templates/employee/settings.html:46 templates/partner/profile.html:128
+#: templates/employee/settings.html:46 templates/partner/profile.html:130
 msgid "Old password"
 msgstr "Старый пароль"
 
-#: templates/employee/settings.html:50 templates/partner/profile.html:134
+#: templates/employee/settings.html:50 templates/partner/profile.html:136
 msgid "New password"
 msgstr "Новый пароль"
 
-#: templates/employee/settings.html:54 templates/partner/profile.html:140
+#: templates/employee/settings.html:54 templates/partner/profile.html:142
 msgid "Confirm the password"
 msgstr "Подтвердите пароль"
 
-#: templates/employee/settings.html:60 templates/partner/profile.html:104
-#: templates/partner/profile.html:147
+#: templates/employee/settings.html:60 templates/partner/profile.html:106
+#: templates/partner/profile.html:149
 msgid "Save"
 msgstr "Сохранить"
 
@@ -2566,6 +2595,7 @@ msgstr "Наши сотрудники"
 
 #: templates/pages/faq.html:19 templates/pages/faq.html:20
 #: templates/partner/employees.html:98
+#: templates/vacancies/vacancies_list.html:24
 msgid "Search"
 msgstr "Поиск"
 
@@ -2637,32 +2667,32 @@ msgstr "уровень"
 msgid "Partner's personal area"
 msgstr "Личный кабинет Партнеров"
 
-#: templates/partner/profile.html:53 templates/partner/profile.html:59
+#: templates/partner/profile.html:55 templates/partner/profile.html:61
 #: templates/partner/register.html:46 templates/partner/register.html:54
 msgid "Fullname"
 msgstr "Ф.И.О"
 
-#: templates/partner/profile.html:53 templates/partner/register.html:46
+#: templates/partner/profile.html:55 templates/partner/register.html:46
 msgid "first head"
 msgstr "первого руководителя"
 
-#: templates/partner/profile.html:59 templates/partner/register.html:54
+#: templates/partner/profile.html:61 templates/partner/register.html:54
 msgid "responsible person"
 msgstr "ответственного лица"
 
-#: templates/partner/profile.html:82 templates/partner/register.html:28
+#: templates/partner/profile.html:84 templates/partner/register.html:28
 msgid "Subject name"
 msgstr "Название субъекта"
 
-#: templates/partner/profile.html:88 templates/partner/register.html:85
+#: templates/partner/profile.html:90 templates/partner/register.html:85
 msgid "Number of employees"
 msgstr "Количество работников организации"
 
-#: templates/partner/profile.html:96 templates/partner/register.html:79
+#: templates/partner/profile.html:98 templates/partner/register.html:79
 msgid "Legal address"
 msgstr "Юридический адрес"
 
-#: templates/partner/register.html:20
+#: templates/partner/register.html:20 templates/registration/employee.html:20
 msgid "Registration form"
 msgstr "Регистрационная форма"
 
@@ -2691,11 +2721,11 @@ msgstr "Регистрационный номер"
 msgid "Responsible person for hiring migrant workers"
 msgstr "Ответственного лица за наем трудовых мигрантов"
 
-#: templates/partner/register.html:111
+#: templates/partner/register.html:111 templates/registration/employee.html:93
 msgid "Terms of use"
 msgstr "Пользовательское соглашение"
 
-#: templates/partner/register.html:123
+#: templates/partner/register.html:123 templates/registration/employee.html:105
 msgid "I accept the terms of the partner agreement"
 msgstr "Я принимаю условия пользовательского соглашения"
 
@@ -2703,7 +2733,70 @@ msgstr "Я принимаю условия пользовательского с
 msgid "en"
 msgstr "ru"
 
-#: templates/vacancies/vacancies_list.html:66
+#: templates/registration/employee.html:27
+msgid ""
+"This field isn't required and if it is empty than 'Passport serial' will be "
+"used as a login"
+msgstr "Это поле не объязательно и если оно пустое, то тогда серия паспорта будет использоваться как логин"
+
+#: templates/registration/employee.html:28
+#, fuzzy
+#| msgid "not required"
+msgid "Login (not required)"
+msgstr "не обязательно"
+
+#: templates/registration/employee.html:36
+msgid "Passport serial will be used as a login, if login field is not defined"
+msgstr "Серия паспорта будет использована как логин, если логин не указан"
+
+#: templates/registration/employee.html:46
+msgid "Type your full name in Russian language"
+msgstr "Введите Ф.И.О на русском языке"
+
+#: templates/registration/employee.html:47
+#, fuzzy
+#| msgid "Fullname (Russian)"
+msgid "Fullname (ru)"
+msgstr "Ф.И.О (рус)"
+
+#: templates/registration/employee.html:55
+msgid "Type your full name in English language"
+msgstr "Введите Ф.И.О на английском языке"
+
+msgid "Oops..."
+msgstr "Упс..."
+
+msgid "This option is not available yet"
+msgstr "Эта функция еще не доступна"
+
+#: templates/registration/employee.html:56
+#, fuzzy
+#| msgid "Fullname (Russian)"
+msgid "Fullname (en)"
+msgstr "Ф.И.О (рус)"
+
+#: templates/registration/employee.html:66
+msgid ""
+"If email address is defined, than your authentication information will be "
+"sent to your email!"
+msgstr "Если электронная почта указана, то тогда ваш логин и пароль будут отправлены на вашу электронную почту!"
+
+msgid "Register as:"
+msgstr "Зарегистрироваться как:"
+
+#: templates/registration/employee.html:67
+#, fuzzy
+#| msgid "not required"
+msgid "E-mail (not required)"
+msgstr "не обязательно"
+
+#: templates/registration/employee.html:74
+msgid ""
+"Only Kazakh and Uzbek numbers are available. Your authentication information "
+"will be sent to your phone number!"
+msgstr "На данный момент доступны лишь казахские и узбекские номера. Ваш логин и пароль будут отправлены на ваш телефон!"
+
+#: templates/vacancies/vacancies_list.html:82
 msgid "No vacancies are available"
 msgstr "Нет доступных вакансий"
 
@@ -2713,15 +2806,15 @@ msgstr ""
 
 #: vacancy/models.py:13
 msgid "Title (en)"
-msgstr ""
+msgstr "Загаловок (на английском)"
 
 #: vacancy/models.py:14
 msgid "Title (uz)"
-msgstr ""
+msgstr "Загаловок (на узбекском)"
 
 #: vacancy/models.py:15
 msgid "Title (kz)"
-msgstr ""
+msgstr "Загаловок (на казахском)"
 
 #: vacancy/models.py:16
 #, fuzzy
@@ -2801,11 +2894,11 @@ msgstr "Заработная плата"
 msgid "Status"
 msgstr "Статистика"
 
-#: vacancy/models.py:98
+#: vacancy/models.py:108
 msgid "Just now"
 msgstr "Только что"
 
-#: vacancy/models.py:100
+#: vacancy/models.py:110
 msgid "Today "
 msgstr "Сегодня "
 

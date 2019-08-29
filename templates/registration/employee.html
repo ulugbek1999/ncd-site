@@ -1,0 +1,201 @@
+{% extends '_base.html' %}
+{% load i18n static %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+    <link href="{% static 'plugins/uploader/css/fileinput.css' %}" media="all" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'plugins/uploader/themes/explorer-fas/theme.css' %}" media="all" rel="stylesheet" type="text/css"/>
+{% block css %}
+    
+{% endblock %}
+
+{% block content %}
+    <section class="registration">
+        <div class="container">
+            <div class="row">
+                <div class="register-main">
+                    <!--<div class="content-title">
+                        <h2>{% trans 'Register partners' %}</h2>
+                    </div>-->
+                    <div class="register-block">
+                        <div class="form-title">
+                            <h2 style="text-align: center">{% trans 'Registration form' %}</h2>
+                        </div>
+                        <form id="formRegister" data-toggle="validator" role="form">
+                            <div class="form-data">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="login" class="has-tip" data-tip="{% blocktrans %}This field isn't required and if it is empty than 'Passport serial' will be used as a login{% endblocktrans %}">
+                                                {% trans 'Login (not required)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="login" type="text" class="form-control" id="login" autocomplete="off" >
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="passSerial" class="has-tip" data-tip="{% blocktrans %}Passport serial will be used as a login, if login field is not defined{% endblocktrans %}">
+                                                {% trans 'Passport serial' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="passport_serial" type="text" class="form-control is-required" id="passSerial" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="fioRu" class="has-tip" data-tip="{% blocktrans %}Type your full name in Russian language{% endblocktrans %}">
+                                                {% trans 'Fullname (ru)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="fio_ru" type="text" class="form-control is-required" id="fioBoss" autocomplete="off" >
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="fioEn" class="has-tip" data-tip="{% blocktrans %}Type your full name in English language{% endblocktrans %}">
+                                                {%  trans 'Fullname (en)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="fio_en" type="text" class="form-control is-required" id="fioEn" autocomplete="off" >
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email" class="has-tip" data-tip="{% blocktrans %}If email address is defined, than your authentication information will be sent to your email!{% endblocktrans %}">
+                                                {% trans 'E-mail (not required)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="email" type="email" class="form-control" placeholder="" id="email" autocomplete="off" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone" class="has-tip" data-tip="{% blocktrans %}Only Kazakh and Uzbek numbers are available. Your authentication information will be sent to your phone number!{% endblocktrans %}">
+                                                {% trans 'Phone' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="phone" value="+" type="text" class="form-control is-required" id="phoneEmployee" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 20px" class="row">
+                                <div class="col-md-12" style="text-align: center;">
+                                    <a href="#sendRequestPopup" id="sendRequestButton" class="loginButton">
+                                        {% trans 'Send' %}
+                                    </a>
+                                </div>
+                                <!-- TODO tarjima -->
+                                <div id="sendRequestPopup" class="white-popup mfp-hide">
+                                    <div class="send-list-form">
+                                        <form action="" autocomplete="off">
+                                            <div class="form-title">
+                                                <h2>{% trans 'Terms of use' %}</h2>
+                                            </div>
+                                            <div class="form-data">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="license-content">
+                                                            {{ agreement.content|safe }}
+                                                        </div>
+                                                        <div class="form-group checkbox-form">
+                                                            <div class="checkbox-group ">
+                                                                <input type="checkbox" id="soglasen" name="soglasen">
+                                                                <label for="soglasen">
+                                                                    <span>{% trans 'I accept the terms of the partner agreement' %}</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12" style="text-align: center;">
+                                                        <div class="errors-main"></div>
+                                                        <button id="employeeRequestButton" data-api="{% url 'api:employee:employee.create' %}" class="loginButton disableButton" data-api="">
+                                                            {% trans 'Send' %}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block js %}
+    <script src="{% static 'js/employee-register.js' %}"></script>
+    <script>
+        $('#sendRequestButton').magnificPopup({
+            type: 'inline',
+            midClick: true,
+            mainClass: 'mfp-fade'
+        });
+        $('#soglasen').change(function(){
+            if ($(this).is(':checked')) {
+                $('#employeeRequestButton').removeClass('disableButton');
+            } 
+            else {
+                $('#employeeRequestButton').addClass('disableButton');
+            }
+        });
+
+        $("#employeeRequestButton").click((e) => {
+            
+            if (location.hostname == "127.0.0.1") {
+                var formData = new FormData()
+                formData.append("username", $('input[name="login"]').val());
+                formData.append("passport_serial", $('input[name="passport_serial"]').val());
+                formData.append("full_name_ru", $('input[name="fio_ru"]').val());
+                formData.append("full_name_en", $('input[name="fio_en"]').val());
+                formData.append("email", $('input[name="email"]').val());
+                formData.append("phone", $('input[name="phone"]').val());
+                var canSubmit = true
+                Array.from(document.querySelectorAll(".is-required")).forEach(element => {
+                    if (element.value == "") {
+                        element.style.borderColor = "red"
+                        setTimeout(() => {
+                            element.style.borderColor = "#cccccc"
+                        }, 2000)
+                        canSubmit = false
+                    }
+                })
+                e.preventDefault()
+                if (canSubmit) {
+                    $.ajax({
+                        url: e.target.dataset.api,
+                        method: 'POST',
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success () {
+                            var x = document.getElementById("mainSuccess");
+                            $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                            x.className = "show";
+                            setTimeout(function(){
+                                x.className = x.className.replace("show", "");
+                                location.reload();
+                            }, 1500);
+                        },
+                        error () {
+                            $.magnificPopup.close();
+                            var x = document.getElementById("mainError");
+
+                            x.className = "show";
+                            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                        }
+                    })
+                }
+                else {
+                    $.magnificPopup.close()
+                }    
+            }
+        })
+        
+    </script>
+{% endblock %}
