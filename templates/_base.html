@@ -33,8 +33,11 @@
         <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap-better-nav.css' %}">
         <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap-select/css/bootstrap-select.css' %}">
         <link rel="stylesheet" href="{% static 'plugins/magnific-popup/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/datepicker/bootstrap-datepicker.css' %}" />
         <link rel="stylesheet" href="{% static 'plugins/slider-pro/css/slider-pro.css' %}">
         <link rel="stylesheet" href="{% static 'plugins/fancybox/jquery.fancybox.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/bootstrap-fileinput-master/css/fileinput-rtl.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/bootstrap-fileinput-master/css/fileinput.css' %}">
 
         <link rel="stylesheet" href="{% static 'plugins/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css' %}">
         <link rel="stylesheet" href="{% static 'plugins/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css' %}">
@@ -406,6 +409,7 @@
 
         <script src="{% static 'js/csrf.js' %}"></script>
         <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'plugins/datepicker/bootstrap-datepicker.js' %}"></script>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const registerContainer = document.querySelector('.register-container')
@@ -502,6 +506,7 @@
             })
         </script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="{% static 'plugins/bootstrap-fileinput-master/js/fileinput.js' %}"></script>
         {% block js %}{% endblock %}
     </body>
 </html>

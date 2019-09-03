@@ -25,12 +25,21 @@ class EmployeeCreateSerializer(ModelSerializer):
     class Meta:
         model = Employee
         fields = (
-            "passport_serial",
             "username",
-            "full_name_ru",
-            "full_name_en",
             "email",
+            "full_name_en",
+            "full_name_ru",
+            "passport_image",
+            "passport_serial",
+            "passport_given_date",
+            "passport_expires",
+            "birth_date",
+            "gender",
+            "living_address_ru",
+            "birth_place_ru",
+            "inn",
             "phone",
+            "register_number"
         )
     def create(self, validated_data):
         return Employee.objects.create(**validated_data)

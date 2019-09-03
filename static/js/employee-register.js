@@ -1,4 +1,5 @@
 $(document).ready(() => {
+    $("#soglasen").prop("checked", false)
     var country = ""
     $("#phoneEmployee").inputmask({
         "mask": "+"
@@ -36,4 +37,15 @@ $(document).ready(() => {
     $("#passSerial").inputmask({
         "mask": "AAddddddd"
     })
+
+    $("#inn").inputmask({
+        "mask": "ddddddddd"
+    })
+
+
+    $(function() {
+        $('.datepicker').datepicker({
+            format: 'dd.mm.yyyy'
+        });
+    });
 })

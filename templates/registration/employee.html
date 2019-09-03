@@ -15,23 +15,50 @@
                     <!--<div class="content-title">
                         <h2>{% trans 'Register partners' %}</h2>
                     </div>-->
-                    <div class="register-block">
+                    <div class="register-employee">
                         <div class="form-title">
                             <h2 style="text-align: center">{% trans 'Registration form' %}</h2>
                         </div>
                         <form id="formRegister" data-toggle="validator" role="form">
                             <div class="form-data">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="login" class="has-tip" data-tip="{% blocktrans %}This field isn't required and if it is empty than 'Passport serial' will be used as a login{% endblocktrans %}">
                                                 {% trans 'Login (not required)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </label>
                                             <input name="login" type="text" class="form-control" id="login" autocomplete="off" >
-
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="fioRu" class="has-tip" data-tip="{% blocktrans %}Type your full name in Russian language{% endblocktrans %}">
+                                                {% trans 'Fullname (ru)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="full_name_ru" type="text" class="form-control is-required" id="fioBoss" autocomplete="off" >
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="fioEn" class="has-tip" data-tip="{% blocktrans %}Type your full name in English language{% endblocktrans %}">
+                                                    {%  trans 'Fullname (en)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                                </label>
+                                                <input name="full_name_en" type="text" class="form-control is-required" id="fioEn" autocomplete="off" >
+                                            </div>
+                                        <div class="form-group">
+                                            <label for="email" class="has-tip" data-tip="{% blocktrans %}If email address is defined, than your authentication information will be sent to your email!{% endblocktrans %}">
+                                                {% trans 'E-mail (not required)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </label>
+                                            <input name="email" type="email" class="form-control" placeholder="" id="email" autocomplete="off" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="birthDate">{% trans 'Birth date' %}</label>
+                                            <input name="birth_date" type="text" class="datepicker form-control is-required" data-date-format="dd.mm.yyyy" autocomplete="off" id="birthDate" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="gender">{% trans 'Gender' %}</label>
+                                            <select name="gender" id="gender" class="form-control is-required">
+                                                <option value="" selected disabled>{% trans 'Select your gender' %}</option>
+                                                <option value="m">{% trans 'Male' %}</option>
+                                                <option value="f">{% trans 'Female' %}</option>
+                                            </select>
+                                        </div>
                                         <div class="form-group">
                                             <label for="passSerial" class="has-tip" data-tip="{% blocktrans %}Passport serial will be used as a login, if login field is not defined{% endblocktrans %}">
                                                 {% trans 'Passport serial' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -39,42 +66,53 @@
                                             <input name="passport_serial" type="text" class="form-control is-required" id="passSerial" autocomplete="off">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="fioRu" class="has-tip" data-tip="{% blocktrans %}Type your full name in Russian language{% endblocktrans %}">
-                                                {% trans 'Fullname (ru)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            <label style="z-index: 100" for="passport-given-date" class="has-tip" data-tip="{% blocktrans %}Passport serial will be used as a login, if login field is not defined{% endblocktrans %}">
+                                                {% trans 'Date of issue' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </label>
-                                            <input name="fio_ru" type="text" class="form-control is-required" id="fioBoss" autocomplete="off" >
-
+                                            <input name="passport_given_date" type="text" class="form-control is-required datepicker" id="passport-given-date" autocomplete="off">
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="fioEn" class="has-tip" data-tip="{% blocktrans %}Type your full name in English language{% endblocktrans %}">
-                                                {%  trans 'Fullname (en)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            <label style="z-index: 100" for="passport-expires" class="has-tip" data-tip="{% blocktrans %}passport_expires date of your passport{% endblocktrans %}">
+                                                {% trans 'Expiry date' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </label>
-                                            <input name="fio_en" type="text" class="form-control is-required" id="fioEn" autocomplete="off" >
-
+                                            <input name="passport_expires" type="text" class="datepicker form-control is-required" id="passport-expires" autocomplete="off">
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="email" class="has-tip" data-tip="{% blocktrans %}If email address is defined, than your authentication information will be sent to your email!{% endblocktrans %}">
-                                                {% trans 'E-mail (not required)' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                            </label>
-                                            <input name="email" type="email" class="form-control" placeholder="" id="email" autocomplete="off" >
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="phone" class="has-tip" data-tip="{% blocktrans %}Only Kazakh and Uzbek numbers are available. Your authentication information will be sent to your phone number!{% endblocktrans %}">
+                                            <label style="z-index: 100 !important" for="phone" class="has-tip" data-tip="{% blocktrans %}Only Kazakh and Uzbek numbers are available. Your authentication information will be sent to your phone number!{% endblocktrans %}">
                                                 {% trans 'Phone' %} <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </label>
                                             <input name="phone" value="+" type="text" class="form-control is-required" id="phoneEmployee" autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inn" class>
+                                                {% trans 'TIN' %}
+                                            </label>
+                                            <input name="inn" type="text" class="form-control is-required" id="inn" autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lives-at" class>
+                                                {% trans 'Place of residence' %}
+                                            </label>
+                                            <input name="lives_at" list="liveplace_list" type="text" class="form-control is-required custom-select custom-select-sm" id="lives-at" autocomplete="off">
+                                            <datalist id="liveplace_list">
+                                            </datalist>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="birth-place" class>
+                                                {% trans 'Place of birth' %}
+                                            </label>
+                                            <input name="birth_place" list="liveplace_list" type="text" class="form-control is-required custom-select custom-select-sm" id="birth-place" autocomplete="off">
+                                            <datalist id="liveplace_list">
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="kv-avatar">
+                                            <div class="file-loading">
+                                                <input id="passport-image" name="passport_image" type="file" required>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -131,6 +169,16 @@
 {% block js %}
     <script src="{% static 'js/employee-register.js' %}"></script>
     <script>
+        function dateMyFormat(date) {
+            var elem = date.split('.');
+            var newMyDate = elem[2] + '-' + elem[1] + '-' + elem[0];
+            //console.log(newMyDate);
+            if(date){
+                return newMyDate;
+            }else{
+                return '';
+            }
+        }
         $('#sendRequestButton').magnificPopup({
             type: 'inline',
             midClick: true,
@@ -146,56 +194,110 @@
         });
 
         $("#employeeRequestButton").click((e) => {
-            
-            if (location.hostname == "127.0.0.1") {
-                var formData = new FormData()
-                formData.append("username", $('input[name="login"]').val());
-                formData.append("passport_serial", $('input[name="passport_serial"]').val());
-                formData.append("full_name_ru", $('input[name="fio_ru"]').val());
-                formData.append("full_name_en", $('input[name="fio_en"]').val());
-                formData.append("email", $('input[name="email"]').val());
-                formData.append("phone", $('input[name="phone"]').val());
-                var canSubmit = true
-                Array.from(document.querySelectorAll(".is-required")).forEach(element => {
-                    if (element.value == "") {
-                        element.style.borderColor = "red"
-                        setTimeout(() => {
-                            element.style.borderColor = "#cccccc"
-                        }, 2000)
-                        canSubmit = false
+            var formData = new FormData()
+            formData.append("full_name_en", $("input[name='full_name_en']").val());
+            formData.append("full_name_ru", $("input[name='full_name_ru']").val());
+            formData.append("passport_serial", $("input[name='passport_serial']").val());
+            formData.append("passport_given_date", dateMyFormat($("input[name='passport_given_date']").val()));
+            formData.append("passport_expires", dateMyFormat($("input[name='passport_expires']").val()));
+            formData.append("birth_date", dateMyFormat($("input[name='birth_date']").val()));
+            formData.append("birth_place_ru", $("input[name='birth_place']").val());
+            formData.append("living_address_ru", $("input[name='lives_at']").val());
+            formData.append("gender", $("select[name='gender']").val());
+            formData.append("inn", $("input[name='inn']").val());
+            formData.append("phone", $("input[name='phone']").val());
+            formData.append("email", $("input[name='email']").val());
+            formData.append("username", $("input[name='login']").val());
+            var canSubmit = true
+            if (!$("#passport-image").val()) {
+                $(".file-preview").css({"border-color": "red"})
+                canSubmit = false
+            }
+            else {
+                formData.append("passport_image", $("#passport-image")[0].files[0])
+            }
+            setTimeout(() => {
+                $(".file-preview").css({"border-color": "#cccccc"})
+            }, 2000)
+            Array.from(document.querySelectorAll(".is-required")).forEach(element => {
+                if (element.value == "") {
+                    element.style.borderColor = "red"
+                    setTimeout(() => {
+                        element.style.borderColor = "#cccccc"
+                    }, 2000)
+                    canSubmit = false
+                }
+            })
+            e.preventDefault()
+            if (canSubmit) {
+                $.ajax({
+                    url: e.target.dataset.api,
+                    method: 'POST',
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+                    success () {
+                        var x = document.getElementById("mainSuccess");
+                        $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                        x.className = "show";
+                        setTimeout(function(){
+                            x.className = x.className.replace("show", "");
+                            
+                        }, 1500);
+                    },
+                    error () {
+                        $.magnificPopup.close();
+                        var x = document.getElementById("mainError");
+
+                        x.className = "show";
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
                     }
                 })
-                e.preventDefault()
-                if (canSubmit) {
-                    $.ajax({
-                        url: e.target.dataset.api,
-                        method: 'POST',
-                        contentType: false,
-                        processData: false,
-                        data: formData,
-                        success () {
-                            var x = document.getElementById("mainSuccess");
-                            $("#mainSuccess").text("{% trans 'successfully sent' %}");
-                            x.className = "show";
-                            setTimeout(function(){
-                                x.className = x.className.replace("show", "");
-                                location.reload();
-                            }, 1500);
-                        },
-                        error () {
-                            $.magnificPopup.close();
-                            var x = document.getElementById("mainError");
-
-                            x.className = "show";
-                            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-                        }
-                    })
-                }
-                else {
-                    $.magnificPopup.close()
-                }    
             }
+            else {
+                $("#soglasen").prop("checked", false)
+                $('#employeeRequestButton').addClass('disableButton');
+                $.magnificPopup.close()
+            }    
         })
         
+    </script>
+    <script>
+        $("#passport-image").fileinput({
+            overwriteInitial: true,
+            maxFileSize: 1500,
+            showClose: false,
+            showCaption: false,
+            browseLabel: '',
+            removeLabel: '',
+            browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
+            removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+            removeTitle: 'Cancel or reset changes',
+            elErrorContainer: '#kv-avatar-errors-1',
+            msgErrorClass: 'alert alert-block alert-danger',
+            defaultPreviewContent: '<img src="{{ passport_holder }}" alt="Your passport scan" class="img-passport">',
+            layoutTemplates: {main2: '{preview} {remove} {browse}'},
+            allowedFileExtensions: ["jpg", "png", "gif"]
+        });
+    </script>
+    <script>
+    $(function () {
+        var regions = "";
+        $.ajax({
+            url: "{% url 'api:location:list' %}",
+            type: 'GET',
+            success: function (data) {
+                for (var i=0; i<data.length; i++) {
+                    for (var j = 0; j < data[i].district.length; j++) {
+                        regions += `<option value="${data[i].name_ru}, ${data[i].district[j].name_ru}" />`;
+                    }
+                }
+                $("#liveplace_list").append(regions);
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    })
     </script>
 {% endblock %}

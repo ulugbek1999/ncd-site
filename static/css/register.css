@@ -23,6 +23,10 @@ body {
     opacity: 0.6;
 }
 
+.has-tip {
+    z-index: 1000;
+}
+
 .register-container {
     position: absolute;
     width: 105vw;
@@ -87,6 +91,59 @@ body {
     }
 }
 
-#passSerial, #phoneEmployee {
+#passSerial, #phoneEmployee, #inn {
     letter-spacing: 1.2px;
+}
+
+.register-employee {
+    max-width: calc(100% - 305px);
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    padding: 30px;
+    margin: 0 auto;
+    color: #8893b9;
+}
+
+.kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+.kv-avatar {
+    display: inline-block;
+    width: 100% !important;
+}
+.kv-avatar .file-input {
+    display: table-cell;
+    width: 213px;
+}
+.kv-reqd {
+    color: red;
+    font-family: monospace;
+    font-weight: normal;
+}
+
+.file-input {
+    width: 100% !important;
+}
+
+.img-passport {
+    width: 100%;
+    height: auto;
+}
+
+.btn-file, .fileinput-remove {
+    position: relative;
+    margin: 0 auto;
+    top: 10px;
+}
+
+.send-list-form {
+    z-index: 10000000;
+}
+
+.datepicker {
+    z-index: 100000 !important;
 }

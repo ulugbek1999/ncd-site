@@ -17,6 +17,7 @@ from employee.models2 import Family
 from employee.models2 import Reward
 from employee.models2 import Relative
 from employee.models2 import Experience
+from utils.register_number import RegisterNumberGenerator
 
 from api.employee.serializers import EmployeeChange1, EmployeeChange2, EmployeeChange4, EmployeeUpdateCheckDataSeruializer
 
@@ -40,10 +41,24 @@ class EmployeeCreateAPIView(APIView):
     permission_classes = (AllowAny,)
 
     def post(self, request):
-        serializer = EmployeeCreateSerializer(data=request.data)
+        # validated_data = request.data
+        print(request.data.get("passport_image"))
+        validated_data = {}
+        validated_data["username"], validated_data["email"] = request.data.get("username"), request.data.get("email")
+        validated_data["full_name_en"], validated_data["full_name_ru"] = request.data.get("full_name_en"), request.data.get("full_name_ru")
+        validated_data["passport_image"], validated_data["passport_serial"] = request.data.get("passport_image"), request.data.get("passport_serial")
+        validated_data["passport_given_date"], validated_data["passport_expires"] = request.data.get("passport_given_date"), request.data.get("passport_expires")
+        validated_data["birth_date"] = request.data.get("birth_date")
+        validated_data["birth_place_ru"], validated_data["living_address_ru"] = request.data.get("birth_place_ru"), request.data.get("living_address_ru")
+        validated_data["gender"], validated_data["phone"] = request.data.get("gender"), request.data.get("phone")
+        validated_data["register_number"] = RegisterNumberGenerator("OW").generate()
+        serializer = EmployeeCreateSerializer(data=validated_data)
+        print(serializer)
         if serializer.is_valid():
             serializer.save()
-        pk = Employee.objects.get(passport_serial=request.data.get("passport_serial")).id
+        employee = Employee.objects.get(passport_serial=validated_data["passport_serial"])
+        pk = employee.id
+        employee.register_number
         phone = request.data.get("phone")
         email = request.data.get("email")
         data = {
