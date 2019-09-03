@@ -19,7 +19,10 @@ class RegisterNumberGenerator:
         day_str = str(day)
         if len(day_str) is 1:
             day_str = "0" + day_str
-        op_reg = str(RegisterNumber.objects.first())
+        register_number_single = RegisterNumber.objects.first()
+        op_reg = str(register_number_single)
+        register_number_single.number += 1
+        register_number_single.save()
         if len(op_reg) is 1:
             op_reg = "00" + op_reg
         elif len(op_reg) is 2:
