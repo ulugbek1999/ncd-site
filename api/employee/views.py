@@ -66,7 +66,6 @@ class EmployeeCreateAPIView(APIView):
             serializer.save()
         employee = Employee.objects.get(passport_serial=validated_data["passport_serial"])
         pk = employee.id
-        employee.register_number
         phone = request.data.get("phone")
         email = request.data.get("email")
         data = {
