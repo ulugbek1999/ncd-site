@@ -38,11 +38,8 @@ from .serializers import ExperienceCreateSerializer
 from .serializers import FamilyCreateSerializer
 
 class EmployeeCreateAPIView(APIView):
-    permission_classes = (AllowAny,)
 
     def post(self, request):
-        # validated_data = request.data
-        print(request.data.get("passport_image"))
         validated_data = {}
         validated_data["username"], validated_data["email"] = request.data.get("username"), request.data.get("email")
         validated_data["full_name_en"], validated_data["full_name_ru"] = request.data.get("full_name_en"), request.data.get("full_name_ru")
@@ -52,8 +49,19 @@ class EmployeeCreateAPIView(APIView):
         validated_data["birth_place_ru"], validated_data["living_address_ru"] = request.data.get("birth_place_ru"), request.data.get("living_address_ru")
         validated_data["gender"], validated_data["phone"] = request.data.get("gender"), request.data.get("phone")
         validated_data["register_number"] = RegisterNumberGenerator("OW").generate()
+        try:
+            check_username = Employee.objects.get(username=validated_data["username"])
+        except Employee.DoesNotExist:
+            check_username = None
+        if check_username:
+            return Response(_('User with this username already exists'), status=status.HTTP_400_BAD_REQUEST)
+        try:
+            check_passport_serial = Employee.objects.get(passport_serial=validated_data["passport_serial"])
+        except Employee.DoesNotExist:
+            check_passport_serial = None
+        if check_passport_serial:
+            return Response(_("User with this passport serial already exists"), status=status.HTTP_400_BAD_REQUEST)
         serializer = EmployeeCreateSerializer(data=validated_data)
-        print(serializer)
         if serializer.is_valid():
             serializer.save()
         employee = Employee.objects.get(passport_serial=validated_data["passport_serial"])

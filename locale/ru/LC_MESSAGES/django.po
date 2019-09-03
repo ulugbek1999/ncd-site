@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 18:11+0500\n"
+"POT-Creation-Date: 2019-09-03 15:07+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,23 +20,31 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: api/employee/views.py:215
+#: api/employee/views.py:57
+msgid "User with this passport serial already exists"
+msgstr "Пользователь с данной серией паспорта уже существует"
+
+#: api/employee/views.py:63
+msgid "User with this username already exists"
+msgstr "Пользователь с данным логином уже существует"
+
+#: api/employee/views.py:238
 msgid "Password is missing"
 msgstr "Пароль отсутствует"
 
-#: api/employee/views.py:217
+#: api/employee/views.py:240
 msgid "Password confirm is missing"
 msgstr "Подтверждение пароля отсутствует"
 
-#: api/employee/views.py:219 api/partner/serializers.py:61
+#: api/employee/views.py:242 api/partner/serializers.py:61
 msgid "Passwords didn't match"
 msgstr "Пароли не совпадают"
 
-#: api/employee/views.py:222 api/partner/serializers.py:59
+#: api/employee/views.py:245 api/partner/serializers.py:59
 msgid "Current password is incorrect"
 msgstr "Неверный текущий пароль"
 
-#: cms/models.py:165 templates/_base.html:337
+#: cms/models.py:165 templates/_base.html:340
 #: templates/employee/education_create.html:65
 #: templates/employee/employee_profile.html:276
 #: templates/employee/update_operator_3_education.html:64
@@ -44,11 +52,11 @@ msgstr "Неверный текущий пароль"
 msgid "Address"
 msgstr "Адрес"
 
-#: cms/models.py:166 templates/_base.html:344
+#: cms/models.py:166 templates/_base.html:347
 #: templates/employee/employee_profile.html:147
 #: templates/employee/update_operator_1.html:81
 #: templates/partner/profile.html:69 templates/partner/register.html:71
-#: templates/registration/employee.html:75
+#: templates/registration/employee.html:84
 msgid "Phone"
 msgstr "Телефон"
 
@@ -67,7 +75,7 @@ msgstr "Высокое обслуживание"
 
 #: core/views/vacancies_views.py:19
 msgid "Missing title"
-msgstr ""
+msgstr "Загаловок отсутствует"
 
 #: core/views/vacancies_views.py:25
 msgid "No short description was provided!"
@@ -79,7 +87,7 @@ msgstr ""
 
 #: core/views/vacancies_views.py:37
 msgid "Information on wages is not available"
-msgstr ""
+msgstr "Информация о зарплате отсутствует"
 
 #: directory/models.py:12
 msgid "City"
@@ -127,11 +135,11 @@ msgstr "Тип учебного заведения"
 msgid "Education types"
 msgstr "Виды обучения"
 
-#: employee/models.py:15
+#: employee/models.py:15 templates/registration/employee.html:58
 msgid "Male"
 msgstr "Мужской"
 
-#: employee/models.py:16
+#: employee/models.py:16 templates/registration/employee.html:59
 msgid "Female"
 msgstr "Женский"
 
@@ -216,1447 +224,10 @@ msgstr "Отец"
 msgid "Son"
 msgstr "Сын"
 
-#: employee/models2.py:474
-#, fuzzy
-#| msgid "Father"
-msgid "Dauther"
-msgstr "Отец"
-
 #: employee/models2.py:475 templates/employee/relative_create.html:62
 #: templates/employee/update_operator_3_relative.html:62
 msgid "Grandmother"
 msgstr "Бабушка"
-
-#: employee/models2.py:476 templates/employee/relative_create.html:63
-#: templates/employee/update_operator_3_relative.html:63
-msgid "Grandfather"
-msgstr "Дед"
-
-#: lib/python3.7/site-packages/django/contrib/messages/apps.py:7
-#, fuzzy
-#| msgid "Wages"
-msgid "Messages"
-msgstr "Заработная плата"
-
-#: lib/python3.7/site-packages/django/contrib/sitemaps/apps.py:7
-msgid "Site Maps"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/contrib/staticfiles/apps.py:9
-#, fuzzy
-#| msgid "Statistics"
-msgid "Static Files"
-msgstr "Статистика"
-
-#: lib/python3.7/site-packages/django/contrib/syndication/apps.py:7
-#, fuzzy
-#| msgid "Education"
-msgid "Syndication"
-msgstr "Образование"
-
-#: lib/python3.7/site-packages/django/core/paginator.py:45
-msgid "That page number is not an integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/paginator.py:47
-msgid "That page number is less than 1"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/paginator.py:52
-msgid "That page contains no results"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:31
-msgid "Enter a valid value."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:102
-#: lib/python3.7/site-packages/django/forms/fields.py:658
-msgid "Enter a valid URL."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:154
-msgid "Enter a valid integer."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:165
-msgid "Enter a valid email address."
-msgstr ""
-
-#. Translators: "letters" means latin letters: a-z and A-Z.
-#: lib/python3.7/site-packages/django/core/validators.py:239
-msgid ""
-"Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:246
-msgid ""
-"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or "
-"hyphens."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:255
-#: lib/python3.7/site-packages/django/core/validators.py:275
-msgid "Enter a valid IPv4 address."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:260
-#: lib/python3.7/site-packages/django/core/validators.py:276
-msgid "Enter a valid IPv6 address."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:270
-#: lib/python3.7/site-packages/django/core/validators.py:274
-msgid "Enter a valid IPv4 or IPv6 address."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:304
-msgid "Enter only digits separated by commas."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:310
-#, python-format
-msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:342
-#, python-format
-msgid "Ensure this value is less than or equal to %(limit_value)s."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:351
-#, python-format
-msgid "Ensure this value is greater than or equal to %(limit_value)s."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:361
-#, python-format
-msgid ""
-"Ensure this value has at least %(limit_value)d character (it has "
-"%(show_value)d)."
-msgid_plural ""
-"Ensure this value has at least %(limit_value)d characters (it has "
-"%(show_value)d)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:376
-#, python-format
-msgid ""
-"Ensure this value has at most %(limit_value)d character (it has "
-"%(show_value)d)."
-msgid_plural ""
-"Ensure this value has at most %(limit_value)d characters (it has "
-"%(show_value)d)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:395
-#: lib/python3.7/site-packages/django/forms/fields.py:290
-#: lib/python3.7/site-packages/django/forms/fields.py:325
-#, fuzzy
-#| msgid "Register number"
-msgid "Enter a number."
-msgstr "ИНН"
-
-#: lib/python3.7/site-packages/django/core/validators.py:397
-#, python-format
-msgid "Ensure that there are no more than %(max)s digit in total."
-msgid_plural "Ensure that there are no more than %(max)s digits in total."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:402
-#, python-format
-msgid "Ensure that there are no more than %(max)s decimal place."
-msgid_plural "Ensure that there are no more than %(max)s decimal places."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:407
-#, python-format
-msgid ""
-"Ensure that there are no more than %(max)s digit before the decimal point."
-msgid_plural ""
-"Ensure that there are no more than %(max)s digits before the decimal point."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:469
-#, python-format
-msgid ""
-"File extension '%(extension)s' is not allowed. Allowed extensions are: "
-"'%(allowed_extensions)s'."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/core/validators.py:521
-msgid "Null characters are not allowed."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/base.py:1162
-#: lib/python3.7/site-packages/django/forms/models.py:756
-#, fuzzy
-#| msgid "Husband"
-msgid "and"
-msgstr "Муж"
-
-#: lib/python3.7/site-packages/django/db/models/base.py:1164
-#, python-format
-msgid "%(model_name)s with this %(field_labels)s already exists."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:104
-#, python-format
-msgid "Value %(value)r is not a valid choice."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:105
-msgid "This field cannot be null."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:106
-msgid "This field cannot be blank."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:107
-#, python-format
-msgid "%(model_name)s with this %(field_label)s already exists."
-msgstr ""
-
-#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
-#. Eg: "Title must be unique for pub_date year"
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:111
-#, python-format
-msgid ""
-"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:128
-#, python-format
-msgid "Field of type: %(field_type)s"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:899
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1766
-msgid "Integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:903
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1764
-#, python-format
-msgid "'%(value)s' value must be an integer."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:978
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1844
-msgid "Big (8 byte) integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:990
-#, python-format
-msgid "'%(value)s' value must be either True or False."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:991
-#, python-format
-msgid "'%(value)s' value must be either True, False, or None."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:993
-msgid "Boolean (Either True or False)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1034
-#, python-format
-msgid "String (up to %(max_length)s)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1098
-msgid "Comma-separated integers"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1147
-#, python-format
-msgid ""
-"'%(value)s' value has an invalid date format. It must be in YYYY-MM-DD "
-"format."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1149
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1292
-#, python-format
-msgid ""
-"'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
-"date."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1152
-msgid "Date (without time)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1290
-#, python-format
-msgid ""
-"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
-"uuuuuu]][TZ] format."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1294
-#, python-format
-msgid ""
-"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-"[TZ]) but it is an invalid date/time."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1298
-msgid "Date (with time)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1446
-#, python-format
-msgid "'%(value)s' value must be a decimal number."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1448
-#, fuzzy
-#| msgid "Criminal number"
-msgid "Decimal number"
-msgstr "Номер справки (Наличие или отсутствие судимости)"
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1587
-#, python-format
-msgid ""
-"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
-"uuuuuu] format."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1590
-#, fuzzy
-#| msgid "Education"
-msgid "Duration"
-msgstr "Образование"
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1640
-#, fuzzy
-#| msgid "Legal address"
-msgid "Email address"
-msgstr "Юридический адрес"
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1663
-msgid "File path"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1729
-#, python-format
-msgid "'%(value)s' value must be a float."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1731
-#, fuzzy
-#| msgid "Registration number"
-msgid "Floating point number"
-msgstr "Регистрационный номер"
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1860
-#, fuzzy
-#| msgid "Living address"
-msgid "IPv4 address"
-msgstr "Место проживания"
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1891
-#, fuzzy
-#| msgid "Address"
-msgid "IP address"
-msgstr "Адрес"
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1971
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1972
-#, python-format
-msgid "'%(value)s' value must be either None, True or False."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:1974
-msgid "Boolean (Either True, False or None)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2009
-msgid "Positive integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2022
-msgid "Positive small integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2036
-#, python-format
-msgid "Slug (up to %(max_length)s)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2068
-msgid "Small integer"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2075
-msgid "Text"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2103
-#, python-format
-msgid ""
-"'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
-"format."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2105
-#, python-format
-msgid ""
-"'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
-"invalid time."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2108
-msgid "Time"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2234
-msgid "URL"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2256
-msgid "Raw binary data"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2306
-#, python-format
-msgid "'%(value)s' is not a valid UUID."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/__init__.py:2308
-msgid "Universally unique identifier"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/files.py:221
-#, fuzzy
-#| msgid "Files"
-msgid "File"
-msgstr "Файлы"
-
-#: lib/python3.7/site-packages/django/db/models/fields/files.py:360
-msgid "Image"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:778
-#, python-format
-msgid "%(model)s instance with %(field)s %(value)r does not exist."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:780
-msgid "Foreign Key (type determined by related field)"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:1007
-msgid "One-to-one relationship"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:1057
-#, python-format
-msgid "%(from)s-%(to)s relationship"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:1058
-#, python-format
-msgid "%(from)s-%(to)s relationships"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/db/models/fields/related.py:1100
-msgid "Many-to-many relationship"
-msgstr ""
-
-#. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the label
-#: lib/python3.7/site-packages/django/forms/boundfield.py:146
-msgid ":?.!"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:53
-msgid "This field is required."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:245
-msgid "Enter a whole number."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:396
-#: lib/python3.7/site-packages/django/forms/fields.py:1126
-msgid "Enter a valid date."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:420
-#: lib/python3.7/site-packages/django/forms/fields.py:1127
-msgid "Enter a valid time."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:442
-msgid "Enter a valid date/time."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:471
-msgid "Enter a valid duration."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:472
-#, python-brace-format
-msgid "The number of days must be between {min_days} and {max_days}."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:532
-msgid "No file was submitted. Check the encoding type on the form."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:533
-msgid "No file was submitted."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:534
-msgid "The submitted file is empty."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:536
-#, python-format
-msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
-msgid_plural ""
-"Ensure this filename has at most %(max)d characters (it has %(length)d)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:539
-msgid "Please either submit a file or check the clear checkbox, not both."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:600
-#: lib/python3.7/site-packages/sorl/thumbnail/fields.py:45
-msgid ""
-"Upload a valid image. The file you uploaded was either not an image or a "
-"corrupted image."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:762
-#: lib/python3.7/site-packages/django/forms/fields.py:852
-#: lib/python3.7/site-packages/django/forms/models.py:1270
-#, python-format
-msgid "Select a valid choice. %(value)s is not one of the available choices."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:853
-#: lib/python3.7/site-packages/django/forms/fields.py:968
-#: lib/python3.7/site-packages/django/forms/models.py:1269
-msgid "Enter a list of values."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:969
-msgid "Enter a complete value."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/fields.py:1185
-msgid "Enter a valid UUID."
-msgstr ""
-
-#. Translators: This is the default suffix added to form field labels
-#: lib/python3.7/site-packages/django/forms/forms.py:86
-msgid ":"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/forms.py:212
-#, python-format
-msgid "(Hidden field %(name)s) %(error)s"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/formsets.py:91
-msgid "ManagementForm data is missing or has been tampered with"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/formsets.py:338
-#, python-format
-msgid "Please submit %d or fewer forms."
-msgid_plural "Please submit %d or fewer forms."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/forms/formsets.py:345
-#, python-format
-msgid "Please submit %d or more forms."
-msgid_plural "Please submit %d or more forms."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/forms/formsets.py:371
-#: lib/python3.7/site-packages/django/forms/formsets.py:373
-msgid "Order"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/formsets.py:375
-msgid "Delete"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:751
-#, python-format
-msgid "Please correct the duplicate data for %(field)s."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:755
-#, python-format
-msgid "Please correct the duplicate data for %(field)s, which must be unique."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:761
-#, python-format
-msgid ""
-"Please correct the duplicate data for %(field_name)s which must be unique "
-"for the %(lookup)s in %(date_field)s."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:770
-msgid "Please correct the duplicate values below."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:1091
-msgid "The inline value did not match the parent instance."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:1158
-msgid "Select a valid choice. That choice is not one of the available choices."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/models.py:1272
-#, python-format
-msgid "\"%(pk)s\" is not a valid value."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/utils.py:162
-#, python-format
-msgid ""
-"%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
-"may be ambiguous or it may not exist."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:395
-msgid "Clear"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:396
-msgid "Currently"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:397
-msgid "Change"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:711
-msgid "Unknown"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:712
-#: templates/employee/employee_profile.html:211
-#: templates/employee/employee_profile.html:360
-#: templates/employee/update_operator_4.html:81
-#: templates/partner/employee_detail.html:198
-#: templates/partner/employee_detail.html:321
-msgid "Yes"
-msgstr "Да"
-
-#: lib/python3.7/site-packages/django/forms/widgets.py:713
-#: templates/employee/employee_profile.html:213
-#: templates/employee/employee_profile.html:362
-#: templates/employee/update_operator_3_family.html:66
-#: templates/employee/update_operator_4.html:87
-#: templates/partner/employee_detail.html:200
-#: templates/partner/employee_detail.html:321
-msgid "No"
-msgstr "Нет"
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:788
-msgid "yes,no,maybe"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:817
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:834
-#, python-format
-msgid "%(size)d byte"
-msgid_plural "%(size)d bytes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:836
-#, python-format
-msgid "%s KB"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:838
-#, python-format
-msgid "%s MB"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:840
-#, python-format
-msgid "%s GB"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:842
-#, python-format
-msgid "%s TB"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/template/defaultfilters.py:844
-#, python-format
-msgid "%s PB"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:62
-msgid "p.m."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:63
-msgid "a.m."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:68
-msgid "PM"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:69
-msgid "AM"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:150
-msgid "midnight"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dateformat.py:152
-msgid "noon"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:6
-msgid "Monday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:6
-msgid "Tuesday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:6
-msgid "Wednesday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:6
-msgid "Thursday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:6
-msgid "Friday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:7
-msgid "Saturday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:7
-msgid "Sunday"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:10
-#, fuzzy
-#| msgid "Son"
-msgid "Mon"
-msgstr "Сын"
-
-#: lib/python3.7/site-packages/django/utils/dates.py:10
-msgid "Tue"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:10
-msgid "Wed"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:10
-msgid "Thu"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:10
-msgid "Fri"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:11
-msgid "Sat"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:11
-#, fuzzy
-#| msgid "Son"
-msgid "Sun"
-msgstr "Сын"
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "January"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "February"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-#, fuzzy
-#| msgid "Search"
-msgid "March"
-msgstr "Поиск"
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "April"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "May"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:14
-msgid "June"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:15
-msgid "July"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:15
-msgid "August"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:15
-msgid "September"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:15
-msgid "October"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:15
-msgid "November"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:16
-msgid "December"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "jan"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "feb"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "mar"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "apr"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "may"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:19
-msgid "jun"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "jul"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "aug"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "sep"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "oct"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "nov"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:20
-msgid "dec"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:23
-msgctxt "abbrev. month"
-msgid "Jan."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:24
-msgctxt "abbrev. month"
-msgid "Feb."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:25
-#, fuzzy
-#| msgid "Search"
-msgctxt "abbrev. month"
-msgid "March"
-msgstr "Поиск"
-
-#: lib/python3.7/site-packages/django/utils/dates.py:26
-msgctxt "abbrev. month"
-msgid "April"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:27
-msgctxt "abbrev. month"
-msgid "May"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:28
-msgctxt "abbrev. month"
-msgid "June"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:29
-msgctxt "abbrev. month"
-msgid "July"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:30
-msgctxt "abbrev. month"
-msgid "Aug."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:31
-msgctxt "abbrev. month"
-msgid "Sept."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:32
-msgctxt "abbrev. month"
-msgid "Oct."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:33
-msgctxt "abbrev. month"
-msgid "Nov."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:34
-msgctxt "abbrev. month"
-msgid "Dec."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:37
-msgctxt "alt. month"
-msgid "January"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:38
-msgctxt "alt. month"
-msgid "February"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:39
-#, fuzzy
-#| msgid "Search"
-msgctxt "alt. month"
-msgid "March"
-msgstr "Поиск"
-
-#: lib/python3.7/site-packages/django/utils/dates.py:40
-msgctxt "alt. month"
-msgid "April"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:41
-msgctxt "alt. month"
-msgid "May"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:42
-msgctxt "alt. month"
-msgid "June"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:43
-msgctxt "alt. month"
-msgid "July"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:44
-msgctxt "alt. month"
-msgid "August"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:45
-msgctxt "alt. month"
-msgid "September"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:46
-msgctxt "alt. month"
-msgid "October"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:47
-msgctxt "alt. month"
-msgid "November"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/dates.py:48
-msgctxt "alt. month"
-msgid "December"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/ipv6.py:8
-msgid "This is not a valid IPv6 address."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/text.py:67
-#, python-format
-msgctxt "String to return when truncating text"
-msgid "%(truncated_text)s…"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/text.py:233
-msgid "or"
-msgstr ""
-
-#. Translators: This string is used as a separator between list elements
-#: lib/python3.7/site-packages/django/utils/text.py:252
-#: lib/python3.7/site-packages/django/utils/timesince.py:83
-msgid ", "
-msgstr ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:9
-#, python-format
-msgid "%d year"
-msgid_plural "%d years"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:10
-#, python-format
-msgid "%d month"
-msgid_plural "%d months"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:11
-#, python-format
-msgid "%d week"
-msgid_plural "%d weeks"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:12
-#, python-format
-msgid "%d day"
-msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:13
-#, python-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:14
-#, python-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: lib/python3.7/site-packages/django/utils/timesince.py:72
-msgid "0 minutes"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:110
-msgid "Forbidden"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:111
-msgid "CSRF verification failed. Request aborted."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:115
-msgid ""
-"You are seeing this message because this HTTPS site requires a 'Referer "
-"header' to be sent by your Web browser, but none was sent. This header is "
-"required for security reasons, to ensure that your browser is not being "
-"hijacked by third parties."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:120
-msgid ""
-"If you have configured your browser to disable 'Referer' headers, please re-"
-"enable them, at least for this site, or for HTTPS connections, or for 'same-"
-"origin' requests."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:124
-msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the 'Referrer-Policy: no-referrer' header, please remove them. The "
-"CSRF protection requires the 'Referer' header to do strict referer checking. "
-"If you're concerned about privacy, use alternatives like <a rel=\"noreferrer"
-"\" ...> for links to third-party sites."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:132
-msgid ""
-"You are seeing this message because this site requires a CSRF cookie when "
-"submitting forms. This cookie is required for security reasons, to ensure "
-"that your browser is not being hijacked by third parties."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:137
-msgid ""
-"If you have configured your browser to disable cookies, please re-enable "
-"them, at least for this site, or for 'same-origin' requests."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/csrf.py:142
-msgid "More information is available with DEBUG=True."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:41
-msgid "No year specified"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:61
-#: lib/python3.7/site-packages/django/views/generic/dates.py:111
-#: lib/python3.7/site-packages/django/views/generic/dates.py:208
-msgid "Date out of range"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:90
-msgid "No month specified"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:142
-msgid "No day specified"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:188
-msgid "No week specified"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:338
-#: lib/python3.7/site-packages/django/views/generic/dates.py:367
-#, python-format
-msgid "No %(verbose_name_plural)s available"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:589
-#, python-format
-msgid ""
-"Future %(verbose_name_plural)s not available because %(class_name)s."
-"allow_future is False."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/dates.py:623
-#, python-format
-msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/detail.py:54
-#, python-format
-msgid "No %(verbose_name)s found matching the query"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/list.py:67
-msgid "Page is not 'last', nor can it be converted to an int."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/list.py:72
-#, python-format
-msgid "Invalid page (%(page_number)s): %(message)s"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/generic/list.py:154
-#, python-format
-msgid "Empty list and '%(class_name)s.allow_empty' is False."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/static.py:40
-msgid "Directory indexes are not allowed here."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/static.py:42
-#, python-format
-msgid "\"%(path)s\" does not exist"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/static.py:80
-#, python-format
-msgid "Index of %(directory)s"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:6
-msgid "Django: the Web framework for perfectionists with deadlines."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:345
-#, python-format
-msgid ""
-"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:367
-msgid "The install worked successfully! Congratulations!"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:368
-#, python-format
-msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
-"\">DEBUG=True</a> is in your settings file and you have not configured any "
-"URLs."
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:383
-msgid "Django Documentation"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:384
-msgid "Topics, references, &amp; how-to's"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:395
-msgid "Tutorial: A Polling App"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:396
-msgid "Get started with Django"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:407
-msgid "Django Community"
-msgstr ""
-
-#: lib/python3.7/site-packages/django/views/templates/default_urlconf.html:408
-msgid "Connect, get help, or contribute"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:313
-msgid "usage: "
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:821
-msgid ".__call__() not defined"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1105
-#, python-format
-msgid "unknown parser %r (choices: %s)"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1146
-#, python-format
-msgid "argument \"-\" with mode %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1349
-#, python-format
-msgid "cannot merge actions - two groups are named %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1387
-msgid "'required' is an invalid argument for positionals"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1407
-#, python-format
-msgid "invalid option string %r: must start with a character %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1428
-#, python-format
-msgid "dest= is required for options like %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1445
-#, python-format
-msgid "invalid conflict_resolution value: %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1463
-#, python-format
-msgid "conflicting option string(s): %s"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1526
-msgid "mutually exclusive arguments must be optional"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1596
-msgid "positional arguments"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1597
-msgid "optional arguments"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1615
-msgid "show this help message and exit"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1621
-msgid "show program's version number and exit"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1653
-msgid "cannot have multiple subparser arguments"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1705
-#, python-format
-msgid "unrecognized arguments: %s"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1802
-#, python-format
-msgid "not allowed with argument %s"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1848
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1862
-#, python-format
-msgid "ignored explicit argument %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1952
-msgid "too few arguments"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1959
-#, fuzzy, python-format
-#| msgid "not required"
-msgid "argument %s is required"
-msgstr "не обязательно"
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:1973
-#, python-format
-msgid "one of the arguments %s is required"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2019
-msgid "expected one argument"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2020
-msgid "expected at most one argument"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2021
-msgid "expected at least one argument"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2023
-#, python-format
-msgid "expected %s argument(s)"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2080
-#, python-format
-msgid "ambiguous option: %s could match %s"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2142
-#, python-format
-msgid "unexpected option string: %s"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2243
-#, python-format
-msgid "%r is not callable"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2259
-#, python-format
-msgid "invalid %s value: %r"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2269
-#, python-format
-msgid "invalid choice: %r (choose from %s)"
-msgstr ""
-
-#: lib/python3.7/site-packages/gunicorn/argparse_compat.py:2362
-#, python-format
-msgid "%s: error: %s\n"
-msgstr ""
-
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:8
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:10
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:17
-msgid "previous page"
-msgstr ""
-
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:26
-msgid "current page"
-msgstr ""
-
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:42
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:43
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:50
-msgid "next page"
-msgstr ""
-
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination.html:4
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination.html:6
-msgid "previous"
-msgstr ""
-
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination.html:20
-#: lib/python3.7/site-packages/pure_pagination/templates/pure_pagination/pagination.html:22
-msgid "next"
-msgstr ""
 
 #: partners/models.py:64
 msgid "Partner employee request"
@@ -1680,9 +251,9 @@ msgstr "Узбекский"
 
 #: settings/settings.py:127
 msgid "Kazakh"
-msgstr ""
+msgstr "Казахский"
 
-#: templates/_base.html:80 templates/_base.html:89
+#: templates/_base.html:83 templates/_base.html:92
 #: templates/employee/army_create.html:37
 #: templates/employee/education_create.html:37
 #: templates/employee/employee_profile.html:34
@@ -1706,45 +277,42 @@ msgstr ""
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/_base.html:98 templates/_base.html:396
+#: templates/_base.html:101 templates/_base.html:399
 msgid "Login"
 msgstr "Войти"
 
-#: templates/_base.html:104
-#, fuzzy
-#| msgid "Registration form"
 msgid "Registration"
-msgstr "Регистрационная форма"
+msgstr "Регистрация"
 
-#: templates/_base.html:166 templates/_base.html:167
+#: templates/_base.html:169 templates/_base.html:170
 #: templates/vacancies/vacancies_detail.html:10
 #: templates/vacancies/vacancies_list.html:11
 msgid "Vacancies"
 msgstr "Вакансии"
 
-#: templates/_base.html:172 templates/_base.html:173 templates/_base.html:284
+#: templates/_base.html:175 templates/_base.html:176 templates/_base.html:287
 #: templates/index.html:101 templates/pages/about.html:11
 msgid "About company"
 msgstr "О компании"
 
-#: templates/_base.html:178 templates/_base.html:179 templates/_base.html:289
-#: templates/_base.html:320 templates/index.html:38
+#: templates/_base.html:181 templates/_base.html:182 templates/_base.html:292
+#: templates/_base.html:323 templates/index.html:38
 #: templates/pages/cms_service_detail.html:11 templates/pages/services.html:11
 msgid "Services"
 msgstr "Услуги"
 
-#: templates/_base.html:184 templates/_base.html:185 templates/_base.html:294
+#: templates/_base.html:187 templates/_base.html:188 templates/_base.html:297
 #: templates/pages/docs.html:10
 msgid "Documents"
 msgstr "Документы"
 
-#: templates/_base.html:190 templates/_base.html:191 templates/_base.html:299
+#: templates/_base.html:193 templates/_base.html:194 templates/_base.html:302
 #: templates/index.html:81 templates/pages/cms_partner_detail.html:11
 #: templates/pages/forpartners.html:11
 msgid "Partners"
 msgstr "Партнёры"
 
-#: templates/_base.html:196 templates/_base.html:197 templates/_base.html:304
+#: templates/_base.html:199 templates/_base.html:200 templates/_base.html:307
 #: templates/employee/education_create.html:15
 #: templates/employee/employee_profile.html:259
 #: templates/employee/update_operator_3_education.html:15
@@ -1753,84 +321,104 @@ msgstr "Партнёры"
 msgid "Education"
 msgstr "Образование"
 
-#: templates/_base.html:202 templates/_base.html:203 templates/_base.html:309
+msgid "Our employees"
+msgstr "Bizning xodimlarimiz"
+
+#: templates/_base.html:205 templates/_base.html:206 templates/_base.html:312
 #: templates/pages/faq.html:11
 msgid "FAQ"
 msgstr "Вопросы"
 
-#: templates/_base.html:234
-#, fuzzy
-#| msgid "Our employees"
+#: templates/_base.html:232
+msgid "Register as:"
+msgstr "Зарегистрироваться как:"
+
+#: templates/_base.html:237
 msgid "An employee"
-msgstr "Наши сотрудники"
+msgstr "Работник"
 
-#: templates/_base.html:238
-#, fuzzy
-#| msgid "Partners"
+msgid "A partner"
+msgstr "Партнёр"
+
+msgid "A student"
+msgstr "Студент"
+
+msgid "Registration options"
+msgstr "Варианты регистрации"
+
+#: templates/_base.html:241
 msgid "Partner"
-msgstr "Партнёры"
+msgstr "Партнёр"
 
-#: templates/_base.html:242
+#: templates/_base.html:245
 msgid "Student"
 msgstr ""
 
-#: templates/_base.html:268 templates/_base.html:274
+#: templates/_base.html:271 templates/_base.html:277
 msgid "A different approach - a different future"
 msgstr "Иной подход - иное будущее"
 
-#: templates/_base.html:280
+#: templates/_base.html:283
 msgid "Menu"
 msgstr "Меню"
 
-#: templates/_base.html:314 templates/pages/training.html:10
+#: templates/_base.html:317 templates/pages/training.html:10
 msgid "Training"
 msgstr "Обучение"
 
-#: templates/_base.html:333
+#: templates/_base.html:336
 msgid "Contacts"
 msgstr "Контакты"
 
-#: templates/_base.html:351 templates/partner/profile.html:75
+#: templates/_base.html:354 templates/partner/profile.html:75
 #: templates/partner/register.html:64
 msgid "E-mail"
 msgstr "Э-почта"
 
-#: templates/_base.html:361
+#: templates/_base.html:364
 msgid "All rights reserved"
 msgstr "Все права защищены"
 
-#: templates/_base.html:362
+#: templates/_base.html:365
 msgid "Developed by"
 msgstr "Разработка сайта"
 
-#: templates/_base.html:379
+#: templates/_base.html:382
 msgid "Authorization"
 msgstr "Авторизация"
 
-#: templates/_base.html:382
+#: templates/_base.html:385
 msgid "Username"
 msgstr "Логин"
 
-#: templates/_base.html:387
+#: templates/_base.html:390
 msgid "Password"
 msgstr "Пароль"
 
-#: templates/_base.html:391
+#: templates/_base.html:394
 msgid "Username or password entered incorrectly"
 msgstr "Логин или пароль введены неверно"
 
-#: templates/_base.html:394 templates/partner/register.html:16
+#: templates/_base.html:397 templates/partner/register.html:16
 #: templates/registration/employee.html:16
 msgid "Register partners"
 msgstr "Регистрация партнеров"
 
-#: templates/_base.html:404
+#: templates/_base.html:407
 msgid "Saved successfully"
 msgstr "Успешно сохранено"
 
-#: templates/_base.html:405
+#: templates/_base.html:408
 msgid "An error has occurred"
 msgstr "Произошла ошибка"
+
+#: templates/_base.html:444
+msgid "Oops..."
+msgstr "Упс..."
+
+#: templates/_base.html:445
+msgid "This option is not available yet"
+msgstr "Эта функция еще не доступна"
 
 #: templates/employee/army_create.html:15
 #: templates/employee/employee_profile.html:349
@@ -2042,8 +630,8 @@ msgstr "Загрузить файлы"
 #: templates/employee/update_operator_4.html:151
 #: templates/partner/bookmarks.html:138 templates/partner/bookmarks.html:169
 #: templates/partner/register.html:103 templates/partner/register.html:131
-#: templates/registration/employee.html:85
-#: templates/registration/employee.html:113
+#: templates/registration/employee.html:123
+#: templates/registration/employee.html:151
 msgid "Send"
 msgstr "Отправить"
 
@@ -2065,7 +653,7 @@ msgstr "Отправить"
 #: templates/employee/update_operator_3_reward.html:196
 #: templates/employee/update_operator_4.html:203
 #: templates/partner/bookmarks.html:231 templates/partner/register.html:275
-#: templates/registration/employee.html:178
+#: templates/registration/employee.html:241
 msgid "successfully sent"
 msgstr "Успешно отправлено"
 
@@ -2144,14 +732,14 @@ msgstr "Ф.И.О (англ)"
 
 #: templates/employee/employee_profile.html:115
 #: templates/partner/employee_detail.html:119
-#: templates/partner/employees.html:52
+#: templates/partner/employees.html:52 templates/registration/employee.html:55
 msgid "Gender"
 msgstr "Пол"
 
 #: templates/employee/employee_profile.html:119
 #: templates/employee/update_operator_1.html:54
 #: templates/partner/employee_detail.html:123
-#: templates/registration/employee.html:37
+#: templates/registration/employee.html:64
 msgid "Passport serial"
 msgstr "№ Паспорта"
 
@@ -2178,6 +766,7 @@ msgstr "ИНН"
 #: templates/employee/relative_create.html:72
 #: templates/employee/update_operator_3_relative.html:72
 #: templates/partner/employee_detail.html:139
+#: templates/registration/employee.html:51
 msgid "Birth date"
 msgstr "Дата рождения"
 
@@ -2530,7 +1119,7 @@ msgstr "Сохранить"
 #: templates/partner/bookmarks.html:64
 #: templates/partner/employee_detail.html:151
 msgid "sm"
-msgstr ""
+msgstr "см"
 
 #: templates/employee/update_operator_2.html:159
 msgid "Blood rhesus"
@@ -2569,8 +1158,8 @@ msgid "2500$ more"
 msgstr "Больше 2500$"
 
 #: templates/index.html:76
-msgid "Statistics"
-msgstr "Статистика"
+msgid "Status"
+msgstr "Статус"
 
 #: templates/index.html:89
 msgid "Years of experience"
@@ -2589,9 +1178,6 @@ msgstr "Отзывы"
 msgid "Our partners"
 msgstr "Наши партнеры"
 
-#: templates/index.html:197
-msgid "Our employees"
-msgstr "Наши сотрудники"
 
 #: templates/pages/faq.html:19 templates/pages/faq.html:20
 #: templates/partner/employees.html:98
@@ -2654,8 +1240,6 @@ msgid "Applicant data"
 msgstr "Данные аппликанта"
 
 #: templates/partner/employee_detail.html:111
-#, fuzzy
-#| msgid "Register number"
 msgid "Reg.number"
 msgstr "ИНН"
 
@@ -2721,11 +1305,11 @@ msgstr "Регистрационный номер"
 msgid "Responsible person for hiring migrant workers"
 msgstr "Ответственного лица за наем трудовых мигрантов"
 
-#: templates/partner/register.html:111 templates/registration/employee.html:93
+#: templates/partner/register.html:111 templates/registration/employee.html:131
 msgid "Terms of use"
 msgstr "Пользовательское соглашение"
 
-#: templates/partner/register.html:123 templates/registration/employee.html:105
+#: templates/partner/register.html:123 templates/registration/employee.html:143
 msgid "I accept the terms of the partner agreement"
 msgstr "Я принимаю условия пользовательского соглашения"
 
@@ -2737,162 +1321,88 @@ msgstr "ru"
 msgid ""
 "This field isn't required and if it is empty than 'Passport serial' will be "
 "used as a login"
-msgstr "Это поле не объязательно и если оно пустое, то тогда серия паспорта будет использоваться как логин"
+msgstr ""
+"Это поле не объязательно и если оно пустое, то тогда серия паспорта будет "
+"использоваться как логин"
 
 #: templates/registration/employee.html:28
-#, fuzzy
-#| msgid "not required"
 msgid "Login (not required)"
-msgstr "не обязательно"
+msgstr "Логин (не обязательно)"
 
-#: templates/registration/employee.html:36
-msgid "Passport serial will be used as a login, if login field is not defined"
-msgstr "Серия паспорта будет использована как логин, если логин не указан"
-
-#: templates/registration/employee.html:46
+#: templates/registration/employee.html:33
 msgid "Type your full name in Russian language"
 msgstr "Введите Ф.И.О на русском языке"
 
-#: templates/registration/employee.html:47
-#, fuzzy
-#| msgid "Fullname (Russian)"
+#: templates/registration/employee.html:34
 msgid "Fullname (ru)"
 msgstr "Ф.И.О (рус)"
 
-#: templates/registration/employee.html:55
+#: templates/registration/employee.html:39
 msgid "Type your full name in English language"
 msgstr "Введите Ф.И.О на английском языке"
 
-msgid "Oops..."
-msgstr "Упс..."
+#: templates/registration/employee.html:40
 
-msgid "This option is not available yet"
-msgstr "Эта функция еще не доступна"
-
-#: templates/registration/employee.html:56
-#, fuzzy
-#| msgid "Fullname (Russian)"
 msgid "Fullname (en)"
-msgstr "Ф.И.О (рус)"
+msgstr "Ф.И.О (английский)"
 
-#: templates/registration/employee.html:66
+#: templates/registration/employee.html:45
 msgid ""
 "If email address is defined, than your authentication information will be "
 "sent to your email!"
-msgstr "Если электронная почта указана, то тогда ваш логин и пароль будут отправлены на вашу электронную почту!"
+msgstr ""
+"Если электронная почта указана, то тогда ваш логин и пароль будут отправлены "
+"на вашу электронную почту!"
 
-msgid "Register as:"
-msgstr "Зарегистрироваться как:"
+#: templates/registration/employee.html:46
 
-#: templates/registration/employee.html:67
-#, fuzzy
-#| msgid "not required"
 msgid "E-mail (not required)"
-msgstr "не обязательно"
+msgstr "E-mail (не обязательно)"
 
-#: templates/registration/employee.html:74
+#: templates/registration/employee.html:57
+msgid "Select your gender"
+msgstr "Выберите свой пол"
+
+#: templates/registration/employee.html:63
+#: templates/registration/employee.html:71
+msgid "Passport serial will be used as a login, if login field is not defined"
+msgstr "Серия паспорта будет использована как логин, если логин не указан"
+
+#: templates/registration/employee.html:72
+msgid "Date of issue"
+msgstr "Дата выдачи"
+
+#: templates/registration/employee.html:77
+msgid "Expiration date of your passport"
+msgstr "Срок действия вашего паспорта"
+
+#: templates/registration/employee.html:78
+msgid "Expiry date"
+msgstr "Срок действия"
+
+#: templates/registration/employee.html:83
 msgid ""
 "Only Kazakh and Uzbek numbers are available. Your authentication information "
 "will be sent to your phone number!"
-msgstr "На данный момент доступны лишь казахские и узбекские номера. Ваш логин и пароль будут отправлены на ваш телефон!"
+msgstr ""
+"На данный момент доступны лишь казахские и узбекские номера. Ваш логин и "
+"пароль будут отправлены на ваш телефон!"
+
+#: templates/registration/employee.html:90
+msgid "TIN"
+msgstr "ИНН"
+
+#: templates/registration/employee.html:96
+msgid "Place of residence"
+msgstr "Место проживания"
+
+#: templates/registration/employee.html:104
+msgid "Place of birth"
+msgstr "Место рождения"
 
 #: templates/vacancies/vacancies_list.html:82
 msgid "No vacancies are available"
 msgstr "Нет доступных вакансий"
-
-#: vacancy/models.py:12
-msgid "Title (ru)"
-msgstr ""
-
-#: vacancy/models.py:13
-msgid "Title (en)"
-msgstr "Загаловок (на английском)"
-
-#: vacancy/models.py:14
-msgid "Title (uz)"
-msgstr "Загаловок (на узбекском)"
-
-#: vacancy/models.py:15
-msgid "Title (kz)"
-msgstr "Загаловок (на казахском)"
-
-#: vacancy/models.py:16
-#, fuzzy
-#| msgid "Position"
-msgid "Short description (ru)"
-msgstr "Должность"
-
-#: vacancy/models.py:17
-#, fuzzy
-#| msgid "Position"
-msgid "Short description (en)"
-msgstr "Должность"
-
-#: vacancy/models.py:18
-#, fuzzy
-#| msgid "Position"
-msgid "Short description (uz)"
-msgstr "Должность"
-
-#: vacancy/models.py:19
-#, fuzzy
-#| msgid "Position"
-msgid "Short description (kz)"
-msgstr "Должность"
-
-#: vacancy/models.py:61
-msgid "Created"
-msgstr ""
-
-#: vacancy/models.py:62
-#, fuzzy
-#| msgid "Location / Address"
-msgid "Location (ru)"
-msgstr "Место нахождения/адрес"
-
-#: vacancy/models.py:63
-msgid "Location (uz)"
-msgstr ""
-
-#: vacancy/models.py:64
-msgid "Location (kz)"
-msgstr ""
-
-#: vacancy/models.py:65
-#, fuzzy
-#| msgid "Location / Address"
-msgid "Location (en)"
-msgstr "Место нахождения/адрес"
-
-#: vacancy/models.py:66
-#, fuzzy
-#| msgid "Wages"
-msgid "Wages (en)"
-msgstr "Заработная плата"
-
-#: vacancy/models.py:67
-#, fuzzy
-#| msgid "Wages"
-msgid "Wages (ru)"
-msgstr "Заработная плата"
-
-#: vacancy/models.py:68
-#, fuzzy
-#| msgid "Wages"
-msgid "Wages (kz)"
-msgstr "Заработная плата"
-
-#: vacancy/models.py:69
-#, fuzzy
-#| msgid "Wages"
-msgid "Wages (uz)"
-msgstr "Заработная плата"
-
-#: vacancy/models.py:70
-#, fuzzy
-#| msgid "Statistics"
-msgid "Status"
-msgstr "Статистика"
 
 #: vacancy/models.py:108
 msgid "Just now"
@@ -2902,13 +1412,8 @@ msgstr "Только что"
 msgid "Today "
 msgstr "Сегодня "
 
-#, fuzzy
-#~| msgid "Logout"
-#~ msgid "Logoin"
-#~ msgstr "Выйти"
+msgid "Criminal issues"
+msgstr "Дата выдачи (Наличие или отсутствие судимости)"
 
-#~ msgid "Criminal issues"
-#~ msgstr "Дата выдачи (Наличие или отсутствие судимости)"
-
-#~ msgid "Additional info"
-#~ msgstr "Дополнительные информация"
+msgid "Additional info"
+msgstr "Дополнительные информация"
