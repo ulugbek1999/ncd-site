@@ -161,3 +161,9 @@ body {
         max-width: unset;
     }
 }
+
+@media screen and (max-width: 460px) {
+    .register-employee {
+        width: 100%;
+    }
+}
