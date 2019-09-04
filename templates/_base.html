@@ -113,6 +113,7 @@
                                     <a class="lang-ru" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Russia-icon.png' %}" alt=""> Ru</a>
                                     <a class="lang-en" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/United-kingdom-icon.png' %}" alt=""> En</a>
                                     <a class="lang-uz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/uzbekistan.png' %}" alt=""> Uz</a>
+                                    <a class="lang-kz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Kazakh-icon.jpg' %}" alt=""> Kz</a>
                                 </div>
                                 <div class="dropdown-lang mobile-lang">
                                     {% if LANGUAGE_CODE == 'ru' %}
@@ -120,18 +121,28 @@
                                         <div class="dropdown-content">
                                             <a class="lang-en" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/United-kingdom-icon.png' %}" alt=""> En</a>
                                             <a class="lang-uz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/uzbekistan.png' %}" alt=""> Uz</a>
+                                            <a class="lang-kz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Kazakh-icon.jpg' %}" alt=""> Kz</a>
                                         </div>
                                     {% elif LANGUAGE_CODE == 'en' %}
                                         <button class="dropbtn"><img src="{% static 'images/United-kingdom-icon.png' %}" alt=""> En</button>
                                         <div class="dropdown-content">
                                             <a class="lang-ru" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Russia-icon.png' %}" alt=""> Ru</a>
                                             <a class="lang-uz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/uzbekistan.png' %}" alt=""> Uz</a>
+                                            <a class="lang-kz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Kazakh-icon.jpg' %}" alt=""> Kz</a>
                                         </div>
                                     {% elif LANGUAGE_CODE == 'uz' %}
                                         <button class="dropbtn"><img src="{% static 'images/uzbekistan.png' %}" alt=""> Uz</button>
                                         <div class="dropdown-content">
                                             <a class="lang-ru" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Russia-icon.png' %}" alt=""> Ru</a>
                                             <a class="lang-en" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/United-kingdom-icon.png' %}" alt=""> En</a>
+                                            <a class="lang-kz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Kazakh-icon.jpg' %}" alt=""> Kz</a>
+                                        </div>
+                                    {% elif LANGUAGE_CODE == 'kz' %}
+                                        <button class="dropbtn"><img src="{% static 'images/Kazakh-icon.jpg' %}" alt=""> Kz</button>
+                                        <div class="dropdown-content">
+                                            <a class="lang-ru" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/Russia-icon.png' %}" alt=""> Ru</a>
+                                            <a class="lang-en" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/United-kingdom-icon.png' %}" alt=""> En</a>
+                                            <a class="lang-uz" data-url="{% url 'set_language' %}" href="#"><img src="{% static 'images/uzbekistan.png' %}" alt=""> Uz</a>
                                         </div>
                                     {% endif %}
                                 </div>
@@ -484,6 +495,20 @@
                     $.ajax({
                         type: 'POST',
                         data: `next=${'/' + window.location.pathname.substring(4)}&language=uz`,
+                        url: $(this).data('url'),
+                        success: function (data) {
+                            window.location.href = '/' + window.location.pathname.substring(4);
+                        },
+                        error: function (data) {
+                            console.log('error');
+                        },
+                    });
+                });
+                $(".lang-kz").click(function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: 'POST',
+                        data: `next=${'/' + window.location.pathname.substring(4)}&language=kz`,
                         url: $(this).data('url'),
                         success: function (data) {
                             window.location.href = '/' + window.location.pathname.substring(4);
