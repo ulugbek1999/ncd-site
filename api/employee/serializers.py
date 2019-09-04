@@ -29,7 +29,7 @@ class EmployeeCreateSerializer(ModelSerializer):
             "email",
             "full_name_en",
             "full_name_ru",
-            "passport_image",
+            "photo_1",
             "passport_serial",
             "passport_given_date",
             "passport_expires",

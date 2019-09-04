@@ -147,3 +147,17 @@ body {
 .datepicker {
     z-index: 100000 !important;
 }
+
+@media screen and (max-width: 991px) {
+    #sendRequestButton {
+        position: relative;
+        top: 10px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .register-employee {
+        width: 80%;
+        max-width: unset;
+    }
+}

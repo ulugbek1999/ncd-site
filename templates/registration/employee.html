@@ -111,7 +111,7 @@
                                     <div class="col-md-4">
                                         <div class="kv-avatar">
                                             <div class="file-loading">
-                                                <input id="passport-image" name="passport_image" type="file" required>
+                                                <input id="photo" name="passport_image" type="file" required>
                                             </div>
                                         </div>
                                     </div>
@@ -209,12 +209,12 @@
             formData.append("email", $("input[name='email']").val());
             formData.append("username", $("input[name='login']").val());
             var canSubmit = true
-            if (!$("#passport-image").val()) {
+            if (!$("#photo").val()) {
                 $(".file-preview").css({"border-color": "red"})
                 canSubmit = false
             }
             else {
-                formData.append("passport_image", $("#passport-image")[0].files[0])
+                formData.append("photo_1", $("#photo")[0].files[0])
             }
             setTimeout(() => {
                 $(".file-preview").css({"border-color": "#cccccc"})
@@ -263,7 +263,7 @@
         
     </script>
     <script>
-        $("#passport-image").fileinput({
+        $("#photo").fileinput({
             overwriteInitial: true,
             maxFileSize: 1500,
             showClose: false,
@@ -275,7 +275,7 @@
             removeTitle: 'Cancel or reset changes',
             elErrorContainer: '#kv-avatar-errors-1',
             msgErrorClass: 'alert alert-block alert-danger',
-            defaultPreviewContent: '<img src="{{ passport_holder }}" alt="Your passport scan" class="img-passport">',
+            defaultPreviewContent: '<img src="{{ avatar_holder }}" alt="Your passport scan" class="img-passport">',
             layoutTemplates: {main2: '{preview} {remove} {browse}'},
             allowedFileExtensions: ["jpg", "png", "gif"]
         });

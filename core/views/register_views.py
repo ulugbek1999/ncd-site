@@ -11,6 +11,6 @@ class RegisterEmployeeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["register_number"] = timezone.now()
         context["agreement"] = CMSExtra.objects.get(type=7)
-        context["passport_holder"] = static('images/passport_holder.png')
+        context["avatar_holder"] = static('images/avatar_placeholder.jpg')
         return context
     
