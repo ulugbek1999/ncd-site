@@ -44,6 +44,7 @@ class EmployeeCreateAPIView(APIView):
         validated_data["username"], validated_data["email"] = request.data.get("username"), request.data.get("email")
         validated_data["full_name_en"], validated_data["full_name_ru"] = request.data.get("full_name_en"), request.data.get("full_name_ru")
         validated_data["photo_1"], validated_data["passport_serial"] = request.data.get("photo_1"), request.data.get("passport_serial")
+        
         validated_data["passport_given_date"], validated_data["passport_expires"] = request.data.get("passport_given_date"), request.data.get("passport_expires")
         validated_data["birth_date"] = request.data.get("birth_date")
         validated_data["birth_place_ru"], validated_data["living_address_ru"] = request.data.get("birth_place_ru"), request.data.get("living_address_ru")
