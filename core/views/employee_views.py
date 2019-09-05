@@ -18,6 +18,7 @@ from employee.models2 import Family
 from employee.models2 import Language
 from employee.models2 import Relative
 from employee.models2 import Reward
+from django.contrib.staticfiles.templatetags.staticfiles import static
 
 
 # Employee views
@@ -26,6 +27,12 @@ class EmployeeProfilePage(EmployeeAuthMixin, DetailView):
     template_name = 'employee/employee_profile.html'
     context_object_name = 'employee'
     pk_url_kwarg = 'id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["avatar"] = static('images/avatar_placeholder.jpg')
+        return context
+    
 
 
 class EmployeeOP1Update(EmployeeAuthMixin, DetailView):

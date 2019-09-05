@@ -68,7 +68,7 @@
                                                 <div class="form-group radio-form">
                                                     <label for="">{% trans 'Appearance' %}</label>
                                                     <div class="radio-group">
-                                                        <input type="radio" id="appearance4" name="appearance" value="4" {% if employee.appearance == 4 %}checked{% endif %}>
+                                                        <input type="radio" id="appearance4" name="appearance" value="4" {% if employee.appearance == 4 %}checked{% elif not employee.appearance %}checked{% endif %}>
                                                         <label for="appearance4">
                                                             <span>4</span>
                                                         </label>
@@ -89,7 +89,7 @@
                                                 <div class="form-group radio-form">
                                                     <label for="">{% trans 'Neatness' %}</label>
                                                     <div class="radio-group">
-                                                        <input type="radio" id="neatness4" name="neatness" value="4" {% if employee.neatness == 4 %}checked{% endif %}>
+                                                        <input type="radio" id="neatness4" name="neatness" value="4" {% if employee.neatness == 4 or not employee.neatness %}checked{% endif %}>
                                                         <label for="neatness4">
                                                             <span>4</span>
                                                         </label>
@@ -110,7 +110,7 @@
                                                 <div class="form-group radio-form">
                                                     <label for="">{% trans 'Skin' %}</label>
                                                     <div class="radio-group">
-                                                        <input type="radio" id="skin4" name="skin" value="4" {% if employee.skin == 4 %}checked{% endif %}>
+                                                        <input type="radio" id="skin4" name="skin" value="4" {% if employee.skin == 4 or not employee.skin %}checked{% endif %}>
                                                         <label for="skin4">
                                                             <span>4</span>
                                                         </label>
@@ -131,7 +131,7 @@
                                                 <div class="form-group radio-form">
                                                     <label for="">{% trans 'Blood group' %}</label>
                                                     <div class="radio-group">
-                                                        <input type="radio" id="blood_group1ID" name="blood_group" value="1"  {% if employee.blood_group == 1 %}checked{% endif %}>
+                                                        <input type="radio" id="blood_group1ID" name="blood_group" value="1"  {% if employee.blood_group == 1 or not employee.blood_group %}checked{% endif %}>
                                                         <label for="blood_group1ID">
                                                             <span>I</span>
                                                         </label>
@@ -158,7 +158,7 @@
                                                 <div class="form-group radio-form">
                                                     <label for="">{% trans 'Blood rhesus' %}</label>
                                                     <div class="radio-group">
-                                                        <input type="radio" id="blood_resusPlusID" name="blood_resus" value="+" {% if employee.blood_resus == "+" %}checked{% endif %}>
+                                                        <input type="radio" id="blood_resusPlusID" name="blood_resus" value="+" {% if employee.blood_resus == "+" or not employee.blood_resus %}checked{% endif %}>
                                                         <label for="blood_resusPlusID">
                                                             <span>(+)</span>
                                                         </label>
@@ -208,7 +208,6 @@
             formData.append("blood_resus", $("input[name='blood_resus']:checked").val());
             formData.append("vision_l", $("#vision_lID").val().replace(',', '.'));
             formData.append("vision_r", $("#vision_rID").val().replace(',', '.'));
-
             /*var object = {};
             formData.forEach((value, key) => {object[key] = value});
             var jsonData = JSON.stringify(object);

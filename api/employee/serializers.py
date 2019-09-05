@@ -3,7 +3,7 @@ import datetime
 from rest_framework.serializers import ModelSerializer
 
 from directory.models import Country
-from employee.models import EmployeeChanges, EmployeeChangesCountry, Employee
+from employee.models import EmployeeChanges, EmployeeCountry, Employee
 from employee.models2 import EducationChanges, EducationChangesFile, EducationFile, ArmyFile, ExperienceFile, FamilyFile, LanguageFile, RelativeFile, RewardFile
 from employee.models2 import LanguageChanges, LanguageChangesFile
 from employee.models2 import ArmyChanges, ArmyChangesFile
@@ -47,7 +47,7 @@ class EmployeeCreateSerializer(ModelSerializer):
 
 class EmployeeChange1(ModelSerializer):
     class Meta:
-        model = EmployeeChanges
+        model = Employee
         fields = (
             'full_name_ru',
             'full_name_en',
@@ -62,7 +62,7 @@ class EmployeeChange1(ModelSerializer):
         )
 
     def create(self, validated_data):
-        instance, _ = EmployeeChanges.objects.get_or_create(parent=self.context['request'].user.employee)
+        instance, _ = Employee.objects.get_or_create(id=self.context['request'].user.employee.id)
         for attr, value in validated_data.items():
             if value == '':
                 continue
@@ -73,7 +73,7 @@ class EmployeeChange1(ModelSerializer):
 
 class EmployeeChange2(ModelSerializer):
     class Meta:
-        model = EmployeeChanges
+        model = Employee
         fields = (
             'appearance',
             'neatness',
@@ -88,7 +88,7 @@ class EmployeeChange2(ModelSerializer):
         )
 
     def create(self, validated_data):
-        instance, _ = EmployeeChanges.objects.get_or_create(parent=self.context['request'].user.employee)
+        instance, _ = Employee.objects.get_or_create(id=self.context['request'].user.employee.id)
         for attr, value in validated_data.items():
             if value == '':
                 continue
@@ -99,7 +99,7 @@ class EmployeeChange2(ModelSerializer):
 
 class EmployeeChange4(ModelSerializer):
     class Meta:
-        model = EmployeeChanges
+        model = Employee
         fields = (
             'wages',
             'is_ready_for_university',
@@ -112,7 +112,7 @@ class EmployeeChange4(ModelSerializer):
         )
 
     def create(self, validated_data):
-        instance, _ = EmployeeChanges.objects.get_or_create(parent=self.context['request'].user.employee)
+        instance, _ = Employee.objects.get_or_create(id=self.context['request'].user.employee.id)
         for key, value in validated_data.items():
             if key == 'is_ready':
                 pass
@@ -122,13 +122,20 @@ class EmployeeChange4(ModelSerializer):
         instance.save()
         data = self.context['request'].data
         if data.get('country'):
+            try:
+                print(data.get('country'))
+                country = EmployeeCountry.objects.filter(employee_id=instance.id)
+                if not data.get('country') == 'null':
+                    country.delete()
+            except EmployeeCountry.DoesNotExist:
+                pass
             c_ids = [int(j) for j in data.get('country').split(',') if j.isdigit()]
             countries = Country.objects.filter(id__in=c_ids)
             for c in countries:
                 try:
-                    _ = EmployeeChangesCountry.objects.get(country=c, employee=instance.parent)
-                except EmployeeChangesCountry.DoesNotExist:
-                    e = EmployeeChangesCountry(country=c, employee=instance.parent)
+                    _ = EmployeeCountry.objects.get_or_create(country=c, employee=instance)
+                except EmployeeCountry.DoesNotExist:
+                    e = EmployeeCountry(country=c, employee=instance.parent)
                     e.save()
         return instance
 

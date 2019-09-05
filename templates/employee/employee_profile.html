@@ -2,7 +2,11 @@
 {% load static i18n thumbnail %}
 
 {% block css %}
-
+<style>
+    .prevented:hover {
+        cursor: default;
+    }
+</style>
 {% endblock %}
 {% block content %}
     <section class="profile">
@@ -58,6 +62,12 @@
                                                             <img src="{{ im.url }}" alt="">
                                                         {% endthumbnail %}
                                                     </a>
+                                                {% else %}
+                                                <a href="{{ avatar }}" class="prevented">
+                                                    {% thumbnail avatar "148x178" crop="center" as im %}
+                                                    <img src="{{ im }}" alt="">
+                                                    {% endthumbnail %}
+                                                </a>
                                                 {% endif %}
                                                 </div>
                                                 <div class="employee-image__item">
@@ -67,6 +77,12 @@
                                                             <img src="{{ im.url }}" alt="">
                                                         {% endthumbnail %}
                                                     </a>
+                                                {% else %}
+                                                <a href="{{ avatar }}" class="prevented">
+                                                    {% thumbnail avatar "148x178" crop="center" as im %}
+                                                    <img src="{{ im }}" alt="">
+                                                    {% endthumbnail %}
+                                                </a>
                                                 {% endif %}
                                                 </div>
                                                 <div class="employee-image__item">
@@ -76,6 +92,12 @@
                                                             <img src="{{ im.url }}" alt="">
                                                         {% endthumbnail %}
                                                     </a>
+                                                {% else %}
+                                                <a href="{{ avatar }}" class="prevented">
+                                                    {% thumbnail avatar "148x178" crop="center" as im %}
+                                                    <img src="{{ im }}" alt="">
+                                                    {% endthumbnail %}
+                                                </a>
                                                 {% endif %}
                                                 </div>
                                             </div>
@@ -202,28 +224,12 @@
                                                                         <span>{{ employee.get_countries_name }}</span>
                                                                     </li>
                                                                     <li>
-                                                                        <strong>{% trans 'Wages' %}:</strong>
-                                                                        <span>{{ employee.wages }}</span>
-                                                                    </li>
-                                                                    <li>
                                                                         <strong>{% trans 'Ready for university' %}:</strong>
                                                                         {% if employee.is_ready_for_university %}
                                                                             <span>{% trans 'Yes' %}</span>
                                                                         {% else %}
                                                                             <span>{% trans 'No' %}</span>
                                                                         {% endif %}
-                                                                    </li>
-                                                                    <li>
-                                                                        <strong>{% trans 'Criminal number' %}:</strong>
-                                                                        <span>{{ employee.criminal_number }}</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <strong>{% trans 'Criminal issue' %}:</strong>
-                                                                        <span>{{ employee.criminal_issue|date:'d.m.Y' }}</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <strong>{% trans 'Criminal comment' %}:</strong>
-                                                                        <span>{{ employee.criminal_comment }}</span>
                                                                     </li>
                                                                     <li>
                                                                         <strong>{% trans 'Special signs' %}:</strong>
@@ -576,9 +582,9 @@
                                             </div>
                                         </div>
                                       </div>
-                                    {% if not employee.is_sent_to_check %}
+                                    {% comment %} {% if not employee.is_sent_to_check %}
                                         <a href="#send7DaysPopup" id="send7DaysButton" class="send7days">{% trans 'Send for review' %}</a>
-                                    {% endif %}
+                                    {% endif %} {% endcomment %}
                                     <div id="send7DaysPopup" class="white-popup mfp-hide">
                                         <div class="send-7days-form">
 
@@ -653,6 +659,13 @@
                 });
             });
         });
+    </script>
+    <script>
+        Array.from(document.querySelectorAll('.prevented')).forEach(element => {
+            element.addEventListener('click', (e) => {
+                e.preventDefault()
+            })
+        })
     </script>
 
 {% endblock %}
