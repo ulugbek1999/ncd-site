@@ -27,7 +27,7 @@ class PartnerEmployeesView(PartnerAuthMixin, PaginationMixin, ListView):
     context_object_name = 'employees'
 
     def get_queryset(self):
-        qs = Employee.objects.all()
+        qs = Employee.objects.filter(activated=True)
         age = self.request.GET.get('age')
         if age:
             td = datetime.date.today()
