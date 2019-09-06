@@ -85,6 +85,7 @@ class Employee(models.Model):
     is_employee = models.BooleanField(default=False, blank=True)
     is_sent_to_check = models.BooleanField(default=False, blank=True)
     can_change = models.BooleanField(default=False, blank=True)
+    activated = models.BooleanField(default=False, blank=True)
 
     class Meta:
         db_table = 'employee'
