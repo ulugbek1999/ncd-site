@@ -34,7 +34,7 @@ class PartnerEmployeesPage(PartnerAuthMixin, PaginationMixin, ListView):
     context_object_name = 'employees'
 
     def get_queryset(self):
-        qs = Employee.objects.filter(busy=False)
+        qs = Employee.objects.filter(activated=True)
         age = self.request.GET.get('age')
         if age:
             td = datetime.date.today()
