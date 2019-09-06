@@ -179,7 +179,7 @@
                             </div>
                         </div>
                         <div class="row" style="text-align: center;">
-                            <button id="submit" class="loginButton" data-api="{% url 'api:employee:photo.update' %}" type="submit">
+                            <button id="submit" class="loginButton" data-api="{% url 'api:employee:photo.update' %}" data-redirect="{% url 'employee.profile' %}" type="submit">
                                 {% trans 'Send' %}
                             </button>  
                         </div>             

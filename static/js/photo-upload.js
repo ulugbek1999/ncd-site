@@ -193,7 +193,7 @@ $(function () {
                x.className = "show";
                setTimeout(function(){
                    x.className = x.className.replace("show", "");
-                   window.history.back()
+                   location.replace($("#submit").data("redirect"))
                }, 1500);
            },
            error: function (data) {
