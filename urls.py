@@ -27,6 +27,7 @@ urlpatterns += i18n_patterns(
 
     path('employee/settings/', employee_views.EmployeePasswordUpdateView.as_view(), name='employee.password.update'),
     path('employee/profile/', employee_views.EmployeeProfilePage.as_view(), name='employee.profile'),
+    path('employee/photo-upload/', employee_views.EmployeePhotosUpload.as_view(), name="employee.photo"),
     path('employee/profile/update/1/', employee_views.EmployeeOP1Update.as_view(), name='employee.profile.update.1'),
     path('employee/profile/update/2/', employee_views.EmployeeOP2Update.as_view(), name='employee.profile.update.2'),
     path('employee/profile/update/4/', employee_views.EmployeeOP4Update.as_view(), name='employee.profile.update.4'),

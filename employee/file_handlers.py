@@ -7,6 +7,7 @@ def passport_copy(instance, filename):
 
 
 def photos(instance, filename):
+    print(instance)
     return f'{instance.passport_serial}/photos/{filename}'
 
 

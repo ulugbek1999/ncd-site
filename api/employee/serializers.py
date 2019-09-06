@@ -44,6 +44,27 @@ class EmployeeCreateSerializer(ModelSerializer):
     def create(self, validated_data):
         return Employee.objects.create(**validated_data)
 
+class PhotoUpdateSerializer(ModelSerializer):
+    class Meta:
+        model = Employee
+        fields = (
+            "photo_1",
+            "photo_2",
+            "photo_3",
+            "photo_4",
+            "passport_image"
+        )
+    
+    def update(self, instance, validated_data):
+        ''' Update existing model '''
+        instance.photo_1 = validated_data.get('photo_1', instance.photo_1)
+        instance.photo_2 = validated_data.get("photo_2", instance.photo_2)
+        instance.photo_3 = validated_data.get("photo_3", instance.photo_3)
+        instance.photo_4 = validated_data.get("photo_4", instance.photo_4)
+        instance.passport_image = validated_data.get("passport_image", instance.passport_image)
+        instance.save()
+        return instance
+
 
 class EmployeeChange1(ModelSerializer):
     class Meta:
@@ -157,21 +178,16 @@ class EducationUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        today = datetime.date.today()
-        days = today - instance.employee.created.date()
-        print(days)
-        if days.days >= 7:
-            ec, _ = EducationChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
-            for key, value in validated_data.items():
-                if value == '':
-                    continue
-                setattr(ec, key, value)
-            ec.save()
-            files = self.context['request'].FILES.getlist('file')
-            for file in files:
-                e_file = EducationChangesFile(education=ec, file=file)
-                e_file.save()
-            return validated_data
+        ec, _ = EducationChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        for key, value in validated_data.items():
+            if value == '':
+                continue
+            setattr(ec, key, value)
+        ec.save()
+        files = self.context['request'].FILES.getlist('file')
+        for file in files:
+            e_file = EducationChangesFile(education=ec, file=file)
+            e_file.save()
         return super().update(instance, validated_data)
 
 
@@ -185,20 +201,16 @@ class LanguageUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        today = datetime.date.today()
-        days = today - instance.employee.created.date()
-        if days.days >= 7:
-            lc, _ = LanguageChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
-            for key, value in validated_data.items():
-                if value == '':
-                    continue
-                setattr(lc, key, value)
-            lc.save()
-            files = self.context['request'].FILES.getlist('file')
-            for file in files:
-                e_file = LanguageChangesFile(language=lc, file=file)
-                e_file.save()
-            return validated_data
+        lc, _ = LanguageChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        for key, value in validated_data.items():
+            if value == '':
+                continue
+            setattr(lc, key, value)
+        lc.save()
+        files = self.context['request'].FILES.getlist('file')
+        for file in files:
+            e_file = LanguageChangesFile(language=lc, file=file)
+            e_file.save()
         return super().update(instance, validated_data)
 
 
@@ -215,20 +227,16 @@ class ArmyUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        today = datetime.date.today()
-        days = today - instance.employee.created.date()
-        if days.days >= 7:
-            ac, _ = ArmyChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
-            for key, value in validated_data.items():
-                if value == '':
-                    continue
-                setattr(ac, key, value)
-            ac.save()
-            files = self.context['request'].FILES.getlist('file')
-            for file in files:
-                e_file = ArmyChangesFile(army=ac, file=file)
-                e_file.save()
-            return validated_data
+        ac, _ = ArmyChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        for key, value in validated_data.items():
+            if value == '':
+                continue
+            setattr(ac, key, value)
+        ac.save()
+        files = self.context['request'].FILES.getlist('file')
+        for file in files:
+            e_file = ArmyChangesFile(army=ac, file=file)
+            e_file.save()
         return super().update(instance, validated_data)
 
 
@@ -241,20 +249,16 @@ class RewardUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        today = datetime.date.today()
-        days = today - instance.employee.created.date()
-        if days.days >= 7:
-            rc, _ = RewardChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
-            for key, value in validated_data.items():
-                if value == '':
-                    continue
-                setattr(rc, key, value)
-            rc.save()
-            files = self.context['request'].FILES.getlist('file')
-            for file in files:
-                e_file = RewardChangesFile(reward=rc, file=file)
-                e_file.save()
-            return validated_data
+        rc, _ = RewardChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        for key, value in validated_data.items():
+            if value == '':
+                continue
+            setattr(rc, key, value)
+        rc.save()
+        files = self.context['request'].FILES.getlist('file')
+        for file in files:
+            e_file = RewardChangesFile(reward=rc, file=file)
+            e_file.save()
         return super().update(instance, validated_data)
 
 
@@ -267,20 +271,16 @@ class FamilyUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        today = datetime.date.today()
-        days = today - instance.employee.created.date()
-        if days.days >= 7:
-            fc, _ = FamilyChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
-            for key, value in validated_data.items():
-                if value == '':
-                    continue
-                setattr(fc, key, value)
-            fc.save()
-            files = self.context['request'].FILES.getlist('file')
-            for file in files:
-                e_file = FamilyChangesFile(family=fc, file=file)
-                e_file.save()
-            return validated_data
+        fc, _ = FamilyChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        for key, value in validated_data.items():
+            if value == '':
+                continue
+            setattr(fc, key, value)
+        fc.save()
+        files = self.context['request'].FILES.getlist('file')
+        for file in files:
+            e_file = FamilyChangesFile(family=fc, file=file)
+            e_file.save()
         return super().update(instance, validated_data)
 
 
@@ -297,20 +297,16 @@ class RelativeUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        today = datetime.date.today()
-        days = today - instance.employee.created.date()
-        if days.days >= 7:
-            rc, _ = RelativeChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
-            for key, value in validated_data.items():
-                if value == '':
-                    continue
-                setattr(rc, key, value)
-            rc.save()
-            files = self.context['request'].FILES.getlist('file')
-            for file in files:
-                e_file = RelativeChangesFile(relative=rc, file=file)
-                e_file.save()
-            return validated_data
+        rc, _ = RelativeChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        for key, value in validated_data.items():
+            if value == '':
+                continue
+            setattr(rc, key, value)
+        rc.save()
+        files = self.context['request'].FILES.getlist('file')
+        for file in files:
+            e_file = RelativeChangesFile(relative=rc, file=file)
+            e_file.save()
         return super().update(instance, validated_data)
 
 
@@ -327,20 +323,16 @@ class ExperienceUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        today = datetime.date.today()
-        days = today - instance.employee.created.date()
-        if days.days >= 7:
-            rc, _ = ExperienceChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
-            for key, value in validated_data.items():
-                if value == '':
-                    continue
-                setattr(rc, key, value)
-            rc.save()
-            files = self.context['request'].FILES.getlist('file')
-            for file in files:
-                e_file = ExperienceChangesFile(experience=rc, file=file)
-                e_file.save()
-            return validated_data
+        rc, _ = ExperienceChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        for key, value in validated_data.items():
+            if value == '':
+                continue
+            setattr(rc, key, value)
+        rc.save()
+        files = self.context['request'].FILES.getlist('file')
+        for file in files:
+            e_file = ExperienceChangesFile(experience=rc, file=file)
+            e_file.save()
         return super().update(instance, validated_data)
 
 

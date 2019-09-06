@@ -41,6 +41,22 @@ class EmployeeOP1Update(EmployeeAuthMixin, DetailView):
     template_name = 'employee/update_operator_1.html'
     context_object_name = 'employee'
 
+class EmployeePhotosUpload(EmployeeAuthMixin, DetailView):
+    model = Employee
+    pk_url_kwarg = 'id'
+    template_name = 'employee/photo_upload.html'
+    context_object_name = 'employee'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        employee = Employee.objects.get(id=self.kwargs.get("id"))
+        if employee.passport_image is not 'default/default.jpg':
+            context["passport_holder"] = employee.passport_image.url
+        else:
+            context["passport_holder"] = static('images/passport_holder.png')
+        context["id"] = self.kwargs.get("id")
+        return context
+
 
 class EmployeeOP2Update(EmployeeAuthMixin, DetailView):
     model = Employee

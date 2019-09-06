@@ -1464,3 +1464,15 @@ msgstr "Hozir"
 #: vacancy/models.py:110
 msgid "Today "
 msgstr "Bugun "
+
+msgid "Photos and the copy of passport"
+msgstr "Suratlar va pasportning kopiyasi"
+
+msgid "Upload copy of your passport"
+msgstr "Passportingizning kopiyasini yuklang"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "In order to have high chances to be employed, please fill your personal data!"
+msgstr "Agar chet elga ketish imkoniyatingiz katta bo'lishini istasangiz, shaxsiy ma'lumotlaringizni to'ldiring!"

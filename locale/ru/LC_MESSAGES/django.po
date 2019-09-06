@@ -191,6 +191,9 @@ msgstr "Гражданский брак"
 msgid "Best"
 msgstr "Отлично"
 
+msgid "Photos and the copy of passport"
+msgstr "Фото и копия паспорта"
+
 #: employee/models2.py:400
 msgid "Good"
 msgstr "Хорошо"
@@ -1417,3 +1420,12 @@ msgstr "Дата выдачи (Наличие или отсутствие суд
 
 msgid "Additional info"
 msgstr "Дополнительные информация"
+
+msgid "Upload copy of your passport"
+msgstr "Загрузите копию паспорта"
+
+msgid "Photo"
+msgstr "Фото"
+
+msgid "In order to have high chances to be employed, please fill your personal data!"
+msgstr "Для того, чтобы иметь большие шансы на работу за рубежом, пожалуйста заполните свои личные данные!"

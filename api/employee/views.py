@@ -27,7 +27,7 @@ from api.employee.serializers import RelativeUpdateSerializer
 from api.employee.serializers import ArmyUpdateSerializer
 from api.employee.serializers import FamilyUpdateSerializer
 from api.employee.serializers import RewardUpdateSerializer
-from api.employee.serializers import ExperienceUpdateSerializer, EmployeeCreateSerializer
+from api.employee.serializers import ExperienceUpdateSerializer, EmployeeCreateSerializer, PhotoUpdateSerializer
 
 from .serializers import EducationCreateSerializer
 from .serializers import LanguageCreateSerializer
@@ -81,6 +81,22 @@ class EmployeeCreateAPIView(APIView):
 class EmployeeUpdate1APIView(CreateAPIView):
     queryset = Employee
     serializer_class = EmployeeChange1
+
+class PhotoUpdateAPIView(UpdateAPIView):
+
+    def put(self, request):
+        data = {}
+        keys = ["photo_1", "photo_2", "photo_3", "photo_4", "passport_image"]
+        for key in keys:
+            if request.data.get(key):
+                data[key] = request.data.get(key)
+        id = request.data.get("id")
+        print(request.data)
+        employee = Employee.objects.get(id=id)
+        serializer = PhotoUpdateSerializer(employee, data=data)
+        if serializer.is_valid():
+            serializer.save()
+        return Response()
 
 
 class EmployeeUpdate2APIView(CreateAPIView):
