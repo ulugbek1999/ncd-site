@@ -1,5 +1,5 @@
 {% extends '_base.html' %}
-{% load static i18n %}
+{% load static i18n thumbnail %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/vacancies.css' %}">
@@ -12,17 +12,36 @@
 <section class="vacancy-details">
     <div class="container">
         <div class="vacancy-detail">
-            <h2 class="vacancy-header">{{ vacancy.title }}</h2>
-            <br>
-            <p>{{ vacancy.short_description | safe }}</p>
-            {% if vacancy.location %}
-            <p><strong>{% trans 'Country' %}:</strong> {{ vacancy.location }}</p>
-            {% endif %}
-            <p><strong>{% trans 'Wages' %}:</strong>  {{ vacancy.wages }}</p>
+            <div class="flex-container">
+                <div>
+                    <h2 class="vacancy-header">{{ vacancy.title }}</h2>
+                    <br>
+                    <p>{{ vacancy.short_description | safe }}</p>
+                    {% if vacancy.location %}
+                    <p><strong>{% trans 'Country' %}:</strong> {{ vacancy.location }}</p>
+                    {% endif %}
+                    {% if vacancy.wages %}
+                    <p><strong>{% trans 'Wages' %}:</strong>  {{ vacancy.wages }}</p>
+                    {% endif %}
+                </div>
+                <div class="image-container">
+                    <div class="image-bg"></div>
+                    <div class="image-on">
+                        {% thumbnail vacancy.image "992x528" crop="center" as im  %}
+                            <img src="{{ im.url }}" alt="" width="{{ im.width }}" height="{{ im.height }}" class="vacancy-img vacancy-detail-img">
+                        {% endthumbnail %}
+                    </div>
+                </div>
+            </div>
             <hr>
             {{ vacancy.description | safe }}
-        </div>
+            <div class="b-container">
+                <button class="apply">
+                    {% trans 'Apply' %}
+                </button>
+            </div>
             
+        </div>
     </div>
     
 </section>
