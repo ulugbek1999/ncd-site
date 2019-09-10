@@ -82,9 +82,11 @@
                     data: JSON.stringify(data),
                     contentType: "application/json",
                     success (data) {
-                        var x = document.getElementById("mainSuccess");
-                        $("#mainSuccess").text("{% trans 'successfully sent' %}");
-                        x.className = "show";
+                        Swal.fire({
+                            type: 'success',
+                            title: "{% trans 'Success' %}!",
+                            text: "{% Thanks for applying! We will contact you soon %}.",
+                        })
                         setTimeout(function(){
                             x.className = x.className.replace("show", "");
                             location.reload()

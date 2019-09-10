@@ -1441,3 +1441,20 @@ msgstr "Загрузите вашу аватарку и дополнительн
 
 msgid "An employer"
 msgstr "Работодатель"
+
+# 10.09.2019
+
+msgid "Apply"
+msgstr "Подать заявку"
+
+msgid "You have already applied for this vacancy"
+msgstr "Вы уже подали заявку на эту вакансию"
+
+msgid "You should be authenticated as an employee in order to apply"
+msgstr "Вы должны войти в систему, чтобы подать заявку"
+
+msgid "Success"
+msgstr "Успех"
+
+msgid "Thanks for applying! We will contact you soon"
+msgstr "Вы успешно подали заявку! Мы скоро свяжемся с вами"

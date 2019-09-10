@@ -1502,3 +1502,23 @@ msgstr "Avataringizni va qo'shimcha rasmlarni yuklang"
 
 msgid "An employer"
 msgstr "Ish beruvchi"
+
+# 10.09.2019
+
+msgid "Apply"
+msgstr "Ishga murojaat qilish"
+
+msgid "Unapply"
+msgstr "Bekor qilish"
+
+msgid "You have already applied for this vacancy"
+msgstr "Siz avval bu ish orniga murojaat qilgansiz"
+
+msgid "You should be authenticated as an employee in order to apply"
+msgstr "Siz avval sistemaga kirishingiz kerak"
+
+msgid "Success"
+msgstr "Yuborildi"
+
+msgid "Thanks for applying! We will contact you soon"
+msgstr "Murojatingiz uchun rahmat! Biz yaqinda siz bilan aloqaga chiqamiz"
