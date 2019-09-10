@@ -17,12 +17,12 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    path('partner/profile/', partner_views.PartnerProfilePage.as_view(), name='partner.profile'),
-    path('partner/register/', partner_views.PartnerRegisterPage.as_view(), name='partner.register'),
-    path('partner/employees/', partner_views.PartnerEmployeesPage.as_view(), name='partner.employees'),
-    path('partner/employee/<int:employee_id>/', partner_views.PartnerEmployeeDetail.as_view(), name='partner.employee.detail'),
-    path('partner/bookmarks/', partner_views.PartnerBookmarks.as_view(), name='partner.bookmarks'),
-    path('partner/detail/<int:id>/', core_views.CMSPartnerDetailPage.as_view(), name='cms.partner.detail'),
+    path('employer/profile/', partner_views.PartnerProfilePage.as_view(), name='partner.profile'),
+    path('employer/register/', partner_views.PartnerRegisterPage.as_view(), name='partner.register'),
+    path('employer/employees/', partner_views.PartnerEmployeesPage.as_view(), name='partner.employees'),
+    path('employer/employee/<int:employee_id>/', partner_views.PartnerEmployeeDetail.as_view(), name='partner.employee.detail'),
+    path('employer/bookmarks/', partner_views.PartnerBookmarks.as_view(), name='partner.bookmarks'),
+    path('employer/detail/<int:id>/', core_views.CMSPartnerDetailPage.as_view(), name='cms.partner.detail'),
     path('service/detail/<int:id>/', core_views.CMSServiceDetailPage.as_view(), name='cms.service.detail'),
 
     path('employee/settings/', employee_views.EmployeePasswordUpdateView.as_view(), name='employee.password.update'),

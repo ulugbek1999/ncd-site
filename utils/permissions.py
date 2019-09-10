@@ -51,10 +51,3 @@ class IsOwnerEmployee(BasePermission):
         if employee.user.id == request.user.id:
             return True
         return False
-
-class IsOwnerPartner(BasePermission):
-    def has_permission(self, request, view):
-        print(request.data)
-        print(view.args)
-        return False
-    

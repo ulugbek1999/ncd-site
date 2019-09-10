@@ -636,7 +636,7 @@
                 el = event.target
                 event.preventDefault()
                 Swal.fire({
-                    title: '<strong>Warning!</strong>',
+                    title: "<strong>{% trans 'Warning' %}!</strong>",
                     type: 'info',
                     html: "{% trans 'Do you really want to delete' %}?",
                     showCloseButton: true,
@@ -645,7 +645,7 @@
                     confirmButtonText: "{% trans 'Yes' %}",
                     confirmButtonAriaLabel: 'Yes, delete it!',
                     cancelButtonText:
-                        'No',
+                        '{% trans "No" %}',
                     cancelButtonAriaLabel: 'Thumbs down'
                 }).then(function(isConfirm) {
                     if (isConfirm.value == true) {

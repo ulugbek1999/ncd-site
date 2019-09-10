@@ -1235,6 +1235,9 @@ msgstr "Pochta orqali yoki onlayn"
 msgid "Do you really want to remove the applicant from the list of favorites"
 msgstr "Applikantni maxsus ro'yxatdan o'chirib tashlamoqchimisiz?"
 
+msgid "Do you really want to delete"
+msgstr "Siz haqiqatdan ochirib tashlamoqchimisiz"
+
 #: templates/partner/employee_detail.html:13
 msgid "Applicant data"
 msgstr "Talabgorning ma'lumotlari"
@@ -1255,6 +1258,11 @@ msgstr "Ha"
 
 msgid "No"
 msgstr "Yo'q"
+
+msgid "Warning"
+msgstr "Diqqat"
+
+
 
 #: templates/partner/profile.html:15
 msgid "Partner's personal area"
