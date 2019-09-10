@@ -86,11 +86,9 @@
                             type: 'success',
                             title: "{% trans 'Success' %}!",
                             text: "{% trans 'Thanks for applying! We will contact you soon' %}.",
-                        })
-                        setTimeout(function(){
-                            x.className = x.className.replace("show", "");
+                        }).then(() => {
                             location.reload()
-                        }, 1500);
+                        })
                     },
                     error (data) {
                         var x = document.getElementById("mainError");
