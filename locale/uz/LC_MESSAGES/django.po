@@ -1490,4 +1490,4 @@ msgid "Upload your avatar and extra photos if needed"
 msgstr "Avataringizni va qo'shimcha rasmlarni yuklang"
 
 msgid "An employer"
-msgstr "Работодатель"
+msgstr "Ish beruvchi"
