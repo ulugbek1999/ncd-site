@@ -248,7 +248,7 @@
                                 </div>
                                 <div class="form-check">
                                     <input type="radio" class="form-check-input option-check" name="option" id="partner" value="partner" data-href="{% url 'partner.register' %}">
-                                    <label for="partner" class="form-check-label">{% trans 'A partner' %}</label>
+                                    <label for="partner" class="form-check-label">{% trans 'An employer' %}</label>
                                 </div>
                                 <div class="form-check">
                                     <input type="radio" class="form-check-input option-check" name="option" id="student" value="student" data-href="none">
@@ -449,13 +449,13 @@
                             window.location.replace(url)
                             history.pushState({main : "main"}, 'page 3', location.href)
                         }
-                        else {
-                            Swal.fire({
-                                type: "error",
-                                title: "{% trans 'Oops...' %}",
-                                text: "{% trans 'This option is not available yet' %}",
-                            })
-                        }
+                            else {
+                                Swal.fire({
+                                    type: "error",
+                                    title: "{% trans 'Oops...' %}",
+                                    text: "{% trans 'This option is not available yet' %}",
+                                })
+                            }
                     })
                 })
             })          

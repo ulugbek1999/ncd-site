@@ -127,6 +127,7 @@
     <script src="{% static 'plugins/filepond/filepond.min.js' %}"></script>
 
     <script>
+        var fileChanged = false
         $(function () {
             $.fn.datepicker.dates['ru'] = {
                 days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
@@ -192,6 +193,20 @@
             fExp.addFile(decodeURI(file_url[j]));
         }
 
+        document.addEventListener('FilePond:removefile', e => {
+            if (typeof(e.detail.file.source) === 'string') {
+                fileChanged = true
+            }
+        });
+
+        var count = 0
+        document.addEventListener('FilePond:addfile', e => {
+            count++
+            if (count > {{ count_files  }}) {
+                fileChanged = true
+            }  
+        })
+
         $("#employeeEditButton").click(function(event){
             event.preventDefault();
 
@@ -206,14 +221,17 @@
 
             experienceFormData.append(`parent`, {{ experience.id }});
 
-
-            var experienceCountFile = fExp.getFiles().length;
-            for (let j = 0; j < experienceCountFile; j++) {
-               //experienceFormData.append(`file`, fExp[i].getFiles()[j].file);
-               let f = fExp.getFiles()[j].file;
-               let fImage = new File([f], f.name, {type: f.type});
-               experienceFormData.append(`file`, fImage);
+            if (fileChanged) {
+                experienceFormData.append('changed', true)
+                var experienceCountFile = fExp.getFiles().length;
+                for (let j = 0; j < experienceCountFile; j++) {
+                    //experienceFormData.append(`file`, fExp[i].getFiles()[j].file);
+                    let f = fExp.getFiles()[j].file;
+                    let fImage = new File([f], f.name, {type: f.type});
+                    experienceFormData.append(`file`, fImage);
+                }
             }
+            
 
             $.ajax({
                 url: $(this).data('api'),

@@ -137,6 +137,7 @@
     <script src="{% static 'plugins/filepond/filepond.min.js' %}"></script>
 
     <script>
+        var fileChanged = false
         $(function () {
             $.fn.datepicker.dates['ru'] = {
                 days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
@@ -202,6 +203,21 @@
             fMil.addFile(decodeURI(file_url[j]));
         }
 
+        document.addEventListener('FilePond:removefile', e => {
+            if (typeof(e.detail.file.source) === 'string') {
+                fileChanged = true
+            }
+        });
+
+        var count = 0
+        document.addEventListener('FilePond:addfile', e => {
+            count++
+            if (count > {{ count_files  }}) {
+                fileChanged = true
+            }
+            
+        })
+
         $("#employeeEditButton").click(function(event){
             event.preventDefault();
 
@@ -215,14 +231,17 @@
             militaryFormData.append(`rank_ru`, $(`input[name='mil_rank']`).val());
             militaryFormData.append(`parent`, {{ army.id }});
 
-            var militaryCountFile = fMil.getFiles().length;
-            for (let j = 0; j < militaryCountFile; j++) {
-               //militaryFormData.append(`file`, fMil[i].getFiles()[j].file);
-               let f = fMil.getFiles()[j].file;
-               let fImage = new File([f], f.name, {type: f.type});
-               militaryFormData.append(`file`, fImage);
-            }
-
+             if (fileChanged) {
+                militaryFormData.append('changed', true)
+                var militaryCountFile = fMil.getFiles().length;
+                for (let j = 0; j < militaryCountFile; j++) {
+                    //militaryFormData.append(`file`, fMil[i].getFiles()[j].file);
+                    let f = fMil.getFiles()[j].file;
+                    let fImage = new File([f], f.name, {type: f.type});
+                    militaryFormData.append(`file`, fImage);
+                }
+             }
+            
             $.ajax({
                 url: $(this).data('api'),
                 data: militaryFormData,

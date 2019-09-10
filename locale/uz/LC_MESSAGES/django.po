@@ -1247,9 +1247,18 @@ msgstr "Ro'yxatga olish raqami"
 msgid "level"
 msgstr "Darajasi"
 
+msgid "successfully deleted"
+msgstr "o'chirib tashlandi"
+
+msgid "Yes"
+msgstr "Ha"
+
+msgid "No"
+msgstr "Yo'q"
+
 #: templates/partner/profile.html:15
 msgid "Partner's personal area"
-msgstr "Hamkorlarning shaxsiy bo'limi"
+msgstr "Ish beruvchining shaxsiy bo'limi"
 
 #: templates/partner/profile.html:55 templates/partner/profile.html:61
 #: templates/partner/register.html:46 templates/partner/register.html:54
@@ -1476,3 +1485,9 @@ msgstr "Foto"
 
 msgid "In order to have high chances to be employed, please fill your personal data!"
 msgstr "Agar chet elga ketish imkoniyatingiz katta bo'lishini istasangiz, shaxsiy ma'lumotlaringizni to'ldiring!"
+
+msgid "Upload your avatar and extra photos if needed"
+msgstr "Avataringizni va qo'shimcha rasmlarni yuklang"
+
+msgid "An employer"
+msgstr "Работодатель"

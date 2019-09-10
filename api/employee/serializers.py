@@ -1,7 +1,7 @@
 import datetime
-
+from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
-
+from django.contrib.auth.models import User
 from directory.models import Country
 from employee.models import EmployeeChanges, EmployeeCountry, Employee
 from employee.models2 import EducationChanges, EducationChangesFile, EducationFile, ArmyFile, ExperienceFile, FamilyFile, LanguageFile, RelativeFile, RewardFile
@@ -43,6 +43,7 @@ class EmployeeCreateSerializer(ModelSerializer):
         )
     def create(self, validated_data):
         return Employee.objects.create(**validated_data)
+    
 
 class PhotoUpdateSerializer(ModelSerializer):
     class Meta:
@@ -67,6 +68,7 @@ class PhotoUpdateSerializer(ModelSerializer):
 
 
 class EmployeeChange1(ModelSerializer):
+
     class Meta:
         model = Employee
         fields = (
@@ -168,7 +170,7 @@ class EducationUpdateSerializer(ModelSerializer):
     class Meta:
         model = Education
         fields = (
-            'type',
+            'type_id',
             'name_ru',
             'address_ru',
             'specialization_ru',
@@ -178,17 +180,23 @@ class EducationUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        ec, _ = EducationChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        e, _ = Education.objects.get_or_create(id=self.context['kwargs'].get('id'))
+
+        ef = EducationFile.objects.filter(education=instance)
+        if self.context["request"].data.get("changed"):
+            ef.delete()
         for key, value in validated_data.items():
             if value == '':
                 continue
-            setattr(ec, key, value)
-        ec.save()
-        files = self.context['request'].FILES.getlist('file')
-        for file in files:
-            e_file = EducationChangesFile(education=ec, file=file)
-            e_file.save()
-        return super().update(instance, validated_data)
+            setattr(e, key, value)
+        e.save()
+        if self.context["request"].data.get('changed'):
+            files = self.context["request"].FILES.getlist("file")
+            print(files)
+            for file in files:
+                e_file = EducationFile(education=instance, file=file)
+                e_file.save()
+        return instance
 
 
 class LanguageUpdateSerializer(ModelSerializer):
@@ -201,16 +209,22 @@ class LanguageUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        lc, _ = LanguageChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        lc, _ = Language.objects.get_or_create(id=self.context['kwargs'].get('id'))
+
+        lcf = LanguageFile.objects.filter(language=instance)
+        if self.context["request"].data.get('changed'):
+            lcf.delete()
+
         for key, value in validated_data.items():
             if value == '':
                 continue
             setattr(lc, key, value)
         lc.save()
-        files = self.context['request'].FILES.getlist('file')
-        for file in files:
-            e_file = LanguageChangesFile(language=lc, file=file)
-            e_file.save()
+        if self.context["request"].data.get('changed'):
+            files = self.context['request'].FILES.getlist('file')
+            for file in files:
+                e_file = LanguageFile(language=lc, file=file)
+                e_file.save()
         return super().update(instance, validated_data)
 
 
@@ -227,16 +241,21 @@ class ArmyUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        ac, _ = ArmyChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        ac, _ = Army.objects.get_or_create(id=self.context['kwargs'].get('id'))
+
+        acf = ArmyFile.objects.filter(army=instance)
+        if self.context["request"].data.get('changed'):
+            acf.delete()
         for key, value in validated_data.items():
             if value == '':
                 continue
             setattr(ac, key, value)
         ac.save()
-        files = self.context['request'].FILES.getlist('file')
-        for file in files:
-            e_file = ArmyChangesFile(army=ac, file=file)
-            e_file.save()
+        if self.context["request"].data.get('changed'):
+            files = self.context['request'].FILES.getlist('file')
+            for file in files:
+                e_file = ArmyFile(army=ac, file=file)
+                e_file.save()
         return super().update(instance, validated_data)
 
 
@@ -249,16 +268,21 @@ class RewardUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        rc, _ = RewardChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        rc, _ = Reward.objects.get_or_create(id=self.context['kwargs'].get('id'))
+
+        rcf = RewardFile.objects.filter(reward=instance)
+        if self.context["request"].data.get('changed'):
+            rcf.delete()
         for key, value in validated_data.items():
             if value == '':
                 continue
             setattr(rc, key, value)
         rc.save()
-        files = self.context['request'].FILES.getlist('file')
-        for file in files:
-            e_file = RewardChangesFile(reward=rc, file=file)
-            e_file.save()
+        if self.context["request"].data.get('changed'):
+            files = self.context['request'].FILES.getlist('file')
+            for file in files:
+                e_file = RewardFile(reward=rc, file=file)
+                e_file.save()
         return super().update(instance, validated_data)
 
 
@@ -323,16 +347,21 @@ class ExperienceUpdateSerializer(ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        rc, _ = ExperienceChanges.objects.get_or_create(parent_id=self.context['kwargs'].get('id'))
+        rc, _ = Experience.objects.get_or_create(id=self.context['kwargs'].get('id'))
+
+        rcf = ExperienceFile.objects.filter(experience=rc)
+        if self.context["request"].data.get('changed'):
+            rcf.delete()
         for key, value in validated_data.items():
             if value == '':
                 continue
             setattr(rc, key, value)
         rc.save()
-        files = self.context['request'].FILES.getlist('file')
-        for file in files:
-            e_file = ExperienceChangesFile(experience=rc, file=file)
-            e_file.save()
+        if self.context["request"].data.get('changed'):
+            files = self.context['request'].FILES.getlist('file')
+            for file in files:
+                e_file = ExperienceFile(experience=rc, file=file)
+                e_file.save()
         return super().update(instance, validated_data)
 
 
@@ -355,6 +384,7 @@ class EducationCreateSerializer(ModelSerializer):
 
     def create(self, validated_data):
         instance = Education(**validated_data)
+        print(validated_data)
         instance.is_new = True
         instance.save()
         files = self.context['request'].FILES.getlist('file')
@@ -408,25 +438,6 @@ class LanguageCreateSerializer(ModelSerializer):
             file.save()
         return instance
 
-
-class FamilyCreateSerializer(ModelSerializer):
-    class Meta:
-        model = Family
-        fields = (
-            'employee',
-            'status',
-            'children_amount',
-        )
-
-    def create(self, validated_data):
-        instance = Family(**validated_data)
-        instance.is_new = True
-        instance.save()
-        files = self.context['request'].FILES.getlist('file')
-        for f in files:
-            file = FamilyFile(family=instance, file=f)
-            file.save()
-        return instance
 
 
 class RewardCreateSerializer(ModelSerializer):
@@ -506,3 +517,22 @@ class EmployeeUpdateCheckDataSeruializer(ModelSerializer):
         fields = (
             'is_sent_to_check',
         )
+
+
+class FamilyCreateSerializer(ModelSerializer):
+    class Meta:
+        model = Family
+        fields = (
+            'children_amount',
+            'status',
+        )
+    def create(self, validated_data):
+        user = User.objects.get(id=self.context["request"].user.id)
+        if hasattr(user, 'employee'):
+            employee_id = getattr(user, 'employee').id
+        status = validated_data.get('status')
+        children_amount = validated_data.get('children_amount')
+        instance = Family(employee_id=employee_id, status=status, children_amount=children_amount, is_new=True)
+        instance.save()
+        print(instance)
+        return instance

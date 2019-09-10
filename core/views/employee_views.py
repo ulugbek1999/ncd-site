@@ -1,23 +1,23 @@
 import datetime
 
 from django.contrib.auth import authenticate, login
-from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
+from django.http import JsonResponse, HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render, render_to_response
 from django.urls import reverse
 from django.views import View
-from django.views.generic import TemplateView, DetailView, ListView
+from django.views.generic import TemplateView, DetailView, ListView, CreateView
 from pure_pagination.mixins import PaginationMixin
 
 from core.mixins import EmployeeAuthMixin, PartnerAuthMixin
-from employee.models2 import Army
+from employee.models2 import Army, ArmyFile
 from directory.models import Country, DLanguage, EducationType
-from employee.models2 import Education
+from employee.models2 import Education, EducationFile
 from employee.models import Employee, EmployeeChanges
-from employee.models2 import Experience
+from employee.models2 import Experience, ExperienceFile
 from employee.models2 import Family
-from employee.models2 import Language
+from employee.models2 import Language, LanguageFile
 from employee.models2 import Relative
-from employee.models2 import Reward
+from employee.models2 import Reward, RewardFile
 from django.contrib.staticfiles.templatetags.staticfiles import static
 
 
@@ -40,6 +40,9 @@ class EmployeeOP1Update(EmployeeAuthMixin, DetailView):
     pk_url_kwarg = 'id'
     template_name = 'employee/update_operator_1.html'
     context_object_name = 'employee'
+    
+    
+    
 
 class EmployeePhotosUpload(EmployeeAuthMixin, DetailView):
     model = Employee
@@ -73,7 +76,11 @@ class EmployeeEducationUpdate(EmployeeAuthMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        edu = Education.objects.get(id=self.kwargs.get("edu_id"))
+        if not edu.employee.user.id == self.request.user.id:
+            raise Http404
         context['edu_types'] = EducationType.objects.all()
+        context["count_files"] = EducationFile.objects.filter(education=edu).count()
         return context
 
 
@@ -83,12 +90,33 @@ class EmployeeArmyUpdate(EmployeeAuthMixin, DetailView):
     template_name = 'employee/update_operator_3_army.html'
     context_object_name = 'army'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        a = Army.objects.get(id=self.kwargs.get('army_id'))
+        if not a.employee.user.id == self.request.user.id:
+            raise Http404
+        context["count_files"] = ArmyFile.objects.filter(army=a).count()
+        return context
+
+
+class EmployeeFamilyCreate(TemplateView):
+    template_name = 'employee/family_create.html'
+
 
 class EmployeeFamilyUpdate(EmployeeAuthMixin, DetailView):
     model = Family
     pk_url_kwarg = 'fam_id'
     template_name = 'employee/update_operator_3_family.html'
     context_object_name = 'family'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        a = Family.objects.get(id=self.kwargs.get('fam_id'))
+        if not a.employee.user.id == self.request.user.id:
+            raise Http404
+        return context
+
+
 
 
 class EmployeeRelativeUpdate(EmployeeAuthMixin, DetailView):
@@ -97,6 +125,13 @@ class EmployeeRelativeUpdate(EmployeeAuthMixin, DetailView):
     template_name = 'employee/update_operator_3_relative.html'
     context_object_name = 'relative'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        f = Family.objects.get(id=self.kwargs.get('rel_id'))
+        if not f.employee.user.id == self.request.user.id:
+            raise Http404
+        return context
+
 
 class EmployeeRewardUpdate(EmployeeAuthMixin, DetailView):
     model = Reward
@@ -104,12 +139,30 @@ class EmployeeRewardUpdate(EmployeeAuthMixin, DetailView):
     template_name = 'employee/update_operator_3_reward.html'
     context_object_name = 'reward'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        r = Reward.objects.get(id=self.kwargs.get('rw_id'))
+        if not r.employee.user.id == self.request.user.id:
+            raise Http404
+        context["count_files"] = RewardFile.objects.filter(reward=r).count()
+        return context
+    
+
 
 class EmployeeExperienceUpdate(EmployeeAuthMixin, DetailView):
     model = Experience
     pk_url_kwarg = 'ex_id'
     template_name = 'employee/update_operator_3_experience.html'
     context_object_name = 'experience'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        exp = Experience.objects.get(id=self.kwargs.get('ex_id'))
+        if not exp.employee.user.id == self.request.user.id:
+            raise Http404
+        context["count_files"] = ExperienceFile.objects.filter(experience=exp).count()
+        return context
+    
 
 
 class EmployeeLanguageUpdate(EmployeeAuthMixin, DetailView):
@@ -120,7 +173,11 @@ class EmployeeLanguageUpdate(EmployeeAuthMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        lang = Language.objects.get(id=self.kwargs.get('lang_id'))
+        if not lang.employee.user.id == self.request.user.id:
+            raise Http404
         context['languages'] = DLanguage.objects.all()
+        context['count_files'] = LanguageFile.objects.filter(language=lang).count()
         return context
 
 
@@ -174,6 +231,7 @@ class RewardCreateView(TemplateView):
         return context
 
 
+
 class RelativeCreateView(TemplateView):
     template_name = 'employee/relative_create.html'
 
@@ -191,6 +249,8 @@ class ExperienceCreateView(TemplateView):
 
 
 """"""
+
+
 
 
 class EmployeePasswordUpdateView(TemplateView):

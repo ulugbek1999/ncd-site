@@ -660,6 +660,12 @@ msgstr "Отправить"
 msgid "successfully sent"
 msgstr "Успешно отправлено"
 
+msgid "No"
+msgstr "Нет"
+
+msgid "successfully deleted"
+msgstr "удалено успешно"
+
 #: templates/employee/education_create.html:54
 #: templates/employee/language_create.html:55
 #: templates/employee/language_create.html:64
@@ -1251,8 +1257,8 @@ msgid "level"
 msgstr "уровень"
 
 #: templates/partner/profile.html:15
-msgid "Partner's personal area"
-msgstr "Личный кабинет Партнеров"
+msgid "Employer's personal area"
+msgstr "Личный кабинет работодателя"
 
 #: templates/partner/profile.html:55 templates/partner/profile.html:61
 #: templates/partner/register.html:46 templates/partner/register.html:54
@@ -1429,3 +1435,9 @@ msgstr "Фото"
 
 msgid "In order to have high chances to be employed, please fill your personal data!"
 msgstr "Для того, чтобы иметь большие шансы на работу за рубежом, пожалуйста заполните свои личные данные!"
+
+msgid "Upload your avatar and extra photos if needed"
+msgstr "Загрузите вашу аватарку и дополнительное фото если нужно"
+
+msgid "An employer"
+msgstr "Работодатель"

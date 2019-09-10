@@ -2,12 +2,14 @@ import json
 from rest_framework.generics import CreateAPIView, DestroyAPIView, UpdateAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from rest_framework.permissions import AllowAny
 from partners.models import Partner, PartnerEmployee, PartnerEmployeeRequest
 from .serializers import PartnerRequestCreateSerializer, PartnerUpdateSerializer, PartnerPasswordUpdateSerializer
+from utils import permissions as ps
 
 
 class PartnerCreateView(CreateAPIView):
+    permission_classes = (AllowAny, )
     serializer_class = PartnerRequestCreateSerializer
     queryset = Partner.objects.all()
 

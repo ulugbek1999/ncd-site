@@ -62,7 +62,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="eduAddress">{% trans 'Address' %}</label> <!-- TODO city list -->
-                                                            <input name="edu_address" list="eduRegion_list" type="text" class="form-control" id="eduAddress" value="{{ education.region_ru }}" autocomplete="off">
+                                                            <input name="edu_address" list="eduRegion_list" type="text" class="form-control" id="eduAddress" value="{{ education.address }}" autocomplete="off">
                                                             <datalist class="region-list" id="eduRegion_list">
                                                             </datalist>
                                                         </div>
@@ -89,6 +89,7 @@
                                                             <div class="education-file__upload op3-file__upload form-group">
                                                                 <label for="">{% trans 'Files' %} <i>({% trans 'not required' %})</i></label>
                                                                 <input type="file"
+                                                                       id = "file"
                                                                        class="filepondEducation"
                                                                        name="filepond_education"
                                                                        label-idle="{% trans 'Upload files' %}"
@@ -133,6 +134,10 @@
     <script src="{% static 'plugins/filepond/filepond.min.js' %}"></script>
 
     <script>
+        var fileChanged = false
+        var fileDeleted = false
+        var fileDeletedList = []
+        var initialLength = 0
         $(function () {
             $.fn.datepicker.dates['ru'] = {
                 days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
@@ -169,6 +174,21 @@
           });
         });
 
+        document.addEventListener('FilePond:removefile', e => {
+            if (typeof(e.detail.file.source) === 'string') {
+                fileChanged = true
+            }
+        });
+
+        var count = 0
+        document.addEventListener('FilePond:addfile', e => {
+            count++
+            if (count > {{ count_files  }}) {
+                fileChanged = true
+            }  
+        })
+        
+
         FilePond.registerPlugin(
 
             // encodes the file as base64 data
@@ -192,6 +212,7 @@
             file_url[j] = $(`input.filepondEducation`).data(`file-url-${j}`);
         }
         fEdu = FilePond.create(document.querySelector(`input.filepondEducation`));
+       
         for (let j = 1; j < edu_file_count + 1; j++) {
 
             file_url[j] = file_url[j].replace("%20", " ");
@@ -203,6 +224,10 @@
             event.preventDefault();
 
             let educationFormData = new FormData();
+            
+            if (fileDeletedList.length >= 1) {
+                educationFormData.append('deleted_files', fileDeletedList)
+            }
 
             educationFormData.append(`type`, $(`select[name='edu_type']`).val());
             educationFormData.append(`name_ru`, $(`input[name='edu_name']`).val());
@@ -211,15 +236,18 @@
             educationFormData.append(`date_started`, $(`input[name='edu_start_date']`).val());
             educationFormData.append(`date_finished`, $(`input[name='edu_grad_date']`).val());
             educationFormData.append(`additional_ru`, $(`input[name='edu_addit']`).val());
-            educationFormData.append('parent', {{ education.id }});
+            
 
-            var educationCountFile = fEdu.getFiles().length;
-            for (var j = 0; j < educationCountFile; j++) {
-               let f = fEdu.getFiles()[j].file;
-               let fImage = new File([f], f.name, {type: f.type});
-               educationFormData.append(`file`, fImage);
+            if (fileChanged) {
+                educationFormData.append('changed', true)
+                var eduCountFile = fEdu.getFiles().length;
+                for (let j = 0; j < eduCountFile; j++) {
+                    //militaryFormData.append(`file`, fMil[i].getFiles()[j].file);
+                    let f = fEdu.getFiles()[j].file;
+                    let fImage = new File([f], f.name, {type: f.type});
+                    educationFormData.append(`file`, fImage);
+                }
             }
-
 
             $.ajax({
                 url: $(this).data('api'),
@@ -233,8 +261,9 @@
                     x.className = "show";
                     setTimeout(function(){
                         x.className = x.className.replace("show", "");
-                        window.location.href = "{% url 'employee.profile' %}";
+                        {% comment %} window.location.href = "{% url 'employee.profile' %}"; {% endcomment %}
                     }, 1500);
+                    location.replace("{% url 'employee.profile' %}")
                 },
                 error: function (data) {
                     $.magnificPopup.close();

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'operators',
     'partners',
     'cms',
+    'django_cleanup'
 ]
 
 MIDDLEWARE = [
@@ -149,6 +150,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES' : (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
 
 MEDIA_URL = '/media/'
 # MEDIA_ROOT = '/home/murakov/work/ncdSite/media'

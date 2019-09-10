@@ -116,6 +116,7 @@
     <script src="{% static 'plugins/filepond/filepond.min.js' %}"></script>
 
     <script>
+        var fileChanged = false
         $(function () {
             $.fn.datepicker.dates['ru'] = {
                 days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
@@ -181,6 +182,21 @@
             fLang.addFile(decodeURI(file_url[j]));
         }
 
+        document.addEventListener('FilePond:removefile', e => {
+            if (typeof(e.detail.file.source) === 'string') {
+                fileChanged = true
+            }
+        });
+
+        var count = 0
+        document.addEventListener('FilePond:addfile', e => {
+            count++
+            if (count > {{ count_files  }}) {
+                fileChanged = true
+            }
+            
+        })
+
         $("#employeeEditButton").click(function(event){
             event.preventDefault();
 
@@ -189,6 +205,10 @@
             languageFormData.append(`language`, $(`select[name='lang_name']`).val());
             languageFormData.append(`level`, $(`select[name='lang_level']`).val());
             languageFormData.append(`parent`, {{ language.id }});
+
+            if (fileChanged) {
+                languageFormData.append('changed', true)
+            }
 
             var languageCountFile = fLang.getFiles().length;
             for (var j = 0; j < languageCountFile; j++) {

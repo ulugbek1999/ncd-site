@@ -1,6 +1,8 @@
 from django.db import models
+import os
+import uuid
 from django.utils.translation import ugettext_lazy as _, get_language
-
+from django.http import Http404
 from directory.models import EducationType, DLanguage, District, Country, City
 from employee.file_handlers import army_file_uploader, education_file_uploader, experience_file_uploader, family_file_uploader, language_file_uploader, relative_file_uploader, reward_file_uploader
 from employee.models import Employee
@@ -187,7 +189,6 @@ class EducationFile(models.Model, FileUtil):
 
     def __str__(self):
         return self.education.employee.full_name_ru
-
 
 # ------------------------------------------------------------
 

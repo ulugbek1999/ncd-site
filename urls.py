@@ -47,6 +47,7 @@ urlpatterns += i18n_patterns(
     path('employee/profile/reward/create/', employee_views.RewardCreateView.as_view(), name='employee.reward.create'),
     path('employee/profile/relative/create/', employee_views.RelativeCreateView.as_view(), name='employee.relative.create'),
     path('employee/profile/experience/create/', employee_views.ExperienceCreateView.as_view(), name='employee.experience.create'),
+    path('employee/profile/family/create/', employee_views.EmployeeFamilyCreate.as_view(), name="employee.family.create"),
     # employee create views end
 
     path('vacancies/', vacancies_views.VacanciesListPage.as_view(), name='vacancies'),

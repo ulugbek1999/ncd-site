@@ -1,7 +1,7 @@
 from django.urls import path
 
 from api.employee.views import EmployeeUpdate1APIView, EmployeeUpdate2APIView, EmployeeUpdate4APIView, \
-    EducationUpdateAPIView, LanguageUpdateAPIView, ArmyUpdateAPIView, SendDataToCheckAPIView, EmployeePasswordUpdate
+    EducationUpdateAPIView, LanguageUpdateAPIView, ArmyUpdateAPIView, SendDataToCheckAPIView, EmployeePasswordUpdate, EducationDeleteAPIView, LanguageDeleteAPIView, ArmyDeleteAPIView, RewardDeleteAPIView, FamilyDeleteAPIView, ExperienceDeleteAPIView
 
 from .views import RewardUpdateAPIView
 from .views import FamilyUpdateAPIView
@@ -34,6 +34,13 @@ urlpatterns = [
     path('update/family/<int:id>/', FamilyUpdateAPIView.as_view(), name='update.3.family'),
     path('update/relative/<int:id>/', RelativeUpdateAPIView.as_view(), name='update.3.relative'),
     path('update/experience/<int:id>/', ExperienceUpdateAPIView.as_view(), name='update.3.experience'),
+
+    path('delete/education/<int:id>/', EducationDeleteAPIView.as_view(), name="education.delete"),
+    path('delete/language/<int:id>/', LanguageDeleteAPIView.as_view(), name="language.delete"),
+    path('delete/army/<int:id>/', ArmyDeleteAPIView.as_view(), name="army.delete"),
+    path('delete/reward/<int:id>/', RewardDeleteAPIView.as_view(), name="reward.delete"),
+    path('delete/family/<int:id>/', FamilyDeleteAPIView.as_view(), name="family.delete"),
+    path('delete/experience/<int:id>/', ExperienceDeleteAPIView.as_view(), name="experience.delete"),
 
     path('education/create/', EducationCreateAPIView.as_view(), name='education.create'),
     path('language/create/', LanguageCreateAPIView.as_view(), name='language.create'),

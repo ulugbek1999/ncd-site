@@ -275,13 +275,14 @@
                                                                     <strong>{% trans 'Education type' %}:</strong>
                                                                     <span>{{ edu.type.name }}</span>
                                                                 </li>
+                                                                
                                                                 <li>
                                                                     <strong>{% trans 'Name' %}:</strong>
-                                                                    <span>{{ edu.name }}</span>
+                                                                    <span>{{ edu.name_ru }}</span>
                                                                 </li>
                                                                 <li>
                                                                     <strong>{% trans 'Address' %}:</strong>
-                                                                    <span>{{ edu.address }}</span>
+                                                                    <span>{{ edu.address_ru }}</span>
                                                                 </li>
                                                                 <li>
                                                                     <strong>{% trans 'Specialty' %}:</strong>
@@ -311,7 +312,9 @@
                                                                 </li>
                                                             </ul>
                                                             <a href="{% url 'employee.profile.update.3.education' edu.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                            <a href="" data-url="{% url 'api:employee:education.delete' edu.id %}" style="position: relative; float: right; top: 10px; color: #dc2222;" class="deleteButtonProfile">{% trans 'Delete' %}</a>
                                                         </div>
+                                                        
                                                     {% endfor %}
                                                 </div>
                                             </div>
@@ -346,6 +349,7 @@
                                                                 </li>
                                                             </ul>
                                                             <a href="{% url 'employee.profile.update.3.language' lang.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                            <a href="" data-url="{% url 'api:employee:language.delete' lang.id %}" style="position: relative; float: right; top: 10px; color: #dc2222;" class="deleteButtonProfile">{% trans 'Delete' %}</a>
                                                         </div>
                                                     {% endfor %}
                                                 </div>
@@ -361,14 +365,14 @@
                                                     {% for army in employee.army_set.all %}
                                                         <div class="op3View-item">
                                                             <ul>
-                                                                <li>
+                                                                {% comment %} <li>
                                                                     <strong>{% trans 'Military duty' %}:</strong>
                                                                     {% if employee.military_duty %}
                                                                         <span>{% trans 'Yes' %}</span>
                                                                     {% else %}
                                                                         <span>{% trans 'No' %}</span>
                                                                     {% endif %}
-                                                                </li>
+                                                                </li> {% endcomment %}
                                                                 <li>
                                                                     <strong>{% trans 'Name of the military unit' %}:</strong>
                                                                     <span>{{ army.name }}</span>
@@ -405,6 +409,7 @@
                                                                 </li>
                                                             </ul>
                                                             <a href="{% url 'employee.profile.update.3.army' army.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                            <a href="" data-url="{% url 'api:employee:army.delete' army.id %}" style="position: relative; float: right; top: 10px; color: #dc2222;" class="deleteButtonProfile">{% trans 'Delete' %}</a>
                                                         </div>
                                                     {% endfor %}
                                                 </div>
@@ -440,6 +445,7 @@
                                                                 </li>
                                                             </ul>
                                                             <a href="{% url 'employee.profile.update.3.reward' reward.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                            <a href="" data-url="{% url 'api:employee:reward.delete' reward.id %}" style="position: relative; float: right; top: 10px; color: #dc2222;" class="deleteButtonProfile">{% trans 'Delete' %}</a>
                                                         </div>
                                                     {% endfor %}
                                                 </div>
@@ -451,8 +457,9 @@
                                             </div>
                                             <div id="familyView" class="panel-collapse collapse">
                                                 <div class="panel-body">
-                                                    <a href="#" class="addButtonProfile">{% trans 'Add' %}</a>
-                                                    {% if employee.family %}
+                                                    {% if not employee.family %}
+                                                    <a href="{% url 'employee.family.create' %}" class="addButtonProfile">{% trans 'Add' %}</a>
+                                                    {% else %}
                                                         <div class="op3View-item">
                                                             <ul>
                                                                 <li>
@@ -475,6 +482,7 @@
                                                                 </li>
                                                             </ul>
                                                             <a href="{% url 'employee.profile.update.3.family' employee.family.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                            <a href="" data-url="{% url 'api:employee:family.delete' employee.family.id %}" style="position: relative; float: right; top: 10px; color: #dc2222;" class="deleteButtonProfile">{% trans 'Delete' %}</a>
                                                         </div>
                                                     {% endif %}
                                                 </div>
@@ -526,6 +534,7 @@
                                                                 </li>
                                                             </ul>
                                                             <a href="{% url 'employee.profile.update.3.experience' ex.id %}" class="editButtonProfile">{% trans 'Edit' %}</a>
+                                                            <a href="" data-url="{% url 'api:employee:experience.delete' ex.id %}" style="position: relative; float: right; top: 10px; color: #dc2222;" class="deleteButtonProfile">{% trans 'Delete' %}</a>
                                                         </div>
                                                     {% endfor %}
                                                 </div>
@@ -615,6 +624,57 @@
             element.addEventListener('click', (e) => {
                 e.preventDefault()
             })
+        })
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            var uri;
+            var deleteBtns = document.querySelectorAll('.deleteButtonProfile')
+            Array.from(deleteBtns).forEach(deleteBtn => {
+                var el;
+                deleteBtn.addEventListener('click', (event) => {
+                el = event.target
+                event.preventDefault()
+                Swal.fire({
+                    title: '<strong>Warning!</strong>',
+                    type: 'info',
+                    html: "{% trans 'Do you really want to delete' %}?",
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                    confirmButtonText: "{% trans 'Yes' %}",
+                    confirmButtonAriaLabel: 'Yes, delete it!',
+                    cancelButtonText:
+                        'No',
+                    cancelButtonAriaLabel: 'Thumbs down'
+                }).then(function(isConfirm) {
+                    if (isConfirm.value == true) {
+                        $.ajax({
+                            url: el.dataset.url,
+                            method: "DELETE",
+                            success () {
+                                var x = document.getElementById("mainSuccess");
+                                $("#mainSuccess").text("{% trans 'successfully deleted' %}");
+                                x.className = "show";
+                                uri = null
+                                setTimeout(function(){
+                                    x.className = x.className.replace("show", "");
+                                    location.reload();
+                                }, 1500);
+                            },
+                            error () {
+                                $.magnificPopup.close();
+                                var x = document.getElementById("mainError");
+
+                                x.className = "show";
+                                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                            }
+                        })
+                    }
+                })
+            })
+            })
+            
         })
     </script>
 
