@@ -1227,6 +1227,9 @@ msgstr "So'rov"
 msgid "writing wet stamp"
 msgstr "yozma"
 
+msgid "Delete"
+msgstr "Ochirib tashlash"
+
 #: templates/partner/bookmarks.html:161
 msgid "by mailing or online"
 msgstr "Pochta orqali yoki onlayn"

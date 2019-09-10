@@ -632,6 +632,7 @@
             var deleteBtns = document.querySelectorAll('.deleteButtonProfile')
             Array.from(deleteBtns).forEach(deleteBtn => {
                 var el;
+                console.log("Worked")
                 deleteBtn.addEventListener('click', (event) => {
                 el = event.target
                 event.preventDefault()
@@ -645,7 +646,7 @@
                     confirmButtonText: "{% trans 'Yes' %}",
                     confirmButtonAriaLabel: 'Yes, delete it!',
                     cancelButtonText:
-                        '{% trans "No" %}',
+                        "{% trans "No" %}",
                     cancelButtonAriaLabel: 'Thumbs down'
                 }).then(function(isConfirm) {
                     if (isConfirm.value == true) {
