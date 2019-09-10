@@ -2,6 +2,7 @@ from rest_framework.permissions import BasePermission
 from employee.models2 import Education, Language, Army, Reward, Family, Experience
 from employee.models import Employee
 from django.contrib.auth.models import User
+from vacancy.models import VacancyRequest
 
 class IsOwnerEducation(BasePermission):
     def has_permission(self, request, view):
@@ -49,5 +50,12 @@ class IsOwnerEmployee(BasePermission):
     def has_permission(self, request, view):
         employee = Employee.objects.get(passport_serial=request.data.get('passport_serial'))
         if employee.user.id == request.user.id:
+            return True
+        return False
+
+class IsOwnerVacancyRequest(BasePermission):
+    def has_permission(self, request, view):
+        vacancy_request = VacancyRequest(id=view.kwargs.get('id'))
+        if vacancy_request.employee.user.id == request.user.id:
             return True
         return False

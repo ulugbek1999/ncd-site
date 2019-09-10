@@ -1,4 +1,5 @@
 from django.db import models
+from employee.models import Employee
 from django.utils.translation import get_language
 from django.utils import timezone
 import datetime
@@ -55,6 +56,7 @@ class CommonInfo(models.Model):
 
     class Meta:
         abstract = True
+
 
 class Vacancy(CommonInfo):
     image = models.FileField(blank=True)
@@ -115,6 +117,21 @@ class Vacancy(CommonInfo):
         verbose_name = "vacancy"
         verbose_name_plural = "vacancies"
         ordering = ['-created']
+
+
+class VacancyRequest(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="vacancy_requests_employee")
+    requested_date = models.DateTimeField(_("requested date"), auto_now=True)
+    vacancy = models.OneToOneField(Vacancy, on_delete=models.CASCADE, related_name="vacancy_requests")
+
+    class Meta:
+        db_table = "vacancy__requests"
+        verbose_name = "vacancy"
+        verbose_name_plural = "vacancies"
+        ordering = ['-requested_date']
+
+
+
     
 
 

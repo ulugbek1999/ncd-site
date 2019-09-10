@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView, TemplateView
-from vacancy.models import Vacancy
+from django.contrib.auth.models import User
+from vacancy.models import Vacancy, VacancyRequest
 from django.template.defaulttags import register
 from django.utils.translation import get_language as _
 from pure_pagination.mixins import PaginationMixin
@@ -61,3 +62,20 @@ class VacanciesListPage(PaginationMixin, ListView):
 class VacanciesDetailPage(DetailView):
     template_name = 'vacancies/vacancies_detail.html'
     model = Vacancy
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            employee = getattr(self.request.user, 'employee')
+        context["employee_id"] = employee.id
+        context["vacancy_id"] = self.kwargs.get('pk')
+        vacancy = None
+        try:
+            vacancy = VacancyRequest.objects.get(employee_id=employee.id, vacancy_id=context["vacancy_id"])
+        except VacancyRequest.DoesNotExist:
+            pass
+        if vacancy:
+            print(True)
+            context["applied"] = True
+        return context
+    

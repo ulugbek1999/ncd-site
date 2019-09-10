@@ -36,9 +36,15 @@
             <hr>
             {{ vacancy.description | safe }}
             <div class="b-container">
-                <button class="apply">
+                {% if not applied %}
+                <button class="apply" id="apply" data-api="{% url 'api:vacancy__requests:vacancy__request.create' %}">
                     {% trans 'Apply' %}
                 </button>
+                {% else %}
+                <button class="delete" id="delete" data-api="{% url 'api:vacancy__requests:vacancy__request.delete' vacancy_id %}">
+                    {% trans 'Unapply' %}
+                </button>
+                {% endif %}
             </div>
             
         </div>
@@ -48,5 +54,87 @@
 {% endblock %}
 
 {% block js %}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        var apply = document.querySelector("#apply")
+        var deleteIt = document.querySelector("#delete")
+        if (apply) {
+            apply.addEventListener('click', (event) => {
+            if("{{ user.is_authenticated }}" != "True") {
+                Swal.fire({
+                    type: "error",
+                    title: "Oops...",
+                    text: "{% trans 'You should be authenticated as an employee in order to apply' %}!",
+                })
+            }
+            else {
+                var e = "{{ employee_id }}"
+                var v = "{{ vacancy_id }}"
 
+                data = {
+                    employee_id: e,
+                    vacancy_id: v
+                }
+
+                $.ajax({
+                    url: event.target.dataset.api,
+                    type: "POST",
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    success (data) {
+                        var x = document.getElementById("mainSuccess");
+                        $("#mainSuccess").text("{% trans 'successfully sent' %}");
+                        x.className = "show";
+                        setTimeout(function(){
+                            x.className = x.className.replace("show", "");
+                            location.reload()
+                        }, 1500);
+                    },
+                    error (data) {
+                        var x = document.getElementById("mainError");
+                        if (data.responseJSON) {
+                            x.innerHTML = data.responseJSON["message"]
+                        }
+                        else {
+                            x.innerHTML = data.statusText
+                        }
+                        x.className = "show";
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                    }
+                })
+            }
+        })
+        }
+        if (deleteIt) {
+            deleteIt.addEventListener('click', (event) => {
+            $.ajax({
+                url: event.target.dataset.api,
+                type: "DELETE",
+                data: JSON.stringify({vacancy_id: "{{ vacancy_id }}"}),
+                success (data) {
+                    var x = document.getElementById("mainSuccess");
+                        $("#mainSuccess").text("{% trans 'delete successfully' %}");
+                        x.className = "show";
+                        setTimeout(function(){
+                            x.className = x.className.replace("show", "");
+                            location.reload()
+                        }, 1500);
+                },
+                error (error) {
+                    var x = document.getElementById("mainError");
+                        if (data.responseJSON) {
+                            x.innerHTML = data.responseJSON["message"]
+                        }
+                        else {
+                            x.innerHTML = data.statusText
+                        }
+                        x.className = "show";
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                    }
+                })
+            })
+        }
+        
+    })
+</script>
 {% endblock %}

@@ -112,7 +112,7 @@
     position: relative;
     z-index: 100;
     width: 280px;
-    height: 420px;
+    height: 220px;
 }
 
 .image-on {
@@ -157,8 +157,22 @@
     outline: none;
     display: block;
     border: none;
-    margin: 0 auto;
+    margin: 15px auto 0;
     font-weight: bold;
+}
+
+.delete {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 18px;
+    background: #b10000;
+    border-color: rgb(255, 255, 255);
+    padding: 7.5px 40px;
+    cursor: pointer;
+    outline: none;
+    display: block;
+    border: none;
+    margin: 15px auto 0;
 }
 
 @media screen and (max-width: 930px) {
@@ -219,5 +233,18 @@
 
     .filter {
         float: right;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .image-on {
+        position: relative;
+        left: 5px;
     }
 }
