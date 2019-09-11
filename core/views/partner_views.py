@@ -23,7 +23,11 @@ class PartnerRegisterPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['agreement'] = CMSExtra.objects.get(type=7)
+        try:
+            context['agreement'] = CMSExtra.objects.get(type=7)
+        except CMSExtra.DoesNotExist:
+            context["agreement"] = ""
+        
         return context
 
 

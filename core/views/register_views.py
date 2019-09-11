@@ -10,7 +10,10 @@ class RegisterEmployeeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["register_number"] = timezone.now()
-        context["agreement"] = CMSExtra.objects.get(type=7)
+        try:
+            context["agreement"] = CMSExtra.objects.get(type=7)
+        except CMSExtra.DoesNotExist:
+            context["agreement"] = ""
         context["avatar_holder"] = static('images/avatar_placeholder.jpg')
         return context
     
