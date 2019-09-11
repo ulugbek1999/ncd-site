@@ -60,7 +60,7 @@
         var deleteIt = document.querySelector("#delete")
         if (apply) {
             apply.addEventListener('click', (event) => {
-            if("{{ user.is_authenticated }}" != "True") {
+            if ("{{ employee_id }}" == "") {
                 Swal.fire({
                     type: "error",
                     title: "Oops...",

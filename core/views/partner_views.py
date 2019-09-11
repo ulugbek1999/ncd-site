@@ -27,7 +27,6 @@ class PartnerRegisterPage(TemplateView):
             context['agreement'] = CMSExtra.objects.get(type=7)
         except CMSExtra.DoesNotExist:
             context["agreement"] = ""
-        
         return context
 
 

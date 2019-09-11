@@ -89,4 +89,19 @@
 
 {% block js %}
     <script src="{% static 'js/vacancies.js' %}"></script>
+    <script>
+            var favourite = document.querySelectorAll('.favourite')
+            Array.from(favourite).forEach(element => {
+                element.addEventListener('click', e => {
+                    e.stopPropagation()
+                    if ("{{ employee_id }}" == "") {
+                        Swal.fire({
+                            type: 'info',
+                            title: "{% trans 'Warning' %}!",
+                            text: "{% trans 'You should be authenticated as an employee' %}."
+                        })
+                    }
+                })
+            })
+    </script>
 {% endblock %}
