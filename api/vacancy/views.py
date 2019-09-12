@@ -14,6 +14,7 @@ from utils.permissions import IsOwnerVacancyRequest
 
 receiver_numbers = ["+998909167516", "+998909850701", "+998998410864", "+998905475111", "+998990065374", "+998903715901"]
 
+
 class VacancyCreateAPIView(APIView):
     def post(self, request):
         instance, isTrue = VacancyRequest.objects.get_or_create(
@@ -25,7 +26,7 @@ class VacancyCreateAPIView(APIView):
         instance.save()
         employee = Employee.objects.get(id=request.data.get("employee_id"))
         vacancy = Vacancy.objects.get(id=request.data.get("vacancy_id"))
-        text = f"Новая заявка на вакансию:\n\nФ.И.О: { employee.full_name_ru },\nНомер телефона: { employee.phone },\nВакансия: { vacancy.title_ru }\nСтрана: { vacancy.location_ru }\n\nПожалуйста ответьте аппликанту с помощью admin.uzncd.com ( еще не доступно )\nВы видите это сообщение, потому что кто то из аппликантов подал заявку на существующие на вашем сайте вакансии"
+        text = f"Новая заявка на вакансию:\n\nФ.И.О: { employee.full_name_ru },\nНомер телефона: { employee.phone },\nВакансия: { vacancy.title_ru }\nСтрана: { vacancy.location_ru }\n\nПожалуйста ответьте аппликанту с помощью admin.uzncd.com\nВы видите это сообщение, потому что кто то из аппликантов подал заявку на существующие на вашем сайте вакансии"
         try:
             for number in receiver_numbers:
                 send_sms(number, text)
