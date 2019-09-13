@@ -52,7 +52,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="passportSerial">{% trans 'Passport serial' %}</label>
-                                                    <input name="passport_serial" type="text" class="form-control" id="passportSerial" value="{{ employee.passport_serial }}" autocomplete="off">
+                                                    <input name="passport_serial" type="text" class="form-control" id="passportSerial" value="{{ employee.passport_serial }}" autocomplete="off" disabled>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="passportGivenDate">{% trans 'Passport given date' %}</label>
@@ -146,9 +146,9 @@
                     }, 1500);
                 },
                 error: function (data) {
-                    var x = document.getElementById("mainError");
-                    x.className = "show";
-                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                        var x = document.getElementById("mainError");
+                        x.className = "show";
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
                 },
             });
         });

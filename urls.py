@@ -52,6 +52,8 @@ urlpatterns += i18n_patterns(
 
     path('vacancies/', vacancies_views.VacanciesListPage.as_view(), name='vacancies'),
     path('vacancies-detail/<int:pk>', vacancies_views.VacanciesDetailPage.as_view(), name="vacancies-detail"),
+    path('vacancy-favourites-list/', vacancies_views.VacancyFavouriteListPage.as_view(), name="vacancy.favourite.list"),
+    path('vacancy-request-list/', vacancies_views.VacancyRequestListPage.as_view(), name="vacancy.request.list"),
 
     path('about/', core_views.AboutPage.as_view(), name='about'),
     path('docs/', core_views.DocsPage.as_view(), name='docs'),

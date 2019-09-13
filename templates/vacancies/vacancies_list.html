@@ -44,7 +44,13 @@
                             
                         </div>
                         <div class="right-wrapper">
-                            <img src="{% static 'images/like.png' %}" alt="" class="favourite">
+                            {% if vacancy.id in list %}
+                            <img id="favourite-has-{{ vacancy.id }}" style="display: block;" src="{% static 'images/heart.svg' %}" alt="" class="favourite favourite-has" data-vacancy="{{ vacancy.id }}" data-api="{% url 'api:vacancy__requests:vacancy.favourite.delete' %}">
+                            <img id="favourite-none-{{ vacancy.id }}" style="display: none" src="{% static 'images/like.png' %}" alt="" class="favourite favourite-none" data-vacancy="{{ vacancy.id }}" data-api="{% url 'api:vacancy__requests:vacancy.favourite.create' %}">
+                            {% else %}
+                            <img id="favourite-has-{{ vacancy.id }}" style="display: none;" src="{% static 'images/heart.svg' %}" alt="" class="favourite favourite-has" data-vacancy="{{ vacancy.id }}" data-api="{% url 'api:vacancy__requests:vacancy.favourite.delete' %}">
+                            <img id="favourite-none-{{ vacancy.id }}" style="display: block" src="{% static 'images/like.png' %}" alt="" class="favourite favourite-none" data-vacancy="{{ vacancy.id }}" data-api="{% url 'api:vacancy__requests:vacancy.favourite.create' %}">
+                            {% endif %}
                             <p class="created-date">{{ vacancy.was_published }}</p>
                         </div>          
                     </div>
@@ -90,7 +96,8 @@
 {% block js %}
     <script src="{% static 'js/vacancies.js' %}"></script>
     <script>
-            var favourite = document.querySelectorAll('.favourite')
+            var favourite = document.querySelectorAll('.favourite-none')
+            var favouriteHas = document.querySelectorAll('.favourite-has')
             Array.from(favourite).forEach(element => {
                 element.addEventListener('click', e => {
                     e.stopPropagation()
@@ -101,6 +108,73 @@
                             text: "{% trans 'You should be authenticated as an employee' %}."
                         })
                     }
+                    else {
+                        data = {
+                            "employee_id": "{{ employee_id }}",
+                            "vacancy_id": e.target.dataset.vacancy
+                        }
+                        $.ajax({
+                            url: e.target.dataset.api,
+                            data: JSON.stringify(data),
+                            type: "POST",
+                            contentType: "application/json",
+                            success () {
+                                var x = document.getElementById("mainSuccess");
+                                $("#mainSuccess").text("{% trans 'successfully added' %}");
+                                x.className = "show";
+                                e.target.style.display = "none"
+                                id = e.target.dataset.vacancy
+                                document.querySelector(`#favourite-has-${id}`).style.display = "block"
+                                setTimeout(function(){
+                                    x.className = x.className.replace("show", "");
+                                }, 1500);
+                            },
+                            error (error) {
+                                var message = JSON.parse(error.responseText)["error"]
+                                var x = document.getElementById("mainError");
+                                if (message != undefined) {
+                                    x.innerHTML = message
+                                }
+                                x.className = "show";
+                                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                            }
+                        })
+                    }
+                })
+            })
+            Array.from(favouriteHas).forEach(element => {
+                element.addEventListener('click', (e) => {
+                    e.stopPropagation()
+                    data = {
+                        "employee_id": "{{ employee_id }}",
+                        "vacancy_id": e.target.dataset.vacancy
+                    }
+                    $.ajax({
+                            url: e.target.dataset.api,
+                            data: JSON.stringify(data),
+                            type: "DELETE",
+                            contentType: "application/json",
+                            success () {
+                                var x = document.getElementById("mainSuccess");
+                                $("#mainSuccess").text("{% trans 'successfully deleted' %}");
+                                x.className = "show";
+                                e.target.style.display = "none"
+                                id = e.target.dataset.vacancy
+                                document.querySelector(`#favourite-none-${id}`).style.display = "block"
+                                setTimeout(function(){
+                                    x.className = x.className.replace("show", "");
+                                }, 1500);
+                            },
+                            error (error) {
+                                var message = JSON.parse(error.responseText)["error"]
+                                var x = document.getElementById("mainError");
+                                if (message != undefined) {
+                                    x.innerHTML = message
+                                }
+                                x.className = "show";
+                                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                            }
+                        })
                 })
             })
     </script>

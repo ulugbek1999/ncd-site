@@ -28,6 +28,12 @@
                                             <a href="{% url 'employee.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
                                         </li>
                                         <li class="">
+                                            <a href="{% url 'vacancy.request.list' %}"><i class="fa fa-list"></i> {% trans 'My vacancy list' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'vacancy.favourite.list' %}"><i class="fa fa-heart"></i> {% trans 'Favourites' %}</a>
+                                        </li>
+                                        <li class="">
                                             <a href="{% url 'employee.password.update' %}"><i class="fa fa-cog"></i> {% trans 'Settings' %} </a>
                                         </li>
                                         <li class="">

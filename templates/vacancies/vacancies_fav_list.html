@@ -1,0 +1,164 @@
+{% extends '_base.html' %}
+{% load static i18n thumbnail %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/vacancies.css' %}">
+<link rel="stylesheet" href="{% static 'css/pagination.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="profile-main">
+                    <div class="content-title">
+                        <h2>{% blocktrans %}Personal account of the applicant{% endblocktrans %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-side">
+                                <div class="profile-side__title">
+                                    <h2>{% trans 'Personal cabinet' %}</h2>
+                                </div>
+                                <nav class="nav_personal d-lnk-txt">
+                                    <ul>
+                                        <li class="">
+                                            <a href="{% url 'employee.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'vacancy.request.list' %}"><i class="fa fa-list"></i> {% trans 'My vacancy list' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'vacancy.favourite.list' %}"><i class="fa fa-heart"></i> {% trans 'Favourites' %}</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'employee.password.update' %}"><i class="fa fa-cog"></i> {% trans 'Settings' %} </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#"><i class="fa fa-book"></i> {% trans 'Courses' %} </a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav_personal__footer">
+                                        <a href="{% url 'logout' %}"> {% trans 'Logout' %}</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="profile-content">
+                                <div class="employee-detail">
+                                    <div class="row">
+                                        <div class="detail-title" style="padding: 5px 25px;">
+                                            <h2>{% blocktrans %}Favourites{% endblocktrans %}</h2>
+                                        </div>
+                                        <div class="table-container" style="width: 80%; margin-left: 25px;">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">{% trans 'Vacancy name' %}</th>
+                                                    <th scope="col">{% trans 'Country' %}</th>
+                                                    <th scope="col">{% trans 'Wages' %}</th>
+                                                    <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for vf in vacancy_favourites %}
+                                                        <tr>
+                                                            <th scope="row">{{ forloop.counter }}</th>
+                                                            <td>{{ vf.vacancy.title }}</td>
+                                                            <td>{{ vf.vacancy.location }}</td>
+                                                            <td>{{ vf.vacancy.wages }}</td>
+                                                            <td><a href="#" class="del" data-api="{% url 'api:vacancy__requests:vacancy.favourite.delete' %}" data-vacancy="{{ vf.vacancy.id }}" style="color: red">{% trans 'Delete' %}</a></td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="row">
+                                            {% if is_paginated %}
+                                            <div class="pagination_main">
+                                                <div class="pagination">
+                                                    {% if page_obj.has_previous %}
+                                                        <a href="?{{ page_obj.previous_page_number.querystring }}" class="prev">&lsaquo;&lsaquo;</a>
+                                                    {% else %}
+                                                        <span class="disabled prev">&lsaquo;&lsaquo;</span>
+                                                    {% endif %}
+                                                    {% for page in page_obj.pages %}
+                                                        {% if page %}
+                                                            {% ifequal page page_obj.number %}
+                                                                <span class="current page">{{ page }}</span>
+                                                            {% else %}
+                                                                <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                                                            {% endifequal %}
+                                                        {% else %}
+                                                            ...
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                    {% if page_obj.has_next %}
+                                                        <a href="?{{ page_obj.next_page_number.querystring }}" class="next">&rsaquo;&rsaquo;</a>
+                                                    {% else %}
+                                                        <span class="disabled next">&rsaquo;&rsaquo;</span>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block js %}
+<script src="{% static 'js/vacancies.js' %}"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        var del = document.querySelectorAll(".del   ")
+
+        Array.from(del).forEach((element) => {
+            element.addEventListener('click', (event) => {
+                event.preventDefault()
+                data = {
+                    "employee_id": "{{ employee_id }}",
+                    "vacancy_id": event.target.dataset.vacancy
+                }
+                $.ajax({
+                    url: event.target.dataset.api,
+                    data: JSON.stringify(data),
+                    type: "DELETE",
+                    contentType: "application/json",
+                    success () {
+                        var x = document.getElementById("mainSuccess");
+                        $("#mainSuccess").text("{% trans 'successfully deleted' %}");
+                        x.className = "show";
+                        setTimeout(function(){
+                            x.className = x.className.replace("show", "");
+                            location.reload()
+                        }, 1500);
+                    },
+                    error (error) {
+                        try {
+                            var message = JSON.parse(error.responseText)["error"]
+                        } catch (error) {
+                            
+                        }
+                        var x = document.getElementById("mainError");
+                        if (message != undefined) {
+                            x.innerHTML = message
+                        }
+                        x.className = "show";
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                    }
+                })
+            })
+        })
+    })
+</script>
+{% endblock %}

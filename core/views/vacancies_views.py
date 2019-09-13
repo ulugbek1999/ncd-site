@@ -1,6 +1,7 @@
 from django.views.generic import ListView, DetailView, TemplateView
 from django.contrib.auth.models import User
-from vacancy.models import Vacancy, VacancyRequest
+from vacancy.models import Vacancy, VacancyRequest, VacancyFavourite
+from employee.models import Employee
 from django.template.defaulttags import register
 from django.utils.translation import get_language as _
 from pure_pagination.mixins import PaginationMixin
@@ -60,10 +61,15 @@ class VacanciesListPage(PaginationMixin, ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["list"] = []
         if self.request.user.is_authenticated:
             if hasattr(self.request.user, 'employee'):
                 employee = getattr(self.request.user, 'employee')
                 context["employee_id"] = employee.id
+                vfs = VacancyFavourite.objects.all().filter(employee=employee)
+                for vf in vfs:
+                    context["list"].append(vf.vacancy_id)
+        print(context["list"])
         return context
     
     
@@ -88,5 +94,31 @@ class VacanciesDetailPage(DetailView):
                 pass
         if vacancy:
             context["applied"] = True
+            context["vacancy_request"] = vacancy
         return context
+
+class VacancyFavouriteListPage(PaginationMixin, ListView):
+    template_name = "vacancies/vacancies_fav_list.html"
+    context_object_name = "vacancy_favourites"
+    paginate_by = 10
+    
+    def get_queryset(self):
+        employee = Employee.objects.get(user=self.request.user)
+        return VacancyFavourite.objects.all().filter(employee=employee)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        employee = getattr(self.request.user, 'employee')
+        context["employee_id"] = employee.id
+        return context
+    
+
+class VacancyRequestListPage(PaginationMixin, ListView):
+    template_name = "vacancies/vacancies_request_list.html"
+    context_object_name = "vacancy_requests"
+    paginate_by = 10
+    
+    def get_queryset(self):
+        employee = Employee.objects.get(user=self.request.user)
+        return VacancyRequest.objects.all().filter(employee=employee)
     

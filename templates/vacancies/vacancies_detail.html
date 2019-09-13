@@ -41,7 +41,7 @@
                     {% trans 'Apply' %}
                 </button>
                 {% else %}
-                <button class="delete" id="delete" data-api="{% url 'api:vacancy__requests:vacancy__request.delete' vacancy_id %}">
+                <button class="delete" id="delete" data-api="{% url 'api:vacancy__requests:vacancy__request.delete' vacancy_request.id %}">
                     {% trans 'Unapply' %}
                 </button>
                 {% endif %}

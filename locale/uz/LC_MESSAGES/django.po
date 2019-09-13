@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-03 15:08+0500\n"
+"POT-Creation-Date: 2019-09-13 15:02+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,40 +17,53 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: api/employee/views.py:57
-msgid "User with this passport serial already exists"
-msgstr "Ushbu pasport seriya raqami orqali ro'yxatdan o'tgan foydalanuvchi mavjud"
-
 #: api/employee/views.py:63
 msgid "User with this username already exists"
 msgstr "Ushbu login orqali ro'yxatdan o'tgan foydalanuvchi mavjud"
 
-#: api/employee/views.py:238
+#: api/employee/views.py:69
+msgid "User with this passport serial already exists"
+msgstr ""
+"Ushbu pasport seriya raqami orqali ro'yxatdan o'tgan foydalanuvchi mavjud"
+
+#: api/employee/views.py:303
 msgid "Password is missing"
 msgstr "Parol yo'q"
 
-#: api/employee/views.py:240
+#: api/employee/views.py:305
 msgid "Password confirm is missing"
 msgstr "Parol tasdiqlanmagan"
 
-#: api/employee/views.py:242 api/partner/serializers.py:61
+#: api/employee/views.py:307 api/partner/serializers.py:61
 msgid "Passwords didn't match"
 msgstr "Parollar bir biriga mos emas"
 
-#: api/employee/views.py:245 api/partner/serializers.py:59
+#: api/employee/views.py:310 api/partner/serializers.py:59
 msgid "Current password is incorrect"
 msgstr "Joriy parol notog'ri"
 
-#: cms/models.py:165 templates/_base.html:340
+#: api/vacancy/serializers.py:21 api/vacancy/views.py:25
+msgid "You have already applied for this vacancy"
+msgstr "Siz avval bu ish orniga murojaat qilgansiz"
+
+#: api/vacancy/views.py:66
+msgid "You have already added it to your list!"
+msgstr "Siz avval bu ish orniga murojaat qilgansiz"
+
+#: api/vacancy/views.py:77
+msgid "You have already deleted it from your list!"
+msgstr "Siz avval bu ish orniтш ochirib tashlangansiz"
+
+#: cms/models.py:165 templates/_base.html:351
 #: templates/employee/education_create.html:65
-#: templates/employee/employee_profile.html:276
+#: templates/employee/employee_profile.html:290
 #: templates/employee/update_operator_3_education.html:64
 #: templates/partner/employee_detail.html:242
 msgid "Address"
 msgstr "Manzil"
 
-#: cms/models.py:166 templates/_base.html:347
-#: templates/employee/employee_profile.html:147
+#: cms/models.py:166 templates/_base.html:358
+#: templates/employee/employee_profile.html:176
 #: templates/employee/update_operator_1.html:81
 #: templates/partner/profile.html:69 templates/partner/register.html:71
 #: templates/registration/employee.html:84
@@ -61,7 +74,7 @@ msgstr "Telefon raqami"
 msgid "Licence agreement"
 msgstr "Litsenziya shartnomasi"
 
-#: cms/models.py:168 templates/employee/employee_profile.html:151
+#: cms/models.py:168 templates/employee/employee_profile.html:180
 #: templates/employee/update_operator_1.html:85
 msgid "Email"
 msgstr "Elektron pochta"
@@ -70,19 +83,19 @@ msgstr "Elektron pochta"
 msgid "Service top"
 msgstr "Xizmatlar"
 
-#: core/views/vacancies_views.py:19
+#: core/views/vacancies_views.py:21
 msgid "Missing title"
 msgstr ""
 
-#: core/views/vacancies_views.py:25
+#: core/views/vacancies_views.py:27
 msgid "No short description was provided!"
 msgstr ""
 
-#: core/views/vacancies_views.py:31
+#: core/views/vacancies_views.py:33
 msgid "Country is not given"
 msgstr ""
 
-#: core/views/vacancies_views.py:37
+#: core/views/vacancies_views.py:39
 msgid "Information on wages is not available"
 msgstr ""
 
@@ -102,8 +115,10 @@ msgstr "Tuman"
 msgid "Districts"
 msgstr "Tumanlar"
 
-#: directory/models.py:56 templates/vacancies/vacancies_detail.html:19
+#: directory/models.py:56 templates/vacancies/vacancies_detail.html:21
+#: templates/vacancies/vacancies_fav_list.html:60
 #: templates/vacancies/vacancies_list.html:18
+#: templates/vacancies/vacancies_request_list.html:60
 msgid "Country"
 msgstr "Mamlakat"
 
@@ -120,7 +135,7 @@ msgid "Languages"
 msgstr "Tillar"
 
 #: directory/models.py:102 templates/employee/education_create.html:52
-#: templates/employee/employee_profile.html:268
+#: templates/employee/employee_profile.html:281
 #: templates/employee/update_operator_3_education.html:51
 #: templates/partner/employee_detail.html:234
 msgid "Education type"
@@ -130,104 +145,132 @@ msgstr "O'qish turi"
 msgid "Education types"
 msgstr "O'qish turlari"
 
-#: employee/models.py:15 templates/registration/employee.html:58
+#: employee/models.py:17 templates/registration/employee.html:58
 msgid "Male"
 msgstr "Erkak"
 
-#: employee/models.py:16 templates/registration/employee.html:59
+#: employee/models.py:18 templates/registration/employee.html:59
 msgid "Female"
 msgstr "Ayol"
 
-#: employee/models.py:92
+#: employee/models.py:95
 msgid "Employee"
 msgstr "Applikant"
 
-#: employee/models.py:93 templates/index.html:85
+#: employee/models.py:96 templates/index.html:85
 msgid "Employees"
 msgstr "Applikantlar"
 
-#: employee/models.py:228
+#: employee/models.py:231
 msgid "Employee changes"
 msgstr "Applikant o'zgarishlari"
 
-#: employee/models.py:229
+#: employee/models.py:232
 msgid "Employees changes"
 msgstr "Applikantlar o'zgarishlari"
 
-#: employee/models2.py:333 employee/models2.py:398 employee/models2.py:468
+#: employee/models2.py:334 employee/models2.py:399 employee/models2.py:469
 msgid "Not selected"
 msgstr "Tanlanmagan"
 
-#: employee/models2.py:334 templates/employee/update_operator_3_family.html:54
+#: employee/models2.py:335 templates/employee/family_create.html:54
+#: templates/employee/update_operator_3_family.html:54
 msgid "Not married"
 msgstr "Nikohdan o'tmagan"
 
-#: employee/models2.py:335 templates/employee/update_operator_3_family.html:55
+#: employee/models2.py:336 templates/employee/family_create.html:55
+#: templates/employee/update_operator_3_family.html:55
 msgid "Married"
 msgstr "Nikohdan o'tgan"
 
-#: employee/models2.py:336 templates/employee/update_operator_3_family.html:56
+#: employee/models2.py:337 templates/employee/family_create.html:56
+#: templates/employee/update_operator_3_family.html:56
 msgid "Divorced"
 msgstr "Ajrashgan"
 
-#: employee/models2.py:337 templates/employee/update_operator_3_family.html:57
+#: employee/models2.py:338 templates/employee/family_create.html:57
+#: templates/employee/update_operator_3_family.html:57
 msgid "Widower"
 msgstr "Beva kishi"
 
-#: employee/models2.py:338 templates/employee/update_operator_3_family.html:58
+#: employee/models2.py:339 templates/employee/family_create.html:58
+#: templates/employee/update_operator_3_family.html:58
 msgid "Second marriage"
 msgstr "Ikkinchi nikohi"
 
-#: employee/models2.py:339 templates/employee/update_operator_3_family.html:59
+#: employee/models2.py:340 templates/employee/family_create.html:59
+#: templates/employee/update_operator_3_family.html:59
 msgid "Civil marriage"
 msgstr "Fuqarolik nikohi"
 
-#: employee/models2.py:399
+#: employee/models2.py:400
 msgid "Best"
 msgstr ""
 
-#: employee/models2.py:400
+#: employee/models2.py:401
 msgid "Good"
 msgstr ""
 
-#: employee/models2.py:401
+#: employee/models2.py:402
 msgid "Not bad"
 msgstr ""
 
-#: employee/models2.py:469 templates/employee/relative_create.html:56
+#: employee/models2.py:470 templates/employee/relative_create.html:56
 #: templates/employee/update_operator_3_relative.html:56
 msgid "Wife"
 msgstr "Turmush o'rtog'i"
 
-#: employee/models2.py:470 templates/employee/relative_create.html:57
+#: employee/models2.py:471 templates/employee/relative_create.html:57
 #: templates/employee/update_operator_3_relative.html:57
 msgid "Husband"
 msgstr "Eri"
 
-#: employee/models2.py:471 templates/employee/relative_create.html:58
+#: employee/models2.py:472 templates/employee/relative_create.html:58
 #: templates/employee/update_operator_3_relative.html:58
 msgid "Mother"
 msgstr "Onasi"
 
-#: employee/models2.py:472 templates/employee/relative_create.html:59
+#: employee/models2.py:473 templates/employee/relative_create.html:59
 #: templates/employee/update_operator_3_relative.html:59
 msgid "Father"
 msgstr "Otasi"
 
-#: employee/models2.py:473 templates/employee/relative_create.html:60
+#: employee/models2.py:474 templates/employee/relative_create.html:60
 #: templates/employee/update_operator_3_relative.html:60
 msgid "Son"
 msgstr "O'g'li"
 
-#: employee/models2.py:475 templates/employee/relative_create.html:62
+#: employee/models2.py:476 templates/employee/relative_create.html:62
 #: templates/employee/update_operator_3_relative.html:62
 msgid "Grandmother"
 msgstr "Buvisi"
 
-#: employee/models2.py:476 templates/employee/relative_create.html:63
+#: employee/models2.py:477 templates/employee/relative_create.html:63
 #: templates/employee/update_operator_3_relative.html:63
 msgid "Grandfather"
 msgstr "Dodasi"
+
+
+#: lib/python3.7/site-packages/django/forms/widgets.py:712
+#: templates/employee/employee_profile.html:236
+#: templates/employee/employee_profile.html:653
+#: templates/employee/update_operator_4.html:73
+#: templates/partner/employee_detail.html:198
+#: templates/partner/employee_detail.html:321
+msgid "Yes"
+msgstr "Ha"
+
+#: lib/python3.7/site-packages/django/forms/widgets.py:713
+#: templates/employee/employee_profile.html:238
+#: templates/employee/employee_profile.html:656
+#: templates/employee/family_create.html:66
+#: templates/employee/update_operator_3_family.html:66
+#: templates/employee/update_operator_4.html:79
+#: templates/partner/employee_detail.html:200
+#: templates/partner/employee_detail.html:321
+msgid "No"
+msgstr "Yo'q"
+
 
 #: partners/models.py:64
 msgid "Partner employee request"
@@ -237,30 +280,32 @@ msgstr ""
 msgid "Partner employee requests"
 msgstr ""
 
-#: settings/settings.py:124
+#: settings/settings.py:125
 msgid "Russian"
 msgstr ""
 
-#: settings/settings.py:125
+#: settings/settings.py:126
 msgid "English"
 msgstr ""
 
-#: settings/settings.py:126
+#: settings/settings.py:127
 msgid "Uzbek"
 msgstr ""
 
-#: settings/settings.py:127
+#: settings/settings.py:128
 msgid "Kazakh"
 msgstr ""
 
 #: templates/_base.html:83 templates/_base.html:92
 #: templates/employee/army_create.html:37
 #: templates/employee/education_create.html:37
-#: templates/employee/employee_profile.html:34
+#: templates/employee/employee_profile.html:44
 #: templates/employee/experience_create.html:36
+#: templates/employee/family_create.html:36
 #: templates/employee/language_create.html:38
+#: templates/employee/photo_upload.html:34
 #: templates/employee/relative_create.html:36
-#: templates/employee/reward_create.html:36 templates/employee/settings.html:34
+#: templates/employee/reward_create.html:36 templates/employee/settings.html:40
 #: templates/employee/update_operator_1.html:34
 #: templates/employee/update_operator_2.html:34
 #: templates/employee/update_operator_3_army.html:36
@@ -274,154 +319,149 @@ msgstr ""
 #: templates/partner/bookmarks.html:38
 #: templates/partner/employee_detail.html:34
 #: templates/partner/employees.html:34 templates/partner/profile.html:36
+#: templates/vacancies/vacancies_fav_list.html:42
+#: templates/vacancies/vacancies_request_list.html:42
 msgid "Logout"
 msgstr "Chiqish"
 
-msgid "An employee"
-msgstr "Talabgor"
-
-msgid "A partner"
-msgstr "Sherik"
-
-msgid "A student"
-msgstr "Talaba"
-
-#: templates/_base.html:101 templates/_base.html:399
+#: templates/_base.html:101 templates/_base.html:410
 msgid "Login"
 msgstr "Kirish"
 
-msgid "Registration options"
-msgstr "Ro'yxatdan o'tish turlari"
-
+#: templates/_base.html:107
 msgid "Registration"
 msgstr "Ro'yxatdan o'tish"
 
-#: templates/_base.html:169 templates/_base.html:170
+#: templates/_base.html:180 templates/_base.html:181
 #: templates/vacancies/vacancies_detail.html:10
 #: templates/vacancies/vacancies_list.html:11
 msgid "Vacancies"
 msgstr "Ish o'rinlari"
 
-#: templates/_base.html:175 templates/_base.html:176 templates/_base.html:287
+#: templates/_base.html:186 templates/_base.html:187 templates/_base.html:298
 #: templates/index.html:101 templates/pages/about.html:11
 msgid "About company"
 msgstr "Kompaniya haqida"
 
-#: templates/_base.html:181 templates/_base.html:182 templates/_base.html:292
-#: templates/_base.html:323 templates/index.html:38
+#: templates/_base.html:192 templates/_base.html:193 templates/_base.html:303
+#: templates/_base.html:334 templates/index.html:38
 #: templates/pages/cms_service_detail.html:11 templates/pages/services.html:11
 msgid "Services"
 msgstr "Xizmatlar"
 
-#: templates/_base.html:187 templates/_base.html:188 templates/_base.html:297
+#: templates/_base.html:198 templates/_base.html:199 templates/_base.html:308
 #: templates/pages/docs.html:10
 msgid "Documents"
 msgstr "Hujjatlar"
 
-#: templates/_base.html:193 templates/_base.html:194 templates/_base.html:302
+#: templates/_base.html:204 templates/_base.html:205 templates/_base.html:313
 #: templates/index.html:81 templates/pages/cms_partner_detail.html:11
 #: templates/pages/forpartners.html:11
 msgid "Partners"
 msgstr "Hamkorlar"
 
-#: templates/_base.html:199 templates/_base.html:200 templates/_base.html:307
+#: templates/_base.html:210 templates/_base.html:211 templates/_base.html:318
 #: templates/employee/education_create.html:15
-#: templates/employee/employee_profile.html:259
+#: templates/employee/employee_profile.html:272
 #: templates/employee/update_operator_3_education.html:15
 #: templates/pages/education.html:10 templates/partner/employee_detail.html:226
 #: templates/partner/employees.html:72
 msgid "Education"
 msgstr "Ta'lim"
 
-#: templates/_base.html:205 templates/_base.html:206 templates/_base.html:312
+#: templates/_base.html:216 templates/_base.html:217 templates/_base.html:323
 #: templates/pages/faq.html:11
 msgid "FAQ"
 msgstr "Savollar"
 
-#: templates/_base.html:232
+#: templates/_base.html:242
+msgid "Registration options"
+msgstr "Ro'yxatdan o'tish turlari"
+
+#: templates/_base.html:243
 msgid "Register as:"
 msgstr "Roy'xatdan kim bo'lib otishingizni tanlang:"
 
-#: templates/_base.html:237
-msgid "Our employees"
-msgstr "Bizning xodimlarimiz"
+#: templates/_base.html:248
+msgid "An employee"
+msgstr "Talabgor"
 
-#: templates/_base.html:241
-msgid "Partner"
-msgstr "Hamkor"
+#: templates/_base.html:252
+msgid "An employer"
+msgstr "Ish beruvchi"
 
-#: templates/_base.html:245
-msgid "Student"
+#: templates/_base.html:256
+msgid "A student"
 msgstr "Talaba"
 
-#: templates/_base.html:271 templates/_base.html:277
+#: templates/_base.html:282 templates/_base.html:288
 msgid "A different approach - a different future"
 msgstr "Boshqa yondashuv – boshqa kelajak"
 
-#: templates/_base.html:283
+#: templates/_base.html:294
 msgid "Menu"
 msgstr "Menyu"
 
-#: templates/_base.html:317 templates/pages/training.html:10
+#: templates/_base.html:328 templates/pages/training.html:10
 msgid "Training"
 msgstr "Kurslar"
 
-#: templates/_base.html:336
+#: templates/_base.html:347
 msgid "Contacts"
 msgstr "Kontaktlar"
 
-#: templates/_base.html:354 templates/partner/profile.html:75
+#: templates/_base.html:365 templates/partner/profile.html:75
 #: templates/partner/register.html:64
 msgid "E-mail"
 msgstr "Elektron pochta"
 
-#: templates/_base.html:364
+#: templates/_base.html:375
 msgid "All rights reserved"
 msgstr "Barcha huquqlar himoyalangan "
 
-#: templates/_base.html:365
+#: templates/_base.html:376
 msgid "Developed by"
 msgstr "Saytni ishlab chiqdi"
 
-#: templates/_base.html:382
+#: templates/_base.html:393
 msgid "Authorization"
 msgstr "Kirish"
 
-#: templates/_base.html:385
+#: templates/_base.html:396
 msgid "Username"
 msgstr "Login"
 
-#: templates/_base.html:390
+#: templates/_base.html:401
 msgid "Password"
 msgstr "Parol"
 
-#: templates/_base.html:394
+#: templates/_base.html:405
 msgid "Username or password entered incorrectly"
 msgstr "Login yoki parol no'to'g'ri terildi"
 
-#: templates/_base.html:397 templates/partner/register.html:16
+#: templates/_base.html:408 templates/partner/register.html:16
 #: templates/registration/employee.html:16
 msgid "Register partners"
 msgstr "Hamkorlikni ro'yxatga olish"
 
-#: templates/_base.html:407
+#: templates/_base.html:418
 msgid "Saved successfully"
 msgstr "Saqlab qolindi"
 
-#: templates/_base.html:408
+#: templates/_base.html:419
 msgid "An error has occurred"
 msgstr "Hatolik yuz berdi"
 
-#: templates/_base.html:444
+#: templates/_base.html:456
 msgid "Oops..."
 msgstr ""
 
-#: templates/_base.html:445
+#: templates/_base.html:457
 msgid "This option is not available yet"
 msgstr ""
 
 #: templates/employee/army_create.html:15
-#: templates/employee/employee_profile.html:349
+#: templates/employee/employee_profile.html:366
 #: templates/employee/update_operator_3_army.html:15
 #: templates/partner/employee_detail.html:312
 msgid "Military service"
@@ -429,9 +469,11 @@ msgstr "Harbiy xizmat"
 
 #: templates/employee/army_create.html:21
 #: templates/employee/education_create.html:21
-#: templates/employee/employee_profile.html:19
+#: templates/employee/employee_profile.html:23
 #: templates/employee/experience_create.html:21
+#: templates/employee/family_create.html:21
 #: templates/employee/language_create.html:23
+#: templates/employee/photo_upload.html:19
 #: templates/employee/relative_create.html:21
 #: templates/employee/reward_create.html:21 templates/employee/settings.html:19
 #: templates/employee/update_operator_1.html:19
@@ -447,14 +489,18 @@ msgstr "Harbiy xizmat"
 #: templates/partner/bookmarks.html:22
 #: templates/partner/employee_detail.html:19
 #: templates/partner/employees.html:19 templates/partner/profile.html:21
+#: templates/vacancies/vacancies_fav_list.html:21
+#: templates/vacancies/vacancies_request_list.html:21
 msgid "Personal cabinet"
 msgstr "Shaxsiy kabinet"
 
 #: templates/employee/army_create.html:26
 #: templates/employee/education_create.html:26
-#: templates/employee/employee_profile.html:24
+#: templates/employee/employee_profile.html:28
 #: templates/employee/experience_create.html:26
+#: templates/employee/family_create.html:26
 #: templates/employee/language_create.html:28
+#: templates/employee/photo_upload.html:24
 #: templates/employee/relative_create.html:26
 #: templates/employee/reward_create.html:26 templates/employee/settings.html:24
 #: templates/employee/update_operator_1.html:24
@@ -470,16 +516,20 @@ msgstr "Shaxsiy kabinet"
 #: templates/partner/bookmarks.html:27
 #: templates/partner/employee_detail.html:24
 #: templates/partner/employees.html:24 templates/partner/profile.html:26
+#: templates/vacancies/vacancies_fav_list.html:26
+#: templates/vacancies/vacancies_request_list.html:26
 msgid "My profile"
 msgstr "Profilim"
 
 #: templates/employee/army_create.html:29
 #: templates/employee/education_create.html:29
-#: templates/employee/employee_profile.html:27
+#: templates/employee/employee_profile.html:37
 #: templates/employee/experience_create.html:29
+#: templates/employee/family_create.html:29
 #: templates/employee/language_create.html:31
+#: templates/employee/photo_upload.html:27
 #: templates/employee/relative_create.html:29
-#: templates/employee/reward_create.html:29 templates/employee/settings.html:27
+#: templates/employee/reward_create.html:29 templates/employee/settings.html:33
 #: templates/employee/update_operator_1.html:27
 #: templates/employee/update_operator_2.html:27
 #: templates/employee/update_operator_3_army.html:29
@@ -490,16 +540,20 @@ msgstr "Profilim"
 #: templates/employee/update_operator_3_relative.html:29
 #: templates/employee/update_operator_3_reward.html:29
 #: templates/employee/update_operator_4.html:27
+#: templates/vacancies/vacancies_fav_list.html:35
+#: templates/vacancies/vacancies_request_list.html:35
 msgid "Settings"
 msgstr "Sozlamalar"
 
 #: templates/employee/army_create.html:32
 #: templates/employee/education_create.html:32
-#: templates/employee/employee_profile.html:30
+#: templates/employee/employee_profile.html:40
 #: templates/employee/experience_create.html:32
+#: templates/employee/family_create.html:32
 #: templates/employee/language_create.html:34
+#: templates/employee/photo_upload.html:30
 #: templates/employee/relative_create.html:32
-#: templates/employee/reward_create.html:32 templates/employee/settings.html:30
+#: templates/employee/reward_create.html:32 templates/employee/settings.html:36
 #: templates/employee/update_operator_1.html:30
 #: templates/employee/update_operator_2.html:30
 #: templates/employee/update_operator_3_army.html:32
@@ -510,18 +564,20 @@ msgstr "Sozlamalar"
 #: templates/employee/update_operator_3_relative.html:32
 #: templates/employee/update_operator_3_reward.html:32
 #: templates/employee/update_operator_4.html:30
+#: templates/vacancies/vacancies_fav_list.html:38
+#: templates/vacancies/vacancies_request_list.html:38
 msgid "Courses"
 msgstr "Kurslar"
 
 #: templates/employee/army_create.html:58
-#: templates/employee/employee_profile.html:366
+#: templates/employee/employee_profile.html:384
 #: templates/employee/update_operator_3_army.html:57
 #: templates/partner/employee_detail.html:324
 msgid "Name of the military unit"
 msgstr "Harbiy qismning nomi"
 
 #: templates/employee/army_create.html:62
-#: templates/employee/employee_profile.html:374
+#: templates/employee/employee_profile.html:392
 #: templates/employee/update_operator_3_army.html:61
 #: templates/partner/employee_detail.html:332
 msgid "Region"
@@ -529,8 +585,8 @@ msgstr "Viloyat"
 
 #: templates/employee/army_create.html:68
 #: templates/employee/education_create.html:71
-#: templates/employee/employee_profile.html:280
-#: templates/employee/employee_profile.html:382
+#: templates/employee/employee_profile.html:294
+#: templates/employee/employee_profile.html:400
 #: templates/employee/update_operator_3_army.html:67
 #: templates/employee/update_operator_3_education.html:70
 #: templates/partner/employee_detail.html:246
@@ -540,21 +596,21 @@ msgid "Specialty"
 msgstr "Mutaxassisligi"
 
 #: templates/employee/army_create.html:74
-#: templates/employee/employee_profile.html:370
+#: templates/employee/employee_profile.html:388
 #: templates/employee/update_operator_3_army.html:73
 #: templates/partner/employee_detail.html:328
 msgid "Military start date"
 msgstr "Harbiy xizmatning boshlangan sanasi"
 
 #: templates/employee/army_create.html:78
-#: templates/employee/employee_profile.html:378
+#: templates/employee/employee_profile.html:396
 #: templates/employee/update_operator_3_army.html:77
 #: templates/partner/employee_detail.html:336
 msgid "Military end date"
 msgstr "Harbiy xizmatning yakunlanagan sanasi"
 
 #: templates/employee/army_create.html:82
-#: templates/employee/employee_profile.html:386
+#: templates/employee/employee_profile.html:404
 #: templates/employee/update_operator_3_army.html:81
 #: templates/partner/employee_detail.html:344
 msgid "Rank"
@@ -563,6 +619,7 @@ msgstr "Unvon"
 #: templates/employee/army_create.html:90
 #: templates/employee/education_create.html:91
 #: templates/employee/experience_create.html:85
+#: templates/employee/family_create.html:77
 #: templates/employee/language_create.html:73
 #: templates/employee/relative_create.html:100
 #: templates/employee/reward_create.html:62
@@ -579,6 +636,7 @@ msgstr "Fayllar"
 #: templates/employee/army_create.html:90
 #: templates/employee/education_create.html:91
 #: templates/employee/experience_create.html:85
+#: templates/employee/family_create.html:77
 #: templates/employee/language_create.html:73
 #: templates/employee/relative_create.html:100
 #: templates/employee/reward_create.html:62
@@ -589,20 +647,21 @@ msgstr "Fayllar"
 #: templates/employee/update_operator_3_language.html:73
 #: templates/employee/update_operator_3_relative.html:100
 #: templates/employee/update_operator_3_reward.html:61
-#: templates/employee/update_operator_4.html:98
-#: templates/employee/update_operator_4.html:102
-#: templates/employee/update_operator_4.html:106
+#: templates/employee/update_operator_4.html:63
+#: templates/employee/update_operator_4.html:90
+#: templates/employee/update_operator_4.html:94
 msgid "not required"
 msgstr "shart emas"
 
 #: templates/employee/army_create.html:94
 #: templates/employee/education_create.html:95
 #: templates/employee/experience_create.html:89
+#: templates/employee/family_create.html:81
 #: templates/employee/language_create.html:77
 #: templates/employee/relative_create.html:104
 #: templates/employee/reward_create.html:66
 #: templates/employee/update_operator_3_army.html:93
-#: templates/employee/update_operator_3_education.html:94
+#: templates/employee/update_operator_3_education.html:95
 #: templates/employee/update_operator_3_experience.html:88
 #: templates/employee/update_operator_3_family.html:81
 #: templates/employee/update_operator_3_language.html:77
@@ -613,21 +672,22 @@ msgstr "Fayllarni yuklash"
 
 #: templates/employee/army_create.html:109
 #: templates/employee/education_create.html:106
-#: templates/employee/employee_profile.html:598
+#: templates/employee/employee_profile.html:571
 #: templates/employee/experience_create.html:101
+#: templates/employee/family_create.html:93
 #: templates/employee/language_create.html:89
+#: templates/employee/photo_upload.html:183
 #: templates/employee/relative_create.html:116
 #: templates/employee/reward_create.html:78
 #: templates/employee/update_operator_1.html:91
 #: templates/employee/update_operator_2.html:177
 #: templates/employee/update_operator_3_army.html:116
-#: templates/employee/update_operator_3_education.html:111
+#: templates/employee/update_operator_3_education.html:112
 #: templates/employee/update_operator_3_experience.html:105
 #: templates/employee/update_operator_3_family.html:98
 #: templates/employee/update_operator_3_language.html:94
 #: templates/employee/update_operator_3_relative.html:121
 #: templates/employee/update_operator_3_reward.html:82
-#: templates/employee/update_operator_4.html:151
 #: templates/partner/bookmarks.html:138 templates/partner/bookmarks.html:169
 #: templates/partner/register.html:103 templates/partner/register.html:131
 #: templates/registration/employee.html:123
@@ -637,27 +697,30 @@ msgstr "Yuborish"
 
 #: templates/employee/army_create.html:217
 #: templates/employee/education_create.html:215
-#: templates/employee/employee_profile.html:639
+#: templates/employee/employee_profile.html:612
 #: templates/employee/experience_create.html:208
+#: templates/employee/family_create.html:208
 #: templates/employee/language_create.html:193
 #: templates/employee/relative_create.html:225
 #: templates/employee/reward_create.html:181
 #: templates/employee/update_operator_1.html:141
-#: templates/employee/update_operator_2.html:226
-#: templates/employee/update_operator_3_army.html:234
-#: templates/employee/update_operator_3_education.html:232
-#: templates/employee/update_operator_3_experience.html:226
+#: templates/employee/update_operator_2.html:225
+#: templates/employee/update_operator_3_army.html:253
+#: templates/employee/update_operator_3_education.html:260
+#: templates/employee/update_operator_3_experience.html:244
 #: templates/employee/update_operator_3_family.html:214
-#: templates/employee/update_operator_3_language.html:209
+#: templates/employee/update_operator_3_language.html:229
 #: templates/employee/update_operator_3_relative.html:240
-#: templates/employee/update_operator_3_reward.html:196
-#: templates/employee/update_operator_4.html:203
+#: templates/employee/update_operator_3_reward.html:216
+#: templates/employee/update_operator_4.html:150
 #: templates/partner/bookmarks.html:231 templates/partner/register.html:275
 #: templates/registration/employee.html:241
 msgid "successfully sent"
 msgstr "muvaffaqiyatli yuborildi"
 
 #: templates/employee/education_create.html:54
+#: templates/employee/family_create.html:53
+#: templates/employee/family_create.html:65
 #: templates/employee/language_create.html:55
 #: templates/employee/language_create.html:64
 #: templates/employee/relative_create.html:55
@@ -674,7 +737,7 @@ msgid "Select"
 msgstr "Tanlash"
 
 #: templates/employee/education_create.html:61
-#: templates/employee/employee_profile.html:272
+#: templates/employee/employee_profile.html:286
 #: templates/employee/update_operator_3_education.html:60
 #: templates/partner/employee_detail.html:238
 msgid "Name"
@@ -686,83 +749,113 @@ msgid "Education start date "
 msgstr "O'qishining boshlanish sanasi"
 
 #: templates/employee/education_create.html:81
-#: templates/employee/employee_profile.html:288
+#: templates/employee/employee_profile.html:302
 #: templates/employee/update_operator_3_education.html:80
 #: templates/partner/employee_detail.html:254
 msgid "Education end date"
 msgstr "O'qishining yakunlangan sanasi"
 
 #: templates/employee/education_create.html:85
-#: templates/employee/employee_profile.html:292
+#: templates/employee/employee_profile.html:306
 #: templates/employee/update_operator_3_education.html:84
 #: templates/partner/employee_detail.html:258
 msgid "Other tuition data"
 msgstr "Ta'lim to'g'risidagi boshqa ma'lumotlar"
 
-#: templates/employee/employee_profile.html:13
+#: templates/employee/employee_profile.html:17
+#: templates/vacancies/vacancies_fav_list.html:15
+#: templates/vacancies/vacancies_request_list.html:15
 msgid "Personal account of the applicant"
 msgstr "Arizachining shaxsiy profili"
 
-#: templates/employee/employee_profile.html:94
+#: templates/employee/employee_profile.html:31
+#: templates/employee/settings.html:27
+#: templates/vacancies/vacancies_fav_list.html:29
+#: templates/vacancies/vacancies_request_list.html:29
+#: templates/vacancies/vacancies_request_list.html:52
+msgid "My vacancy list"
+msgstr "Ro'yxatim"
+
+#: templates/employee/employee_profile.html:34
+#: templates/employee/settings.html:30
+#: templates/vacancies/vacancies_fav_list.html:32
+#: templates/vacancies/vacancies_fav_list.html:52
+#: templates/vacancies/vacancies_request_list.html:32
+msgid "Favourites"
+msgstr ""
+
+#: templates/employee/employee_profile.html:109
+#: templates/employee/employee_profile.html:184
+#: templates/employee/employee_profile.html:225
+#: templates/employee/employee_profile.html:254
+#: templates/employee/employee_profile.html:320
+#: templates/employee/employee_profile.html:357
+#: templates/employee/employee_profile.html:418
+#: templates/employee/employee_profile.html:454
+#: templates/employee/employee_profile.html:491
+#: templates/employee/employee_profile.html:543
+msgid "Edit"
+msgstr "O'zgratirish"
+
+#: templates/employee/employee_profile.html:123
 #: templates/employee/update_operator_1.html:13
 #: templates/partner/profile.html:46
 msgid "Personal data"
 msgstr "Shaxsiy ma'lumot"
 
-#: templates/employee/employee_profile.html:97
+#: templates/employee/employee_profile.html:126
 #: templates/employee/update_operator_2.html:13
 msgid "Biometric data"
 msgstr "Biometrik ma'lumot"
 
-#: templates/employee/employee_profile.html:100
+#: templates/employee/employee_profile.html:129
 #: templates/employee/update_operator_4.html:13
 msgid "Additional data"
 msgstr "Qo'shimcha ma'lumot"
 
-#: templates/employee/employee_profile.html:107
+#: templates/employee/employee_profile.html:136
 #: templates/employee/update_operator_1.html:50
 #: templates/partner/employee_detail.html:115
 msgid "Fullname (Russian)"
 msgstr "To'liq ismi (Ruscha)"
 
-#: templates/employee/employee_profile.html:111
+#: templates/employee/employee_profile.html:140
 #: templates/employee/update_operator_1.html:46
 msgid "Fullname (English)"
 msgstr "To'liq ismi (Inglizcha)"
 
-#: templates/employee/employee_profile.html:115
+#: templates/employee/employee_profile.html:144
 #: templates/partner/employee_detail.html:119
 #: templates/partner/employees.html:52 templates/registration/employee.html:55
 msgid "Gender"
 msgstr "Jinsi"
 
-#: templates/employee/employee_profile.html:119
+#: templates/employee/employee_profile.html:148
 #: templates/employee/update_operator_1.html:54
 #: templates/partner/employee_detail.html:123
 #: templates/registration/employee.html:64
 msgid "Passport serial"
 msgstr "Passport seriyasi"
 
-#: templates/employee/employee_profile.html:123
+#: templates/employee/employee_profile.html:152
 #: templates/employee/update_operator_1.html:58
 #: templates/partner/employee_detail.html:127
 msgid "Passport given date"
 msgstr "Passportning berilgan sanasi"
 
-#: templates/employee/employee_profile.html:127
+#: templates/employee/employee_profile.html:156
 #: templates/employee/update_operator_1.html:62
 #: templates/partner/employee_detail.html:131
 msgid "Passport expires"
 msgstr "Passportning tugash muddati"
 
-#: templates/employee/employee_profile.html:131
+#: templates/employee/employee_profile.html:160
 #: templates/employee/update_operator_1.html:68
 #: templates/partner/employee_detail.html:135
 msgid "Register number"
 msgstr "Registratsiyon nomer"
 
-#: templates/employee/employee_profile.html:135
-#: templates/employee/employee_profile.html:495
+#: templates/employee/employee_profile.html:164
 #: templates/employee/relative_create.html:72
 #: templates/employee/update_operator_3_relative.html:72
 #: templates/partner/employee_detail.html:139
@@ -770,14 +863,13 @@ msgstr "Registratsiyon nomer"
 msgid "Birth date"
 msgstr "Tug'ilgan sanasi"
 
-#: templates/employee/employee_profile.html:139
+#: templates/employee/employee_profile.html:168
 #: templates/employee/update_operator_1.html:73
 #: templates/partner/employee_detail.html:143
 msgid "Birth place"
 msgstr "Tug'ilgan joyi"
 
-#: templates/employee/employee_profile.html:143
-#: templates/employee/employee_profile.html:507
+#: templates/employee/employee_profile.html:172
 #: templates/employee/relative_create.html:89
 #: templates/employee/update_operator_1.html:77
 #: templates/employee/update_operator_3_relative.html:89
@@ -785,38 +877,25 @@ msgstr "Tug'ilgan joyi"
 msgid "Living address"
 msgstr "Yashash manzili"
 
-#: templates/employee/employee_profile.html:155
-#: templates/employee/employee_profile.html:196
-#: templates/employee/employee_profile.html:241
-#: templates/employee/employee_profile.html:306
-#: templates/employee/employee_profile.html:341
-#: templates/employee/employee_profile.html:400
-#: templates/employee/employee_profile.html:435
-#: templates/employee/employee_profile.html:470
-#: templates/employee/employee_profile.html:521
-#: templates/employee/employee_profile.html:572
-msgid "Edit"
-msgstr "O'zgratirish"
-
-#: templates/employee/employee_profile.html:160
+#: templates/employee/employee_profile.html:189
 #: templates/employee/update_operator_2.html:69
 #: templates/partner/employee_detail.html:163
 msgid "Appearance"
 msgstr "Tashqi ko'rinishi"
 
-#: templates/employee/employee_profile.html:164
+#: templates/employee/employee_profile.html:193
 #: templates/employee/update_operator_2.html:90
 #: templates/partner/employee_detail.html:167
 msgid "Neatness"
 msgstr "Tozalikka e'tibori"
 
-#: templates/employee/employee_profile.html:168
+#: templates/employee/employee_profile.html:197
 #: templates/employee/update_operator_2.html:111
 #: templates/partner/employee_detail.html:171
 msgid "Skin"
 msgstr "Teri"
 
-#: templates/employee/employee_profile.html:172
+#: templates/employee/employee_profile.html:201
 #: templates/employee/update_operator_2.html:47
 #: templates/partner/bookmarks.html:64
 #: templates/partner/employee_detail.html:151
@@ -824,36 +903,36 @@ msgstr "Teri"
 msgid "Height"
 msgstr "Bo'yi"
 
-#: templates/employee/employee_profile.html:172
+#: templates/employee/employee_profile.html:201
 msgid "cm"
 msgstr "sm"
 
-#: templates/employee/employee_profile.html:176
+#: templates/employee/employee_profile.html:205
 #: templates/employee/update_operator_2.html:51
 #: templates/partner/employee_detail.html:155
 msgid "Weight"
 msgstr "Vazni"
 
-#: templates/employee/employee_profile.html:176
+#: templates/employee/employee_profile.html:205
 #: templates/employee/update_operator_2.html:51
 #: templates/partner/employee_detail.html:155
 msgid "kg"
 msgstr "kg"
 
-#: templates/employee/employee_profile.html:180
+#: templates/employee/employee_profile.html:209
 #: templates/employee/update_operator_2.html:55
 #: templates/partner/employee_detail.html:176
 msgid "Fatness"
 msgstr "Semizligi"
 
-#: templates/employee/employee_profile.html:184
+#: templates/employee/employee_profile.html:213
 #: templates/employee/update_operator_2.html:132
 #: templates/partner/employee_detail.html:180
 msgid "Blood group"
 msgstr "Qon guruhi"
 
-#: templates/employee/employee_profile.html:188
-#: templates/employee/employee_profile.html:192
+#: templates/employee/employee_profile.html:217
+#: templates/employee/employee_profile.html:221
 #: templates/employee/update_operator_2.html:59
 #: templates/employee/update_operator_2.html:63
 #: templates/partner/employee_detail.html:184
@@ -861,71 +940,58 @@ msgstr "Qon guruhi"
 msgid "Vision"
 msgstr "Ko'rish qobiliyati"
 
-#: templates/employee/employee_profile.html:201
+#: templates/employee/employee_profile.html:230
 #: templates/employee/update_operator_4.html:48
 #: templates/partner/employee_detail.html:192
 msgid "Desired countries"
 msgstr "Istalgan mamlakatlari"
 
-#: templates/employee/employee_profile.html:205
-#: templates/employee/update_operator_4.html:114
-#: templates/vacancies/vacancies_detail.html:21
-msgid "Wages"
-msgstr "Oyliklari"
-
-#: templates/employee/employee_profile.html:209
-#: templates/employee/update_operator_4.html:77
+#: templates/employee/employee_profile.html:234
+#: templates/employee/update_operator_4.html:69
 #: templates/partner/employee_detail.html:196
 msgid "Ready for university"
 msgstr "Universitetga tayyorgarligi"
 
-#: templates/employee/employee_profile.html:217
+#: templates/employee/employee_profile.html:242
 #: templates/employee/update_operator_4.html:63
-msgid "Criminal number"
-msgstr "Sudlanganligi to'g'risidagi raqami"
-
-#: templates/employee/employee_profile.html:221
-msgid "Criminal issue"
-msgstr "Sudlanganligi to'g'risidagi nashri"
-
-#: templates/employee/employee_profile.html:225
-msgid "Criminal comment"
-msgstr "Sudlanganligi to'g'risidagi izoh"
-
-#: templates/employee/employee_profile.html:229
-#: templates/employee/update_operator_4.html:98
 #: templates/partner/employee_detail.html:204
 msgid "Special signs"
 msgstr "Maxsus belgilari"
 
-#: templates/employee/employee_profile.html:233
-#: templates/employee/update_operator_4.html:102
+#: templates/employee/employee_profile.html:246
+#: templates/employee/update_operator_4.html:90
 #: templates/partner/employee_detail.html:208
 msgid "Hobby"
 msgstr "Qiziqishlari"
 
-#: templates/employee/employee_profile.html:237
-#: templates/employee/update_operator_4.html:106
+#: templates/employee/employee_profile.html:250
+#: templates/employee/update_operator_4.html:94
 #: templates/partner/employee_detail.html:212
 msgid "Other"
 msgstr "Boshqalar"
 
-#: templates/employee/employee_profile.html:263
-#: templates/employee/employee_profile.html:318
-#: templates/employee/employee_profile.html:353
-#: templates/employee/employee_profile.html:412
-#: templates/employee/employee_profile.html:447
-#: templates/employee/employee_profile.html:482
-#: templates/employee/employee_profile.html:533
+#: templates/employee/employee_profile.html:266
+msgid ""
+"In order to have high chances to be employed, please fill your personal data!"
+msgstr ""
+"Agar chet elga ketish imkoniyatingiz katta bo'lishini istasangiz, shaxsiy "
+"ma'lumotlaringizni to'ldiring!"
+
+#: templates/employee/employee_profile.html:276
+#: templates/employee/employee_profile.html:334
+#: templates/employee/employee_profile.html:370
+#: templates/employee/employee_profile.html:431
+#: templates/employee/employee_profile.html:468
+#: templates/employee/employee_profile.html:504
 msgid "Add"
 msgstr "Qo'shish"
 
-#: templates/employee/employee_profile.html:284
+#: templates/employee/employee_profile.html:298
 #: templates/partner/employee_detail.html:250
 msgid "Education start date"
 msgstr "O'qishining boshlangan sanasi"
 
-#: templates/employee/employee_profile.html:314
+#: templates/employee/employee_profile.html:330
 #: templates/employee/language_create.html:17
 #: templates/employee/update_operator_3_language.html:17
 #: templates/partner/employee_detail.html:279
@@ -933,49 +999,45 @@ msgstr "O'qishining boshlangan sanasi"
 msgid "Knowledge of languages"
 msgstr "Tillarni bilishi"
 
-#: templates/employee/employee_profile.html:323
+#: templates/employee/employee_profile.html:339
 #: templates/employee/language_create.html:53
 #: templates/employee/update_operator_3_language.html:53
 #: templates/partner/employee_detail.html:287
 msgid "Language name"
 msgstr "Tilning nomi"
 
-#: templates/employee/employee_profile.html:327
+#: templates/employee/employee_profile.html:343
 #: templates/employee/language_create.html:62
 #: templates/employee/update_operator_3_language.html:62
 #: templates/partner/employee_detail.html:291
 msgid "Level of knowledge"
 msgstr "Bilim darajasi"
 
-#: templates/employee/employee_profile.html:358
-#: templates/partner/employee_detail.html:320
-msgid "Military duty"
-msgstr "Harbiy burch"
-
-#: templates/employee/employee_profile.html:408
+#: templates/employee/employee_profile.html:427
 #: templates/employee/reward_create.html:15
 #: templates/employee/update_operator_3_reward.html:15
 #: templates/partner/employee_detail.html:365
 msgid "Received Awards"
 msgstr "Mukofotlari"
 
-#: templates/employee/employee_profile.html:417
+#: templates/employee/employee_profile.html:436
 #: templates/employee/reward_create.html:51
 #: templates/employee/update_operator_3_reward.html:50
 #: templates/partner/employee_detail.html:373
 msgid "Reward"
 msgstr "Sovrin"
 
-#: templates/employee/employee_profile.html:421
+#: templates/employee/employee_profile.html:440
 #: templates/employee/reward_create.html:55
 #: templates/employee/update_operator_3_reward.html:54
-#: templates/employee/update_operator_4.html:71
 #: templates/partner/employee_detail.html:377
 msgid "Comment"
 msgstr "Izoh"
 
-#: templates/employee/employee_profile.html:443
-#: templates/employee/employee_profile.html:452
+#: templates/employee/employee_profile.html:463
+#: templates/employee/employee_profile.html:473
+#: templates/employee/family_create.html:15
+#: templates/employee/family_create.html:51
 #: templates/employee/update_operator_3_family.html:15
 #: templates/employee/update_operator_3_family.html:51
 #: templates/partner/employee_detail.html:398
@@ -983,38 +1045,42 @@ msgstr "Izoh"
 msgid "Family status"
 msgstr "Oilaviy statusi"
 
-#: templates/employee/employee_profile.html:456
+#: templates/employee/employee_profile.html:477
+#: templates/employee/family_create.html:63
 #: templates/employee/update_operator_3_family.html:63
 #: templates/partner/employee_detail.html:410
 msgid "Amount of children"
 msgstr "Bolalar soni"
 
-#: templates/employee/employee_profile.html:478
-#: templates/employee/relative_create.html:15
-#: templates/employee/update_operator_3_relative.html:15
-msgid "Close relatives"
-msgstr "Yaqin qarindoshlari"
+#: templates/employee/employee_profile.html:500
+#: templates/employee/experience_create.html:15
+#: templates/employee/update_operator_3_experience.html:15
+#: templates/partner/employee_detail.html:431
+msgid "Work experience"
+msgstr "Tajribasi"
 
-#: templates/employee/employee_profile.html:487
-#: templates/employee/relative_create.html:53
-#: templates/employee/update_operator_3_relative.html:53
-msgid "Relation degree"
-msgstr "Qarindoshlik darajasi"
+#: templates/employee/employee_profile.html:509
+#: templates/employee/experience_create.html:53
+#: templates/employee/update_operator_3_experience.html:52
+#: templates/partner/employee_detail.html:439
+msgid "Organization"
+msgstr "Organizatsiyasi"
 
-#: templates/employee/employee_profile.html:491
-#: templates/employee/relative_create.html:67
-#: templates/employee/update_operator_3_relative.html:67
-msgid "Fullname relative"
-msgstr "Yaqin qarindoshining to'liq ismi"
+#: templates/employee/employee_profile.html:513
+#: templates/employee/experience_create.html:57
+#: templates/employee/update_operator_3_experience.html:56
+#: templates/partner/employee_detail.html:443
+msgid "Work start date"
+msgstr "Ish muddatining boshlangan sanasi"
 
-#: templates/employee/employee_profile.html:499
-#: templates/employee/relative_create.html:78
-#: templates/employee/update_operator_3_relative.html:78
-msgid "Place of study, work"
-msgstr "O'qish, ishlash joyi"
+#: templates/employee/employee_profile.html:517
+#: templates/employee/experience_create.html:61
+#: templates/employee/update_operator_3_experience.html:60
+#: templates/partner/employee_detail.html:447
+msgid "Work end date"
+msgstr "Ish muddatining yakunlangan muddati"
 
-#: templates/employee/employee_profile.html:503
-#: templates/employee/employee_profile.html:550
+#: templates/employee/employee_profile.html:521
 #: templates/employee/experience_create.html:67
 #: templates/employee/relative_create.html:85
 #: templates/employee/update_operator_3_experience.html:66
@@ -1023,55 +1089,44 @@ msgstr "O'qish, ishlash joyi"
 msgid "Position"
 msgstr "Lavozimi"
 
-#: templates/employee/employee_profile.html:529
-#: templates/employee/experience_create.html:15
-#: templates/employee/update_operator_3_experience.html:15
-#: templates/partner/employee_detail.html:431
-msgid "Work experience"
-msgstr "Tajribasi"
-
-#: templates/employee/employee_profile.html:538
-#: templates/employee/experience_create.html:53
-#: templates/employee/update_operator_3_experience.html:52
-#: templates/partner/employee_detail.html:439
-msgid "Organization"
-msgstr "Organizatsiyasi"
-
-#: templates/employee/employee_profile.html:542
-#: templates/employee/experience_create.html:57
-#: templates/employee/update_operator_3_experience.html:56
-#: templates/partner/employee_detail.html:443
-msgid "Work start date"
-msgstr "Ish muddatining boshlangan sanasi"
-
-#: templates/employee/employee_profile.html:546
-#: templates/employee/experience_create.html:61
-#: templates/employee/update_operator_3_experience.html:60
-#: templates/partner/employee_detail.html:447
-msgid "Work end date"
-msgstr "Ish muddatining yakunlangan muddati"
-
-#: templates/employee/employee_profile.html:554
+#: templates/employee/employee_profile.html:525
 #: templates/employee/experience_create.html:71
 #: templates/employee/update_operator_3_experience.html:70
 #: templates/partner/employee_detail.html:455
 msgid "Subdivision"
 msgstr "Bo'linma"
 
-#: templates/employee/employee_profile.html:558
+#: templates/employee/employee_profile.html:529
 #: templates/employee/experience_create.html:75
 #: templates/employee/update_operator_3_experience.html:74
 #: templates/partner/employee_detail.html:459
 msgid "Location / Address"
 msgstr "Manzili / Turar jo'yi"
 
-#: templates/employee/employee_profile.html:580
-msgid "Send for review"
-msgstr "Ko'rib chiqilishligi uchun yuborish"
-
-#: templates/employee/employee_profile.html:586
+#: templates/employee/employee_profile.html:559
 msgid "Attention"
 msgstr "Diqqati"
+
+#: templates/employee/employee_profile.html:647
+#: templates/vacancies/vacancies_list.html:107
+msgid "Warning"
+msgstr "Diqqat"
+
+#: templates/employee/employee_profile.html:649
+msgid "Do you really want to delete"
+msgstr "Siz haqiqatdan ochirib tashlamoqchimisiz"
+
+#: templates/employee/employee_profile.html:665
+#: templates/vacancies/vacancies_fav_list.html:139
+#: templates/vacancies/vacancies_list.html:159
+#: templates/vacancies/vacancies_request_list.html:137
+msgid "successfully deleted"
+msgstr "o'chirib tashlandi"
+
+#: templates/employee/family_create.html:71
+#: templates/employee/update_operator_3_family.html:71
+msgid "More than 4"
+msgstr "4 dan yuqori"
 
 #: templates/employee/language_create.html:65
 #: templates/employee/update_operator_3_language.html:65
@@ -1088,30 +1143,70 @@ msgstr "O'rta"
 msgid "Advanced"
 msgstr "Ilg'or"
 
+#: templates/employee/photo_upload.html:14
+msgid "Photos and the copy of passport"
+msgstr "Suratlar va pasportning kopiyasi"
+
+#: templates/employee/photo_upload.html:44
+msgid "Upload copy of your passport"
+msgstr "Passportingizning kopiyasini yuklang"
+
+#: templates/employee/photo_upload.html:53
+msgid "Upload your avatar and extra photos if needed"
+msgstr "Avataringizni va qo'shimcha rasmlarni yuklang"
+
+#: templates/employee/photo_upload.html:81
+#: templates/employee/photo_upload.html:111
+#: templates/employee/photo_upload.html:141
+#: templates/employee/photo_upload.html:171
+msgid "Photo"
+msgstr "Foto"
+
+#: templates/employee/relative_create.html:15
+#: templates/employee/update_operator_3_relative.html:15
+msgid "Close relatives"
+msgstr "Yaqin qarindoshlari"
+
+#: templates/employee/relative_create.html:53
+#: templates/employee/update_operator_3_relative.html:53
+msgid "Relation degree"
+msgstr "Qarindoshlik darajasi"
+
 #: templates/employee/relative_create.html:61
 #: templates/employee/update_operator_3_relative.html:61
 msgid "Daughter"
 msgstr "Дочь"
+
+#: templates/employee/relative_create.html:67
+#: templates/employee/update_operator_3_relative.html:67
+msgid "Fullname relative"
+msgstr "Yaqin qarindoshining to'liq ismi"
+
+#: templates/employee/relative_create.html:78
+#: templates/employee/update_operator_3_relative.html:78
+msgid "Place of study, work"
+msgstr "O'qish, ishlash joyi"
 
 #: templates/employee/settings.html:13 templates/partner/profile.html:48
 #: templates/partner/profile.html:124
 msgid "Change password"
 msgstr "Parolni o'zgartirish"
 
-#: templates/employee/settings.html:46 templates/partner/profile.html:130
+#: templates/employee/settings.html:52 templates/partner/profile.html:130
 msgid "Old password"
 msgstr "Eski parol"
 
-#: templates/employee/settings.html:50 templates/partner/profile.html:136
+#: templates/employee/settings.html:56 templates/partner/profile.html:136
 msgid "New password"
 msgstr "Yangi parol"
 
-#: templates/employee/settings.html:54 templates/partner/profile.html:142
+#: templates/employee/settings.html:60 templates/partner/profile.html:142
 msgid "Confirm the password"
 msgstr "Parolni tasdiqlash"
 
-#: templates/employee/settings.html:60 templates/partner/profile.html:106
-#: templates/partner/profile.html:149
+#: templates/employee/settings.html:66
+#: templates/employee/update_operator_4.html:102
+#: templates/partner/profile.html:106 templates/partner/profile.html:149
 msgid "Save"
 msgstr "Saqlab qo'yish"
 
@@ -1124,38 +1219,6 @@ msgstr ""
 #: templates/employee/update_operator_2.html:159
 msgid "Blood rhesus"
 msgstr "Qon rezusi"
-
-#: templates/employee/update_operator_3_family.html:71
-msgid "More than 4"
-msgstr "4 dan yuqori"
-
-#: templates/employee/update_operator_4.html:67
-msgid "Criminal date"
-msgstr "Sudlanganiligi to'g'risidagi hujjatning sanasi"
-
-#: templates/employee/update_operator_4.html:71
-msgid "not_required"
-msgstr "shart emas"
-
-#: templates/employee/update_operator_4.html:118
-msgid "500$ less"
-msgstr "500$ dan past"
-
-#: templates/employee/update_operator_4.html:124
-msgid "500$-1000$"
-msgstr ""
-
-#: templates/employee/update_operator_4.html:130
-msgid "1000$-1500$"
-msgstr ""
-
-#: templates/employee/update_operator_4.html:136
-msgid "1500$-2000$"
-msgstr ""
-
-#: templates/employee/update_operator_4.html:142
-msgid "2500$ more"
-msgstr "2500$ dan yuqori"
 
 #: templates/index.html:76
 msgid "Statistics"
@@ -1178,6 +1241,9 @@ msgstr "Sharhlar"
 msgid "Our partners"
 msgstr "Bizning hamkorlarimiz"
 
+#: templates/index.html:197
+msgid "Our employees"
+msgstr "Bizning xodimlarimiz"
 
 #: templates/pages/faq.html:19 templates/pages/faq.html:20
 #: templates/partner/employees.html:98
@@ -1227,9 +1293,6 @@ msgstr "So'rov"
 msgid "writing wet stamp"
 msgstr "yozma"
 
-msgid "Delete"
-msgstr "Ochirib tashlash"
-
 #: templates/partner/bookmarks.html:161
 msgid "by mailing or online"
 msgstr "Pochta orqali yoki onlayn"
@@ -1237,9 +1300,6 @@ msgstr "Pochta orqali yoki onlayn"
 #: templates/partner/bookmarks.html:252
 msgid "Do you really want to remove the applicant from the list of favorites"
 msgstr "Applikantni maxsus ro'yxatdan o'chirib tashlamoqchimisiz?"
-
-msgid "Do you really want to delete"
-msgstr "Siz haqiqatdan ochirib tashlamoqchimisiz"
 
 #: templates/partner/employee_detail.html:13
 msgid "Applicant data"
@@ -1249,26 +1309,16 @@ msgstr "Talabgorning ma'lumotlari"
 msgid "Reg.number"
 msgstr "Ro'yxatga olish raqami"
 
+#: templates/partner/employee_detail.html:320
+msgid "Military duty"
+msgstr "Harbiy burch"
+
 #: templates/partner/employees.html:72
 msgid "level"
 msgstr "Darajasi"
 
-msgid "successfully deleted"
-msgstr "o'chirib tashlandi"
-
-msgid "Yes"
-msgstr "Ha"
-
-msgid "No"
-msgstr "Yo'q"
-
-msgid "Warning"
-msgstr "Diqqat"
-
-
-
 #: templates/partner/profile.html:15
-msgid "Partner's personal area"
+msgid "Employer's personal area"
 msgstr "Ish beruvchining shaxsiy bo'limi"
 
 #: templates/partner/profile.html:55 templates/partner/profile.html:61
@@ -1364,8 +1414,6 @@ msgstr "Ismingiz, familiyangiz va sharifingizni ingliz tilida to'liq kiriting"
 msgid "Fullname (en)"
 msgstr "To'liq ismi (Ruscha)"
 
-
-
 #: templates/registration/employee.html:45
 msgid ""
 "If email address is defined, than your authentication information will be "
@@ -1421,104 +1469,175 @@ msgstr "Yashash jo'yi"
 msgid "Place of birth"
 msgstr "Tug'ilgan sanasi"
 
-#: templates/vacancies/vacancies_list.html:82
-msgid "No vacancies are available"
-msgstr "Hozircha vakansiyalar yo'q"
-
-#: vacancy/models.py:12
-msgid "Title (ru)"
-msgstr ""
-
-#: vacancy/models.py:13
-msgid "Title (en)"
-msgstr ""
-
-#: vacancy/models.py:14
-msgid "Title (uz)"
-msgstr ""
-
-#: vacancy/models.py:15
-msgid "Title (kz)"
-msgstr ""
-
-#: vacancy/models.py:16
-msgid "Short description (ru)"
-msgstr ""
-
-#: vacancy/models.py:17
-msgid "Short description (en)"
-msgstr ""
-
-#: vacancy/models.py:18
-msgid "Short description (uz)"
-msgstr ""
-
-#: vacancy/models.py:19
-msgid "Short description (kz)"
-msgstr ""
-
-#: vacancy/models.py:61
-msgid "Created"
-msgstr ""
-
-#: vacancy/models.py:62
-msgid "Location (ru)"
-msgstr "Manzili / Turar jo'yi"
-
-#: vacancy/models.py:63
-msgid "Location (uz)"
-msgstr ""
-
-#: vacancy/models.py:64
-msgid "Location (kz)"
-msgstr ""
-
-#: vacancy/models.py:65
-msgid "Location (en)"
-msgstr "Manzili / Turar jo'yi"
-
-#: vacancy/models.py:108
-msgid "Just now"
-msgstr "Hozir"
-
-#: vacancy/models.py:110
-msgid "Today "
-msgstr "Bugun "
-
-msgid "Photos and the copy of passport"
-msgstr "Suratlar va pasportning kopiyasi"
-
-msgid "Upload copy of your passport"
-msgstr "Passportingizning kopiyasini yuklang"
-
-msgid "Photo"
-msgstr "Foto"
-
-msgid "In order to have high chances to be employed, please fill your personal data!"
-msgstr "Agar chet elga ketish imkoniyatingiz katta bo'lishini istasangiz, shaxsiy ma'lumotlaringizni to'ldiring!"
-
-msgid "Upload your avatar and extra photos if needed"
-msgstr "Avataringizni va qo'shimcha rasmlarni yuklang"
-
-msgid "An employer"
-msgstr "Ish beruvchi"
+#: templates/vacancies/vacancies_detail.html:24
+#: templates/vacancies/vacancies_fav_list.html:61
+msgid "Wages"
+msgstr "Oyliklari"
 
 # 10.09.2019
-
+#: templates/vacancies/vacancies_detail.html:41
 msgid "Apply"
 msgstr "Ishga murojaat qilish"
 
+#: templates/vacancies/vacancies_detail.html:45
 msgid "Unapply"
 msgstr "Bekor qilish"
 
-msgid "You have already applied for this vacancy"
-msgstr "Siz avval bu ish orniga murojaat qilgansiz"
-
+#: templates/vacancies/vacancies_detail.html:67
 msgid "You should be authenticated as an employee in order to apply"
 msgstr "Siz avval sistemaga kirishingiz kerak"
 
+#: templates/vacancies/vacancies_detail.html:87
 msgid "Success"
 msgstr "Yuborildi"
 
+#: templates/vacancies/vacancies_detail.html:88
 msgid "Thanks for applying! We will contact you soon"
 msgstr "Murojatingiz uchun rahmat! Biz yaqinda siz bilan aloqaga chiqamiz"
+
+#: templates/vacancies/vacancies_detail.html:116
+msgid "delete successfully"
+msgstr "o'chirib tashlandi"
+
+#: templates/vacancies/vacancies_fav_list.html:59
+#: templates/vacancies/vacancies_request_list.html:59
+msgid "Vacancy name"
+msgstr "Ish o'rnining nomi"
+
+#: templates/vacancies/vacancies_list.html:88
+msgid "No vacancies are available"
+msgstr "Hozircha vakansiyalar yo'q"
+
+#: templates/vacancies/vacancies_list.html:108
+msgid "You should be authenticated as an employee"
+msgstr "Siz avval sistemaga kirishingiz kerak"
+
+#: templates/vacancies/vacancies_list.html:123
+msgid "successfully added"
+msgstr "qo'shildi"
+
+#: templates/vacancies/vacancies_request_list.html:61
+msgid "Requested date"
+msgstr "Murojaat qilingan sana"
+
+#: vacancy/models.py:13
+msgid "Title (ru)"
+msgstr ""
+
+#: vacancy/models.py:14
+msgid "Title (en)"
+msgstr ""
+
+#: vacancy/models.py:15
+msgid "Title (uz)"
+msgstr ""
+
+#: vacancy/models.py:16
+msgid "Title (kz)"
+msgstr ""
+
+#: vacancy/models.py:17
+msgid "Short description (ru)"
+msgstr ""
+
+#: vacancy/models.py:18
+msgid "Short description (en)"
+msgstr ""
+
+#: vacancy/models.py:19
+msgid "Short description (uz)"
+msgstr ""
+
+#: vacancy/models.py:20
+msgid "Short description (kz)"
+msgstr ""
+
+#: vacancy/models.py:63
+msgid "Created"
+msgstr ""
+
+#: vacancy/models.py:64
+msgid "Location (ru)"
+msgstr "Manzili / Turar jo'yi"
+
+#: vacancy/models.py:65
+msgid "Location (uz)"
+msgstr ""
+
+#: vacancy/models.py:66
+msgid "Location (kz)"
+msgstr ""
+
+#: vacancy/models.py:67
+msgid "Location (en)"
+msgstr "Manzili / Turar jo'yi"
+
+#: vacancy/models.py:68
+msgid "Wages (en)"
+msgstr "Oyliklari (en)"
+
+#: vacancy/models.py:69
+msgid "Wages (ru)"
+msgstr "Oyliklari (ru)"
+
+#: vacancy/models.py:70
+msgid "Wages (kz)"
+msgstr "Oyliklari (kz)"
+
+#: vacancy/models.py:71
+msgid "Wages (uz)"
+msgstr "Oyliklari (uz)"
+
+#: vacancy/models.py:72
+msgid "Status"
+msgstr "Status"
+
+#: vacancy/models.py:110
+msgid "Just now"
+msgstr "Hozir"
+
+#: vacancy/models.py:112
+msgid "Today "
+msgstr "Bugun "
+
+#: vacancy/models.py:124
+msgid "requested date"
+msgstr ""
+
+#: vacancy/models.py:134
+msgid "Vacancy favourite employee"
+msgstr ""
+
+#: vacancy/models.py:135
+msgid "Related vacancy"
+msgstr ""
+
+#~ msgid "A partner"
+#~ msgstr "Sherik"
+
+#~ msgid "Partner"
+#~ msgstr "Hamkor"
+
+#~ msgid "Student"
+#~ msgstr "Talaba"
+
+#~ msgid "Criminal issue"
+#~ msgstr "Sudlanganligi to'g'risidagi nashri"
+
+#~ msgid "Criminal comment"
+#~ msgstr "Sudlanganligi to'g'risidagi izoh"
+
+#~ msgid "Send for review"
+#~ msgstr "Ko'rib chiqilishligi uchun yuborish"
+
+#~ msgid "Criminal date"
+#~ msgstr "Sudlanganiligi to'g'risidagi hujjatning sanasi"
+
+#~ msgid "not_required"
+#~ msgstr "shart emas"
+
+#~ msgid "500$ less"
+#~ msgstr "500$ dan past"
+
+#~ msgid "2500$ more"
+#~ msgstr "2500$ dan yuqori"

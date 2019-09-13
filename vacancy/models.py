@@ -130,6 +130,15 @@ class VacancyRequest(models.Model):
         verbose_name_plural = "vacancies"
         ordering = ['-requested_date']
 
+class VacancyFavourite(models.Model):
+    employee = models.ForeignKey(Employee, verbose_name=_("Vacancy favourite employee"), on_delete=models.CASCADE)
+    vacancy = models.ForeignKey(Vacancy, verbose_name=_("Related vacancy"), on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "vacancy__favourites"
+        verbose_name = "vacancy favourite"
+        verbose_name_plural = "vacancy favourites"
+        ordering = ['-id']
 
 
     
