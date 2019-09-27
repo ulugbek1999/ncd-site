@@ -1612,6 +1612,9 @@ msgstr ""
 msgid "Related vacancy"
 msgstr ""
 
+msgid "Favourites"
+msgstr "Tanlanganlar"
+
 #~ msgid "A partner"
 #~ msgstr "Sherik"
 
