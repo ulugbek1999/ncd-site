@@ -22,7 +22,7 @@ urlpatterns += i18n_patterns(
     path('employer/employees/', employer_views.EmployerEmployeesPage.as_view(), name='employer.employees'),
     path('employer/employee/<int:employee_id>/', employer_views.EmployerEmployeeDetail.as_view(), name='employer.employee.detail'),
     path('employer/bookmarks/', employer_views.EmployerBookmarks.as_view(), name='employer.bookmarks'),
-    path('employer/detail/<int:id>/', core_views.CMSPartnerDetailPage.as_view(), name='cms.employer.detail'),
+    path('employer/detail/<int:id>/', core_views.CMSPartnerDetailPage.as_view(), name='cms.partner.detail'),
     path('service/detail/<int:id>/', core_views.CMSServiceDetailPage.as_view(), name='cms.service.detail'),
 
     path('employee/settings/', employee_views.EmployeePasswordUpdateView.as_view(), name='employee.password.update'),
