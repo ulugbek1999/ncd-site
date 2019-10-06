@@ -3,31 +3,41 @@ import datetime
 from django.views.generic import DetailView, TemplateView, ListView
 from pure_pagination import PaginationMixin
 
-from core.mixins import PartnerAuthMixin
+from core.mixins import EmployerAuthMixin
 from directory.models import DLanguage, EducationType
 from employee.models import Employee
-from partners.models import Partner, PartnerEmployee
+from employers.models import Employer, EmployerEmployee
+from cms.models import Extra as CMSExtra
+from django.utils.translation import get_language
 
 
-class PartnerProfileView(PartnerAuthMixin, DetailView):
+class EmployerProfilePage(EmployerAuthMixin, DetailView):
     pk_url_kwarg = 'id'
-    model = Partner
-    template_name = 'partner/profile.html'
-    context_object_name = 'partner'
+    model = Employer
+    template_name = 'employer/profile.html'
+    context_object_name = 'employer'
 
 
-class PartnerRegisterView(TemplateView):
-    template_name = 'partner/register.html'
+class EmployerRegisterPage(TemplateView):
+    template_name = 'employer/register.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            context['agreement'] = CMSExtra.objects.get(type=7)
+        except CMSExtra.DoesNotExist:
+            context["agreement"] = ""
+        return context
 
 
-class PartnerEmployeesView(PartnerAuthMixin, PaginationMixin, ListView):
+class EmployerEmployeesPage(EmployerAuthMixin, PaginationMixin, ListView):
     model = Employee
-    template_name = 'partner/employees.html'
+    template_name = 'employer/employees.html'
     paginate_by = 12
     context_object_name = 'employees'
 
     def get_queryset(self):
-        qs = Employee.objects.all()
+        qs = Employee.objects.filter(activated=True)
         age = self.request.GET.get('age')
         if age:
             td = datetime.date.today()
@@ -36,7 +46,6 @@ class PartnerEmployeesView(PartnerAuthMixin, PaginationMixin, ListView):
                 date1 = datetime.date.replace(td, td.year-int(age[1]), td.month, td.day).strftime('%Y-%m-%d')
                 date2 = datetime.date.replace(td, td.year-int(age[0]), td.month, td.day).strftime('%Y-%m-%d')
                 qs = qs.filter(birth_date__range=[date1, date2])
-                print(qs)
             if len(age) == 1:
                 td = datetime.date.today()
                 y = datetime.date.replace(td, int(age[0]), td.month, td.day)
@@ -83,17 +92,22 @@ class PartnerEmployeesView(PartnerAuthMixin, PaginationMixin, ListView):
         return context
 
 
-class PartnerBookmarks(PartnerAuthMixin, PaginationMixin, ListView):
-    template_name = 'partner/bookmarks.html'
+class EmployerBookmarks(EmployerAuthMixin, PaginationMixin, ListView):
+    template_name = 'employer/bookmarks.html'
     context_object_name = 'employees'
-    model = PartnerEmployee
+    model = EmployerEmployee
     paginate_by = 12
 
     def get_queryset(self):
-        return PartnerEmployee.objects.filter(partner=self.request.user.partner)
+        return EmployerEmployee.objects.filter(employer=self.request.user.employer)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['agreement'] = CMSExtra.objects.get(type=6)
+        return context
 
 
-class PartnerEmployeeDetail(PartnerAuthMixin, DetailView):
+class EmployerEmployeeDetail(EmployerAuthMixin, DetailView):
     model = Employee
-    template_name = 'partner/employee_detail.html'
+    template_name = 'employer/employee_detail.html'
     pk_url_kwarg = 'employee_id'

@@ -14,13 +14,13 @@ class EmployeeAuthMixin:
         return super().dispatch(request, *args, **kwargs)
 
 
-class PartnerAuthMixin:
+class EmployerAuthMixin:
     kwargs = {}
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return HttpResponseRedirect(reverse('index'))
-        if not hasattr(request.user, 'partner'):
+        if not hasattr(request.user, 'employer'):
             return HttpResponseRedirect(reverse('index'))
-        self.kwargs['id'] = request.user.partner.id
+        self.kwargs['id'] = request.user.employer.id
         return super().dispatch(request, *args, **kwargs)

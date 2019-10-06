@@ -407,6 +407,7 @@ class Slider(models.Model):
     title_uz = models.TextField(blank=True, default='')
     title_en = models.TextField(blank=True, default='')
     title_ru = models.TextField(blank=True, default='')
+    title_kz = models.TextField(blank=True, default='')
     image = models.FileField(blank=True)
     status = models.BooleanField(default=True)
 

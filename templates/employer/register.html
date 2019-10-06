@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="register-main">
                     <!--<div class="content-title">
-                        <h2>{% trans 'Register partners' %}</h2>
+                        <h2>{% trans 'Register employers' %}</h2>
                     </div>-->
                     <div class="register-block">
                         <div class="form-title">
@@ -120,14 +120,14 @@
                                                             <div class="checkbox-group ">
                                                                 <input type="checkbox" id="soglasen" name="soglasen">
                                                                 <label for="soglasen">
-                                                                    <span>{% trans 'I accept the terms of the partner agreement' %}</span>
+                                                                    <span>{% trans 'I accept the terms of the employer agreement' %}</span>
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12" style="text-align: center;">
                                                         <div class="errors-main"></div>
-                                                        <button id="partnerRequestButton" class="loginButton disableButton" data-api="{% url 'api:partner:register' %}">
+                                                        <button id="employerRequestButton" class="loginButton disableButton" data-api="{% url 'api:employer:register' %}">
                                                             {% trans 'Send' %}
                                                         </button>
                                                     </div>
@@ -196,14 +196,14 @@
             $('#soglasen').change(function(){
 
                  if ($(this).is(':checked')) {
-                     $('#partnerRequestButton').removeClass('disableButton');
+                     $('#employerRequestButton').removeClass('disableButton');
                  }else{
-                     $('#partnerRequestButton').addClass('disableButton');
+                     $('#employerRequestButton').addClass('disableButton');
                  }
 
             });
 
-            $("#partnerRequestButton").click(function (event) {
+            $("#employerRequestButton").click(function (event) {
                 event.preventDefault();
 
                 let formData = new FormData();
@@ -265,7 +265,7 @@
                 console.log(formNull);
                 if(formNull){
                     $.ajax({
-                        url: "{% url 'api:partner:register' %}",
+                        url: "{% url 'api:employer:register' %}",
                         processData: false,
                         contentType: false,
                         method: 'POST',

@@ -8,7 +8,7 @@ from django.views import View
 from django.views.generic import TemplateView, DetailView, ListView, CreateView
 from pure_pagination.mixins import PaginationMixin
 
-from core.mixins import EmployeeAuthMixin, PartnerAuthMixin
+from core.mixins import EmployeeAuthMixin, EmployerAuthMixin
 from employee.models2 import Army, ArmyFile
 from directory.models import Country, DLanguage, EducationType
 from employee.models2 import Education, EducationFile

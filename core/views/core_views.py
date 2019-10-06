@@ -7,7 +7,7 @@ from django.views.generic import TemplateView, DetailView, ListView
 
 from cms.models import Slider, Service, About, Feedback
 from employee.models import Employee
-from partners.models import Partner
+from employers.models import Employer
 
 from cms.models import Partner as CMSPartner
 from cms.models import Employee as CMSEmployee
@@ -26,10 +26,10 @@ class Signin(View):
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
         if user:
-            # check if user is partner or employee
-            if hasattr(user, 'partner'):
+            # check if user is employer or employee
+            if hasattr(user, 'employer'):
                 login(request, user)
-                return JsonResponse({'url': reverse('partner.profile')})
+                return JsonResponse({'url': reverse('employer.profile')})
             elif hasattr(user, 'employee'):
                 login(request, user)
                 return JsonResponse({'url': reverse('employee.profile')})
@@ -50,7 +50,7 @@ class IndexPage(TemplateView):
         context['sliders'] = Slider.objects.filter(status=1)
         print(Slider)
         context['services'] = Service.objects.filter(status=1)
-        context['partners_amount'] = Partner.objects.count()
+        context['employers_amount'] = Employer.objects.count()
         context['employees_amount'] = Employee.objects.count()
         context['about'] = About.objects.filter(status=1).first()
         context['feedbacks'] = Feedback.objects.filter(status=1)

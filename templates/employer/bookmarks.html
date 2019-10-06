@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load thumbnail %}
-{% load partner_employees %}
+{% load employer_employees %}
 
 {% block css %}
 
@@ -24,13 +24,13 @@
                                 <nav class="nav_personal d-lnk-txt">
                                     <ul>
                                         <li class="">
-                                            <a href="{% url 'partner.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                            <a href="{% url 'employer.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
                                         </li>
                                         <li  class="">
-                                            <a href="{% url 'partner.employees' %}"><i class="fa fa-list"></i> {% trans 'List of applicants' %}</a>
+                                            <a href="{% url 'employer.employees' %}"><i class="fa fa-list"></i> {% trans 'List of applicants' %}</a>
                                         </li>
                                         <li class="current">
-                                        <a href="{% url 'partner.bookmarks' %}"><i class="fa fa-list"></i> {% trans 'My list' %} <span id="bookmarkCount">{{ request.user.partner.partneremployee_set.count }}</span></a></li>
+                                        <a href="{% url 'employer.bookmarks' %}"><i class="fa fa-list"></i> {% trans 'My list' %} <span id="bookmarkCount">{{ request.user.employer.employeremployee_set.count }}</span></a></li>
                                         <li class="">
 
                                     </ul>
@@ -68,7 +68,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="employee-item__footer">
-                                                        <a href="{% url 'partner.employee.detail' pe.employee.id %}">{% trans 'Read more' %}</a>
+                                                        <a href="{% url 'employer.employee.detail' pe.employee.id %}">{% trans 'Read more' %}</a>
                                                         <div class="satatus-app">
                                                             {% if pe.employee.busy %}
                                                                 <span>{% trans 'Employed' %}</span>
@@ -84,7 +84,7 @@
                                                         <input
                                                                 id="fav{{ pe.employee.id }}"
                                                                 class="favorite hide"
-                                                                data-url="{% url 'api:partner:bookmark.add-remove' pe.employee.id %}"
+                                                                data-url="{% url 'api:employer:bookmark.add-remove' pe.employee.id %}"
                                                                 type="checkbox"
                                                                 data-id="{{ pe.employee.id }}"
                                                                 {% if bookmark %}
@@ -221,7 +221,7 @@
                 formData.append('ids', myList);
 
                 $.ajax({
-                   url: "{% url 'api:partner:employee-request.create' %}",
+                   url: "{% url 'api:employer:employee-request.create' %}",
                     processData: false,
                     contentType: false,
                     method: 'POST',

@@ -50,5 +50,6 @@ urlpatterns = [
     path('relative/create/', RelativeCreateAPIView.as_view(), name='relative.create'),
     path('experience/create/', ExperienceCreateAPIView.as_view(), name='experience.create'),
     path('employee/create/', EmployeeCreateAPIView.as_view(), name="employee.create"),
-    path('photo/update/', PhotoUpdateAPIView.as_view(), name="photo.update")
+    path('photo/update/', PhotoUpdateAPIView.as_view(), name="photo.update"),
+    
 ]

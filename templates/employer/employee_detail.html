@@ -1,5 +1,5 @@
 {% extends '_base.html' %}
-{% load static partner_employees i18n thumbnail %}
+{% load static employer_employees i18n thumbnail %}
 
 {% block css %}
 
@@ -21,13 +21,13 @@
                                 <nav class="nav_personal d-lnk-txt">
                                     <ul>
                                         <li class="">
-                                            <a href="{% url 'partner.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                            <a href="{% url 'employer.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
                                         </li>
                                         <li  class="">
-                                            <a href="{% url 'partner.employees' %}"><i class="fa fa-list"></i> {% trans 'List of applicants' %}</a>
+                                            <a href="{% url 'employer.employees' %}"><i class="fa fa-list"></i> {% trans 'List of applicants' %}</a>
                                         </li>
                                         <li class="">
-                                            <a href="{% url 'partner.bookmarks' %}"><i class="fa fa-list"></i> {% trans 'My list' %} <span id="bookmarkCount">{{ request.user.partner.partneremployee_set.count }}</span></a>
+                                            <a href="{% url 'employer.bookmarks' %}"><i class="fa fa-list"></i> {% trans 'My list' %} <span id="bookmarkCount">{{ request.user.employer.employeremployee_set.count }}</span></a>
                                         </li>
                                     </ul>
                                     <div class="nav_personal__footer">
@@ -89,7 +89,7 @@
                                                     <input
                                                             id="fav{{ employee.id }}"
                                                             class="favorite hide"
-                                                            data-url="{% url 'api:partner:bookmark.add-remove' employee.id %}"
+                                                            data-url="{% url 'api:employer:bookmark.add-remove' employee.id %}"
                                                             type="checkbox"
                                                             data-id="{{ employee.id }}"
                                                             {% if bookmark %}

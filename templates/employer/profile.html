@@ -23,13 +23,13 @@
                                 <nav class="nav_personal d-lnk-txt">
                                     <ul>
                                         <li class="">
-                                            <a href="{% url 'partner.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
+                                            <a href="{% url 'employer.profile' %}"><i class="fa fa-user"></i> {% trans 'My profile' %}</a>
                                         </li>
                                         <li  class="">
-                                            <a href="{% url 'partner.employees' %}"><i class="fa fa-list"></i> {% trans 'List of applicants' %}</a>
+                                            <a href="{% url 'employer.employees' %}"><i class="fa fa-list"></i> {% trans 'List of applicants' %}</a>
                                         </li>
                                         <li class="">
-                                            <a href="{% url 'partner.bookmarks' %}"><i class="fa fa-list"></i> {% trans 'My list' %} <span id="bookmarkCount">{{ request.user.partner.partneremployee_set.count }}</span></a>
+                                            <a href="{% url 'employer.bookmarks' %}"><i class="fa fa-list"></i> {% trans 'My list' %} <span id="bookmarkCount">{{ request.user.employer.employeremployee_set.count }}</span></a>
                                         </li>
                                     </ul>
                                     <div class="nav_personal__footer">
@@ -53,13 +53,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="bossFullName">{% trans 'Fullname' %} ({% trans 'first head' %})</label>
-                                                        <input name="boss_fullname" type="text" class="form-control" id="bossFullName" value="{{ partner.boss_fullname }}">
+                                                        <input name="boss_fullname" type="text" class="form-control" id="bossFullName" value="{{ employer.boss_fullname }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="personName">{%  trans 'Fullname' %} ({% trans 'responsible person' %})</label>
-                                                        <input name="person_fullname_for_hiring" type="text" class="form-control" id="personName" value="{{ partner.person_fullname_for_hiring }}">
+                                                        <input name="person_fullname_for_hiring" type="text" class="form-control" id="personName" value="{{ employer.person_fullname_for_hiring }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,14 +67,14 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="phone">{% trans 'Phone' %}</label>
-                                                        <input name="phone" type="text" class="form-control" id="phone" value="{{ partner.phone }}">
+                                                        <input name="phone" type="text" class="form-control" id="phone" value="{{ employer.phone }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="email">{% trans 'E-mail' %}
                                                             </label>
-                                                        <input name="email" type="email" class="form-control" id="email" value="{{ partner.email }}">
+                                                        <input name="email" type="email" class="form-control" id="email" value="{{ employer.email }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -82,13 +82,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="companyName">{% trans 'Subject name' %}</label>
-                                                        <input name="company_name" type="text" class="form-control" autocomplete="off" id="companyName" value="{{ partner.company_name }}">
+                                                        <input name="company_name" type="text" class="form-control" autocomplete="off" id="companyName" value="{{ employer.company_name }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="col">{% trans 'Number of employees' %}</label>
-                                                        <input name="workers_amount" type="number" class="form-control" id="col" autocomplete="off" value="{{ partner.workers_amount }}">
+                                                        <input name="workers_amount" type="number" class="form-control" id="col" autocomplete="off" value="{{ employer.workers_amount }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -96,13 +96,13 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label for="address">{% trans 'Legal address' %}</label>
-                                                        <input name="legal_address" type="text" class="form-control" id="address" autocomplete="off" value="{{ partner.legal_address }}">
+                                                        <input name="legal_address" type="text" class="form-control" id="address" autocomplete="off" value="{{ employer.legal_address }}">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <button type="button" id="editPartnerButton" class="loginButton" data-api="{% url 'api:partner:update' partner.id %}">
+                                                    <button type="button" id="editPartnerButton" class="loginButton" data-api="{% url 'api:employer:update' employer.id %}">
                                                         {% trans 'Save' %}
                                                     </button>
                                                 </div>
@@ -145,7 +145,7 @@
                             </div>
                             <div class="col-md-12" style="text-align: center;">
                                 <div class="errors-main"></div>
-                                <button id="editPasswordButton" class="loginButton" data-api="{% url 'api:partner:password-update' partner.id %}">
+                                <button id="editPasswordButton" class="loginButton" data-api="{% url 'api:employer:password-update' employer.id %}">
                                     {% trans 'Save' %}
                                 </button>
                             </div>

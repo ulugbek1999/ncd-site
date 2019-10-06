@@ -6,12 +6,12 @@ from employee.models import Employee
 
 
 def files_handler(instance, filename):
-    return f'partner_files/{filename}'
+    return f'employer_files/{filename}'
 
 
-class Partner(models.Model):
+class Employer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True,
-                                related_name='partner')
+                                related_name='employer')
     company_name = models.TextField(blank=True, default="")
     phone = models.CharField(max_length=255, blank=True, default="",
                              verbose_name='Телефон')
@@ -28,23 +28,23 @@ class Partner(models.Model):
                                          verbose_name='Количество работников организации')
 
     class Meta:
-        db_table = "partner"
+        db_table = "employer"
 
 
-class PartnerFile(models.Model):
-    partner = models.ForeignKey(Partner, on_delete=models.CASCADE)
+class EmployerFile(models.Model):
+    employer = models.ForeignKey(Employer, on_delete=models.CASCADE)
     file = models.ImageField(upload_to=files_handler)
 
     class Meta:
-        db_table = 'partner_file'
+        db_table = 'employer_file'
 
 
-class PartnerEmployee(models.Model):
-    partner = models.ForeignKey(Partner, on_delete=models.CASCADE)
+class EmployerEmployee(models.Model):
+    employer = models.ForeignKey(Employer, on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'partner_employee'
+        db_table = 'employer_employee'
 
 
 CONTRACT_TYPE = (
@@ -53,16 +53,16 @@ CONTRACT_TYPE = (
 )
 
 
-class PartnerEmployeeRequest(models.Model):
-    partner = models.OneToOneField(Partner, on_delete=models.CASCADE)
+class EmployerEmployeeRequest(models.Model):
+    employer = models.OneToOneField(Employer, on_delete=models.CASCADE)
     employees = models.ManyToManyField(Employee, blank=True)
     contract_type = models.IntegerField(choices=CONTRACT_TYPE, null=True)
 
     class Meta:
-        db_table = 'partner_employee_request'
+        db_table = 'employer_employee_request'
         ordering = ['-id', ]
-        verbose_name = _('Partner employee request')
-        verbose_name_plural = _('Partner employee requests')
+        verbose_name = _('Employer employee request')
+        verbose_name_plural = _('Employer employee requests')
 
     def __str__(self):
-        return str(self.partner.id)
+        return str(self.employer.id)

@@ -4,12 +4,12 @@ from rest_framework.serializers import ModelSerializer, ValidationError, Seriali
 from django.utils.translation import gettext as _
 from django.contrib.auth import update_session_auth_hash
 
-from partners.models import Partner, PartnerEmployee, PartnerFile, PartnerEmployeeRequest
+from employers.models import Employer, EmployerEmployee, EmployerFile, EmployerEmployeeRequest
 
 
-class PartnerRequestCreateSerializer(ModelSerializer):
+class EmployerRequestCreateSerializer(ModelSerializer):
     class Meta:
-        model = Partner
+        model = Employer
         fields = (
             'company_name',
             'phone',
@@ -23,17 +23,17 @@ class PartnerRequestCreateSerializer(ModelSerializer):
 
     def create(self, validated_data):
         request = self.context['request']
-        instance = Partner(**validated_data)
+        instance = Employer(**validated_data)
         instance.save()
         for i in request.FILES.getlist('file'):
-            f = PartnerFile(partner=instance, file=i)
+            f = EmployerFile(employer=instance, file=i)
             f.save()
         return instance
 
 
-class PartnerUpdateSerializer(ModelSerializer):
+class EmployerUpdateSerializer(ModelSerializer):
     class Meta:
-        model = Partner
+        model = Employer
         fields = (
             'company_name',
             'phone',
@@ -46,7 +46,7 @@ class PartnerUpdateSerializer(ModelSerializer):
         )
 
 
-class PartnerPasswordUpdateSerializer(Serializer):
+class EmployerPasswordUpdateSerializer(Serializer):
     current_password = CharField(max_length=255, allow_blank=True)
     new_password = CharField(max_length=255, allow_blank=True)
     new_password_confirm = CharField(max_length=255, allow_blank=True)
@@ -65,9 +65,9 @@ class PartnerPasswordUpdateSerializer(Serializer):
         return validated_data
 
 
-class PartnerBookmarkEmployeeCreateSerializer(ModelSerializer):
+class EmployerBookmarkEmployeeCreateSerializer(ModelSerializer):
     class Meta:
-        model = PartnerEmployee
+        model = EmployerEmployee
         fields = (
             'employee',
         )

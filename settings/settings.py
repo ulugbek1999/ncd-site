@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'directory',
     'employee',
     'operators',
-    'partners',
+    'employers',
     'cms',
     'django_cleanup'
 ]

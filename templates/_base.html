@@ -75,10 +75,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="header-top">
-                            {% if request.user.is_authenticated and request.user.partner %}
+                            {% if request.user.is_authenticated and request.user.employer %}
                                 <div class="header-top__left">
                                     <div class="header-top__profile">
-                                        <a href="{% url 'partner.profile' %}">
+                                        <a href="{% url 'employer.profile' %}">
                                             <i class="fa fa-user fa-fw" aria-hidden="true"></i>
                                             {{ request.user.username }}, <a href="{% url 'logout' %}">{% trans 'Logout' %}</a>
                                         </a>
@@ -200,9 +200,9 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{% url 'forpartners' %}">
-                                                    <span class="original">{% trans 'Partners' %}</span>
-                                                    <span class="hover-menu">{% trans 'Partners' %}</span>
+                                                <a href="{% url 'foremployers' %}">
+                                                    <span class="original">{% trans 'Employers' %}</span>
+                                                    <span class="hover-menu">{% trans 'Employers' %}</span>
                                                 </a>
                                             </li>
                                             <li>
@@ -247,8 +247,8 @@
                                     <label for="employee" class="form-check-label">{% trans 'An employee' %}</label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="radio" class="form-check-input option-check" name="option" id="partner" value="partner" data-href="{% url 'partner.register' %}">
-                                    <label for="partner" class="form-check-label">{% trans 'An employer' %}</label>
+                                    <input type="radio" class="form-check-input option-check" name="option" id="employer" value="employer" data-href="{% url 'employer.register' %}">
+                                    <label for="employer" class="form-check-label">{% trans 'An employer' %}</label>
                                 </div>
                                 <div class="form-check">
                                     <input type="radio" class="form-check-input option-check" name="option" id="student" value="student" data-href="none">
@@ -308,8 +308,8 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="{% url 'forpartners' %}">
-                                                        {% trans 'Partners' %}
+                                                    <a href="{% url 'foremployers' %}">
+                                                        {% trans 'Employers' %}
                                                     </a>
                                                 </li>
                                                 <li>
@@ -404,7 +404,7 @@
                             {% blocktrans %}Username or password entered incorrectly{% endblocktrans %}
                         </div>
                         <div class="login-buttons">
-                            <!--<a href="{% url 'partner.register' %}">{% trans 'Register partners' %}</a>-->
+                            <!--<a href="{% url 'employer.register' %}">{% trans 'Register employers' %}</a>-->
                             <button id="loginButton" type="submit" class="loginButton" data-url="{% url 'auth.signin' %}">
                                 {% trans 'Login' %}
                             </button>

@@ -3,56 +3,56 @@ from rest_framework.generics import CreateAPIView, DestroyAPIView, UpdateAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
-from partners.models import Partner, PartnerEmployee, PartnerEmployeeRequest
-from .serializers import PartnerRequestCreateSerializer, PartnerUpdateSerializer, PartnerPasswordUpdateSerializer
+from employers.models import Employer, EmployerEmployee, EmployerEmployeeRequest
+from .serializers import EmployerRequestCreateSerializer, EmployerUpdateSerializer, EmployerPasswordUpdateSerializer
 from utils import permissions as ps
 
 
-class PartnerCreateView(CreateAPIView):
+class EmployerCreateView(CreateAPIView):
     permission_classes = (AllowAny, )
-    serializer_class = PartnerRequestCreateSerializer
-    queryset = Partner.objects.all()
+    serializer_class = EmployerRequestCreateSerializer
+    queryset = Employer.objects.all()
 
     def perform_create(self, serializer):
         instance = serializer.save()
         instance.save()
 
 
-class PartnerUpdateView(UpdateAPIView):
-    queryset = Partner.objects.all()
+class EmployerUpdateView(UpdateAPIView):
+    queryset = Employer.objects.all()
     lookup_url_kwarg = 'id'
-    serializer_class = PartnerUpdateSerializer
+    serializer_class = EmployerUpdateSerializer
 
 
-class PartnerPasswordUpdateView(UpdateAPIView):
-    queryset = Partner.objects.all()
+class EmployerPasswordUpdateView(UpdateAPIView):
+    queryset = Employer.objects.all()
     lookup_url_kwarg = 'id'
-    serializer_class = PartnerPasswordUpdateSerializer
+    serializer_class = EmployerPasswordUpdateSerializer
 
 
 class AddRemoveBookmark(APIView):
     def get(self, request, p_id):
         try:
-            PartnerEmployee.objects.get(
-                partner=request.user.partner,
+            EmployerEmployee.objects.get(
+                employer=request.user.employer,
                 employee_id=p_id,
             ).delete()
-            c = PartnerEmployee.objects.filter(partner=request.user.partner).count()
+            c = EmployerEmployee.objects.filter(employer=request.user.employer).count()
             return Response(status=200, data=json.dumps({'count': c}))
-        except PartnerEmployee.DoesNotExist:
-            PartnerEmployee.objects.create(
-                partner=request.user.partner,
+        except EmployerEmployee.DoesNotExist:
+            EmployerEmployee.objects.create(
+                employer=request.user.employer,
                 employee_id=p_id,
             )
-            c = PartnerEmployee.objects.filter(partner=request.user.partner).count()
+            c = EmployerEmployee.objects.filter(employer=request.user.employer).count()
             return Response(status=200, data=json.dumps({'count': c}))
 
 
-class PartnerEmployeeRequestCreateAPIView(APIView):
+class EmployerEmployeeRequestCreateAPIView(APIView):
     def post(self, request):
         contract_type = request.data.get('contract_type')
         ids = request.data.get('ids')
-        p, _ = PartnerEmployeeRequest.objects.get_or_create(partner=self.request.user.partner)
+        p, _ = EmployerEmployeeRequest.objects.get_or_create(employer=self.request.user.employer)
         p.contract_type = contract_type
         p.save()
         ids = ids.split(',')
